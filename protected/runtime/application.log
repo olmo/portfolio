@@ -121,3 +121,33 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/portfolio/index.php?r=gii/index
 ---
+2013/07/28 19:51:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('login')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/login')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/login
+---
+2013/07/28 19:51:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "edir".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('edir')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('edir')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/edir')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/edir
+---
+2013/07/28 19:51:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "edit.php".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('edit.php')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('edit.php')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/edit.php')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/edit.php
+---
