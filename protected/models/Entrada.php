@@ -14,12 +14,12 @@
  * @property Usuarios $autor0
  * @property ImagenesBlog[] $imagenesBlogs
  */
-class Entradas extends CActiveRecord
+class Entrada extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Entradas the static model class
+	 * @return Entrada the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
