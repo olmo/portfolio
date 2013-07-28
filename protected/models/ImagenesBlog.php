@@ -47,7 +47,10 @@ class ImagenesBlog extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, nombre, titulo, descripcion', 'safe', 'on'=>'search'),
-		);
+
+            array('imagen', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
+            array('titulo, imagen', 'length', 'max'=>255, 'on'=>'insert,update'),
+        );
 	}
 
 	/**
@@ -95,4 +98,55 @@ class ImagenesBlog extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+/*
+    public function actionCreate()
+    {
+        $model=new Banner;  // this is my model related to table
+        if(isset($_POST['Banner']))
+        {
+            $rnd = rand(0,9999);  // generate random number between 0-9999
+            $model->attributes=$_POST['Banner'];
+
+            $uploadedFile=CUploadedFile::getInstance($model,'image');
+            $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
+            $model->image = $fileName;
+
+            if($model->save())
+            {
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../banner/'.$fileName);  // image will uplode to rootDirectory/banner/
+                $this->redirect(array('admin'));
+            }
+        }
+        $this->render('create',array(
+            'model'=>$model,
+        ));
+    }
+
+    public function actionUpdate($id)
+    {
+        $model=$this->loadModel($id);
+
+        if(isset($_POST['Banner']))
+        {
+            $_POST['Banner']['image'] = $model->image;
+            $model->attributes=$_POST['Banner'];
+
+            $uploadedFile=CUploadedFile::getInstance($model,'image');
+
+            if($model->save())
+            {
+                if(!empty($uploadedFile))  // check if uploaded file is set or not
+                {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../banner/'.$model->image);
+                }
+                $this->redirect(array('admin'));
+            }
+
+        }
+
+        $this->render('update',array(
+            'model'=>$model,
+        ));
+    }
+*/
 }

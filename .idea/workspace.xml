@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eb5d93d-bce7-4733-be54-e2388ba11934" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/blog/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/blog/_search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/blog/_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/blog/admin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/blog/create.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/blog/update.php" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\portfolio\.idea\frameworkRootSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\portfolio\.idea\portfolio.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\portfolio\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\portfolio\protected\views\blog\add.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\portfolio\protected\views\blog\delete.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\portfolio\protected\views\blog\edit.php" afterPath="" />
-      <change type="MOVED" beforePath="C:\xampp\htdocs\portfolio\protected\models\Entradas.php" afterPath="$PROJECT_DIR$/protected/models/Entrada.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/BlogController.php" afterPath="$PROJECT_DIR$/protected/controllers/BlogController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/blog/index.php" afterPath="$PROJECT_DIR$/protected/views/blog/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/blog/view.php" afterPath="$PROJECT_DIR$/protected/views/blog/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ImagenesBlog.php" afterPath="$PROJECT_DIR$/protected/models/ImagenesBlog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/blog/_form.php" afterPath="$PROJECT_DIR$/protected/views/blog/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/application.log" afterPath="$PROJECT_DIR$/protected/runtime/application.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="portfolio.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2eb5d93d-bce7-4733-be54-e2388ba11934" time="1375040523324" ignored="false" />
+    <file path="/_form.php" changelist="2eb5d93d-bce7-4733-be54-e2388ba11934" time="1375043972446" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,37 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BlogController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/BlogController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.769231">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/blog/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_form.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/views/blog/_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.77362204">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Entrada.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/models/Entrada.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="53" selection-start="2021" selection-end="2032" vertical-scroll-proportion="-49.03846">
+            <state line="40" column="0" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.6988189">
               <folding />
             </state>
           </provider>
@@ -83,7 +42,7 @@
       <file leaf-file-name="ImagenesBlog.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/ImagenesBlog.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="13.730769">
+            <state line="150" column="2" selection-start="4300" selection-end="4300" vertical-scroll-proportion="-15.115385">
               <folding />
             </state>
           </provider>
@@ -110,13 +69,15 @@
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/views/blog/index.php" />
         <option value="$PROJECT_DIR$/protected/views/blog/view.php" />
+        <option value="$PROJECT_DIR$/protected/models/ImagenesBlog.php" />
+        <option value="$PROJECT_DIR$/protected/views/blog/_form.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="79" />
-    <option name="y" value="341" />
+    <option name="x" value="62" />
+    <option name="y" value="240" />
     <option name="width" value="1161" />
     <option name="height" value="719" />
   </component>
@@ -355,7 +316,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="79" y="341" width="1161" height="719" extended-state="1" />
+    <frame x="62" y="240" width="1161" height="719" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -518,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/ImagenesBlog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="13.730769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/blog/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -532,9 +486,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/ImagenesBlog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="2" selection-start="4300" selection-end="4300" vertical-scroll-proportion="-15.115385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/blog/_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.77362204">
+        <state line="40" column="0" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.6988189">
           <folding />
         </state>
       </provider>
