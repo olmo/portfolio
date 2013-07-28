@@ -97,3 +97,27 @@ Stack trace:
 REQUEST_URI=/portfolio/index.php?r=imagenesBlog/admin
 HTTP_REFERER=http://localhost/portfolio/index.php?r=imagenesBlog/create
 ---
+2013/07/28 19:35:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii/index".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gii/index')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/portfolio/index.php?r=gii/index
+---
+2013/07/28 19:35:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "imagenesBlog/index".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('imagenesBlog/in...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/portfolio/index.php?r=imagenesBlog/index
+---
+2013/07/28 19:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii/index".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gii/index')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/portfolio/index.php?r=gii/index
+---
