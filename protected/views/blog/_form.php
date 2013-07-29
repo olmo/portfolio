@@ -2,13 +2,37 @@
 /* @var $this BlogController */
 /* @var $model Entrada */
 /* @var $form CActiveForm */
+    $cs = Yii::app()->getClientScript();
+    $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/dropzone.js', CClientScript::POS_HEAD);
+    $cs->registerCssFile(Yii::app()->request->baseUrl . '/css/dropzone.css', CClientScript::POS_HEAD);
+?>
+
+<?php
+$JQuery_User='
+Dropzone.options.myAwesomeDropzone = {
+  paramName: "file", // The name that will be used to transfer the file
+  maxFilesize: 2, // MB
+  accept: function(file, done) {
+    if (file.name == "justinbieber.jpg") {
+      done("Naha, you dont.");
+    }
+    else { done(); }
+  }
+};
+var myDropzone = new Dropzone("div#dropzone", { url: "/file/post"});
+';
+
+Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClientScript::POS_END);
+
+
+
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'entrada-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>false
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -40,5 +64,15 @@
 	</div>
 
 <?php $this->endWidget(); ?>
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+    'id'=>'entrada-form',
+    'enableAjaxValidation'=>false,
+    'htmlOptions'=>array('class'=>'dropzone')
+)); ?>
+    <input type="file" name="file" />
+<?php $this->endWidget(); ?>
+
+<!--    <div id="dropzone"></div>-->
 
 </div><!-- form -->
