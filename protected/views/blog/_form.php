@@ -70,7 +70,7 @@ Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClient
     'enableAjaxValidation'=>false,
     'htmlOptions'=>array('class'=>'dropzone')
 )); ?>
-    <input type="file" name="file" />
+    
 <?php $this->endWidget(); ?>
 
 <!--    <div id="dropzone"></div>-->
