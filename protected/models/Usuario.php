@@ -14,7 +14,7 @@
  * The followings are the available model relations:
  * @property Entradas[] $entradases
  */
-class Usuarios extends CActiveRecord
+class Usuario extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -100,4 +100,14 @@ class Usuarios extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function validatePassword($password)
+    {
+        return crypt($password,$this->password)===$this->password;
+    }
+
+    public function hashPassword($password)
+    {
+        return crypt($password, $this->generateSalt());
+    }
 }

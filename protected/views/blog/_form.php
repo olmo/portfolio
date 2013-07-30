@@ -2,13 +2,15 @@
 /* @var $this BlogController */
 /* @var $model Entrada */
 /* @var $form CActiveForm */
-    $cs = Yii::app()->getClientScript();
-    $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/dropzone.js', CClientScript::POS_HEAD);
-    $cs->registerCssFile(Yii::app()->request->baseUrl . '/css/dropzone.css', CClientScript::POS_HEAD);
+    //$cs = Yii::app()->getClientScript();
+    //$cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/dropzone.js', CClientScript::POS_HEAD);
+    //$cs->registerCssFile(Yii::app()->request->baseUrl . '/css/dropzone.css', CClientScript::POS_HEAD);
+    Yii::app()->clientScript->registerCoreScript('jquery');
+    Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 ?>
 
 <?php
-$JQuery_User='
+/*$JQuery_User='
 Dropzone.options.myAwesomeDropzone = {
   paramName: "file", // The name that will be used to transfer the file
   maxFilesize: 2, // MB
@@ -22,7 +24,7 @@ Dropzone.options.myAwesomeDropzone = {
 var myDropzone = new Dropzone("div#dropzone", { url: "/file/post"});
 ';
 
-Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClientScript::POS_END);
+Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClientScript::POS_END);*/
 
 
 
@@ -47,32 +49,39 @@ Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClient
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'texto'); ?>
-		<?php echo $form->textArea($model,'texto',array('rows'=>6, 'cols'=>50)); ?>
+		<?php //echo $form->textArea($model,'texto',array('rows'=>6, 'cols'=>50)); ?>
+        <?php $this->widget('ImperaviRedactorWidget', array(
+            // You can either use it for model attribute
+            'model' => $model,
+            'attribute' => 'texto',
+
+
+
+            // Some options, see http://imperavi.com/redactor/docs/
+            'options' => array(
+                'lang' => 'es',
+                'minHeight' => 200,
+                'autoresize' => true,
+                'imageUpload' => $this->createUrl('imgUpload'),
+                'imageUploadErrorCallback'=>'js:function(obj, json){ alert(json.error); }',
+            ),
+        ));
+        ?>
 		<?php echo $form->error($model,'texto'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'fecha_publicacion'); ?>
-		<?php echo $form->textField($model,'fecha_publicacion'); ?>
-		<?php echo $form->error($model,'fecha_publicacion'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'autor'); ?>
-		<?php echo $form->textField($model,'autor'); ?>
-		<?php echo $form->error($model,'autor'); ?>
-	</div>
+    <div class="row buttons">
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+    </div>
 
 <?php $this->endWidget(); ?>
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php /*$form=$this->beginWidget('CActiveForm', array(
     'id'=>'entrada-form',
     'enableAjaxValidation'=>false,
     'htmlOptions'=>array('class'=>'dropzone')
-)); ?>
-    
-<?php $this->endWidget(); ?>
+)); */?>
 
-<!--    <div id="dropzone"></div>-->
+<?php //$this->endWidget(); ?>
 
 </div><!-- form -->

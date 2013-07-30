@@ -6,13 +6,9 @@
 	<meta name="language" content="en" />
 
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -20,40 +16,72 @@
 
 <body>
 
-<div class="container" id="page">
+<header class="clearfix">
+    <h1 class="black">
+        <a href="index.html"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt=""></a>
+    </h1>
 
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
+    <nav>
+        <!-- Desktop navigation -->
+        <ul>
+            <li>
+                <a href="index.html" class="selected">Portfolio</a>
+                <ul>
+                    <li><a href="portfolio-item.html">Portfolio item</a></li>
+                    <li><a href="portfolio-video.html">With video</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="gallery.html">Gallery</a>
+                <ul>
+                    <li><a href="gallery.html">Standard</a></li>
+                    <li><a href="gallery-masonry.html">Masonry</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="features.html">Features</a>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="layout-left.html">Left layout</a></li>
+                    <li><a href="layout-right.html">Right layout</a></li>
+                    <li><a href="layout-center.html">Centered layout</a></li>
+                    <li><a href="layout-center-black.html">Centered layout (black)</a></li>
+                    <li><a href="layout-title.html">Layout with title</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="blog.html">Blog</a>
+                <ul>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="blogpost.html">Blogpost</a></li>
+                </ul>
+            </li>
+            <li><a href="showreel.html">Showreel</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Inicio', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+        <!-- Mobile navigation -->
+        <div class="mobile"></div>
 
-	<?php echo $content; ?>
+    </nav>
 
-	<div class="clear"></div>
+    <!-- Social -->
+    <ul class="social">
+        <li><a href="#"><img src="img/social/glyphicons_390_facebook.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="img/social/glyphicons_392_twitter.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="img/social/glyphicons_362_google+_alt.png" alt="Google+"></a></li>
+        <li><a href="#"><img src="img/social/glyphicons_377_linked_in.png" alt="LinkedIn"></a></li>
+        <li><a href="#"><img src="img/social/glyphicons_395_flickr.png" alt="Flickr"></a></li>
+        <li><a href="#"><img src="img/social/glyphicons_374_dribbble.png" alt="Dribbble"></a></li>
+        <li><a href="#"><img src="img/social/glyphicons_399_e-mail.png" alt="E-mail"></a></li>
+    </ul>
 
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
+</header>
 
-</div><!-- page -->
+<?php echo $content; ?>
+
+<div class="clear"></div>
+
 
 </body>
 </html>

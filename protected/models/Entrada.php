@@ -42,12 +42,11 @@ class Entrada extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, texto, fecha_publicacion, autor', 'required'),
-			array('autor', 'numerical', 'integerOnly'=>true),
+			array('titulo, texto', 'required'),
 			array('titulo', 'length', 'max'=>150),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, titulo, texto, fecha_publicacion, autor', 'safe', 'on'=>'search'),
+			array('id, titulo, texto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -99,4 +98,21 @@ class Entrada extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function beforeSave() {
+        if ($this->isNewRecord){
+            $this->fecha_publicacion = new CDbExpression('NOW()');
+            $this->autor = Yii::app()->user->id;
+        }
+
+        return parent::beforeSave();
+    }
+
+    public function getUrl()
+    {
+        return Yii::app()->createUrl('post/view', array(
+            'id'=>$this->id,
+            'title'=>$this->title,
+        ));
+    }
 }

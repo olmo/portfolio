@@ -298,3 +298,445 @@ Stack trace:
 REQUEST_URI=/portfolio/index.php?r=blog/create
 HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=site/login
 ---
+2013/07/30 12:49:01 [error] [php] Undefined variable: my_model (C:\xampp\htdocs\portfolio\protected\views\blog\_form.php:57)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): BlogController->renderFile()
+#1 C:\xampp\htdocs\portfolio\protected\views\blog\create.php(18): BlogController->renderPartial()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): BlogController->renderInternal()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): BlogController->renderFile()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): BlogController->renderPartial()
+#6 C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php(79): BlogController->render()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): BlogController->actionCreate()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): BlogController->runAction()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): BlogController->filterAccessControl()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): BlogController->runActionWithFilters()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BlogController->run()
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\portfolio\index.php(13): CWebApplication->run()
+REQUEST_URI=/portfolio/index.php?r=blog/create
+in C:\xampp\htdocs\portfolio\protected\views\blog\_form.php (57)
+in C:\xampp\htdocs\portfolio\protected\views\blog\create.php (18)
+in C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php (79)
+2013/07/30 12:49:42 [error] [php] include(C:\xampp\htdocs\portfolio\protected\extensions\imperavi-redactor-widget\ImperaviRedactorWidget.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:395)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): import()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): BlogController->createWidget()
+#3 C:\xampp\htdocs\portfolio\protected\views\blog\_form.php(69): BlogController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): BlogController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): BlogController->renderFile()
+#7 C:\xampp\htdocs\portfolio\protected\views\blog\create.php(18): BlogController->renderPartial()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): BlogController->renderInternal()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(869): BlogController->renderFile()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(782): BlogController->renderPartial()
+#12 C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php(79): BlogController->render()
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): BlogController->actionCreate()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): BlogController->runAction()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): BlogController->filterAccessControl()
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(265): BlogController->runActionWithFilters()
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BlogController->run()
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\portfolio\index.php(13): CWebApplication->run()
+REQUEST_URI=/portfolio/index.php?r=blog/create
+in C:\xampp\htdocs\portfolio\protected\views\blog\_form.php (69)
+in C:\xampp\htdocs\portfolio\protected\views\blog\create.php (18)
+in C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php (79)
+2013/07/30 12:50:19 [error] [exception.CException] exception 'CException' with message 'BlogController has an extra endWidget() call in its view.' in C:\xampp\htdocs\yii\framework\web\CBaseController.php:210
+Stack trace:
+#0 C:\xampp\htdocs\portfolio\protected\views\blog\_form.php(92): CBaseController->endWidget()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\portfolio\protected\views\blog\create.php(18): CController->renderPartial('_form', Array)
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#9 C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php(79): CController->render('create', Array)
+#10 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): BlogController->actionCreate()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/create')
+#21 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/create
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=site/login
+---
+2013/07/30 13:19:38 [error] [exception.CException] exception 'CException' with message 'Alias "ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:316
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.imperavi-re...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(440): YiiBase::createComponent(Array, Object(BlogController), 'imgUpload')
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(417): CController->createActionFromMap(Array, 'imgUpload', 'imgUpload')
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(259): CController->createAction('imgUpload')
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:22:47 [error] [exception.CException] exception 'CException' with message 'Alias "ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:316
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.imperavi-re...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(440): YiiBase::createComponent(Array, Object(BlogController), 'imgUpload')
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(417): CController->createActionFromMap(Array, 'imgUpload', 'imgUpload')
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(259): CController->createAction('imgUpload')
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:22:52 [error] [exception.CException] exception 'CException' with message 'Alias "ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:316
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.imperavi-re...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(440): YiiBase::createComponent(Array, Object(BlogController), 'imgUpload')
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(417): CController->createActionFromMap(Array, 'imgUpload', 'imgUpload')
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(259): CController->createAction('imgUpload')
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:23:01 [error] [exception.CException] exception 'CException' with message 'Alias "ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:316
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.imperavi-re...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(440): YiiBase::createComponent(Array, Object(BlogController), 'imgUpload')
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(417): CController->createActionFromMap(Array, 'imgUpload', 'imgUpload')
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(259): CController->createAction('imgUpload')
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:23:45 [error] [exception.CException] exception 'CException' with message 'Alias "ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:316
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.imperavi-re...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(440): YiiBase::createComponent(Array, Object(BlogController), 'imgUpload')
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(417): CController->createActionFromMap(Array, 'imgUpload', 'imgUpload')
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(259): CController->createAction('imgUpload')
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:24:03 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:28:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=blog/create
+---
+2013/07/30 13:29:39 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:29:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:29:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "asdf".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asdf')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asdf')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/asdf')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/asdf
+---
+2013/07/30 13:29:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "asdf".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asdf')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asdf')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/asdf')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/asdf
+---
+2013/07/30 13:29:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:29:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+---
+2013/07/30 13:31:25 [error] [exception.CException] exception 'CException' with message 'In order to use MIME-type validation provided by CFileValidator fileinfo PECL extension should be installed.' in C:\xampp\htdocs\yii\framework\validators\CFileValidator.php:230
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CFileValidator.php(172): CFileValidator->validateFile(Object(UploadedImage), 'file', Object(CUploadedFile))
+#1 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CFileValidator->validateAttribute(Object(UploadedImage), 'file')
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(UploadedImage), NULL)
+#3 C:\xampp\htdocs\portfolio\protected\extensions\imperavi-redactor-widget\actions\imgUpload\RedactorUploadAction.php(87): CModel->validate()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): RedactorUploadAction->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(RedactorUploadAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=blog/create
+---
+2013/07/30 13:31:35 [error] [exception.CException] exception 'CException' with message 'In order to use MIME-type validation provided by CFileValidator fileinfo PECL extension should be installed.' in C:\xampp\htdocs\yii\framework\validators\CFileValidator.php:230
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CFileValidator.php(172): CFileValidator->validateFile(Object(UploadedImage), 'file', Object(CUploadedFile))
+#1 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CFileValidator->validateAttribute(Object(UploadedImage), 'file')
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(UploadedImage), NULL)
+#3 C:\xampp\htdocs\portfolio\protected\extensions\imperavi-redactor-widget\actions\imgUpload\RedactorUploadAction.php(87): CModel->validate()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): RedactorUploadAction->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(RedactorUploadAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=blog/create
+---
+2013/07/30 13:33:24 [error] [exception.CException] exception 'CException' with message 'In order to use MIME-type validation provided by CFileValidator fileinfo PECL extension should be installed.' in C:\xampp\htdocs\yii\framework\validators\CFileValidator.php:230
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CFileValidator.php(172): CFileValidator->validateFile(Object(UploadedImage), 'file', Object(CUploadedFile))
+#1 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CFileValidator->validateAttribute(Object(UploadedImage), 'file')
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(UploadedImage), NULL)
+#3 C:\xampp\htdocs\portfolio\protected\extensions\imperavi-redactor-widget\actions\imgUpload\RedactorUploadAction.php(87): CModel->validate()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): RedactorUploadAction->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(RedactorUploadAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=blog/create
+---
+2013/07/30 13:43:39 [error] [exception.CException] exception 'CException' with message 'In order to use MIME-type validation provided by CFileValidator fileinfo PECL extension should be installed.' in C:\xampp\htdocs\yii\framework\validators\CFileValidator.php:230
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CFileValidator.php(172): CFileValidator->validateFile(Object(UploadedImage), 'file', Object(CUploadedFile))
+#1 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CFileValidator->validateAttribute(Object(UploadedImage), 'file')
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(UploadedImage), NULL)
+#3 C:\xampp\htdocs\portfolio\protected\extensions\imperavi-redactor-widget\actions\imgUpload\RedactorUploadAction.php(87): CModel->validate()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): RedactorUploadAction->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(RedactorUploadAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(RedactorUploadAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('imgUpload')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/imgUpload')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/imgUpload
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=blog/create
+---
+2013/07/30 14:02:36 [error] [php] include(User.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\portfolio\protected\components\UserIdentity.php(15): spl_autoload_call()
+#1 C:\xampp\htdocs\portfolio\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate()
+#3 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute()
+#4 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CInlineValidator->validate()
+#5 C:\xampp\htdocs\portfolio\protected\controllers\SiteController.php(94): LoginForm->validate()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\portfolio\index.php(13): CWebApplication->run()
+REQUEST_URI=/portfolio/index.php?r=site/login
+in C:\xampp\htdocs\portfolio\protected\components\UserIdentity.php (15)
+in C:\xampp\htdocs\portfolio\protected\models\LoginForm.php (52)
+in C:\xampp\htdocs\portfolio\protected\controllers\SiteController.php (94)
+2013/07/30 14:12:40 [error] [php] include(User.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\portfolio\protected\components\UserIdentity.php(15): spl_autoload_call()
+#1 C:\xampp\htdocs\portfolio\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate()
+#3 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute()
+#4 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CInlineValidator->validate()
+#5 C:\xampp\htdocs\portfolio\protected\controllers\SiteController.php(94): LoginForm->validate()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\portfolio\index.php(13): CWebApplication->run()
+REQUEST_URI=/portfolio/index.php?r=site/login
+in C:\xampp\htdocs\portfolio\protected\components\UserIdentity.php (15)
+in C:\xampp\htdocs\portfolio\protected\models\LoginForm.php (52)
+in C:\xampp\htdocs\portfolio\protected\controllers\SiteController.php (94)
+2013/07/30 16:37:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`decorvinilo`.`entradas`, CONSTRAINT `entradas_ibfk_1` FOREIGN KEY (`autor`) REFERENCES `usuarios` (`id`)). The SQL statement executed was: INSERT INTO `entradas` (`titulo`, `texto`, `fecha_publicacion`) VALUES (:yp0, :yp1, NOW()).
+in C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php (73)
+in C:\xampp\htdocs\portfolio\index.php (13)
+2013/07/30 16:37:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`decorvinilo`.`entradas`, CONSTRAINT `entradas_ibfk_1` FOREIGN KEY (`autor`) REFERENCES `usuarios` (`id`)). The SQL statement executed was: INSERT INTO `entradas` (`titulo`, `texto`, `fecha_publicacion`) VALUES (:yp0, :yp1, NOW())' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\portfolio\protected\controllers\BlogController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): BlogController->actionCreate()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/create')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/portfolio/index.php?r=blog/create
+HTTP_REFERER=http://localhost:8000/portfolio/index.php?r=blog/create
+---

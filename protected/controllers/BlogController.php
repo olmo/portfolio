@@ -32,7 +32,7 @@ class BlogController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','imgUpload'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -142,6 +142,19 @@ class BlogController extends Controller
 			'model'=>$model,
 		));
 	}
+
+    public function actions()
+    {
+        return array(
+            'imgUpload'=>array(
+                'class' => 'ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction',
+                'directory'=>'uploads/files',
+                'validator'=>array(
+                    'mimeTypes' => array('image/png', 'image/jpg', 'image/gif', 'image/jpeg', 'image/pjpeg'),
+                )
+            ),
+        );
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
