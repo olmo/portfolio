@@ -13,7 +13,7 @@
 
     <?php echo $data->texto; ?>
 
-    <a href="blogpost.html" class="read_more">Leer más »</a>
+    <a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>" class="read_more">Leer más »</a>
 </article>
 
 

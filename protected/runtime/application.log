@@ -6853,3 +6853,256 @@ Stack trace:
 REQUEST_URI=/portfolio/index.php/blog/imgUpload
 HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/update/id/2
 ---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_390_facebook.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_392_twitter.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_374_dribbble.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_395_flickr.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_362_google+_alt.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_377_linked_in.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_399_e-mail.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "blogpost.html".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('blogpost.html')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('blogpost.html')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/blogpost.h...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/blogpost.html
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_390_facebook.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_392_twitter.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_395_flickr.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_377_linked_in.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_362_google+_alt.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_374_dribbble.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_399_e-mail.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "blogpost.html".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('blogpost.html')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('blogpost.html')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/blogpost.h...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/blogpost.html
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/index
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_377_linked_in.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_390_facebook.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_362_google+_alt.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_395_flickr.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_392_twitter.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_374_dribbble.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
+2013/08/01 15:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('img')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('img')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('blog/img/social...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\portfolio\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/portfolio/index.php/blog/img/social/glyphicons_399_e-mail.png
+HTTP_REFERER=http://localhost:8000/portfolio/index.php/blog/blogpost.html
+---
