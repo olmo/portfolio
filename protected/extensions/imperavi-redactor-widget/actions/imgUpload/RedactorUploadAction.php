@@ -81,6 +81,8 @@ class RedactorUploadAction extends CAction
             $save = array($this, 'save');
         } else
             throw new CException(Yii::t('imperavi-redactor-widget.main', 'Either $directory property, or $saveCallback should be set'));
+
+        Yii::trace('blk', 'asdf');
         $uploadModel = new UploadedImage($this->validator);
         $uploadModel->file = CUploadedFile::getInstanceByName('file');
 

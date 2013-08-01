@@ -16,15 +16,18 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Entrada #<?php echo $model->id; ?></h1>
+<div class="articles">
+    <article>
+        <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$model->id)); ?>"><?php echo CHtml::encode($model->titulo); ?></a></h2>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'titulo',
-		'texto',
-		'fecha_publicacion',
-		'autor',
-	),
-)); ?>
+        <div class="meta">
+            <span class="date"><?php echo CHtml::encode($model->fecha_publicacion); ?></span>
+            <span>por <a href="#"><?php echo CHtml::encode($model->autor); ?></a></span>
+            <span>in <a href="#">Photography</a></span>
+        </div>
+
+        <?php echo $model->texto; ?>
+
+
+    </article>
+</div>

@@ -1,15 +1,30 @@
 <?php /* @var $this Controller */ ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<?php
+
+    Yii::app()->clientScript->registerCoreScript('jquery');
+    $cs = Yii::app()->getClientScript();
+    $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.fancybox-1.3.4.pack.js', CClientScript::POS_END);
+    $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.masonry.min.js', CClientScript::POS_END);
+    $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/script.js', CClientScript::POS_END);
+?>
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.fancybox-1.3.4.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+
+<!--	<link rel="stylesheet" type="text/css" href="--><?php //echo Yii::app()->request->baseUrl; ?><!--/css/form.css" />-->
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -50,11 +65,7 @@
                 </ul>
             </li>
             <li>
-                <a href="blog.html">Blog</a>
-                <ul>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="blogpost.html">Blogpost</a></li>
-                </ul>
+                <a href="<?php echo $this->createUrl('blog/index'); ?>">Blog</a>
             </li>
             <li><a href="showreel.html">Showreel</a></li>
             <li><a href="contact.html">Contact</a></li>

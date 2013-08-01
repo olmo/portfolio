@@ -58,7 +58,7 @@ class Entrada extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'autor0' => array(self::BELONGS_TO, 'Usuarios', 'autor'),
+			'autor' => array(self::BELONGS_TO, 'Usuario', 'autor'),
 			'imagenesBlogs' => array(self::MANY_MANY, 'ImagenesBlog', 'imagenes_entradas(id_entrada, id_imagen)'),
 		);
 	}
@@ -73,7 +73,7 @@ class Entrada extends CActiveRecord
 			'titulo' => 'Titulo',
 			'texto' => 'Texto',
 			'fecha_publicacion' => 'Fecha Publicacion',
-			'autor' => 'Autor',
+			//'autor' => 'Autor',
 		);
 	}
 

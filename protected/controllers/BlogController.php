@@ -6,7 +6,7 @@ class BlogController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column1';
 
 	/**
 	 * @return array action filters
@@ -147,8 +147,8 @@ class BlogController extends Controller
     {
         return array(
             'imgUpload'=>array(
-                'class' => 'ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction',
-                'directory'=>'uploads/files',
+                'class' => 'ext.imperavi-redactor-widget.actions.ImageUpload',
+                //'uploadPath'=>'uploads/images',
                 'validator'=>array(
                     'mimeTypes' => array('image/png', 'image/jpg', 'image/gif', 'image/jpeg', 'image/pjpeg'),
                 )
@@ -165,7 +165,7 @@ class BlogController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Entrada::model()->findByPk($id);
+		$model=Entrada::model()->with('autor')->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

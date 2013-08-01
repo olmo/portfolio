@@ -55,15 +55,12 @@ Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClient
             'model' => $model,
             'attribute' => 'texto',
 
-
-
-            // Some options, see http://imperavi.com/redactor/docs/
             'options' => array(
                 'lang' => 'es',
                 'minHeight' => 200,
                 'autoresize' => true,
-                'imageUpload' => $this->createUrl('imgUpload'),
-                'imageUploadErrorCallback'=>'js:function(obj, json){ alert(json.error); }',
+                'imageUpload' => 'http://localhost:8000'.$this->createUrl('blog/imgUpload'),
+                'imageUploadErrorCallback'=>new CJavaScriptExpression('function(obj, json){ alert(json.error); }'),
             ),
         ));
         ?>

@@ -412,7 +412,7 @@ header nav ul li ul:before {
   position: absolute;
   width: 9px;
   height: 4px;
-  background: url("../img/bubble_menu.png");
+  background: url("../images/bubble_menu.png");
   margin: -12px 0 0 10px;
 }
 header nav ul li ul li {
@@ -1509,4 +1509,93 @@ blockquote cite:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
+}
+
+
+
+
+
+.articles {
+    list-style: none;
+    padding-left: 120px;
+    margin-bottom: 60px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+.articles article h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+@media only screen and (max-width: 767px) {
+    .articles article h2 {
+        margin-bottom: 5px;
+    }
+}
+.articles article h2 a {
+    font-weight: normal;
+}
+.articles article .meta {
+    float: left;
+    margin-left: -120px;
+    width: 90px;
+}
+.articles article .meta span {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    color: #666;
+}
+.articles article .meta span.date {
+    font-weight: bold;
+    color: #333;
+}
+.articles article .meta span a {
+    color: #333;
+    font-weight: normal;
+}
+.articles article .meta span a:hover {
+    text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+    .articles article .meta {
+        width: auto;
+        float: none;
+        margin: 0;
+        display: block;
+        margin-bottom: 15px;
+    }
+    .articles article .meta span {
+        display: inline-block;
+        margin: 0 10px 0 0;
+    }
+}
+.articles article a.read_more {
+    display: inline-block;
+    float: right;
+    color: #666;
+    font-size: 11px;
+    margin-top: 10px;
+}
+.articles article a.read_more:hover {
+    color: #333;
+}
+.articles article .simple_slider {
+    margin-bottom: 15px;
+}
+.articles article .flex {
+    margin-bottom: 15px;
+}
+@media only screen and (max-width: 767px) {
+    .articles {
+        padding-left: 0;
+    }
+}
+
+#content {
+    margin-top: 50px;
 }

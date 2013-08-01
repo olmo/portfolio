@@ -2,28 +2,18 @@
 /* @var $this BlogController */
 /* @var $data Entrada */
 ?>
+<article>
+    <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>"><?php echo CHtml::encode($data->titulo); ?></a></h2>
 
-<div class="view">
+    <div class="meta">
+        <span class="date"><?php echo CHtml::encode($data->fecha_publicacion); ?></span>
+        <span>por <a href="#"><?php echo CHtml::encode($data->autor); ?></a></span>
+        <span>in <a href="#">Photography</a></span>
+    </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+    <?php echo $data->texto; ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('titulo')); ?>:</b>
-	<?php echo CHtml::encode($data->titulo); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('texto')); ?>:</b>
-	<?php echo CHtml::encode($data->texto); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_publicacion')); ?>:</b>
-	<?php echo CHtml::encode($data->fecha_publicacion); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('autor')); ?>:</b>
-	<?php echo CHtml::encode($data->autor); ?>
-	<br />
+    <a href="blogpost.html" class="read_more">Leer más »</a>
+</article>
 
 
-</div>
