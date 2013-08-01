@@ -147,8 +147,8 @@ class BlogController extends Controller
     {
         return array(
             'imgUpload'=>array(
-                'class' => 'ext.imperavi-redactor-widget.actions.ImageUpload',
-                //'uploadPath'=>'uploads/images',
+                'class' => 'ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction',
+                'directory'=>'uploads/images',
                 'validator'=>array(
                     'mimeTypes' => array('image/png', 'image/jpg', 'image/gif', 'image/jpeg', 'image/pjpeg'),
                 )
