@@ -83,13 +83,13 @@
 
     <!-- Social Networks -->
     <ul class="social">
-        <li><a href="#"><img src="images/social/facebook.png" alt="Facebook"></a></li>
-        <li><a href="#"><img src="images/social/twitter.png" alt="Twitter"></a></li>
-        <li><a href="#"><img src="images/social/google+.png" alt="Google+"></a></li>
-        <li><a href="#"><img src="images/social/linkedin.png" alt="LinkedIn"></a></li>
-        <li><a href="#"><img src="images/social/flickr.png" alt="Flickr"></a></li>
-        <li><a href="#"><img src="images/social/dribbble.png" alt="Dribbble"></a></li>
-        <li><a href="#"><img src="images/social/e-mail.png" alt="E-mail"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/facebook.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/twitter.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/google+.png" alt="Google+"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/linkedin.png" alt="LinkedIn"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/flickr.png" alt="Flickr"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/dribbble.png" alt="Dribbble"></a></li>
+        <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/e-mail.png" alt="E-mail"></a></li>
     </ul>
 
 </header>
