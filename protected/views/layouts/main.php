@@ -72,7 +72,7 @@
                 <a href="showreel.html">Showreel</a>
             </li>
             <li>
-                <a href="<?php echo $this->createUrl('site/pages/contact'); ?>">Contact</a>
+                <a href="<?php echo $this->createUrl('site/contact'); ?>">Contact</a>
             </li>
         </ul>
 
