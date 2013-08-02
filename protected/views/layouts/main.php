@@ -10,10 +10,11 @@
 ?>
 
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <!--[if lt IE 7]>      <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+    <!--[if gt IE 8]>      <html class="no-js" lang="en">           <![endif]-->
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
@@ -23,8 +24,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.fancybox-1.3.4.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 
-
-<!--	<link rel="stylesheet" type="text/css" href="--><?php //echo Yii::app()->request->baseUrl; ?><!--/css/form.css" />-->
+    <!--	<link rel="stylesheet" type="text/css" href="-->
+    <?php //echo Yii::app()->request->baseUrl; ?><!--/css/form.css" />-->
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -67,8 +68,12 @@
             <li>
                 <a href="<?php echo $this->createUrl('blog/index'); ?>">Blog</a>
             </li>
-            <li><a href="showreel.html">Showreel</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="showreel.html">Showreel</a>
+            </li>
+            <li>
+                <a href="<?php echo $this->createUrl('site/pages/contact'); ?>">Contact</a>
+            </li>
         </ul>
 
         <!-- Mobile navigation -->
@@ -76,15 +81,15 @@
 
     </nav>
 
-    <!-- Social -->
+    <!-- Social Networks -->
     <ul class="social">
-        <li><a href="#"><img src="img/social/glyphicons_390_facebook.png" alt="Facebook"></a></li>
-        <li><a href="#"><img src="img/social/glyphicons_392_twitter.png" alt="Twitter"></a></li>
-        <li><a href="#"><img src="img/social/glyphicons_362_google+_alt.png" alt="Google+"></a></li>
-        <li><a href="#"><img src="img/social/glyphicons_377_linked_in.png" alt="LinkedIn"></a></li>
-        <li><a href="#"><img src="img/social/glyphicons_395_flickr.png" alt="Flickr"></a></li>
-        <li><a href="#"><img src="img/social/glyphicons_374_dribbble.png" alt="Dribbble"></a></li>
-        <li><a href="#"><img src="img/social/glyphicons_399_e-mail.png" alt="E-mail"></a></li>
+        <li><a href="#"><img src="images/social/facebook.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="images/social/twitter.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="images/social/google+.png" alt="Google+"></a></li>
+        <li><a href="#"><img src="images/social/linkedin.png" alt="LinkedIn"></a></li>
+        <li><a href="#"><img src="images/social/flickr.png" alt="Flickr"></a></li>
+        <li><a href="#"><img src="images/social/dribbble.png" alt="Dribbble"></a></li>
+        <li><a href="#"><img src="images/social/e-mail.png" alt="E-mail"></a></li>
     </ul>
 
 </header>
@@ -93,6 +98,6 @@
 
 <div class="clear"></div>
 
-
 </body>
+
 </html>
