@@ -45,8 +45,6 @@ $this->breadcrumbs=array(
 
     <?php else: ?>
 
-    <form action="#" id="contact_form">
-
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'contact-form',
             'enableClientValidation'=>true,
@@ -95,7 +93,7 @@ $this->breadcrumbs=array(
         <?php endif; ?>
 
         <div>
-            <?php echo CHtml::submitButton('Enviar', array('class' => 'button')); ?>
+            <?php echo CHtml::submitButton('Submit', array('class' => 'button')); ?>
             <!-- <p class="status"></p> -->
         </div>
 
