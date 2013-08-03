@@ -40,7 +40,6 @@ class ContactForm extends CFormModel
             'name'=>'Nombre',
             'subject'=>'Asunto',
             'body'=>'Mensaje'
-
 		);
 	}
 }
