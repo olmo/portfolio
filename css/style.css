@@ -680,18 +680,18 @@ header .social li a img {
   left: 100%;
 }
 .layout.left .skew:after {
-  background-image: url("../img/skew_left.png");
+  background-image: url("../images/skew_left.png");
 }
 .layout.right {
   right: 0;
   width: 580px;
-  padding: 170px 50px 80px 30px;
+  padding: 130px 50px 80px 30px;
 }
 .layout.right .skew {
   left: -85px;
 }
 .layout.right .skew:after {
-  background-image: url("../img/skew_right.png");
+  background-image: url("../images/skew_right.png");
 }
 .layout.center {
   position: relative;

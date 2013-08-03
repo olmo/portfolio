@@ -320,7 +320,7 @@ jQuery(document).ready(function ($) {
       position: marker_location,
       map: map,
       icon: new google.maps.MarkerImage(
-        'img/marker.png',
+        '/portfolio/images/marker.png',
         new google.maps.Size(32,38),
         new google.maps.Point(0,0),
         new google.maps.Point(16,38)

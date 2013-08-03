@@ -9,6 +9,12 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<div class="map left" id="map">
+
+    <div class="google_map" data-latitude="37.16246" data-longitude="-3.5959" data-zoom="19"></div>
+
+</div>
+
 <section class="layout contact right"><div class="skew"></div>
 
     <h1>Contacto</h1>
@@ -99,4 +105,9 @@ $this->breadcrumbs=array(
 
         <?php $this->endWidget(); ?>
 
+
 <?php endif; ?>
+
+</section>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
