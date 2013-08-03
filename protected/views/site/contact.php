@@ -40,7 +40,7 @@ $this->breadcrumbs=array(
 
     <h3>Mandenos un e-mail</h3>
 
-    <p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+    <p class="note">Campos con <span style="color: red;"">*</span> son obligatorios.</p>
 
     <!-- Contact form -->
     <?php if(Yii::app()->user->hasFlash('contact')): ?>
@@ -101,7 +101,7 @@ $this->breadcrumbs=array(
             <?php endif; ?>
 
             <div>
-                <?php echo CHtml::submitButton('Submit', array('class' => 'button')); ?>
+                <?php echo CHtml::submitButton('Enviar', array('class' => 'button')); ?>
                 <!-- <p class="status"></p> -->
             </div>
 
