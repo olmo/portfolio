@@ -94,8 +94,8 @@ $this->breadcrumbs=array(
             </div>
         <?php endif; ?>
 
-        <div class="button">
-            <?php echo CHtml::submitButton('Enviar'); ?>
+        <div>
+            <?php echo CHtml::submitButton('Enviar', array('class' => 'button')); ?>
             <!-- <p class="status"></p> -->
         </div>
 
