@@ -24,8 +24,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.fancybox-1.3.4.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 
-    <!--	<link rel="stylesheet" type="text/css" href="-->
-    <?php //echo Yii::app()->request->baseUrl; ?><!--/css/form.css" />-->
+    	<link rel="stylesheet" type="text/css" href="
+    <?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
