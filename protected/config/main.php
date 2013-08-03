@@ -8,6 +8,8 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Decorvinilo',
+    'sourceLanguage' => 'en',
+    'language' => 'es',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -59,6 +61,10 @@ return array(
 			'password' => 'pass',
 			'charset' => 'utf8',
 		),
+
+        'coreMessages'=>array(
+            'basePath'=>'protected/messages'
+        ),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
