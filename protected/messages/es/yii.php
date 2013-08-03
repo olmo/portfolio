@@ -233,7 +233,7 @@ return array (
   'You are not authorized to perform this action.' => 'Usted no se encuentra autorizado a realizar esta acción.',
   '{attribute} "{value}" has already been taken.' => '{attribute} "{value}" ya ha sido tomado.',
   '{attribute} "{value}" is invalid.' => '{attribute} "{value}" es inválido.',
-  '{attribute} cannot be blank.' => '{attribute} no puede ser nulo.',
+  '{attribute} cannot be blank.' => '{attribute} no puede estar vacío.',
   '{attribute} is invalid.' => '{attribute} es inválido.',
   '{attribute} is not a valid URL.' => '{attribute} no es una URL válida.',
   '{attribute} is not a valid email address.' => '{attribute} no es un email válido.',
