@@ -39,42 +39,20 @@
 
     <nav>
         <!-- Desktop navigation -->
-        <ul>
-            <li>
-                <a href="index.html" class="selected">Portfolio</a>
-                <ul>
-                    <li><a href="portfolio-item.html">Portfolio item</a></li>
-                    <li><a href="portfolio-video.html">With video</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="gallery.html">Gallery</a>
-                <ul>
-                    <li><a href="gallery.html">Standard</a></li>
-                    <li><a href="gallery-masonry.html">Masonry</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="features.html">Features</a>
-                <ul>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="layout-left.html">Left layout</a></li>
-                    <li><a href="layout-right.html">Right layout</a></li>
-                    <li><a href="layout-center.html">Centered layout</a></li>
-                    <li><a href="layout-center-black.html">Centered layout (black)</a></li>
-                    <li><a href="layout-title.html">Layout with title</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="<?php echo $this->createUrl('blog/index'); ?>">Blog</a>
-            </li>
-            <li>
-                <a href="showreel.html">Showreel</a>
-            </li>
-            <li>
-                <a href="<?php echo $this->createUrl('site/contact'); ?>">Contacto</a>
-            </li>
-        </ul>
+        <?php $this->widget('zii.widgets.CMenu',array(
+            'activeCssClass'=>'selected',
+            'items'=>array(
+                array('label'=>'Portfolio', 'url'=>array('/site/index')),
+                array('label'=>'Gallery', 'url'=>array('/site/index')),
+                array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
+                    array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Administrar', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
+                )),
+                array('label'=>'Contacto', 'url'=>array('/site/contact')),
+                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+            ),
+        )); ?>
 
         <!-- Mobile navigation -->
         <div class="mobile"></div>

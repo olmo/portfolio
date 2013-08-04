@@ -12,16 +12,29 @@ $this->menu=array(
 );
 ?>
 
+<?php if(Yii::app()->user->getId()!==null): ?>
+    <?php
+    $this->beginWidget('zii.widgets.CPortlet', array(
+        'title'=>'Operations',
+    ));
+    $this->widget('zii.widgets.CMenu', array(
+        'items'=>$this->menu,
+        'htmlOptions'=>array('class'=>'operations'),
+    ));
+    $this->endWidget();
+    ?>
+<?php endif; ?>
+
 <div class="slider animation_fade" data-animation="fade" data-interval="5000">
     <ul>
         <li>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg" alt="">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fondos/1.jpg" alt="">
         </li>
         <li>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/2.jpg" alt="">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fondos/2.jpg" alt="">
         </li>
         <li>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/3.jpg" alt="">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fondos/3.jpg" alt="">
         </li>
     </ul>
 </div>
@@ -33,6 +46,13 @@ $this->menu=array(
             'dataProvider'=>$dataProvider,
             'itemView'=>'_view',
             'template'=>"{items}\n{pager}",
+            'pager' => array(
+                'header'          => '',
+                'firstPageLabel' => '<<',
+                'prevPageLabel'  => '<',
+                'nextPageLabel'  => '>',
+                'lastPageLabel'  => '>>',
+            ),
         )); ?>
 
     </ul>

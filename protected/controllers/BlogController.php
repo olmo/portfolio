@@ -122,7 +122,17 @@ class BlogController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Entrada');
+        $criteria=new CDbCriteria(array(
+            'order'=>'fecha_publicacion DESC',
+        ));
+
+		$dataProvider=new CActiveDataProvider('Entrada', array(
+            'pagination'=>array(
+                'pageSize'=>2,
+            ),
+            'criteria'=>$criteria,
+        ));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

@@ -26,6 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
+<div class="layout full clearfix">
 <h1>Manage Entradas</h1>
 
 <p>
@@ -55,3 +56,4 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 )); ?>
+</div>
