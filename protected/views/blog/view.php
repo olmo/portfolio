@@ -41,7 +41,7 @@ $this->menu=array(
                 <div class="meta">
                     <span class="date"><?php echo CHtml::encode($model->fecha_publicacion); ?></span>
                     <span>por <a href="#"><?php echo CHtml::encode($model->autor); ?></a></span>
-                    <span>in <a href="#">Photography</a></span>
+                    <span>en <a href="#">Fotografía</a></span>
                 </div>
 
                 <?php echo $model->texto; ?>
