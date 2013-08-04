@@ -45,22 +45,20 @@ $this->menu=array(
         <?php $this->widget('zii.widgets.CListView', array(
             'dataProvider'=>$dataProvider,
             'itemView'=>'_view',
-            'template'=>"{items}\n{pager}",
-            'pager' => array(
-                'header'          => '',
-                'firstPageLabel' => '<<',
-                'prevPageLabel'  => '<',
-                'nextPageLabel'  => '>',
-                'lastPageLabel'  => '>>',
-            ),
+            'template'=>"{items}",
         )); ?>
 
     </ul>
 
     <!-- Pagination -->
     <div class="pagination">
-        <a href="#">« Página anterior</a>
-        <a href="#">Página siguiente »</a>
+        <?php $this->widget('CLinkPager', array('pages' => $dataProvider->pagination,
+            'header'          => '',
+            'firstPageLabel' => '<<',
+            'prevPageLabel'  => '<',
+            'nextPageLabel'  => '>',
+            'lastPageLabel'  => '>>',
+        )); ?>
     </div>
 
 </section>
