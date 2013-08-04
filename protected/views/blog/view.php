@@ -17,19 +17,17 @@ $this->menu=array(
 ?>
 
 <div class="slider animation_fade" data-animation="fade" data-interval="5000">
-
     <ul>
-        <li class="">
-            <img src="images/blog/1.png" alt="" style="left: 0px; top: -133px;" class="">
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg" alt="">
         </li>
-        <li class="active">
-            <img src="images/blog/2.png" alt="" style="left: 0px; top: -133px;" class="">
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/2.jpg" alt="">
         </li>
-        <li class="inactive">
-            <img src="images/blog/3.png" alt="" style="left: 0px; top: -133px;" class="">
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/3.jpg" alt="">
         </li>
     </ul>
-
 </div>
 
 <section class="layout left blogpost"><div class="skew"></div>

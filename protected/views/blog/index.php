@@ -12,6 +12,20 @@ $this->menu=array(
 );
 ?>
 
+<div class="slider animation_fade" data-animation="fade" data-interval="5000">
+    <ul>
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg" alt="">
+        </li>
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/2.jpg" alt="">
+        </li>
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/3.jpg" alt="">
+        </li>
+    </ul>
+</div>
+
 <section class="layout left blog"><div class="skew"></div>
 
     <ul class="articles">
