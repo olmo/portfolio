@@ -39,8 +39,8 @@ $this->menu=array(
 
     <!-- Pagination -->
     <div class="pagination">
-        <a href="#">« Previous posts</a>
-        <a href="#">Next posts »</a>
+        <a href="#">« Página anterior</a>
+        <a href="#">Página siguiente »</a>
     </div>
 
 </section>

@@ -73,7 +73,7 @@ class Entrada extends CActiveRecord
 			'titulo' => 'Titulo',
 			'texto' => 'Texto',
 			'fecha_publicacion' => 'Fecha Publicacion',
-			//'autor' => 'Autor',
+			'autor' => 'Autor',
 		);
 	}
 
