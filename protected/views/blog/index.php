@@ -12,10 +12,21 @@ $this->menu=array(
 );
 ?>
 
-<div class="articles">
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-    'template'=>"{items}\n{pager}",
-)); ?>
-</div>
+<section class="layout left blog"><div class="skew"></div>
+
+    <ul class="articles">
+        <?php $this->widget('zii.widgets.CListView', array(
+            'dataProvider'=>$dataProvider,
+            'itemView'=>'_view',
+            'template'=>"{items}\n{pager}",
+        )); ?>
+
+    </ul>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <a href="#">« Previous posts</a>
+        <a href="#">Next posts »</a>
+    </div>
+
+</section>

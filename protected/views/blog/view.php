@@ -16,18 +16,22 @@ $this->menu=array(
 );
 ?>
 
-<div class="articles">
-    <article>
-        <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$model->id)); ?>"><?php echo CHtml::encode($model->titulo); ?></a></h2>
+<section class="layout left blogpost"><div class="skew"></div>
 
-        <div class="meta">
-            <span class="date"><?php echo CHtml::encode($model->fecha_publicacion); ?></span>
-            <span>por <a href="#"><?php echo CHtml::encode($model->autor); ?></a></span>
-            <span>in <a href="#">Photography</a></span>
-        </div>
+    <!-- Article -->
+    <ul class="articles blogpost">
+        <li>
+            <article>
+                <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$model->id)); ?>"><?php echo CHtml::encode($model->titulo); ?></a></h2>
 
-        <?php echo $model->texto; ?>
+                <div class="meta">
+                    <span class="date"><?php echo CHtml::encode($model->fecha_publicacion); ?></span>
+                    <span>por <a href="#"><?php echo CHtml::encode($model->autor); ?></a></span>
+                    <span>in <a href="#">Photography</a></span>
+                </div>
 
-
-    </article>
-</div>
+                <?php echo $model->texto; ?>
+            </article>
+        </li>
+    </ul>
+</section>
