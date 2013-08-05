@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
         ),
     )); ?>
 
-    <p class="note">Campos con <span style="color: #ff000;">*</span> son obligatorios.</p>
+    <p class="note">Campos con <span style="color: red;">*</span> son obligatorios.</p>
 
     <div class="row">
         <?php echo $form->labelEx($model,'username'); ?>
