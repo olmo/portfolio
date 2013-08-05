@@ -4,17 +4,22 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<div class="slider">
+    <ul>
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/home/home.jpg" alt="" class="" style="left: 0px; top: -208.5px;">
+        </li>
+    </ul>
+</div>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<section class="layout center">
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at turpis nisi, vitae
+    ullamcorper elit. Proin rhoncus bibendum sollicitudin. Mauris interdum, erat vitae
+    dignissim placerat, nunc elit vehicula elit, in dignissim lacus leo at dolor.
+</p>
+
+</section>
