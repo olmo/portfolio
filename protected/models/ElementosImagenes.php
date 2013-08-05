@@ -12,12 +12,12 @@
  * @property Elementos[] $elementoses
  * @property Elementos $idElemento
  */
-class ElementoImagen extends CActiveRecord
+class ElementosImagenes extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return ElementoImagen the static model class
+	 * @return ElementosImagenes the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

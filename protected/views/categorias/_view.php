@@ -13,5 +13,6 @@
 	<?php echo CHtml::encode($data->nombre); ?>
 	<br />
 
+    <?php echo "_wiew"; ?>
 
 </div>
