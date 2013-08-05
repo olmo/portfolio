@@ -60,53 +60,48 @@ class GaleriaController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-    public function actionCreate()
-    {
-        $a=new Elemento;
-        $b=new ElementosImagenes;
+	public function actionCreate()
+	{
+		$model=new Elemento;
 
-        $this->performAjaxValidation(array($a,$b));
-        if(isset($_POST['Elemento'],$_POST['ElementosImagenes']))
-        {
-            $a->attributes=$_POST['Elemento'];
-            $b->attributes=$_POST['ElementosImagenes'];
-            $sql='select max(id) from ElementosImagenes;';
-            $connection=Yii::app()->db;
-            $command=$connection->createCommand($sql);
-            $row=$command->queryRow();
-            $row["max"]++;
-            $b->id=$row["max"];
-            $a->id_imagen=$row["max"];
-            if($b->save() && $a->save())
-                $this->redirect(array('view','id'=>$a->id));
-        }
-        $this->render('create',array('a'=>$a,'b'=>$b));
-    }
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Elemento']))
+		{
+			$model->attributes=$_POST['Elemento'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
 
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-    public function actionUpdate($id)
-    {
-        $a=new Elemento;
-        $b=new ElementosImagenes;
+	public function actionUpdate($id)
+	{
+		$model=$this->loadModel($id);
 
-        $this->performAjaxValidation(array($a,$b));
-        $a=$this->loadModel($id);
-        if(isset($_POST['Elemento'],$_POST['ElementosImagenes']))
-        {
-            $a->attributes=$_POST['Elemento'];
-            $b->attributes=$_POST['ElementosImagenes'];
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
 
-            $b->id=$a->id_imagen;
-            $b->setIsNewRecord(false);
-            if($a->save() && $b->update())
-                $this->redirect(array('view','id'=>$a->id));
-        }
-        $this->render('update',array('a'=>$a,'b'=>$b));
-    }
+		if(isset($_POST['Elemento']))
+		{
+			$model->attributes=$_POST['Elemento'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
 
 	/**
 	 * Deletes a particular model.

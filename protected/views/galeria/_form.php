@@ -8,55 +8,45 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'elemento-form',
-	'enableAjaxValidation'=>true,
+	'enableAjaxValidation'=>false,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-    <?php
-        if ($a->isNewRecord==false) { $b=ElementosImagenes::model()->findByPk($a->id_imagen); }
-
-        echo $form->errorSummary(array($a, $b));
-    ?>
+	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($a,'nombre'); ?>
-		<?php echo $form->textField($a,'nombre',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($a,'nombre'); ?>
+		<?php echo $form->labelEx($model,'nombre'); ?>
+		<?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->error($model,'nombre'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($a,'titulo'); ?>
-		<?php echo $form->textField($a,'titulo',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($a,'titulo'); ?>
+		<?php echo $form->labelEx($model,'titulo'); ?>
+		<?php echo $form->textField($model,'titulo',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->error($model,'titulo'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($a,'descripcion'); ?>
-		<?php echo $form->textField($a,'descripcion',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($a,'descripcion'); ?>
+		<?php echo $form->labelEx($model,'descripcion'); ?>
+		<?php echo $form->textField($model,'descripcion',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'descripcion'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($a,'id_categoria'); ?>
-		<?php echo $form->textField($a,'id_categoria'); ?>
-		<?php echo $form->error($a,'id_categoria'); ?>
+		<?php echo $form->labelEx($model,'id_categoria'); ?>
+		<?php echo $form->textField($model,'id_categoria'); ?>
+		<?php echo $form->error($model,'id_categoria'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($a,'id_imagen'); ?>
-		<?php echo $form->textField($a,'id_imagen'); ?>
-		<?php echo $form->error($a,'id_imagen'); ?>
+		<?php echo $form->labelEx($model,'id_imagen'); ?>
+		<?php echo $form->textField($model,'id_imagen'); ?>
+		<?php echo $form->error($model,'id_imagen'); ?>
 	</div>
-
-    <div class="row">
-        <?php echo $form->labelEx($b,'nombre'); ?>
-        <?php echo $form->textField($b,'nombre'); ?>
-        <?php echo $form->error($b,'nombre'); ?>
-    </div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($a->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
