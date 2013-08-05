@@ -64,6 +64,7 @@ a:hover {
 }
 form input[type="text"],
 form input[type="email"],
+form input[type="password"],
 form textarea {
   border: 1px solid #ddd;
   font-size: 11px;
@@ -81,6 +82,7 @@ form textarea {
 }
 form input[type="text"]:focus,
 form input[type="email"]:focus,
+form input[type="password"]:focus,
 form textarea:focus {
   border: 1px solid #d0d0d0;
 }
@@ -1511,8 +1513,9 @@ blockquote cite:before {
   box-sizing: content-box;
 }
 
-
-
-#content {
-
+.recordar {
+    display: inline;
+    margin-left: 10px;
+    top: -2px;
+    position: relative;
 }

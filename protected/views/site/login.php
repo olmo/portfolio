@@ -33,7 +33,7 @@ $this->breadcrumbs=array(
         ),
     )); ?>
 
-    <p class="note">Campos con <span style="color: red;">*</span> son obligatorios.</p>
+    <p class="note">Los campos con <span style="color: red;">*</span> son obligatorios.</p>
 
     <div class="row">
         <?php echo $form->labelEx($model,'username'); ?>
@@ -49,7 +49,7 @@ $this->breadcrumbs=array(
 
     <div class="row rememberMe">
         <?php echo $form->checkBox($model,'rememberMe'); ?>
-        <?php echo $form->label($model,'rememberMe'); ?>
+        <?php echo $form->label($model,'rememberMe', array('class' => 'recordar', 'style' => 'display:inline;')); ?>
         <?php echo $form->error($model,'rememberMe'); ?>
     </div>
 
