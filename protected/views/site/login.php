@@ -9,6 +9,14 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<div class="slider">
+    <ul>
+        <li>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/login/login.jpg" alt="" class="" style="left: 0px; top: -208.5px;">
+        </li>
+    </ul>
+</div>
+
 <section class="layout center"><div class="form">
 
     <h1>Login</h1>
@@ -46,7 +54,7 @@ $this->breadcrumbs=array(
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Login', array('class' => 'button')); ?>
+        <?php echo CHtml::submitButton('Entrar', array('class' => 'button')); ?>
     </div>
 
     <?php $this->endWidget(); ?>
