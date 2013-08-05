@@ -68,7 +68,7 @@ Yii::app()->getClientScript()->registerSCript('JQuery_User',$JQuery_User,CClient
 	</div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Añadir' : 'Guardar', array('class' => 'button green')); ?>
     </div>
 
 <?php $this->endWidget(); ?>

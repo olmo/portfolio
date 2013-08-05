@@ -13,6 +13,8 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Elemento</h1>
+<div class="layout full clearfix">
+<h1>Añadir Elemento</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>

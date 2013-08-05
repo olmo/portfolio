@@ -6,7 +6,7 @@ class GaleriaController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column1';
 
 	/**
 	 * @return array action filters
@@ -70,8 +70,37 @@ class GaleriaController extends Controller
 		if(isset($_POST['Elemento']))
 		{
 			$model->attributes=$_POST['Elemento'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $model->save();
+            $id = $model->getPrimaryKey();
+
+            $images = CUploadedFile::getInstancesByName('images');
+
+            if (isset($images) && count($images) > 0) {
+                $cont = 0;
+
+                if(!is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id)) {
+                    mkdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id);
+                    chmod(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id, 0755);
+                }
+
+                foreach ($images as $image => $pic) {
+                    $cont++;
+                    if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/'.$pic->name)) {
+                        $img_add = new ElementoImagen();
+                        $img_add->nombre = $pic->name;
+                        $img_add->id_elemento = $id;
+                        $img_add->orden = $cont;
+
+                        $img_add->save();
+                    }
+                    else{
+
+                    }
+                }
+            }
+
+			//if($model->save())
+				$this->redirect(array('view','id'=>$id));
 		}
 
 		$this->render('create',array(
@@ -94,6 +123,27 @@ class GaleriaController extends Controller
 		if(isset($_POST['Elemento']))
 		{
 			$model->attributes=$_POST['Elemento'];
+
+            $images = CUploadedFile::getInstancesByName('images');
+
+            if (isset($images) && count($images) > 0) {
+                $cont = 0;
+                foreach ($images as $image => $pic) {
+                    $cont++;
+                    if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$pic->name)) {
+                        $img_add = new ElementoImagen();
+                        $img_add->nombre = $pic->name;
+                        $img_add->id_elemento = $model->id;
+                        $img_add->orden = $cont;
+
+                        $img_add->save();
+                    }
+                    else{
+
+                    }
+                }
+            }
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -110,7 +160,18 @@ class GaleriaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+        $model = $this->loadModel($id);
+
+        foreach ($model->elementosImagenes as $image) {
+            unlink(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$image->nombre);
+        }
+
+        rmdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id);
+
+		$model->delete();
+
+
+
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))

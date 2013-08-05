@@ -39,9 +39,5 @@
 	<?php echo CHtml::encode($data->id_categoria); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_imagen')); ?>:</b>
-	<?php echo CHtml::encode($data->id_imagen); ?>
-	<br />
-
 
 </div>

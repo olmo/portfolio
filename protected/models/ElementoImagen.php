@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $nombre
  * @property integer $id_elemento
+ * @property integer orden
  *
  * The followings are the available model relations:
  * @property Elementos[] $elementoses
@@ -40,8 +41,8 @@ class ElementoImagen extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, id_elemento', 'required'),
-			array('id_elemento', 'numerical', 'integerOnly'=>true),
+			array('nombre, id_elemento, orden', 'required'),
+			array('id_elemento, orden', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -57,8 +58,7 @@ class ElementoImagen extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'elementoses' => array(self::HAS_MANY, 'Elementos', 'id_imagen'),
-			'idElemento' => array(self::BELONGS_TO, 'Elementos', 'id_elemento'),
+			'idElemento' => array(self::BELONGS_TO, 'Elemento', 'id_elemento'),
 		);
 	}
 
@@ -71,6 +71,7 @@ class ElementoImagen extends CActiveRecord
 			'id' => 'ID',
 			'nombre' => 'Nombre',
 			'id_elemento' => 'Id Elemento',
+            'orden' => 'Orden',
 		);
 	}
 

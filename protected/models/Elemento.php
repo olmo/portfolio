@@ -44,13 +44,13 @@ class Elemento extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, titulo, descripcion, id_categoria, id_imagen', 'required'),
-			array('id_categoria, id_imagen', 'numerical', 'integerOnly'=>true),
+			array('nombre, titulo, descripcion, id_categoria', 'required'),
+			array('id_categoria', 'numerical', 'integerOnly'=>true),
 			array('nombre, titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nombre, titulo, descripcion, id_categoria, id_imagen', 'safe', 'on'=>'search'),
+			array('id, nombre, titulo, descripcion, id_categoria', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +63,6 @@ class Elemento extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idCategoria' => array(self::BELONGS_TO, 'Categorias', 'id_categoria'),
-			'idImagen' => array(self::BELONGS_TO, 'ElementosImagenes', 'id_imagen'),
 			'elementosImagenes' => array(self::HAS_MANY, 'ElementoImagen', 'id_elemento'),
 		);
 	}
@@ -79,7 +78,6 @@ class Elemento extends CActiveRecord
 			'titulo' => 'Titulo',
 			'descripcion' => 'Descripcion',
 			'id_categoria' => 'Id Categoria',
-			'id_imagen' => 'Id Imagen',
 		);
 	}
 
@@ -99,7 +97,6 @@ class Elemento extends CActiveRecord
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('id_categoria',$this->id_categoria);
-		$criteria->compare('id_imagen',$this->id_imagen);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

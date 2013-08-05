@@ -13,6 +13,8 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Categorias</h1>
+<div class="layout full clearfix">
+    <h1>Añadir Categoría</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+    <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>

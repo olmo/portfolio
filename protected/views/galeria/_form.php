@@ -9,9 +9,10 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'elemento-form',
 	'enableAjaxValidation'=>false,
+    'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -35,20 +36,22 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_categoria'); ?>
-		<?php echo $form->textField($model,'id_categoria'); ?>
+        <?php echo $form->dropDownList($model,'id_categoria', CHtml::listData(Categorias::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
 		<?php echo $form->error($model,'id_categoria'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_imagen'); ?>
-		<?php echo $form->textField($model,'id_imagen'); ?>
-		<?php echo $form->error($model,'id_imagen'); ?>
-	</div>
+    <?php $this->widget('CMultiFileUpload', array(
+        'name' => 'images',
+        'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
+        'duplicate' => 'Duplicate file!', // useful, i think
+        'denied' => 'Invalid file type', // useful, i think
+    )); ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Añadir' : 'Guardar', array('class' => 'button green')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
+
 
 </div><!-- form -->

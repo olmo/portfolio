@@ -26,6 +26,5 @@ $this->menu=array(
 		'titulo',
 		'descripcion',
 		'id_categoria',
-		'id_imagen',
 	),
 )); ?>
