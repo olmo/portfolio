@@ -40,7 +40,7 @@ $this->breadcrumbs=array(
 
     <h3>Mandenos un e-mail</h3>
 
-    <p class="note">Campos con <span style="color: red;"">*</span> son obligatorios.</p>
+    <p class="note">Campos con <span style="color: #ff000;">*</span> son obligatorios.</p>
 
     <!-- Contact form -->
     <?php if(Yii::app()->user->hasFlash('contact')): ?>

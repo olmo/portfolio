@@ -43,7 +43,7 @@
             'activeCssClass'=>'selected',
             'items'=>array(
                 array('label'=>'Portfolio', 'url'=>array('/site/index')),
-                array('label'=>'Gallery', 'url'=>array('/site/index')),
+                array('label'=>'Galería', 'url'=>array('/galeria/index')),
                 array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
                     array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
                     array('label'=>'Administrar', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
