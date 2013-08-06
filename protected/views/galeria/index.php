@@ -2,6 +2,8 @@
 /* @var $this GaleriaController */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->pageTitle=Yii::app()->name . ' - Vinilos';
+
 $this->breadcrumbs=array(
 	'Elementos',
 );
