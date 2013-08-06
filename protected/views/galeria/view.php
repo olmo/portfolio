@@ -2,29 +2,21 @@
 /* @var $this GaleriaController */
 /* @var $model Elemento */
 
-$this->breadcrumbs=array(
-	'Elementos'=>array('index'),
-	$model->id,
-);
-
-$this->menu=array(
-	array('label'=>'List Elemento', 'url'=>array('index')),
-	array('label'=>'Create Elemento', 'url'=>array('create')),
-	array('label'=>'Update Elemento', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Elemento', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Elemento', 'url'=>array('admin')),
-);
 ?>
 
-<h1>View Elemento #<?php echo $model->id; ?></h1>
+<div class="slider portfolio_slider animation_slide" data-animation="slide" data-controls="1">
+    <ul>
+        <?php foreach ($model->elementosImagenes as $imagen): ?>
+            <li>
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/galeria/<?php echo $model->id; ?>/<?php echo $imagen->nombre; ?>" alt="">
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<section class="portfolio_description layout left">
+    <div class="skew"></div>
+    <a href="#" class="hide"></a>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'nombre',
-		'titulo',
-		'descripcion',
-		'id_categoria',
-	),
-)); ?>
+    <h2><?php echo $model->nombre; ?></h2>
+    <?php echo $model->descripcion; ?>
+</section>

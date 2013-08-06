@@ -527,7 +527,7 @@ header .social li a img {
   opacity: 0;
   color: #fff;
   text-shadow: 0 1px 1px #000;
-  background: url("../img/portfolio_overlay.png") bottom center no-repeat;
+  background: url("../images/portfolio_overlay.png") bottom center no-repeat;
   -moz-transition: opacity 0.3s;
   -webkit-transition: opacity 0.3s;
   -o-transition: opacity 0.3s;
@@ -622,10 +622,10 @@ header .social li a img {
   opacity: 1;
 }
 .gallery li a.photo:after {
-  background-image: url("../img/photo.png");
+  background-image: url("../images/photo.png");
 }
 .gallery li a.video:after {
-  background-image: url("../img/video.png");
+  background-image: url("../images/video.png");
 }
 .gallery li .caption {
   position: absolute;
@@ -736,7 +736,7 @@ header .social li a img {
   margin-left: -440px;
 }
 .layout.portfolio_description.disabled a.hide {
-  background: url("../img/arrow_white_right.png");
+  background: url("../images/arrow_white_right.png");
 }
 .layout.portfolio_description a.hide {
   display: inline-block;
@@ -745,7 +745,7 @@ header .social li a img {
   position: absolute;
   margin-top: 10px;
   right: -80px;
-  background: url("../img/arrow_white_left.png");
+  background: url("../images/arrow_white_left.png");
 }
 .layout.portfolio_description h2 {
   padding-bottom: 10px;
@@ -1034,10 +1034,10 @@ header .social li a img {
   margin-left: 5px;
 }
 .slider .controls a.prev {
-  background: url("../img/arrow_black_left.png");
+  background: url("../images/arrow_black_left.png");
 }
 .slider .controls a.next {
-  background: url("../img/arrow_black_right.png");
+  background: url("../images/arrow_black_right.png");
 }
 @media only screen and (max-width: 767px) {
   .slider {
@@ -1400,11 +1400,11 @@ header .social li a img {
 }
 .slider_wrapper .slider_controls a.prev {
   left: -13px;
-  background: url("../img/arrow_black_left.png");
+  background: url("../images/arrow_black_left.png");
 }
 .slider_wrapper .slider_controls a.next {
   right: -13px;
-  background: url("../img/arrow_black_right.png");
+  background: url("../images/arrow_black_right.png");
 }
 .note {
   font-style: italic;
