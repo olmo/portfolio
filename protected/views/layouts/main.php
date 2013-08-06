@@ -25,6 +25,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
