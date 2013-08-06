@@ -16,8 +16,9 @@
     <!--[if gt IE 8]>      <html class="no-js" lang="en">           <![endif]-->
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+	<meta charset="utf-8" />
+
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
@@ -27,7 +28,9 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 
 <body>
