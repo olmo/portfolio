@@ -47,8 +47,8 @@
             'items'=>array(
                 array('label'=>'Home', 'url'=>array('/site/index')),
                 array('label'=>'Vinilos', 'url'=>array('/galeria/index'), 'items'=>array(
-                    array('label'=>'Nuevo elemento', 'url'=>array('galeria/create'), 'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>'Administrar elementos', 'url'=>array('galeria/admin'), 'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Nuevo vinilo', 'url'=>array('galeria/create'), 'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Administrar vinilo', 'url'=>array('galeria/admin'), 'visible'=>!Yii::app()->user->isGuest ),
                 )),
                 array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
                     array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
