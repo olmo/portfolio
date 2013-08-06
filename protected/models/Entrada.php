@@ -70,9 +70,9 @@ class Entrada extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'titulo' => 'Titulo',
+			'titulo' => 'Título',
 			'texto' => 'Texto',
-			'fecha_publicacion' => 'Fecha Publicacion',
+			'fecha_publicacion' => 'Fecha publicación',
 			'autor' => 'Autor',
 		);
 	}

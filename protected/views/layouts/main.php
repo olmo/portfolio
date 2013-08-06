@@ -37,7 +37,7 @@
 
 <header class="clearfix">
     <h1 class="black">
-        <a href="index.html"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt=""></a>
+        <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt=""></a>
     </h1>
 
     <nav>
@@ -47,12 +47,12 @@
             'items'=>array(
                 array('label'=>'Home', 'url'=>array('/site/index')),
                 array('label'=>'Vinilos', 'url'=>array('/galeria/index'), 'items'=>array(
-                    array('label'=>'Nuevo Elemento', 'url'=>array('galeria/create'), 'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>'Administrar', 'url'=>array('galeria/admin'), 'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Nuevo elemento', 'url'=>array('galeria/create'), 'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Administrar elementos', 'url'=>array('galeria/admin'), 'visible'=>!Yii::app()->user->isGuest ),
                 )),
                 array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
                     array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>'Administrar', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
                 )),
                 array('label'=>'Contacto', 'url'=>array('/site/contact')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
