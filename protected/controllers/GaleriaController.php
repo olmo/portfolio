@@ -81,6 +81,8 @@ class GaleriaController extends Controller
                 if(!is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id)) {
                     mkdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id);
                     chmod(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id, 0755);
+                    mkdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/thumbs');
+                    chmod(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/thumbs', 0755);
                 }
 
                 foreach ($images as $image => $pic) {
@@ -90,8 +92,11 @@ class GaleriaController extends Controller
                         $img_add->nombre = $pic->name;
                         $img_add->id_elemento = $id;
                         $img_add->orden = $cont;
-
                         $img_add->save();
+
+                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/'.$pic->name);
+                        $im->resize(360, 225);
+                        $im->save(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/thumbs/'.$pic->name);
                     }
                     else{
 
@@ -135,8 +140,11 @@ class GaleriaController extends Controller
                         $img_add->nombre = $pic->name;
                         $img_add->id_elemento = $model->id;
                         $img_add->orden = $cont;
-
                         $img_add->save();
+
+                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$pic->name);
+                        $im->resize(360, 225);
+                        $im->save(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs/'.$pic->name);
                     }
                     else{
 
@@ -163,15 +171,19 @@ class GaleriaController extends Controller
         $model = $this->loadModel($id);
 
         foreach ($model->elementosImagenes as $image) {
-            unlink(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$image->nombre);
+            if(file_exists(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$image->nombre))
+                unlink(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$image->nombre);
+            if(file_exists(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs/'.$image->nombre))
+                unlink(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs/'.$image->nombre);
         }
 
-        rmdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id);
+        if(is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs'))
+            rmdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs');
+        if(is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id))
+            rmdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id);
+
 
 		$model->delete();
-
-
-
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))

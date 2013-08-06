@@ -27,33 +27,33 @@ $('.search-form form').submit(function(){
 ?>
 
 <div class="layout full clearfix">
-<h1>Administrar entradas</h1>
+    <h1>Administrar Entradas</h1>
 
-<p>
-También puede introducir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-o <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
-</p>
+    <p>
+        Puede introducir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+        o <b>=</b>) al principio de cada uno de los elementos de la búsqueda para indicar el tipo de comparación.
+    </p>
 
-<?php echo CHtml::link('Búsqueda avanzada','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+    <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
+    <div class="search-form" style="display:none">
+    <?php $this->renderPartial('_search',array(
+        'model'=>$model,
+    )); ?>
+    </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'entrada-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'id',
-		'titulo',
-		'texto',
-		'fecha_publicacion',
-		'autor',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+    <?php $this->widget('zii.widgets.grid.CGridView', array(
+        'id'=>'entrada-grid',
+        'dataProvider'=>$model->search(),
+        'filter'=>$model,
+        'columns'=>array(
+            'id',
+            'titulo',
+            'texto',
+            'fecha_publicacion',
+            'autor',
+            array(
+                'class'=>'CButtonColumn',
+            ),
+        ),
+    )); ?>
 </div>
