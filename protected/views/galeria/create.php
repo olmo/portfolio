@@ -14,7 +14,7 @@ $this->menu=array(
 ?>
 
 <div class="layout full clearfix">
-<h1>Añadir Elemento</h1>
+<h1>Añadir Vinilo</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 </div>

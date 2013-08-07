@@ -76,8 +76,9 @@ class Elemento extends CActiveRecord
 			'id' => 'ID',
 			'nombre' => 'Nombre',
 			'titulo' => 'Titulo',
-			'descripcion' => 'Descripcion',
-			'id_categoria' => 'Id Categoria',
+			'descripcion' => 'Descripción',
+			'id_categoria' => 'Categoría',
+            'elementosImagenes' => 'Imágenes',
 		);
 	}
 

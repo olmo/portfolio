@@ -42,15 +42,21 @@
 
     <nav>
         <!-- Desktop navigation -->
+        <?php
+            $cats = array();
+            foreach(Categorias::model()->findAll() as $cat) {
+                array_push($cats, array('label'=>$cat->nombre, 'url'=>array('galeria/view') ));
+            }
+            array_push($cats, array('label'=>'Nuevo vinilo', 'url'=>array('galeria/create'), 'visible'=>!Yii::app()->user->isGuest ));
+            array_push($cats, array('label'=>'Administrar vinilo', 'url'=>array('galeria/admin'), 'visible'=>!Yii::app()->user->isGuest ));
+        ?>
+
         <?php $this->widget('application.components.MenuModificado',array(
             'activateItemsOuter'=>false,
             'activeCssClass'=>'selected',
             'items'=>array(
                 array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'Vinilos', 'url'=>array('/galeria/index'), 'items'=>array(
-                    array('label'=>'Nuevo vinilo', 'url'=>array('galeria/create'), 'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>'Administrar vinilo', 'url'=>array('galeria/admin'), 'visible'=>!Yii::app()->user->isGuest ),
-                )),
+                array('label'=>'Vinilos', 'url'=>array('/galeria/index'), 'items'=>$cats),
                 array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
                     array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
                     array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
