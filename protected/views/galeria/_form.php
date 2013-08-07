@@ -42,12 +42,6 @@
 		<?php echo $form->error($model,'descripcion'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_categoria'); ?>
-        <?php echo $form->dropDownList($model,'id_categoria', CHtml::listData(Categorias::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
-		<?php echo $form->error($model,'id_categoria'); ?>
-	</div>
-
     <div class="row">
         <?php echo $form->labelEx($model,'elementosImagenes'); ?>
         <?php $this->widget('CMultiFileUpload', array(
