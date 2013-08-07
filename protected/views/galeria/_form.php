@@ -2,6 +2,7 @@
 /* @var $this GaleriaController */
 /* @var $model Elemento */
 /* @var $form CActiveForm */
+Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 ?>
 
 <div class="form">
@@ -38,7 +39,20 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'descripcion'); ?>
-		<?php echo $form->textField($model,'descripcion',array('size'=>60,'maxlength'=>255)); ?>
+        <?php $this->widget('ImperaviRedactorWidget', array(
+            // You can either use it for model attribute
+            'model' => $model,
+            'attribute' => 'descripcion',
+
+            'options' => array(
+                'lang' => 'es',
+                'minHeight' => 200,
+                'autoresize' => true,
+                'imageUpload' => 'http://localhost:8000'.$this->createUrl('blog/imgUpload'),
+                'imageUploadErrorCallback'=>new CJavaScriptExpression('function(obj, json){ alert(json.error); }'),
+            ),
+        ));
+        ?>
 		<?php echo $form->error($model,'descripcion'); ?>
 	</div>
 
@@ -47,8 +61,8 @@
         <?php $this->widget('CMultiFileUpload', array(
             'name' => 'images',
             'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
-            'duplicate' => 'Duplicate file!', // useful, i think
-            'denied' => 'Invalid file type', // useful, i think
+            'duplicate' => '¡Archivo duplicado!', // useful, i think
+            'denied' => 'Tipo de archivo inválido.', // useful, i think
         )); ?>
         <?php echo $form->error($model,'elementosImagenes'); ?>
     </div>

@@ -55,7 +55,7 @@
             'activateItemsOuter'=>false,
             'activeCssClass'=>'selected',
             'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
+                array('label'=>'Inicio', 'url'=>array('/site/index')),
                 array('label'=>'Vinilos', 'url'=>array('/galeria/index'), 'items'=>$cats),
                 array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
                     array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
