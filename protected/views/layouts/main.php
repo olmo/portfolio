@@ -42,7 +42,8 @@
 
     <nav>
         <!-- Desktop navigation -->
-        <?php $this->widget('zii.widgets.CMenu',array(
+        <?php $this->widget('application.components.MenuModificado',array(
+            'activateItemsOuter'=>false,
             'activeCssClass'=>'selected',
             'items'=>array(
                 array('label'=>'Home', 'url'=>array('/site/index')),

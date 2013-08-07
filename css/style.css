@@ -383,7 +383,7 @@ header nav ul li a {
   color: #333;
 }
 header nav ul li a:hover,
-header nav ul li.selected a {
+header nav ul li a.selected {
   font-weight: normal;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -431,7 +431,7 @@ header nav ul li ul li a {
   margin-right: 10px;
 }
 header nav ul li ul li a:hover,
-header nav ul li ul li.selected a {
+header nav ul li ul li a.selected {
   color: #fff;
   border-bottom: 1px solid #333;
 }
