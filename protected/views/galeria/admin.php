@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ?>
 
 <div class="layout full clearfix">
-    <h1>Administrar Elementos</h1>
+    <h1>Administrar vinilos</h1>
 
     <p>
     Puede introducir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

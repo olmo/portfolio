@@ -37,7 +37,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search', array('class' => 'button green')); ?>
+		<?php echo CHtml::submitButton('Buscar', array('class' => 'button green')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
