@@ -102,23 +102,52 @@
                 </form>
             </div>
             <nav>
+                <ul class="nav nav-pills nav-top">
+                    <li>
+                        <a href="about-us.html"><i class="icon-angle-right"></i>About Us</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html"><i class="icon-angle-right"></i>Contact Us</a>
+                    </li>
+                    <li class="phone">
+                        <span><i class="icon-phone"></i>(123) 456-7890</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <ul class="social-icons">
+                    <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+                    <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+                    <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+                </ul>
+            </div>
 
-                <?php $this->widget('application.components.MenuModificado',array(
-                    'activateItemsOuter'=>false,
-                    'activeCssClass'=>'selected',
-                    'items'=>array(
-                        array('label'=>'Inicio', 'url'=>array('/site/index')),
-                        array('label'=>'Vinilos', 'url'=>array('/galeria/index')),
-                        array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
-                            array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
-                            array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
-                        )),
-                        array('label'=>'Contacto', 'url'=>array('/site/contact')),
-                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                        array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-                    ),
-                )); ?>
+            <nav>
+                <ul class="nav nav-pills nav-main" id="mainMenu">
+                    <li class="dropdown active">
 
+                            <?php $this->widget('application.components.MenuModificado',array(
+                                'activateItemsOuter'=>false,
+                                'activeCssClass'=>'selected',
+                                'items'=>array(
+                                    array('label'=>'Inicio', 'url'=>array('/site/index')),
+
+
+
+
+                                    array('label'=>'Vinilos', 'url'=>array('/galeria/index')),
+                                    array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
+                                        array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
+                                        array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
+                                    )),
+                                    array('label'=>'Contacto', 'url'=>array('/site/contact')),
+                                    array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                                    array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                                ),
+                            )); ?>
+
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
