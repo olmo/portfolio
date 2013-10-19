@@ -123,9 +123,8 @@
             </div>
 
             <nav>
-                <?php $this->widget('application.components.MenuModificado',array(
-                    'activateItemsOuter'=>false,
-                    'activeCssClass'=>'selected',
+                <?php $this->widget('zii.widgets.CMenu',array(
+                    'activeCssClass'=>'active',
                     'encodeLabel' => false,
                     'id'=>'mainMenu',
                     'htmlOptions'=>array('class'=>'nav nav-pills nav-main'),
