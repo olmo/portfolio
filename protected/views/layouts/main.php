@@ -9,315 +9,363 @@
 ?>
 
 
-
-<!doctype html>
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,IE=8,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta itemprop="image" content="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.png" />
-    <link rel="icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" type="image/x-icon" />
-    
-    
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-    
-	<meta name="description" content="" />
-	<meta name="author" content="MEDIACREED.COM" />
-    <!--<meta name="fragment" content="!">-->
-    
-        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
-		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/js/video-js/video-js.min.css" />
-        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css' />        
-        
-        <!-- SCRIPT IE FIXES -->  
-        <!--[if lt IE 9]>
-        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]--> 
-        <!-- END SCRIPT IE FIXES-->
-      
-      
-        <!-- START TEMPLATE JavaScript load -->
-    	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/jquery-1.7.2.min.js"></script>    
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/modernizr.custom.min.js"></script> 
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/jquery.wipetouch.js"></script>   
-             
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=true"></script>
-        
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/jquery.gmap.min.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/greensock/minified/TweenMax.min.js"></script>    
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/jquery.timer.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/libs/jquery.mousewheel.min.js"></script>
-		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/audio-js/jquery.jplayer.min.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/audio-js/jplayer.playlist.min.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/mediacreed/scrollbar/mc.custom.list.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/mc.modules.animation.js"></script> 
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/video-js/video.min.js"></script>
-        <!-- END TEMPLATE JavaScript load ---->
-        
-        <!--<script src="http://vjs.zencdn.net/c/video.js"></script>    
-        Careful when using the online version because the destroy method throws an error.    
-        Our version has the fix on destroy method. Until it updates we recommend using the JS file from the template.    
-        -->
-        <script>
-            _V_.options.flash.swf = "js/video-js/video-js.swf";
-            _V_.options.techOrder = ["html5", "flash", "links"];
-            var params = {};
-            params.bgcolor = "#000000";
-            params.allowFullScreen = "true";       
-            _V_.options.flash.params = params;
-    
-        </script>    
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Porto - Responsive HTML5 Template">
+    <meta name="author" content="Crivos.com">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/flexslider/flexslider.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/magnific-popup/magnific-popup.css" media="screen" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/theme.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/theme-elements.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/theme-animate.css">
+
+    <!-- Current Page Styles -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/revolution-slider/css/settings.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/revolution-slider/css/captions.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/circle-flip-slideshow/css/component.css" media="screen" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/skins/blue.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/theme-responsive.css" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/img/favicon.ico">
+    <link rel="apple-touch-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo Yii::app()->request->baseUrl; ?>/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo Yii::app()->request->baseUrl; ?>/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo Yii::app()->request->baseUrl; ?>/img/apple-touch-icon-144x144.png">
+
+    <!-- Head Libs -->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/modernizr.js"></script>
+
+    <!--[if IE]>
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css">
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/respond.js"></script>
+    <![endif]-->
+
+    <!-- Facebook OpenGraph Tags - Go to http://developers.facebook.com/ for more information.
+    <meta property="og:title" content="Porto Website Template."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://www.crivos.com/themes/porto"/>
+    <meta property="og:image" content="http://www.crivos.com/themes/porto/"/>
+    <meta property="og:site_name" content="Porto"/>
+    <meta property="fb:app_id" content=""/>
+    <meta property="og:description" content="Porto - Responsive HTML5 Template"/>
+    -->
+
 </head>
 
 <body>
-
-<div class="main-template-loader"></div>
-
-<div id="template-wrapper">
-    <div id="menu-container"><!-- start #menu-container -->        
-        <div class="menu-content-holder"><!-- start .menu-content-holder -->
-            <div class="menu-background"></div>
-            <div id="template-logo" class="template-logo" data-href="#portfolio.html"></div> 
-            <div id="template-menu" class="template-menu" data-current-module-type="full_width_gallery" data-side="none" data-href="/index.php/blog"><!-- start #template-menu -->
-                <div class="menu-option-holder">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text">
-                        <a href="#">HOME</a>
-                        <div class="menu-option-sign">+</div>
-                    </div>                
-                    <div class="sub-menu-holder">
-                        <div class="sub-menu-option-holder" data-module-type="slideshow" data-side="none">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#home_layout_1.html" data-path-href="html/home/">Home Layout 1</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="home2" data-side="none">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#home_layout_2.html" data-path-href="html/home/">Home Layout 2</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="home3" data-side="none">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#home_layout_3.html" data-path-href="html/home/">Home Layout 3</a></div>
-                        </div>
-                        
-                    </div>         
-                </div>
-                <div class="menu-option-holder">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text">
-                        <a href="#">ABOUT US</a>
-                        <div class="menu-option-sign">+</div>
+<div class="body">
+    <header>
+        <div class="container">
+            <h1 class="logo">
+                <a href="index.html">
+                    <img alt="Porto" src="img/logo.png">
+                </a>
+            </h1>
+            <div class="search">
+                <form class="form-search" id="searchForm" action="page-search-results.html" method="get">
+                    <div class="control-group">
+                        <input type="text" class="input-medium search-query" name="q" id="q" placeholder="Search...">
+                        <button class="search" type="submit"><i class="icon-search"></i></button>
                     </div>
-                    <div class="sub-menu-holder">
-                        <div class="sub-menu-option-holder" data-module-type="text_page" data-side="height">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#about_us.html" data-path-href="html/about_us/">About us</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="text_page" data-side="none">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#philosophy.html" data-path-href="html/about_us/">Philosophy</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="text_page" data-side="height">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#ethics.html" data-path-href="html/about_us/">Ethics</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="text_page" data-side="none">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#careers.html" data-path-href="html/about_us/">Careers</a></div>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="menu-option-holder" data-module-type="news" data-side="height">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="index.php/blog" data-path-href="index.php/blog/">NEWS</a></div>
-                </div>  
-                <div class="menu-option-holder" data-module-type="full_width_gallery" data-side="none">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="#portfolio.html" data-path-href="html/portfolio/">PORTFOLIO</a></div>
-                </div> 
-                <div class="menu-option-holder">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="#">OUR PROJECTS</a><div class="menu-option-sign">+</div></div>
-                    <div class="sub-menu-holder">
-                        <div class="sub-menu-option-holder" data-module-type="page_columns" data-side="custom">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#4_columns_projects.html" data-path-href="html/our_projects/">4 Columns Projects</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="page_columns" data-side="custom">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#3_columns_projects.html" data-path-href="html/our_projects/">3 Columns Projects</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="page_columns" data-side="custom">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#2_columns_projects.html" data-path-href="html/our_projects/">2 Columns Projects</a></div>
-                        </div>
-                    </div>
-                </div>               
-                <div class="menu-option-holder" data-module-type="showreel" data-side="none">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="#showreel.html" data-path-href="html/showreel/">SHOWREEL</a></div>
-                </div>                               
-                <div class="menu-option-holder">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="#">GALLERIES</a><div class="menu-option-sign">+</div></div>
-                    <div class="sub-menu-holder">
-                        <div class="sub-menu-option-holder" data-module-type="gallery" data-side="none">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#image_gallery.html" data-path-href="html/galleries/">Image Gallery</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="gallery" data-side="none">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#mixed_gallery.html" data-path-href="html/galleries/">Mixed Gallery</a></div>
-                        </div>                        
-                    </div>
-                </div>                
-                <div class="menu-option-holder">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="#">FEATURES</a><div class="menu-option-sign">+</div></div>
-                    <div class="sub-menu-holder">
-                        <div class="sub-menu-option-holder" data-module-type="full_width" data-side="custom">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#full_width_text_and_image.html" data-path-href="html/features/">Fullwidth Text + Image</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="full_width" data-side="custom">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#full_width_text_and_video.html" data-path-href="html/features/">Fullwidth Text + Video</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="fullscreen_video" data-side="none">
-                            <div class="sub-menu-option-background"></div>
-                            <div class="sub-menu-option-text"><a href="#fullscreen_video.html" data-path-href="html/features/">Fullscreen Video</a></div>
-                        </div>
-                        <div class="sub-menu-option-holder" data-module-type="pricing_tables" data-side="none">
-                            <div class="sub-menu-option-background"> </div>
-                            <div class="sub-menu-option-text"><a href="#pricing_tables.html" data-path-href="html/features/">Pricing Table</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-option-holder" data-module-type="contact" data-side="custom">
-                    <div id="menu-option-background" class="menu-option-background"> </div>
-                    <div id="menu-option-text" class="menu-option-text"><a href="#contact.html" data-path-href="html/contact/">CONTACT US</a></div>
-                </div>            
-            </div><!-- end #template-menu -->  
-            <div id="template-smpartphone-menu">
-                <select>
-                    <option value="#">Navigate to...</option>
-                    <option value="#"> HOME +</option>
-                        <option value="#home_layout_1.html">  - Home Layout 1</option>
-                        <option value="#home_layout_2.html">  - Home Layout 2</option>
-                        <option value="#home_layout_3.html">  - Home Layout 3</option>
-                    <option value="#"> ABOUT US +</option>
-                        <option value="#about_us.html">  - About us</option>
-                        <option value="#philosophy.html">  - Philosophy</option>
-                        <option value="#ethics.html">  - Ethics</option>
-                        <option value="#careers.html">  - Careers</option>
-                    <option value="#news.html"> NEWS</option>
-                    <option value="#portfolio.html"> PORTFOLIO</option>
-                    <option value="#"> OUR PROJECTS +</option>
-                        <option value="#4_columns_projects.html">  - 4 Columns Projects</option>
-                        <option value="#3_columns_projects.html">  - 3 Columns Projects</option>
-                        <option value="#2_columns_projects.html">  - 2 Columns Projects</option>
-                    <option value="#showreel.html"> SHOWREEL</option>    
-                    <option value="#"> GALLERIES +</option>
-                        <option value="#image_gallery.html">  - Image Gallery</option>
-                        <option value="#mixed_gallery.html">  - Mixed Gallery</option>
-                    <option value="#"> FEATURES +</option>
-                        <option value="#full_width_text_and_image.html">  - Full Width Text + Image</option>
-                        <option value="#full_width_text_and_video.html">  - Full Width Text + Video</option>
-                        <option value="#fullscreen_video.html">  - Fullscreen Video</option>
-                        <option value="#pricing_tables.html">  - Pricing Table</option>  
-                    <option value="#contact.html"> CONTACT</option>
-                </select>
+                </form>
             </div>
-			<div id="audio-player" data-auto-play="true" data-player-opened="true" data-player-volume="0.6">
-                <div id="audio-items">
-                    <div id="audio-track" data-src="assets/audio/on_top_of_the_world" data-title="Tim McMorris - Top Of The World"></div>
-                    <div id="audio-track" data-src="assets/audio/overwhelmed" data-title="Tim McMorris - Overwhelmed"></div>
-                    <div id="audio-track" data-src="assets/audio/playing" data-title="Tim McMorris - Playing"></div>
-                    <div id="audio-track" data-src="assets/audio/happy" data-title="Tim McMorris - Happy"></div>                    
-                </div>
-                <div id="audio-player-tooltip" class="opacity_0">
-                    <div id="audio-tooltip-holder">
-                        <div class="audio-tooltip-backg"></div>
-                        <div class="audio-player-tooltip-title"><span></span></div>
-                    </div>
-                    <div class="audio-player-tooltip-hook"></div>                    
-                </div>
-                <div id="audio-player-holder">
-                    <div id="audio-options-button">
-                        <div class="audio-options-button-backg"></div>
-                        <div class="audio-options-button-sign"></div>
-                    </div>
-                    <div id="audio-player-options-holder">                    
-                        <div id="audio-prev-track">
-                            <div class="audio-controls-backg"></div>
-                            <div class="audio-prev-track-sign"></div>
-                        </div>
-                        <div id="audio-play-pause-track">
-                            <div class="audio-controls-backg"></div>
-                            <div class="audio-play-track-sign"></div>
-                            <div class="audio-pause-track-sign"></div>
-                        </div>
-                        <div id="audio-next-track">
-                            <div class="audio-controls-backg"></div>
-                            <div class="audio-next-track-sign"></div>
-                        </div>
-                        <div id="audio-volume-speaker">
-                            <div class="audio-controls-backg"></div>
-                            <div class="audio-volume-on-sign"></div>
-                            <div class="audio-volume-off-sign"></div>
-                        </div>
-                        <div id="audio-volume-bar">
-                            <div class="audio-volume-bar-scrub-backg"></div>
-                            <div class="audio-volume-bar-scrub-current"></div>
-                        </div>                        
-                    </div>                    
-                </div>
+            <nav>
+                <ul class="nav nav-pills nav-top">
+                    <li>
+                        <a href="about-us.html"><i class="icon-angle-right"></i>About Us</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html"><i class="icon-angle-right"></i>Contact Us</a>
+                    </li>
+                    <li class="phone">
+                        <span><i class="icon-phone"></i>(123) 456-7890</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <ul class="social-icons">
+                    <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+                    <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+                    <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+                </ul>
             </div>
-            <footer>    
-                <div id="footer-social">            
-                    <div id="footer-social-holder">
-                        <ul>
-                            <li class="twitter"><a href="http://www.twitter.com" target="_blank"></a></li>
-                            <li class="facebook"><a href="http://www.facebook.com" target="_blank"></a></li>
-                            <li class="google"><a href="http://www.google.com" target="_blank"></a></li>
-                            <li class="dribbble"><a href="http://www.dribbble.com" target="_blank"></a></li>
-                            <li class="flickr"><a href="http://www.flickr.com" target="_blank"></a></li>
+            <nav>
+                <ul class="nav nav-pills nav-main" id="mainMenu">
+                    <li class="dropdown active">
+                        <a class="dropdown-toggle" href="index.html">
+                            Home
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#">Sliders</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html">Revolution Slider</a></li>
+                                    <li><a href="index-slider-2.html">Nivo Slider</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index.html">Home Version 1</a></li>
+                            <li><a href="index-2.html">Home Version 2</a></li>
+                            <li><a href="index-one-page.html">One Page Website</a></li>
                         </ul>
-                    </div>                   
-                </div>    
-                <div id="footer-text"><!-- start #footer-text -->
-                    <div id="footer-copyright"><a href="#">&copy;2012 YOUR-COMPANY.COM</a></div>           
-                </div><!-- end #footer -->    
-            </footer> 
-        </div><!-- end .menu-content-holder-->
-        
-        <div id="menu-hider">
-            <div id="menu-hider-background"></div>
-            <div id="menu-hider-icon"></div>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            Features
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#">Headers</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html">Header Version 1</a></li>
+                                    <li><a href="index-header-2.html">Header Version 2</a></li>
+                                    <li><a href="index-header-3.html">Header Version 3</a></li>
+                                    <li><a href="index-header-4.html">Header Version 4</a></li>
+                                    <li><a href="index-header-5.html">Header Version 5</a></li>
+                                    <li><a href="index-header-6.html">Header Version 6</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Footers</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html#footer">Footer Version 1</a></li>
+                                    <li><a href="index-footer-2.html#footer">Footer Version 2</a></li>
+                                    <li><a href="index-footer-3.html#footer">Footer Version 3</a></li>
+                                    <li><a href="index-footer-4.html#footer">Footer Version 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Blog</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="blog-full-width.html">Blog Full Width</a></li>
+                                    <li><a href="blog-large-image.html">Blog Large Image</a></li>
+                                    <li><a href="blog-medium-image.html">Blog Medium Image</a></li>
+                                    <li><a href="blog-post.html">Single Post</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="feature-grid-system.html">Grid System</a></li>
+                            <li><a href="feature-pricing-tables.html">Pricing Tables</a></li>
+                            <li><a href="feature-icons.html">Icons</a></li>
+                            <li><a href="feature-elements.html">Elements</a></li>
+                            <li><a href="feature-animations.html">Animations</a></li>
+                            <li><a href="feature-typograpy.html">Typograpy</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            Portfolio
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="portfolio-2-columns.html">2 Columns</a></li>
+                            <li><a href="portfolio-3-columns.html">3 Columns</a></li>
+                            <li><a href="portfolio-4-columns.html">4 Columns</a></li>
+                            <li><a href="portfolio-single-project.html">Single Project</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            Pages
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="page-full-width.html">Full width</a></li>
+                            <li><a href="page-left-sidebar.html">Left sidebar</a></li>
+                            <li><a href="page-right-sidebar.html">Right sidebar</a></li>
+                            <li><a href="page-custom-header.html">Custom Header</a></li>
+                            <li><a href="page-404.html">404 Error</a></li>
+                            <li><a href="page-team.html">Team</a></li>
+                            <li><a href="page-services.html">Services</a></li>
+                            <li><a href="page-careers.html">Careers</a></li>
+                            <li><a href="page-faq.html">FAQ</a></li>
+                            <li><a href="sitemap.html">Sitemap</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="contact-us.html">
+                            Contact Us
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="contact-us.html">Version 1</a></li>
+                            <li><a href="contact-us-2.html">Version 2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </div><!-- end #menu-container -->
+    </header>
 
-    <div id="module-container">
-	<?php echo $content; ?>
+    <div role="main" class="main">
+        <div id="content" class="content full">
+            <div class="container">
+                <?php echo $content; ?>
+            </div>
+        </div>
     </div>
-    
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-ribon">
+                    <span>Get in Touch</span>
+                </div>
+                <div class="span3">
+                    <h4>Newsletter</h4>
+                    <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
+
+                    <div class="alert alert-success hidden" id="newsletterSuccess">
+                        <strong>Success!</strong> You've been added to our email list.
+                    </div>
+
+                    <div class="alert alert-error hidden" id="newsletterError"></div>
+
+                    <form class="form-inline" id="newsletterForm" action="php/newsletter-subscribe.php" method="POST">
+                        <div class="control-group">
+                            <div class="input-append">
+                                <input class="span2" placeholder="Email Address" name="email" id="email" type="text">
+                                <button class="btn" type="submit">Go!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="span3">
+                    <h4>Latest Tweet</h4>
+                    <div id="tweet" class="twitter" data-account-id="crivosthemes">
+                        <p>Please wait...</p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="contact-details">
+                        <h4>Contact Us</h4>
+                        <ul class="contact">
+                            <li><p><i class="icon-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>
+                            <li><p><i class="icon-phone"></i> <strong>Phone:</strong> (123) 456-7890</p></li>
+                            <li><p><i class="icon-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="span2">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <ul class="social-icons">
+                            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" rel="tooltip" title="Facebook">Facebook</a></li>
+                            <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" rel="tooltip" title="Twitter">Twitter</a></li>
+                            <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" rel="tooltip" title="Linkedin">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="span1">
+                        <a href="index.html" class="logo">
+                            <img alt="Porto Website Template" src="img/logo-footer.png">
+                        </a>
+                    </div>
+                    <div class="span7">
+                        <p>© Copyright 2013 by Crivos. All Rights Reserved.</p>
+                    </div>
+                    <div class="span4">
+                        <nav id="sub-menu">
+                            <ul>
+                                <li><a href="page-faq.html">FAQ's</a></li>
+                                <li><a href="sitemap.html">Sitemap</a></li>
+                                <li><a href="contact-us.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
-<div id="load-container">
-</div>
+<!-- Libs -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="vendor/jquery.js"><\/script>')</script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.easing.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.appear.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.cookie.js"></script>
+<!-- <script src="master/style-switcher/style.switcher.js"></script> Style Switcher -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/bootstrap.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/selectnav.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/twitterjs/twitter.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/revolution-slider/js/jquery.themepunch.plugins.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/revolution-slider/js/jquery.themepunch.revolution.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/flexslider/jquery.flexslider.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/magnific-popup/magnific-popup.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.validate.js"></script>
 
-<div id="loading-animation">
-	<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/loaders/loader.gif" width="16" height="11" alt="Synergy - loading animation"/>
-</div>
-<div id="footer-social-tooltip"></div>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins.js"></script>
 
-<div id="console-log"></div>
-<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script> 
+<!-- Current Page Scripts -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/views/view.home.js"></script>
+
+<!-- Theme Initializer -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/theme.js"></script>
+
+<!-- Custom JS -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/custom.js"></script>
+
+<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
+<!--
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+-->
+
 </body>
+
+
 </html>
 
 
