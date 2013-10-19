@@ -69,7 +69,7 @@ class GaleriaController extends Controller
 
 		if(isset($_POST['Elemento']))
 		{
-			$model->attributes=$_POST['Elemento'];
+			$model->attributes=$_POST['Foto'];
             $model->save();
             $id = $model->getPrimaryKey();
 
@@ -89,7 +89,7 @@ class GaleriaController extends Controller
                     $cont++;
                     if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/'.$pic->name)) {
                         $img_add = new ElementoImagen();
-                        $img_add->nombre = $pic->name;
+                        $img_add->titulo = $pic->titulo;
                         $img_add->id_elemento = $id;
                         $img_add->orden = $cont;
                         $img_add->save();

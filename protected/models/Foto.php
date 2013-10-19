@@ -67,7 +67,7 @@ class Foto extends CActiveRecord
             'idTecnica' => array(self::BELONGS_TO, 'FotosTecnicas', 'id_tecnica'),
             'idTema' => array(self::BELONGS_TO, 'FotosTemas', 'id_tema'),
             'idMontaje' => array(self::BELONGS_TO, 'FotosMontajes', 'montaje_recomendado'),
-			'fotoTamanos' => array(self::HAS_MANY, 'FotosTamanosRelation', 'id_foto'),
+			'fotoTamano' => array(self::HAS_MANY, 'FotosTamanosRelation', 'id_foto'),
 		);
 	}
 

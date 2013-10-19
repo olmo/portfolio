@@ -19,23 +19,34 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
 
     <div class="row">
-        <div class="one_half first">
-            <?php echo $form->labelEx($model,'nombre'); ?>
-            <?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50)); ?>
-            <?php echo $form->error($model,'nombre'); ?>
-            </div>
-        <div class="one_half last">
-            <?php echo $form->labelEx($model,'id_categoria'); ?>
-            <?php echo $form->dropDownList($model,'id_categoria', CHtml::listData(Categorias::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
-            <?php echo $form->error($model,'id_categoria'); ?>
-        </div>
+        <?php echo $form->labelEx($model,'titulo'); ?>
+        <?php echo $form->textField($model,'titulo',array('size'=>50,'maxlength'=>50)); ?>
+        <?php echo $form->error($model,'titulo'); ?>
     </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'titulo'); ?>
-		<?php echo $form->textField($model,'titulo',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'titulo'); ?>
-	</div>
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_artista'); ?>
+        <?php echo $form->dropDownList($model,'id_artista', CHtml::listData(Artista::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
+        <?php echo $form->error($model,'id_artista'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_formato'); ?>
+        <?php echo $form->dropDownList($model,'id_formato', CHtml::listData(FotosFormato::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
+        <?php echo $form->error($model,'id_formato'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_tecnica'); ?>
+        <?php echo $form->dropDownList($model,'id_tecnica', CHtml::listData(FotosTecnica::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
+        <?php echo $form->error($model,'id_tecnica'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_tema'); ?>
+        <?php echo $form->dropDownList($model,'id_tema', CHtml::listData(FotosTema::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
+        <?php echo $form->error($model,'id_tema'); ?>
+    </div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'descripcion'); ?>
@@ -68,7 +79,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
     </div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Añadir' : 'Guardar', array('class' => 'button green')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Añadir' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
