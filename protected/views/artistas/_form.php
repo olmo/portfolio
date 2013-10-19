@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_categoria'); ?>
-		<?php echo $form->dropDownList($model,'id_categoria', CHtml::listData(ArtistasCategoria::model())); ?>
+		<?php echo $form->dropDownList($model,'id_categoria', CHtml::listData(ArtistasCategoria::model()->findAll(), 'id', 'nombre'), array('empty'=>'Seleccione la categoría')); ?>
 		<?php echo $form->error($model,'id_categoria'); ?>
 	</div>
 
