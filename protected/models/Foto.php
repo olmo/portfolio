@@ -16,12 +16,12 @@
  * @property ElementosImagenes $idImagen
  * @property ElementosImagenes[] $elementosImagenes
  */
-class Elemento extends CActiveRecord
+class Foto extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Elemento the static model class
+	 * @return Foto the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -33,7 +33,7 @@ class Elemento extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elementos';
+		return 'fotos';
 	}
 
 	/**
@@ -44,13 +44,13 @@ class Elemento extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, titulo, descripcion, id_categoria', 'required'),
-			array('id_categoria', 'numerical', 'integerOnly'=>true),
-			array('nombre, titulo', 'length', 'max'=>50),
+			array('titulo, descripcion, id_artista, id_formato, id_tecnica, id_tema, montaje_recomendado', 'required'),
+			array('id_artista', 'numerical', 'integerOnly'=>true),
+			array('titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nombre, titulo, descripcion, id_categoria', 'safe', 'on'=>'search'),
+			array('id, titulo, descripcion, id_artista', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,8 +62,12 @@ class Elemento extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idCategoria' => array(self::BELONGS_TO, 'Categorias', 'id_categoria'),
-			'elementosImagenes' => array(self::HAS_MANY, 'ElementoImagen', 'id_elemento'),
+            'idArtista' => array(self::BELONGS_TO, 'Artistas', 'id_artista'),
+			'idFormato' => array(self::BELONGS_TO, 'FotosFormatos', 'id_formato'),
+            'idTecnica' => array(self::BELONGS_TO, 'FotosTecnicas', 'id_tecnica'),
+            'idTema' => array(self::BELONGS_TO, 'FotosTemas', 'id_tema'),
+            'idMontaje' => array(self::BELONGS_TO, 'FotosMontajes', 'montaje_recomendado'),
+			'fotoTamanos' => array(self::HAS_MANY, 'FotosTamanosRelation', 'id_foto'),
 		);
 	}
 
@@ -74,11 +78,10 @@ class Elemento extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'nombre' => 'Nombre',
 			'titulo' => 'Titulo',
 			'descripcion' => 'Descripción',
-			'id_categoria' => 'Categoría',
-            'elementosImagenes' => 'Imágenes',
+			'id_artista' => 'Artista',
+            'fotoTamanos' => 'Tamaños',
 		);
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /* @var $this GaleriaController */
-/* @var $model Elemento */
+/* @var $model Foto */
 /* @var $form CActiveForm */
 Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 ?>

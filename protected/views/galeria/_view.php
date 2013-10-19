@@ -1,6 +1,6 @@
 <?php
 /* @var $this GaleriaController */
-/* @var $data Elemento */
+/* @var $data Foto */
 ?>
 
 

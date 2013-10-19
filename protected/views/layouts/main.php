@@ -123,31 +123,25 @@
             </div>
 
             <nav>
-                <ul class="nav nav-pills nav-main" id="mainMenu">
-                    <li class="dropdown active">
-
-                            <?php $this->widget('application.components.MenuModificado',array(
-                                'activateItemsOuter'=>false,
-                                'activeCssClass'=>'selected',
-                                'items'=>array(
-                                    array('label'=>'Inicio', 'url'=>array('/site/index')),
-
-
-
-
-                                    array('label'=>'Vinilos', 'url'=>array('/galeria/index')),
-                                    array('label'=>'Blog', 'url'=>array('/blog/index'), 'items'=>array(
-                                        array('label'=>'Nueva entrada', 'url'=>array('blog/create'), 'visible'=>!Yii::app()->user->isGuest ),
-                                        array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), 'visible'=>!Yii::app()->user->isGuest ),
-                                    )),
-                                    array('label'=>'Contacto', 'url'=>array('/site/contact')),
-                                    array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                                    array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-                                ),
-                            )); ?>
-
-                    </li>
-                </ul>
+                <?php $this->widget('application.components.MenuModificado',array(
+                    'activateItemsOuter'=>false,
+                    'activeCssClass'=>'selected',
+                    'encodeLabel' => false,
+                    'id'=>'mainMenu',
+                    'htmlOptions'=>array('class'=>'nav nav-pills nav-main'),
+                    'submenuHtmlOptions'=>array('class'=>'dropdown-menu'),
+                    'items'=>array(
+                        array('label'=>'Inicio', 'url'=>array('/site/index'),),
+                        array('label'=>'Vinilos', 'url'=>array('/galeria/index')),
+                        array('label'=>'Blog <i class="icon-angle-down"></i>', 'url'=>array('/blog/index'), 'itemOptions'=>array('class'=>'dropdown'), 'linkOptions'=>array('class'=>'dropdown-toggle'), 'items'=>array(
+                            array('label'=>'Nueva entrada', 'url'=>array('blog/create'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
+                            array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
+                        )),
+                        array('label'=>'Contacto', 'url'=>array('/site/contact')),
+                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                        array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                    ),
+                )); ?>
             </nav>
         </div>
     </header>

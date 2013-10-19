@@ -1,6 +1,6 @@
 <?php
 /* @var $this GaleriaController */
-/* @var $model Elemento */
+/* @var $model Foto */
 /* @var $form CActiveForm */
 ?>
 

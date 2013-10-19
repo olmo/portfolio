@@ -62,7 +62,7 @@ class GaleriaController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Elemento;
+		$model=new Foto;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -206,7 +206,7 @@ class GaleriaController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Elemento('search');
+		$model=new Foto('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Elemento']))
 			$model->attributes=$_GET['Elemento'];
@@ -220,12 +220,12 @@ class GaleriaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Elemento the loaded model
+	 * @return Foto the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Elemento::model()->findByPk($id);
+		$model=Foto::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -233,7 +233,7 @@ class GaleriaController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Elemento $model the model to be validated
+	 * @param Foto $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
