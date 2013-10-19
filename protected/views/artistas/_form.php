@@ -1,6 +1,6 @@
 <?php
 /* @var $this ArtistasController */
-/* @var $model Artistas */
+/* @var $model Artista */
 /* @var $form CActiveForm */
 ?>
 
@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_categoria'); ?>
-		<?php echo $form->textField($model,'id_categoria'); ?>
+		<?php echo $form->dropDownList($model,'id_categoria', CHtml::listData(ArtistasCategoria::model())); ?>
 		<?php echo $form->error($model,'id_categoria'); ?>
 	</div>
 

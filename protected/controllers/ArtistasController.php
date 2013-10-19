@@ -62,7 +62,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Artistas;
+		$model=new Artista;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -133,7 +133,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Artistas('search');
+		$model=new Artista('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Artistas']))
 			$model->attributes=$_GET['Artistas'];
@@ -147,12 +147,12 @@ class ArtistasController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Artistas the loaded model
+	 * @return Artista the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Artistas::model()->findByPk($id);
+		$model=Artista::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,7 +160,7 @@ class ArtistasController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Artistas $model the model to be validated
+	 * @param Artista $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{

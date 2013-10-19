@@ -1,6 +1,6 @@
 <?php
 /* @var $this ArtistasController */
-/* @var $model Artistas */
+/* @var $model Artista */
 /* @var $form CActiveForm */
 ?>
 

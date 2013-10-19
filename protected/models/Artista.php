@@ -11,10 +11,10 @@
  * @property string $imagen
  *
  * The followings are the available model relations:
- * @property ArtistasCategorias $idCategoria
+ * @property ArtistasCategoria $idCategoria
  * @property Fotos[] $fotoses
  */
-class Artistas extends CActiveRecord
+class Artista extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -101,7 +101,7 @@ class Artistas extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Artistas the static model class
+	 * @return Artista the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

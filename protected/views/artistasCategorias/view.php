@@ -1,6 +1,6 @@
 <?php
 /* @var $this ArtistasCategoriasController */
-/* @var $model ArtistasCategorias */
+/* @var $model ArtistasCategoria */
 
 $this->breadcrumbs=array(
 	'Artistas Categoriases'=>array('index'),
