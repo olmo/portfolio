@@ -44,8 +44,12 @@ class FotosController extends Controller
             'criteria'=>$criteria,
         ));
 
-        $this->render('indexTecnica',array(
+        $this->render('indexSimple',array(
             'dataProvider'=>$dataProvider,
+            'tipo'=>'tecnica',
+            'tipoS'=>'Técnica',
+            'tipoP'=>'Técnicas',
+            'createUrl'=>'createTecnica',
         ));
     }
 
@@ -65,8 +69,11 @@ class FotosController extends Controller
                 $this->redirect(array('indexTecnica'));
         }
 
-        $this->render('createTecnica',array(
+        $this->render('createSimple',array(
             'model'=>$model,
+            'tipo'=>'tecnica',
+            'tipoS'=>'Técnica',
+            'tipoP'=>'Técnicas',
         ));
     }
 
@@ -83,8 +90,12 @@ class FotosController extends Controller
             'criteria'=>$criteria,
         ));
 
-        $this->render('indexFormato',array(
+        $this->render('indexSimple',array(
             'dataProvider'=>$dataProvider,
+            'tipo'=>'formato',
+            'tipoS'=>'Formato',
+            'tipoP'=>'Formatos',
+            'createUrl'=>'createFormato',
         ));
     }
 
@@ -104,8 +115,11 @@ class FotosController extends Controller
                 $this->redirect(array('indexFormato'));
         }
 
-        $this->render('createFormato',array(
+        $this->render('createSimple',array(
             'model'=>$model,
+            'tipo'=>'formato',
+            'tipoS'=>'Formato',
+            'tipoP'=>'Formatos',
         ));
     }
 
@@ -122,8 +136,12 @@ class FotosController extends Controller
             'criteria'=>$criteria,
         ));
 
-        $this->render('indexTema',array(
+        $this->render('indexSimple',array(
             'dataProvider'=>$dataProvider,
+            'tipo'=>'tema',
+            'tipoS'=>'Tema',
+            'tipoP'=>'Temas',
+            'createUrl'=>'createTema',
         ));
     }
 
@@ -140,11 +158,14 @@ class FotosController extends Controller
         {
             $model->attributes=$_POST['FotosTema'];
             if($model->save())
-                $this->redirect(array('FotosTema'));
+                $this->redirect(array('indexTema'));
         }
 
-        $this->render('createTema',array(
+        $this->render('createSimple',array(
             'model'=>$model,
+            'tipo'=>'tema',
+            'tipoS'=>'Tema',
+            'tipoP'=>'Temas',
         ));
     }
 
@@ -161,8 +182,12 @@ class FotosController extends Controller
             'criteria'=>$criteria,
         ));
 
-        $this->render('indexTamano',array(
+        $this->render('indexSimple',array(
             'dataProvider'=>$dataProvider,
+            'tipo'=>'tamano',
+            'tipoS'=>'Tamaño',
+            'tipoP'=>'Tamaños',
+            'createUrl'=>'createTamano',
         ));
     }
 
@@ -179,11 +204,14 @@ class FotosController extends Controller
         {
             $model->attributes=$_POST['FotosTamano'];
             if($model->save())
-                $this->redirect(array('FotosTamano'));
+                $this->redirect(array('indexTamano'));
         }
 
-        $this->render('createTamano',array(
+        $this->render('createSimple',array(
             'model'=>$model,
+            'tipo'=>'tamano',
+            'tipoS'=>'Tamaño',
+            'tipoP'=>'Tamaños',
         ));
     }
 
