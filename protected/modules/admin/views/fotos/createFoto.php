@@ -5,6 +5,8 @@
 Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 ?>
 
+
+
 <h3>Añadir Foto</h3>
 
 <div class="form">
@@ -82,7 +84,59 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
         <?php echo $form->error($model,'elementosImagenes'); ?>
     </div>
 
-    <div class="row buttons">
+        <?php
+
+        // see http://www.yiiframework.com/doc/guide/1.1/en/form.table
+        // Note: Can be a route to a config file too,
+        //       or create a method 'getMultiModelForm()' in the member model
+        $tams = FotosTamano::model()->findAll();
+        $arr = array();
+        $arr[''] = '-';
+        foreach($tams as $t)
+        {
+            $arr[$t->id] = $t->nombre;
+        }
+
+        $memberFormConfig = array(
+            'elements'=>array(
+                'id_tamano'=>array(
+                    'type'=>'dropdownlist',
+                    //it is important to add an empty item because of new records
+                    'items'=>$arr,
+                ),
+                'ancho'=>array(
+                    'type'=>'text',
+                    'maxlength'=>40,
+                ),
+                'alto'=>array(
+                    'type'=>'text',
+                    'maxlength'=>40,
+                ),
+                'precio'=>array(
+                    'type'=>'text',
+                    'maxlength'=>40,
+                ),
+                'stock_inicial'=>array(
+                    'type'=>'text',
+                    'maxlength'=>40,
+                ),
+            ));
+
+        $this->widget('ext.multimodelform.MultiModelForm',array(
+            'id' => 'id_foto', //the unique widget id
+            'formConfig' => $memberFormConfig, //the form configuration array
+            'model' => $tamanos, //instance of the form model
+
+            //if submitted not empty from the controller,
+            //the form will be rendered with validation errors
+            //'validatedItems' => $validatedMembers,
+
+            //array of member instances loaded from db
+           // 'data' => $member->findAll('groupid=:groupId', array(':groupId'=>$model->id)),
+        ));
+        ?>
+
+        <div class="row buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Añadir' : 'Guardar'); ?>
     </div>
 

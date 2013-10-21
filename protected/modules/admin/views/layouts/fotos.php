@@ -5,10 +5,10 @@
             'htmlOptions'=>array('class'=>'sideNav'),
             'items'=>array(
                 array('label'=>'Fotos', 'url'=>array('/admin/fotos/index'),),
-                array('label'=>'Formatos', 'url'=>array('/admin/fotos/indexFormato')),
-                array('label'=>'Tamaños', 'url'=>array('/admin/fotos/indexTamano')),
-                array('label'=>'Técnicas', 'url'=>array('/admin/fotos/indexTecnica')),
-                array('label'=>'Temas', 'url'=>array('/admin/fotos/indexTema')),
+                array('label'=>'Formatos', 'url'=>array('/admin/fotos/view/tipo/formato')),
+                array('label'=>'Tamaños', 'url'=>array('/admin/fotos/view/tipo/tamano')),
+                array('label'=>'Técnicas', 'url'=>array('/admin/fotos/view/tipo/tecnica')),
+                array('label'=>'Temas', 'url'=>array('/admin/fotos/view/tipo/tema')),
             ),
         )); ?>
     </div>

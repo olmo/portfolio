@@ -3,6 +3,37 @@
 class FotosController extends Controller
 {
     //public $layout='//layouts/fotos';
+    private $tiposModelos;
+    private $tiposS;
+    private $tiposP;
+
+    public function __construct($id,$module=null)
+    {
+        $this->tiposModelos = array(
+            'formato'=>'FotosFormato',
+            'tamano'=>'FotosTamano',
+            'tecnica'=>'FotosTecnica',
+            'tema'=>'FotosTema',
+        );
+
+        $this->tiposS = array(
+            'formato'=>'Formato',
+            'tamano'=>'Tamaño',
+            'tecnica'=>'Técnica',
+            'tema'=>'Tema',
+        );
+
+        $this->tiposP = array(
+            'formato'=>'Formatos',
+            'tamano'=>'Tamaños',
+            'tecnica'=>'Técnicas',
+            'tema'=>'Temas',
+        );
+
+
+        parent::__construct($id,$module);
+    }
+
 
     public function actionIndex()
     {
@@ -15,6 +46,9 @@ class FotosController extends Controller
         $this->layout = 'fotos';
 
         $model=new Foto();
+        $tamanos = new FotosTamanosRelation();
+
+        $validateTamanos = array();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -22,16 +56,22 @@ class FotosController extends Controller
         if(isset($_POST['Foto']))
         {
             $model->attributes=$_POST['Foto'];
-            if($model->save())
-                $this->redirect(array('index'));
+
+            if(MultiModelForm::validate($tamanos, $validateTamanos,$deleteItems) && $model->save()){
+                $masterValues = array ('foto_id'=>$model->id);
+
+                if (MultiModelForm::save($tamanos,$validateTamanos,$deleteMembers,$masterValues))
+                    $this->redirect(array('index'));
+            }
         }
 
         $this->render('createFoto',array(
             'model'=>$model,
+            'tamanos'=>$tamanos,
         ));
     }
 
-    public function  actionIndexTecnica()
+    public function actionView($tipo)
     {
         $this->layout = 'fotos';
 
@@ -39,179 +79,86 @@ class FotosController extends Controller
             'order'=>'nombre ASC',
         ));
 
-        $dataProvider=new CActiveDataProvider('FotosTecnica', array(
+        $dataProvider=new CActiveDataProvider($this->tiposModelos[$tipo], array(
 
             'criteria'=>$criteria,
         ));
 
         $this->render('indexSimple',array(
             'dataProvider'=>$dataProvider,
-            'tipo'=>'tecnica',
-            'tipoS'=>'Técnica',
-            'tipoP'=>'Técnicas',
-            'createUrl'=>'createTecnica',
+            'tipo'=>$tipo,
+            'tipoS'=>$this->tiposS[$tipo],
+            'tipoP'=>$this->tiposP[$tipo],
         ));
     }
 
-    public function actionCreateTecnica()
+    public function actionCreate($tipo)
     {
         $this->layout = 'fotos';
 
-        $model=new FotosTecnica();
+
+        $model=new $this->tiposModelos[$tipo]();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if(isset($_POST['FotosTecnica']))
+        if(isset($_POST[$this->tiposModelos[$tipo]]))
         {
-            $model->attributes=$_POST['FotosTecnica'];
+            $model->attributes=$_POST[$this->tiposModelos[$tipo]];
             if($model->save())
-                $this->redirect(array('indexTecnica'));
+                $this->redirect(array('view','tipo'=>$tipo));
         }
 
         $this->render('createSimple',array(
             'model'=>$model,
-            'tipo'=>'tecnica',
-            'tipoS'=>'Técnica',
-            'tipoP'=>'Técnicas',
+            'tipo'=>$tipo,
+            'tipoS'=>$this->tiposS[$tipo],
+            'tipoP'=>$this->tiposP[$tipo],
         ));
     }
 
-    public function  actionIndexFormato()
+    public function actionUpdate($tipo, $id)
     {
         $this->layout = 'fotos';
 
-        $criteria=new CDbCriteria(array(
-            'order'=>'nombre ASC',
-        ));
+        $model=$this->loadModel($id, $tipo);
 
-        $dataProvider=new CActiveDataProvider('FotosFormato', array(
+        $tiposModelos = array(
+            'formato'=>'FotosFormato',
+            'tamano'=>'FotosTamano',
+            'tecnica'=>'FotosTecnica',
+            'tema'=>'FotosTema',
+        );
 
-            'criteria'=>$criteria,
-        ));
+        $tiposS = array(
+            'formato'=>'Formato',
+            'tamano'=>'Tamaño',
+            'tecnica'=>'Técnica',
+            'tema'=>'Tema',
+        );
 
-        $this->render('indexSimple',array(
-            'dataProvider'=>$dataProvider,
-            'tipo'=>'formato',
-            'tipoS'=>'Formato',
-            'tipoP'=>'Formatos',
-            'createUrl'=>'createFormato',
-        ));
-    }
-
-    public function actionCreateFormato()
-    {
-        $this->layout = 'fotos';
-
-        $model=new FotosFormato();
+        $tiposP = array(
+            'formato'=>'Formatos',
+            'tamano'=>'Tamaños',
+            'tecnica'=>'Técnicas',
+            'tema'=>'Temas',
+        );
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if(isset($_POST['FotosFormato']))
+        if(isset($_POST[$tiposModelos[$tipo]]))
         {
-            $model->attributes=$_POST['FotosFormato'];
+            $model->attributes=$_POST[$tiposModelos[$tipo]];
             if($model->save())
-                $this->redirect(array('indexFormato'));
+                $this->redirect(array('view','tipo'=>$tipo));
         }
 
         $this->render('createSimple',array(
             'model'=>$model,
-            'tipo'=>'formato',
-            'tipoS'=>'Formato',
-            'tipoP'=>'Formatos',
-        ));
-    }
-
-    public function  actionIndexTema()
-    {
-        $this->layout = 'fotos';
-
-        $criteria=new CDbCriteria(array(
-            'order'=>'nombre ASC',
-        ));
-
-        $dataProvider=new CActiveDataProvider('FotosTema', array(
-
-            'criteria'=>$criteria,
-        ));
-
-        $this->render('indexSimple',array(
-            'dataProvider'=>$dataProvider,
-            'tipo'=>'tema',
-            'tipoS'=>'Tema',
-            'tipoP'=>'Temas',
-            'createUrl'=>'createTema',
-        ));
-    }
-
-    public function actionCreateTema()
-    {
-        $this->layout = 'fotos';
-
-        $model=new FotosTema();
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if(isset($_POST['FotosTema']))
-        {
-            $model->attributes=$_POST['FotosTema'];
-            if($model->save())
-                $this->redirect(array('indexTema'));
-        }
-
-        $this->render('createSimple',array(
-            'model'=>$model,
-            'tipo'=>'tema',
-            'tipoS'=>'Tema',
-            'tipoP'=>'Temas',
-        ));
-    }
-
-    public function  actionIndexTamano()
-    {
-        $this->layout = 'fotos';
-
-        $criteria=new CDbCriteria(array(
-            'order'=>'nombre ASC',
-        ));
-
-        $dataProvider=new CActiveDataProvider('FotosTamano', array(
-
-            'criteria'=>$criteria,
-        ));
-
-        $this->render('indexSimple',array(
-            'dataProvider'=>$dataProvider,
-            'tipo'=>'tamano',
-            'tipoS'=>'Tamaño',
-            'tipoP'=>'Tamaños',
-            'createUrl'=>'createTamano',
-        ));
-    }
-
-    public function actionCreateTamano()
-    {
-        $this->layout = 'fotos';
-
-        $model=new FotosTamano();
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if(isset($_POST['FotosTamano']))
-        {
-            $model->attributes=$_POST['FotosTamano'];
-            if($model->save())
-                $this->redirect(array('indexTamano'));
-        }
-
-        $this->render('createSimple',array(
-            'model'=>$model,
-            'tipo'=>'tamano',
-            'tipoS'=>'Tamaño',
-            'tipoP'=>'Tamaños',
+            'tipo'=>$tipo,
+            'tipoS'=>$tiposS[$tipo],
+            'tipoP'=>$tiposP[$tipo],
         ));
     }
 
@@ -222,15 +169,15 @@ class FotosController extends Controller
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
             if($tipo=='tecnica')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('indexTecnica'));
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
             else if($tipo=='tema')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('indexTema'));
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
             else if($tipo=='formato')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('indexFormato'));
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
             else if($tipo=='tamano')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('indexTamano'));
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
             else if($tipo=='montaje')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('indexMontaje'));
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
     }
 
@@ -250,6 +197,15 @@ class FotosController extends Controller
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
         return $model;
+    }
+
+    protected function performAjaxValidation($model)
+    {
+        if(isset($_POST['ajax']) && $_POST['ajax']==='tema-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
     }
 
 }
