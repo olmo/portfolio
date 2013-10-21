@@ -62,21 +62,25 @@ class ArtistasController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Artista;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Artistas']))
-		{
-			$model->attributes=$_POST['Artistas'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+        $model=new Artistas;  // este es el modelo relacionado a la tabla
+        if(isset($_POST['Artistas']))
+        {
+            $rnd = rand(0,9999);  // Generamos un numero aleatorio entre 0-9999
+            $model->attributes=$_POST['Artistas'];
+            
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            $fileName = "{$rnd}-{$uploadedFile}";  // numero aleatorio  + nombre de archivo
+            $model->imagen = $fileName;
+            
+            if($model->save())
+            {
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$fileName);  // la imagen se subirá a la carpeta raiz /banner/
+                $this->redirect(array('admin'));
+            }
+        }
+        $this->render('create',array(
+            'model'=>$model,
+        ));
 	}
 
 	/**
@@ -86,21 +90,31 @@ class ArtistasController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Artistas']))
-		{
-			$model->attributes=$_POST['Artistas'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+        $model=$this->loadModel($id);
+        
+        if(isset($_POST['Artistas']))
+        {
+            $_POST['Artistas']['imagen'] = $model->imagen;
+            $model->attributes=$_POST['Artistas'];
+            
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            
+            if($model->save())
+            {
+                if(!empty($uploadedFile))  // checkeamos si el archivo subido esta seteado o no
+                {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$model->imagen);
+                }
+                $this->redirect(array('admin'));
+            }
+            
+            if($model->save())
+                $this->redirect(array('admin'));
+        }
+        
+        $this->render('update',array(
+             'model'=>$model,
+        ));
 	}
 
 	/**
@@ -133,7 +147,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Artista('search');
+		$model=new Artistas('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Artistas']))
 			$model->attributes=$_GET['Artistas'];
@@ -147,12 +161,12 @@ class ArtistasController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Artista the loaded model
+	 * @return Artistas the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Artista::model()->findByPk($id);
+		$model=Artistas::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,7 +174,7 @@ class ArtistasController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Artista $model the model to be validated
+	 * @param Artistas $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{

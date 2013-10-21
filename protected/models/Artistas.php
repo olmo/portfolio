@@ -11,10 +11,10 @@
  * @property string $imagen
  *
  * The followings are the available model relations:
- * @property ArtistasCategoria $idCategoria
+ * @property ArtistasCategorias $idCategoria
  * @property Fotos[] $fotoses
  */
-class Artista extends CActiveRecord
+class Artistas extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -38,6 +38,8 @@ class Artista extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, nombre, informacion, id_categoria, imagen', 'safe', 'on'=>'search'),
+            array('imagen', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
+            // array('titulo, imagen', 'length', 'max'=>255, 'on'=>'insert,update'),
 		);
 	}
 
@@ -101,7 +103,7 @@ class Artista extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Artista the static model class
+	 * @return Artistas the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -1,6 +1,6 @@
 <?php
 /* @var $this ArtistasCategoriasController */
-/* @var $data ArtistasCategoria */
+/* @var $data ArtistasCategorias */
 ?>
 
 <div class="view">
