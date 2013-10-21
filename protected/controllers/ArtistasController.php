@@ -62,7 +62,6 @@ class ArtistasController extends Controller
 	 */
 	public function actionCreate()
 	{
-<<<<<<< HEAD
         $model=new Artistas;  // este es el modelo relacionado a la tabla
         if(isset($_POST['Artistas']))
         {
@@ -82,23 +81,6 @@ class ArtistasController extends Controller
         $this->render('create',array(
             'model'=>$model,
         ));
-=======
-		$model=new Artista;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Artistas']))
-		{
-			$model->attributes=$_POST['Artista'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
->>>>>>> fb13895d4652c6ef5da2ff84d3d47c1c280c7284
 	}
 
 	/**
@@ -108,7 +90,6 @@ class ArtistasController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-<<<<<<< HEAD
         $model=$this->loadModel($id);
         
         if(isset($_POST['Artistas']))
@@ -130,27 +111,10 @@ class ArtistasController extends Controller
             if($model->save())
                 $this->redirect(array('admin'));
         }
-        
+
         $this->render('update',array(
              'model'=>$model,
         ));
-=======
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Artista']))
-		{
-			$model->attributes=$_POST['Artista'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
->>>>>>> fb13895d4652c6ef5da2ff84d3d47c1c280c7284
 	}
 
 	/**
@@ -172,7 +136,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Artista');
+		$dataProvider=new CActiveDataProvider('Artistas');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
