@@ -62,6 +62,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionCreate()
 	{
+<<<<<<< HEAD
         $model=new Artistas;  // este es el modelo relacionado a la tabla
         if(isset($_POST['Artistas']))
         {
@@ -81,6 +82,23 @@ class ArtistasController extends Controller
         $this->render('create',array(
             'model'=>$model,
         ));
+=======
+		$model=new Artista;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Artistas']))
+		{
+			$model->attributes=$_POST['Artista'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+>>>>>>> fb13895d4652c6ef5da2ff84d3d47c1c280c7284
 	}
 
 	/**
@@ -90,6 +108,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+<<<<<<< HEAD
         $model=$this->loadModel($id);
         
         if(isset($_POST['Artistas']))
@@ -115,6 +134,23 @@ class ArtistasController extends Controller
         $this->render('update',array(
              'model'=>$model,
         ));
+=======
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Artista']))
+		{
+			$model->attributes=$_POST['Artista'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
+		));
+>>>>>>> fb13895d4652c6ef5da2ff84d3d47c1c280c7284
 	}
 
 	/**
@@ -136,7 +172,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Artistas');
+		$dataProvider=new CActiveDataProvider('Artista');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -149,8 +185,8 @@ class ArtistasController extends Controller
 	{
 		$model=new Artistas('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Artistas']))
-			$model->attributes=$_GET['Artistas'];
+		if(isset($_GET['Artista']))
+			$model->attributes=$_GET['Artista'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -178,7 +214,7 @@ class ArtistasController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='artistas-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='artista-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
