@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/flexslider/flexslider.css" media="screen" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/magnific-popup/magnific-popup.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/isotope/jquery.isotope.css" media="screen" />
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/theme.css">
@@ -131,7 +132,7 @@
                     'submenuHtmlOptions'=>array('class'=>'dropdown-menu'),
                     'items'=>array(
                         array('label'=>'Inicio', 'url'=>array('/site/index'),),
-                        array('label'=>'Vinilos', 'url'=>array('/galeria/index')),
+                        array('label'=>'Galería', 'url'=>array('/galeria/index')),
                         array('label'=>'Blog <i class="icon-angle-down"></i>', 'url'=>array('/blog/index'), 'itemOptions'=>array('class'=>'dropdown'), 'linkOptions'=>array('class'=>'dropdown-toggle'), 'items'=>array(
                             array('label'=>'Nueva entrada', 'url'=>array('blog/create'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
                             array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
@@ -248,6 +249,7 @@
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/magnific-popup/magnific-popup.js"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.validate.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.isotope.js"></script>
 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins.js"></script>
 

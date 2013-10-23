@@ -4,17 +4,23 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <ul class="breadcrumb">
-                    <li><a href="#">Blog</a> <span class="divider">/</span></li>
-                    <li class="active">Full Width</li>
-                </ul>
+                <?php if(isset($this->breadcrumbs)):?>
+                    <ul class="breadcrumb">
+                            <?php $this->widget('ext.CBreadcrumbs', array(
+                                'links'=>$this->breadcrumbs,
+                                'separator'=>''
+                            )); ?>
+                    </ul>
+                <?php endif?>
             </div>
         </div>
-        <div class="row">
-            <div class="span12">
-                <h2>Blog</h2>
+        <?php if(isset($this->titulo)):?>
+            <div class="row">
+                <div class="span12">
+                    <h2><?php echo $this->titulo; ?></h2>
+                </div>
             </div>
-        </div>
+        <?php endif?>
     </div>
 </section>
 <div class="container">

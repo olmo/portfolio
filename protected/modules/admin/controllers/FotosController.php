@@ -15,6 +15,7 @@ class FotosController extends Controller
             'tecnica'=>'FotosTecnica',
             'tema'=>'FotosTema',
             'montaje'=>'FotosMontaje',
+            'foto'=>'Foto',
         );
 
         $this->tiposS = array(
@@ -78,7 +79,11 @@ class FotosController extends Controller
 
             if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
                 $masterValues = array ('id_foto'=>$model->id);
+
                 $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$fileName);
+                $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$fileName);
+                $im->resize(NULL, 240);
+                $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$fileName);
 
                 if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
                     $this->redirect(array('index'));
@@ -117,6 +122,9 @@ class FotosController extends Controller
                 if(!empty($uploadedFile))
                 {
                     $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$model->imagen);
+                    $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
+                    $im->resize(NULL, 240);
+                    $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen);
                 }
                 $this->redirect(array('index'));
             }
@@ -137,6 +145,8 @@ class FotosController extends Controller
 
         if(file_exists(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen))
             unlink(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen);
 
         $model->delete();
 
@@ -221,33 +231,14 @@ class FotosController extends Controller
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
-            if($tipo=='tecnica')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='tema')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='formato')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='tamano')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='montaje')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+            if($tipo=='foto')
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
     }
 
     public function loadModel($id, $tipo)
     {
-        if($tipo=='tecnica')
-            $model=FotosTecnica::model()->findByPk($id);
-        else if($tipo=='tema')
-            $model=FotosTema::model()->findByPk($id);
-        else if($tipo=='formato')
-            $model=FotosFormato::model()->findByPk($id);
-        else if($tipo=='tamano')
-            $model=FotosTamano::model()->findByPk($id);
-        else if($tipo=='montaje')
-            $model=FotosMontaje::model()->findByPk($id);
-        else if($tipo=='foto')
-            $model=Foto::model()->findByPk($id);
+        $model=$this->tiposModelos[$tipo]::model()->findByPk($id);
 
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
