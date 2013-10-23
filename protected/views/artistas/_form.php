@@ -46,11 +46,11 @@
         <?php echo CHtml::activeFileField($model, 'imagen'); ?>
         <?php echo $form->error($model,'imagen'); ?>
     </div>
-    <?php if($model->isNewRecord!='1'){ ?>
+    <?php if($model->isNewRecord!='1'): ?>
     <div class="row">
         <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/artistas/'.$model->imagen,"imagen",array("width"=>200)); ?>
     </div>
-    <?php } ?>
+    <?php endif; ?>
 
 
 
