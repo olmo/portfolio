@@ -6,7 +6,8 @@ class GaleriaController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column1';
+	public $layout='//layouts/section';
+    public $titulo = '';
 
 	/**
 	 * @return array action filters
@@ -51,16 +52,27 @@ class GaleriaController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $model = $this->loadModel($id);
+
+        $criteria=new CDbCriteria(array(
+            'condition'=>'id_artista='.$model->id_artista,
+        ));
+
+        $related=new CActiveDataProvider('Foto', array('criteria'=>$criteria,));
+
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
+            'related'=>$related,
 		));
+
+
 	}
 
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	/*public function actionCreate()
 	{
 		$model=new Foto;
 
@@ -111,14 +123,14 @@ class GaleriaController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
-	}
+	}*/
 
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	/*public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
 
@@ -159,14 +171,14 @@ class GaleriaController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
-	}
+	}*/
 
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	/*public function actionDelete($id)
 	{
         $model = $this->loadModel($id);
 
@@ -188,16 +200,19 @@ class GaleriaController extends Controller
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
+	}*/
 
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Elemento');
+        $this->titulo = 'Galería';
+		$dataProvider=new CActiveDataProvider('Foto');
+        $temas=new CActiveDataProvider('FotosTema');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'temas'=>$temas,
 		));
 	}
 
