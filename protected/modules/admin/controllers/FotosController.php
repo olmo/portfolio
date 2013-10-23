@@ -4,6 +4,7 @@ class FotosController extends Controller
 {
     //public $layout='//layouts/fotos';
     private $tiposModelos;
+    private $modelos;
     private $tiposS;
     private $tiposP;
 
@@ -16,6 +17,15 @@ class FotosController extends Controller
             'tema'=>'FotosTema',
             'montaje'=>'FotosMontaje',
             'foto'=>'Foto',
+        );
+
+        $this->modelos = array(
+            'formato'=>FotosFormato::model(),
+            'tamano'=>FotosTamano::model(),
+            'tecnica'=>FotosTecnica::model(),
+            'tema'=>FotosTema::model(),
+            'montaje'=>FotosMontaje::model(),
+            'foto'=>Foto::model(),
         );
 
         $this->tiposS = array(
@@ -238,7 +248,7 @@ class FotosController extends Controller
 
     public function loadModel($id, $tipo)
     {
-        $model=$this->tiposModelos[$tipo]::model()->findByPk($id);
+        $model=$this->modelos[$tipo]->findByPk($id);
 
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
