@@ -32,6 +32,12 @@ $this->breadcrumbs=array(
             <?php echo $form->error($model,'nombre'); ?>
         </div>
 
+        <?php if ($tipo=='montaje'): ?>
+            <?php echo $form->labelEx($model,'precio'); ?>
+            <?php echo $form->textField($model,'precio',array('size'=>50,'maxlength'=>50)); ?>
+            <?php echo $form->error($model,'precio'); ?>
+        <?php endif; ?>
+
         <div class="row buttons">
             <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
         </div>

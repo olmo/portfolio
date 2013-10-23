@@ -21,7 +21,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
     <p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary(array_merge(array($model),$validatedTamanos)); ?>
 
 
     <div class="row">
@@ -32,7 +32,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
     <div class="row">
         <?php echo $form->labelEx($model,'id_artista'); ?>
-        <?php echo $form->dropDownList($model,'id_artista', CHtml::listData(Artista::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
+        <?php echo $form->dropDownList($model,'id_artista', CHtml::listData(Artistas::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
         <?php echo $form->error($model,'id_artista'); ?>
     </div>
 
@@ -55,6 +55,12 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
     </div>
 
     <div class="row">
+        <?php echo $form->labelEx($model,'montaje_recomendado'); ?>
+        <?php echo $form->dropDownList($model,'montaje_recomendado', CHtml::listData(FotosMontaje::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una categoría')); ?>
+        <?php echo $form->error($model,'montaje_recomendado'); ?>
+    </div>
+
+    <div class="row">
         <?php echo $form->labelEx($model,'descripcion'); ?>
         <?php $this->widget('ImperaviRedactorWidget', array(
             // You can either use it for model attribute
@@ -74,15 +80,15 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'elementosImagenes'); ?>
-        <?php $this->widget('CMultiFileUpload', array(
-            'name' => 'images',
-            'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
-            'duplicate' => '¡Archivo duplicado!', // useful, i think
-            'denied' => 'Tipo de archivo inválido.', // useful, i think
-        )); ?>
-        <?php echo $form->error($model,'elementosImagenes'); ?>
+        <?php echo $form->labelEx($model,'imagen'); ?>
+        <?php echo CHtml::activeFileField($model, 'imagen'); ?>
+        <?php echo $form->error($model,'imagen'); ?>
     </div>
+    <?php if($model->isNewRecord!='1'): ?>
+        <div class="row">
+            <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/fotos/'.$model->imagen,"imagen",array("width"=>200)); ?>
+        </div>
+    <?php endif; ?>
 
         <?php
 
@@ -99,6 +105,9 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
         $memberFormConfig = array(
             'elements'=>array(
+                'id_foto'=>array(
+                    'type'=>'hidden'
+                ),
                 'id_tamano'=>array(
                     'type'=>'dropdownlist',
                     //it is important to add an empty item because of new records
@@ -106,33 +115,38 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                 ),
                 'ancho'=>array(
                     'type'=>'text',
-                    'maxlength'=>40,
+                    'maxlength'=>5,
                 ),
                 'alto'=>array(
                     'type'=>'text',
-                    'maxlength'=>40,
+                    'maxlength'=>5,
                 ),
                 'precio'=>array(
                     'type'=>'text',
-                    'maxlength'=>40,
+                    'maxlength'=>10,
                 ),
                 'stock_inicial'=>array(
                     'type'=>'text',
-                    'maxlength'=>40,
+                    'maxlength'=>3,
+                ),
+                'stock_restante'=>array(
+                    'type'=>'text',
+                    'maxlength'=>3,
                 ),
             ));
 
         $this->widget('ext.multimodelform.MultiModelForm',array(
-            'id' => 'id_foto', //the unique widget id
+            'id' => 'idfoto', //the unique widget id
             'formConfig' => $memberFormConfig, //the form configuration array
             'model' => $tamanos, //instance of the form model
+            'tableView' => true,
 
             //if submitted not empty from the controller,
             //the form will be rendered with validation errors
-            //'validatedItems' => $validatedMembers,
+            'validatedItems' => $validatedTamanos,
 
             //array of member instances loaded from db
-           // 'data' => $member->findAll('groupid=:groupId', array(':groupId'=>$model->id)),
+            'data' => $tamanos->findAll('id_foto=:id_foto', array(':id_foto'=>$model->id)),
         ));
         ?>
 

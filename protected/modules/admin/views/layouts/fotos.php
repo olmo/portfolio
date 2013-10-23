@@ -9,6 +9,7 @@
                 array('label'=>'Tamaños', 'url'=>array('/admin/fotos/view/tipo/tamano')),
                 array('label'=>'Técnicas', 'url'=>array('/admin/fotos/view/tipo/tecnica')),
                 array('label'=>'Temas', 'url'=>array('/admin/fotos/view/tipo/tema')),
+                array('label'=>'Montajes', 'url'=>array('/admin/fotos/view/tipo/montaje')),
             ),
         )); ?>
     </div>

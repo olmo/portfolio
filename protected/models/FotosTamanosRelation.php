@@ -40,7 +40,7 @@ class FotosTamanosRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_foto, id_tamano, precio, stock_inicial, stock_restante, ancho, alto', 'required'),
+			array('id_tamano, precio, stock_inicial, stock_restante, ancho, alto', 'required'),
 			array('id_foto, id_tamano, stock_inicial, stock_restante', 'numerical', 'integerOnly'=>true),
 			array('precio, ancho, alto', 'length', 'max'=>10),
 			// The following rule is used by search().

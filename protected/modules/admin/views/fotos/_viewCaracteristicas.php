@@ -1,6 +1,10 @@
 
 <tr>
-    <td><?php echo CHtml::encode($data->nombre); ?></td>
+    <td><?php echo CHtml::encode($data->nombre); ?>
+        <?php if ($tipo=='montaje'): ?>
+            <?php echo CHtml::encode($data->precio); ?>
+        <?php endif; ?>
+    </td>
     <td class="action">
         <?php echo CHtml::link('Editar',array('update', 'id'=>$data->id, 'tipo'=>$tipo),
             array('class' => 'edit')); ?>

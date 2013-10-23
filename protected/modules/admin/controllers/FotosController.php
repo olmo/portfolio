@@ -14,6 +14,7 @@ class FotosController extends Controller
             'tamano'=>'FotosTamano',
             'tecnica'=>'FotosTecnica',
             'tema'=>'FotosTema',
+            'montaje'=>'FotosMontaje',
         );
 
         $this->tiposS = array(
@@ -21,6 +22,7 @@ class FotosController extends Controller
             'tamano'=>'Tamaño',
             'tecnica'=>'Técnica',
             'tema'=>'Tema',
+            'montaje'=>'Montaje',
         );
 
         $this->tiposP = array(
@@ -28,6 +30,7 @@ class FotosController extends Controller
             'tamano'=>'Tamaños',
             'tecnica'=>'Técnicas',
             'tema'=>'Temas',
+            'montaje'=>'Montajes',
         );
 
 
@@ -38,17 +41,29 @@ class FotosController extends Controller
     public function actionIndex()
     {
         $this->layout = 'fotos';
-        $this->render('index');
+
+        $criteria=new CDbCriteria(array(
+            'order'=>'titulo ASC',
+        ));
+
+        $dataProvider=new CActiveDataProvider('Foto', array(
+
+            'criteria'=>$criteria,
+        ));
+
+        $this->render('index',array(
+            'dataProvider'=>$dataProvider,
+        ));
     }
 
     public function actionCreateFoto()
     {
+        Yii::import('ext.multimodelform.MultiModelForm');
         $this->layout = 'fotos';
 
         $model=new Foto();
         $tamanos = new FotosTamanosRelation();
-
-        $validateTamanos = array();
+        $validatedTamanos = array();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -57,10 +72,15 @@ class FotosController extends Controller
         {
             $model->attributes=$_POST['Foto'];
 
-            if(MultiModelForm::validate($tamanos, $validateTamanos,$deleteItems) && $model->save()){
-                $masterValues = array ('foto_id'=>$model->id);
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            $fileName = $model->idArtista->nombre .' - '.$model->titulo.'.'.$uploadedFile->extensionName;
+            $model->imagen = $fileName;
 
-                if (MultiModelForm::save($tamanos,$validateTamanos,$deleteMembers,$masterValues))
+            if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
+                $masterValues = array ('id_foto'=>$model->id);
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$fileName);
+
+                if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
                     $this->redirect(array('index'));
             }
         }
@@ -68,7 +88,61 @@ class FotosController extends Controller
         $this->render('createFoto',array(
             'model'=>$model,
             'tamanos'=>$tamanos,
+            'validatedTamanos'=>$validatedTamanos,
         ));
+    }
+
+    public function actionUpdateFoto($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+        $this->layout = 'fotos';
+
+        $model=$this->loadModel($id, 'foto');
+        $tamanos = new FotosTamanosRelation();
+
+        $validatedTamanos = array();
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Foto']))
+        {
+            $_POST['Foto']['imagen'] = $model->imagen;
+            $model->attributes=$_POST['Foto'];
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+
+            $masterValues = array ('id_foto'=>$model->id);
+
+            if(MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues) && $model->save()){
+                if(!empty($uploadedFile))
+                {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$model->imagen);
+                }
+                $this->redirect(array('index'));
+            }
+        }
+
+        $this->render('createFoto',array(
+            'model'=>$model,
+            'tamanos'=>$tamanos,
+            'validatedTamanos'=>$validatedTamanos,
+        ));
+    }
+
+    public function actionDeleteFoto($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+
+        $model = $this->loadModel($id, 'foto');
+
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
+
+        $model->delete();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax']))
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
     }
 
     public function actionView($tipo)
@@ -123,33 +197,12 @@ class FotosController extends Controller
 
         $model=$this->loadModel($id, $tipo);
 
-        $tiposModelos = array(
-            'formato'=>'FotosFormato',
-            'tamano'=>'FotosTamano',
-            'tecnica'=>'FotosTecnica',
-            'tema'=>'FotosTema',
-        );
-
-        $tiposS = array(
-            'formato'=>'Formato',
-            'tamano'=>'Tamaño',
-            'tecnica'=>'Técnica',
-            'tema'=>'Tema',
-        );
-
-        $tiposP = array(
-            'formato'=>'Formatos',
-            'tamano'=>'Tamaños',
-            'tecnica'=>'Técnicas',
-            'tema'=>'Temas',
-        );
-
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if(isset($_POST[$tiposModelos[$tipo]]))
+        if(isset($_POST[$this->tiposModelos[$tipo]]))
         {
-            $model->attributes=$_POST[$tiposModelos[$tipo]];
+            $model->attributes=$_POST[$this->tiposModelos[$tipo]];
             if($model->save())
                 $this->redirect(array('view','tipo'=>$tipo));
         }
@@ -157,8 +210,8 @@ class FotosController extends Controller
         $this->render('createSimple',array(
             'model'=>$model,
             'tipo'=>$tipo,
-            'tipoS'=>$tiposS[$tipo],
-            'tipoP'=>$tiposP[$tipo],
+            'tipoS'=>$this->tiposS[$tipo],
+            'tipoP'=>$this->tiposP[$tipo],
         ));
     }
 
@@ -193,6 +246,8 @@ class FotosController extends Controller
             $model=FotosTamano::model()->findByPk($id);
         else if($tipo=='montaje')
             $model=FotosMontaje::model()->findByPk($id);
+        else if($tipo=='foto')
+            $model=Foto::model()->findByPk($id);
 
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
