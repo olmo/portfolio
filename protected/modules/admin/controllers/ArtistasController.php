@@ -10,15 +10,15 @@ class ArtistasController extends Controller
     public function __construct($id,$module=null)
     {
         $this->tiposModelos = array(
-            'categoria'=>'ArtistasCategorias',
+            'categorias'=>'ArtistasCategorias',
         );
 
         $this->tiposS = array(
-            'categoria'=>'Categoria',
+            'categorias'=>'Categoria',
         );
 
         $this->tiposP = array(
-            'categoria'=>'Categorias',
+            'categorias'=>'Categorias',
         );
 
         parent::__construct($id,$module);
@@ -83,8 +83,7 @@ class ArtistasController extends Controller
 
     public function actionCreate($tipo)
     {
-        $this->layout = 'fotos';
-
+        $this->layout = 'artistas';
 
         $model=new $this->tiposModelos[$tipo]();
 
@@ -108,37 +107,16 @@ class ArtistasController extends Controller
 
     public function actionUpdate($tipo, $id)
     {
-        $this->layout = 'fotos';
+        $this->layout = 'artistas';
 
         $model=$this->loadModel($id, $tipo);
-
-        $tiposModelos = array(
-            'formato'=>'FotosFormato',
-            'tamano'=>'FotosTamano',
-            'tecnica'=>'FotosTecnica',
-            'tema'=>'FotosTema',
-        );
-
-        $tiposS = array(
-            'formato'=>'Formato',
-            'tamano'=>'Tamaño',
-            'tecnica'=>'Técnica',
-            'tema'=>'Tema',
-        );
-
-        $tiposP = array(
-            'formato'=>'Formatos',
-            'tamano'=>'Tamaños',
-            'tecnica'=>'Técnicas',
-            'tema'=>'Temas',
-        );
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if(isset($_POST[$tiposModelos[$tipo]]))
+        if(isset($_POST[$this->tiposModelos[$tipo]]))
         {
-            $model->attributes=$_POST[$tiposModelos[$tipo]];
+            $model->attributes=$_POST[$this->tiposModelos[$tipo]];
             if($model->save())
                 $this->redirect(array('view','tipo'=>$tipo));
         }
@@ -146,8 +124,8 @@ class ArtistasController extends Controller
         $this->render('createSimple',array(
             'model'=>$model,
             'tipo'=>$tipo,
-            'tipoS'=>$tiposS[$tipo],
-            'tipoP'=>$tiposP[$tipo],
+            'tipoS'=>$this->tiposS[$tipo],
+            'tipoP'=>$this->tiposP[$tipo],
         ));
     }
 
@@ -157,22 +135,17 @@ class ArtistasController extends Controller
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
-            if($tipo=='tecnica')
+            if($tipo=='categorias')
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
             else if($tipo=='tema')
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='formato')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='tamano')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
-            else if($tipo=='montaje')
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
+
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
     }
 
     public function loadModel($id, $tipo)
     {
-        if($tipo=='categoria')
+        if($tipo=='categorias')
             $model=ArtistasCategorias::model()->findByPk($id);
         else if($tipo=='artista')
             $model=Artistas::model()->findByPk($id);
