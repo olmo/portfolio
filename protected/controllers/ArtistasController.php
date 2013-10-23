@@ -91,14 +91,14 @@ class ArtistasController extends Controller
 	public function actionUpdate($id)
 	{
         $model=$this->loadModel($id);
-        
+
         if(isset($_POST['Artistas']))
         {
             $_POST['Artistas']['imagen'] = $model->imagen;
             $model->attributes=$_POST['Artistas'];
-            
+
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
-            
+
             if($model->save())
             {
                 if(!empty($uploadedFile))  // checkeamos si el archivo subido esta seteado o no
@@ -107,7 +107,7 @@ class ArtistasController extends Controller
                 }
                 $this->redirect(array('admin'));
             }
-            
+
             if($model->save())
                 $this->redirect(array('admin'));
         }

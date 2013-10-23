@@ -1,7 +1,7 @@
 <?php
 
 $this->breadcrumbs=array(
-    'Fotos'=>array('index'),
+    'Artistas'=>array('index'),
     $tipoP=>array('index'),
     'Añadir',
 );
