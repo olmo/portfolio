@@ -157,7 +157,7 @@
         <div class="container">
             <div class="row">
                 <div class="footer-ribon">
-                    <span>Get in Touch</span>
+                    <span>Mantén el contacto</span>
                 </div>
                 <div class="span3">
                     <h4>Newsletter</h4>
@@ -215,7 +215,7 @@
                         </a>
                     </div>
                     <div class="span7">
-                        <p>© Copyright 2013 by Crivos. All Rights Reserved.</p>
+                        <p>© Copyright 2013. All Rights Reserved.</p>
                     </div>
                     <div class="span4">
                         <nav id="sub-menu">

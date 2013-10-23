@@ -2,7 +2,7 @@
 
 class ArtistasController extends Controller
 {
-    //public $layout='//layouts/fotos';
+    // public $layout='//layouts/fotos';
     private $tiposModelos;
     private $tiposS;
     private $tiposP;
@@ -10,24 +10,15 @@ class ArtistasController extends Controller
     public function __construct($id,$module=null)
     {
         $this->tiposModelos = array(
-            'formato'=>'FotosFormato',
-            'tamano'=>'FotosTamano',
-            'tecnica'=>'FotosTecnica',
-            'tema'=>'FotosTema',
+            'categoria'=>'ArtistasCategorias',
         );
 
         $this->tiposS = array(
-            'categoria'=>'Categoría',
-            'tamano'=>'Tamaño',
-            'tecnica'=>'Técnica',
-            'tema'=>'Tema',
+            'categoria'=>'Categoria',
         );
 
         $this->tiposP = array(
-            'categoria'=>'Categorías',
-            'tamano'=>'Tamaños',
-            'tecnica'=>'Técnicas',
-            'tema'=>'Temas',
+            'categoria'=>'Categorias',
         );
 
         parent::__construct($id,$module);
@@ -72,14 +63,13 @@ class ArtistasController extends Controller
 
     public function actionView($tipo)
     {
-        $this->layout = 'fotos';
+        $this->layout = 'artistas';
 
         $criteria=new CDbCriteria(array(
             'order'=>'nombre ASC',
         ));
 
         $dataProvider=new CActiveDataProvider($this->tiposModelos[$tipo], array(
-
             'criteria'=>$criteria,
         ));
 
@@ -182,16 +172,10 @@ class ArtistasController extends Controller
 
     public function loadModel($id, $tipo)
     {
-        if($tipo=='tecnica')
-            $model=FotosTecnica::model()->findByPk($id);
-        else if($tipo=='tema')
-            $model=FotosTema::model()->findByPk($id);
-        else if($tipo=='categoria')
-            $model=Categorias::model()->findByPk($id);
-        else if($tipo=='tamano')
-            $model=FotosTamano::model()->findByPk($id);
-        else if($tipo=='montaje')
-            $model=FotosMontaje::model()->findByPk($id);
+        if($tipo=='categoria')
+            $model=ArtistasCategorias::model()->findByPk($id);
+        else if($tipo=='artista')
+            $model=Artistas::model()->findByPk($id);
 
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
@@ -200,7 +184,7 @@ class ArtistasController extends Controller
 
     protected function performAjaxValidation($model)
     {
-        if(isset($_POST['ajax']) && $_POST['ajax']==='tema-form')
+        if(isset($_POST['ajax']) && $_POST['ajax']==='artistas-categorias-form')
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();

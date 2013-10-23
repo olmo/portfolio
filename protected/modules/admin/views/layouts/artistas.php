@@ -5,7 +5,7 @@
             'htmlOptions'=>array('class'=>'sideNav'),
             'items'=>array(
                 array('label'=>'Artistas', 'url'=>array('/admin/artistas/index'),),
-                array('label'=>'Categorías', 'url'=>array('/admin/artistas/view/categorias')),
+                array('label'=>'Categorías', 'url'=>array('/admin/artistas/view/tipo/categorias')),
             ),
         )); ?>
     </div>
