@@ -4,6 +4,7 @@ class ArtistasController extends Controller
 {
     // public $layout='//layouts/fotos';
     private $tiposModelos;
+    private $modelos;
     private $tiposS;
     private $tiposP;
 
@@ -11,6 +12,12 @@ class ArtistasController extends Controller
     {
         $this->tiposModelos = array(
             'categorias'=>'ArtistasCategorias',
+            'artistas'=>'Artistas',
+        );
+
+        $this->modelos = array(
+            'categorias'=>ArtistasCategorias::model(),
+            'artistas'=>Artistas::model(),
         );
 
         $this->tiposS = array(
@@ -28,36 +35,17 @@ class ArtistasController extends Controller
     public function actionIndex()
     {
         $this->layout = 'artistas';
-        $this->render('index');
-    }
 
-    public function actionCreateFoto()
-    {
-        $this->layout = 'fotos';
+        $criteria=new CDbCriteria(array(
+            'order'=>'nombre ASC',
+        ));
 
-        $model=new Foto();
-        $tamanos = new FotosTamanosRelation();
+        $dataProvider=new CActiveDataProvider('Artistas', array(
+            'criteria'=>$criteria,
+        ));
 
-        $validateTamanos = array();
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if(isset($_POST['Foto']))
-        {
-            $model->attributes=$_POST['Foto'];
-
-            if(MultiModelForm::validate($tamanos, $validateTamanos,$deleteItems) && $model->save()){
-                $masterValues = array ('foto_id'=>$model->id);
-
-                if (MultiModelForm::save($tamanos,$validateTamanos,$deleteMembers,$masterValues))
-                    $this->redirect(array('index'));
-            }
-        }
-
-        $this->render('createFoto',array(
-            'model'=>$model,
-            'tamanos'=>$tamanos,
+        $this->render('index',array(
+            'dataProvider'=>$dataProvider,
         ));
     }
 
@@ -129,6 +117,78 @@ class ArtistasController extends Controller
         ));
     }
 
+    public function actionCreateArtista()
+    {
+        $this->layout = 'artistas';
+
+        $model=new Artistas;  // este es el modelo relacionado a la tabla
+        if(isset($_POST['Artistas']))
+        {
+            $rnd = rand(0,9999);  // Generamos un numero aleatorio entre 0-9999
+            $model->attributes=$_POST['Artistas'];
+
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            $fileName = "{$rnd}-{$uploadedFile}";  // numero aleatorio  + nombre de archivo
+            $model->imagen = $fileName;
+
+            if($model->save())
+            {
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$fileName);  // la imagen se subirá a la carpeta raiz /banner/
+                $this->redirect(array('index'));
+            }
+        }
+        $this->render('createArtista',array(
+            'model'=>$model,
+        ));
+    }
+
+    public function actionUpdateArtista($id)
+    {
+        $this->layout = 'artistas';
+
+        $model=$this->loadModel($id, 'artistas');
+
+        if(isset($_POST['Artistas']))
+        {
+            $_POST['Artistas']['imagen'] = $model->imagen;
+            $model->attributes=$_POST['Artistas'];
+
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+
+            if($model->save())
+            {
+                if(!empty($uploadedFile))  // checkeamos si el archivo subido esta seteado o no
+                {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$model->imagen);
+                }
+                $this->redirect(array('index'));
+            }
+
+            if($model->save())
+                $this->redirect(array('index'));
+        }
+
+        $this->render('createArtista',array(
+            'model'=>$model,
+        ));
+    }
+
+    public function actionDeleteArtista($id)
+    {
+        $model = $this->loadModel($id, 'artistas');
+
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen);
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/thumbs/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/artistas/thumbs/'.$model->imagen);
+
+        $model->delete();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax']))
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
+
     public function actionDelete($id, $tipo)
     {
         $this->loadModel($id, $tipo)->delete();
@@ -147,7 +207,7 @@ class ArtistasController extends Controller
     {
         if($tipo=='categorias')
             $model=ArtistasCategorias::model()->findByPk($id);
-        else if($tipo=='artista')
+        else if($tipo=='artistas')
             $model=Artistas::model()->findByPk($id);
 
         if($model===null)
