@@ -6,7 +6,8 @@ class ArtistasController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+    public $layout='//layouts/section';
+    public $titulo = '';
 
 	/**
 	 * @return array action filters
@@ -136,6 +137,7 @@ class ArtistasController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $this->titulo = 'Galería';
 		$dataProvider=new CActiveDataProvider('Artistas');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

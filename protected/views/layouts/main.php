@@ -5,7 +5,7 @@
     /*Yii::app()->clientScript->registerCoreScript('jquery');
     $cs = Yii::app()->getClientScript();
     $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/jquery-1.7.2.min.js', CClientScript::POS_END);*/
-	
+
 ?>
 
 
@@ -85,7 +85,7 @@
 
 </head>
 
-<body>
+<body style="zoom: 1;">
 <div class="body">
     <header>
         <div class="container">
@@ -133,6 +133,7 @@
                     'items'=>array(
                         array('label'=>'Inicio', 'url'=>array('/site/index'),),
                         array('label'=>'Galería', 'url'=>array('/galeria/index')),
+                        array('label'=>'Artistas', 'url'=>array('/artistas/index')),
                         array('label'=>'Blog <i class="icon-angle-down"></i>', 'url'=>array('/blog/index'), 'itemOptions'=>array('class'=>'dropdown'), 'linkOptions'=>array('class'=>'dropdown-toggle'), 'items'=>array(
                             array('label'=>'Nueva entrada', 'url'=>array('blog/create'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
                             array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), /*'visible'=>!Yii::app()->user->isGuest*/ ),

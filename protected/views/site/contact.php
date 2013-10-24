@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<body style="zoom: 1;">
 <div class="body">
 
     <div role="main" class="main">
@@ -274,3 +275,4 @@ $this->breadcrumbs=array(
     -->
 
 </div>
+</body>
