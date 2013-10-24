@@ -1,16 +1,16 @@
 <?php
 
-$this->breadcrumbs=array(
-    'Fotos'=>array('index'),
+/*$this->breadcrumbs=array(
+    'Artistas'=>array('index'),
     $tipoP=>array('index'),
     'Añadir',
-);
+);*/
 
 ?>
 
 <h3>Añadir <?php echo $tipoS; ?></h3>
 
-<div class="form">
+<div class="form-horizontal" role="form">
 
     <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'form',
@@ -24,22 +24,33 @@ $this->breadcrumbs=array(
 
         <p class="note">Fields with <span class="required">*</span> are required.</p>
 
-        <?php echo $form->errorSummary($model); ?>
+        <?php if($model->hasErrors()): ?>
+            <div class="panel panel-danger">
+                <div class="panel-heading">Errores</div>
+                <div class="panel-body">
+                    <?php echo $form->errorSummary(array_merge(array($model),$validatedTamanos)); ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
-        <div class="row">
-            <?php echo $form->labelEx($model,'nombre'); ?>
-            <?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50)); ?>
-            <?php echo $form->error($model,'nombre'); ?>
+        <div class="form-group<?php echo $model->getError('nombre')  ? ' has-error' : ''; ?>">
+            <?php echo $form->labelEx($model,'nombre', array('class'=>'col-lg-2 control-label')); ?>
+            <div class="col-lg-10">
+                <?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50, 'class'=>'form-control')); ?>
+            </div>
         </div>
 
         <?php if ($tipo=='montaje'): ?>
-            <?php echo $form->labelEx($model,'precio'); ?>
-            <?php echo $form->textField($model,'precio',array('size'=>50,'maxlength'=>50)); ?>
-            <?php echo $form->error($model,'precio'); ?>
+            <div class="form-group<?php echo $model->getError('precio')  ? ' has-error' : ''; ?>">
+                <?php echo $form->labelEx($model,'precio', array('class'=>'col-lg-2 control-label')); ?>
+                <div class="col-lg-10">
+                    <?php echo $form->textField($model,'precio',array('size'=>50,'maxlength'=>50, 'class'=>'form-control')); ?>
+                </div>
+            </div>
         <?php endif; ?>
 
         <div class="row buttons">
-            <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+            <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary')); ?>
         </div>
     </fieldset>
 

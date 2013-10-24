@@ -44,7 +44,7 @@ class Foto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, descripcion, id_artista, id_formato, id_tecnica, id_tema, montaje_recomendado', 'required'),
+			array('titulo, imagen, descripcion, id_artista, id_formato, id_tecnica, id_tema, montaje_recomendado', 'required'),
 			array('id_artista', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
@@ -82,6 +82,10 @@ class Foto extends CActiveRecord
 			'descripcion' => 'Descripción',
 			'id_artista' => 'Artista',
             'fotoTamanos' => 'Tamaños',
+            'id_formato' => 'Formato',
+            'id_tecnica' => 'Técnica',
+            'id_tema' => 'Tema',
+            'montaje_recomendado' => 'Montaje',
 		);
 	}
 

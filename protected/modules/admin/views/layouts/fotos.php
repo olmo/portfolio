@@ -1,19 +1,22 @@
 <?php $this->beginContent('/layouts/main'); ?>
-    <div id="sidebar">
-        <?php $this->widget('zii.widgets.CMenu',array(
-            'activeCssClass'=>'active',
-            'htmlOptions'=>array('class'=>'sideNav'),
-            'items'=>array(
-                array('label'=>'Fotos', 'url'=>array('/admin/fotos/index'),),
-                array('label'=>'Formatos', 'url'=>array('/admin/fotos/view/tipo/formato')),
-                array('label'=>'Tamaños', 'url'=>array('/admin/fotos/view/tipo/tamano')),
-                array('label'=>'Técnicas', 'url'=>array('/admin/fotos/view/tipo/tecnica')),
-                array('label'=>'Temas', 'url'=>array('/admin/fotos/view/tipo/tema')),
-                array('label'=>'Montajes', 'url'=>array('/admin/fotos/view/tipo/montaje')),
-            ),
-        )); ?>
-    </div>
-    <!-- // #sidebar -->
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="well sidebar-nav">
+            <?php $this->widget('zii.widgets.CMenu',array(
+                //'activeCssClass'=>'active',
+                'htmlOptions'=>array('class'=>'nav'),
+                'items'=>array(
+                    array('label'=>'Fotos', 'url'=>array('fotos/index'),),
+                    array('label'=>'Formatos', 'url'=>array('fotos/view/tipo/formato')),
+                    array('label'=>'Tamaños', 'url'=>array('fotos/view/tipo/tamano')),
+                    array('label'=>'Técnicas', 'url'=>array('fotos/view/tipo/tecnica')),
+                    array('label'=>'Temas', 'url'=>array('fotos/view/tipo/tema')),
+                    array('label'=>'Montajes', 'url'=>array('fotos/view/tipo/montaje')),
+                ),
+            )); ?>
+        </div><!--/.well -->
+    </div><!--/span-->
+
+
 
     <!-- h2 stays for breadcrumbs -->
     <?php if(isset($this->breadcrumbs)):?>
@@ -24,7 +27,13 @@
         </h2>
     <?php endif?>
 
-    <div id="main">
-        <?php echo $content; ?>
+    <div class="col-xs-12 col-sm-9">
+        <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+        </p>
+        <div class="well">
+            <?php echo $content; ?>
+        </div>
     </div>
+
 <?php $this->endContent(); ?>

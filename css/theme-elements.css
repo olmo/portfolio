@@ -1840,26 +1840,3 @@ ul.social-icons li.zerply:hover {
 .mfp-wrap .popup-inline-content {
 	display: block;
 }
-
-.centerthumbs {
-    /*display: table-cell;*/
-    text-align: center;
-    vertical-align: middle;
-    height: 260px;
-}
-
-.centerthumbs * {
-    vertical-align: middle;
-}
-
-
-/*.centerthumbs {
-    display: block;
-}
-/*.centerthumbs span {
-    display: inline-block;
-    height: 100%;
-    width: 1px;
-}
-/**/
-

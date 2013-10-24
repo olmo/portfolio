@@ -1,47 +1,108 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
-    <!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/ie6.css" /><![endif]-->
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/ie7.css" /><![endif]-->
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.js.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/js/bootstrap.min.js"></script>
 
-    <!-- JavaScripts-->
+    <style type="text/css">
+        body {
+            padding-top: 70px;
+        }
+        footer {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/js/jNice.js"></script>
+        /*
+         * Off Canvas
+         * --------------------------------------------------
+         */
+        @media screen and (max-width: 768px) {
+            .row-offcanvas {
+                position: relative;
+                -webkit-transition: all 0.25s ease-out;
+                -moz-transition: all 0.25s ease-out;
+                transition: all 0.25s ease-out;
+            }
+
+            .row-offcanvas-right
+            .sidebar-offcanvas {
+                right: -50%; /* 6 columns */
+            }
+
+            .row-offcanvas-left
+            .sidebar-offcanvas {
+                left: -50%; /* 6 columns */
+            }
+
+            .row-offcanvas-right.active {
+                right: 50%; /* 6 columns */
+            }
+
+            .row-offcanvas-left.active {
+                left: 50%; /* 6 columns */
+            }
+
+            .sidebar-offcanvas {
+                position: absolute;
+                top: 0;
+                width: 50%; /* 6 columns */
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="wrapper">
-        <!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
-        <h1><a href="#"><span>Transdmin Light</span></a></h1>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="navbar-header">
 
-        <?php $this->widget('zii.widgets.CMenu',array(
-            'activeCssClass'=>'active',
-            'id'=>'mainNav',
-            'items'=>array(
-                array('label'=>'Inicio', 'url'=>array('/admin'),),
-                array('label'=>'Artistas', 'url'=>array('/admin/artistas/index')),
-                array('label'=>'Fotos', 'url'=>array('/admin/fotos/index')),
-                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'itemOptions'=>array('class'=>'logout'), 'visible'=>!Yii::app()->user->isGuest)
-            ),
-        )); ?>
+                </div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+                <div class="navbar-collapse collapse" style="height: 1px;">
+                    <p class="navbar-text pull-right">
+                        Has entrado como <a href="#" class="navbar-link"><?php echo Yii::app()->user->name; ?></a>
+                    </p>
 
-        <div id="containerHolder">
-            <div id="container">
-                <?php echo $content; ?>
-
-                <div class="clear"></div>
+                    <?php $this->widget('zii.widgets.CMenu',array(
+                        'activeCssClass'=>'active',
+                        'htmlOptions'=>array('class'=>'nav navbar-nav',),
+                        'items'=>array(
+                            array('label'=>'Inicio', 'url'=>array('/admin'),),
+                            array('label'=>'Artistas', 'url'=>array('/admin/artistas/index')),
+                            array('label'=>'Fotos', 'url'=>array('fotos/index')),
+                            array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                            array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'itemOptions'=>array('class'=>'logout'), 'visible'=>!Yii::app()->user->isGuest)
+                        ),
+                    )); ?>
+                </div>
             </div>
-            <!-- // #container -->
         </div>
-
     </div>
+
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <?php echo $content; ?>
+        </div>
+        <hr>
+        <footer>
+            <p>asdfasdf</p>
+        </footer>
+    </div>
+
+
 </body>
 
 </html>

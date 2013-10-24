@@ -83,20 +83,22 @@ class FotosController extends Controller
         {
             $model->attributes=$_POST['Foto'];
 
-            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
-            $fileName = $model->idArtista->nombre .' - '.$model->titulo.'.'.$uploadedFile->extensionName;
-            $model->imagen = $fileName;
+            if($model->validate()){
+                $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+                $fileName = $model->idArtista->nombre .' - '.$model->titulo.'.'.$uploadedFile->extensionName;
+                $model->imagen = $fileName;
 
-            if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
-                $masterValues = array ('id_foto'=>$model->id);
+                if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
+                    $masterValues = array ('id_foto'=>$model->id);
 
-                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$fileName);
-                $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$fileName);
-                $im->resize(NULL, 240);
-                $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$fileName);
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$fileName);
+                    $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$fileName);
+                    $im->resize(NULL, 260);
+                    $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$fileName);
 
-                if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
-                    $this->redirect(array('index'));
+                    if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
+                        $this->redirect(array('index'));
+                }
             }
         }
 
@@ -124,19 +126,22 @@ class FotosController extends Controller
         {
             $_POST['Foto']['imagen'] = $model->imagen;
             $model->attributes=$_POST['Foto'];
-            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
 
-            $masterValues = array ('id_foto'=>$model->id);
+            if($model->validate()){
+                $uploadedFile=CUploadedFile::getInstance($model,'imagen');
 
-            if(MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues) && $model->save()){
-                if(!empty($uploadedFile))
-                {
-                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$model->imagen);
-                    $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
-                    $im->resize(NULL, 240);
-                    $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen);
+                $masterValues = array ('id_foto'=>$model->id);
+
+                if(MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues) && $model->save()){
+                    if(!empty($uploadedFile))
+                    {
+                        $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$model->imagen);
+                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
+                        $im->resize(NULL, 260);
+                        $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen);
+                    }
+                    $this->redirect(array('index'));
                 }
-                $this->redirect(array('index'));
             }
         }
 

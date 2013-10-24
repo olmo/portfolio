@@ -2,7 +2,7 @@
 /* @var $this GaleriaController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle=Yii::app()->name . ' - Vinilos';
+$this->pageTitle=Yii::app()->name . ' - Galería';
 
 /*$this->breadcrumbs=array(
 	'Elementos',
@@ -16,7 +16,7 @@ $this->menu=array(
 );*/
 
 $this->breadcrumbs=array(
-    'Fotos'=>array('index'),
+    'Galería'=>array('index'),
 );
 
 ?>
@@ -26,9 +26,6 @@ $this->breadcrumbs=array(
     <?php foreach($temas->getData() as $data): ?>
         <li data-option-value=".<?php echo CHtml::encode($data->nombre); ?>"><a href="#"><?php echo CHtml::encode($data->nombre); ?></a></li>
     <?php endforeach; ?>
-    <li data-option-value=".websites"><a href="#">Websites</a></li>
-    <li data-option-value=".logos"><a href="#">Logos</a></li>
-    <li data-option-value=".brands"><a href="#">Brands</a></li>
 </ul>
 
 <hr />
