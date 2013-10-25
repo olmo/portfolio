@@ -58,7 +58,7 @@ class GaleriaController extends Controller
             'condition'=>'id_artista='.$model->id_artista,
         ));
 
-        $related=new CActiveDataProvider('Foto', array('criteria'=>$criteria,));
+        $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
 
 		$this->render('view',array(
 			'model'=>$model,
@@ -208,8 +208,8 @@ class GaleriaController extends Controller
 	public function actionIndex()
 	{
         $this->titulo = 'Galería';
-		$dataProvider=new CActiveDataProvider('Foto');
-        $temas=new CActiveDataProvider('FotosTema');
+		$dataProvider=new CActiveDataProvider('Obra');
+        $temas=new CActiveDataProvider('ObrasTema');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'temas'=>$temas,
@@ -221,7 +221,7 @@ class GaleriaController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Foto('search');
+		$model=new Obra('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Elemento']))
 			$model->attributes=$_GET['Elemento'];
@@ -240,7 +240,7 @@ class GaleriaController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Foto::model()->findByPk($id);
+		$model=Obra::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

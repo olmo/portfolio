@@ -1,21 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "fotos_temas".
+ * This is the model class for table "fotos_tecnicas".
  *
- * The followings are the available columns in table 'fotos_temas':
+ * The followings are the available columns in table 'fotos_tecnicas':
  * @property integer $id
  * @property string $nombre
  *
  * The followings are the available model relations:
  * @property Fotos[] $fotoses
  */
-class FotosTema extends CActiveRecord
+class ObrasTecnica extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return FotosTema the static model class
+	 * @return FotosTecnica the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -27,7 +27,7 @@ class FotosTema extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'fotos_temas';
+		return 'obras_tecnicas';
 	}
 
 	/**
@@ -54,7 +54,7 @@ class FotosTema extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'fotoses' => array(self::HAS_MANY, 'Fotos', 'id_tema'),
+			'fotoses' => array(self::HAS_MANY, 'Obra', 'id_tecnica'),
 		);
 	}
 

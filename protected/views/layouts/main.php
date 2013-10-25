@@ -85,7 +85,7 @@
 
 </head>
 
-<body style="zoom: 1;">
+<body>
 <div class="body">
     <header>
         <div class="container">

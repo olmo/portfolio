@@ -32,7 +32,7 @@
 <div class="row">
     <div class="span6">
         <a class="thumbnail lightbox pull-left" href="<?php echo Yii::app()->request->baseUrl; ?>/images/fotos/<?php echo $model->imagen; ?>" data-plugin-options='{"type":"image"}'>
-            <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/fotos/<?php echo $model->imagen; ?>">
+            <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>">
             <span class="zoom"><i class="icon-16 icon-white-shadowed icon-search"></i></span>
         </a>
     </div>

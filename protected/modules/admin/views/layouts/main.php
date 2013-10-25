@@ -70,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="#">Global Arte</a>
                 <div class="navbar-collapse collapse" style="height: 1px;">
                     <p class="navbar-text pull-right">
                         Has entrado como <a href="#" class="navbar-link"><?php echo Yii::app()->user->name; ?></a>
@@ -82,7 +82,7 @@
                         'items'=>array(
                             array('label'=>'Inicio', 'url'=>array('/admin'),),
                             array('label'=>'Artistas', 'url'=>array('/admin/artistas/index')),
-                            array('label'=>'Fotos', 'url'=>array('fotos/index')),
+                            array('label'=>'Fotos', 'url'=>array('obras/index')),
                             array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                             array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'itemOptions'=>array('class'=>'logout'), 'visible'=>!Yii::app()->user->isGuest)
                         ),

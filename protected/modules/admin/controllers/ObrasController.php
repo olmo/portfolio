@@ -1,8 +1,8 @@
 <?php
 
-class FotosController extends Controller
+class ObrasController extends Controller
 {
-    //public $layout='//layouts/fotos';
+    //public $layout='//layouts/obras';
     private $tiposModelos;
     private $modelos;
     private $tiposS;
@@ -11,21 +11,21 @@ class FotosController extends Controller
     public function __construct($id,$module=null)
     {
         $this->tiposModelos = array(
-            'formato'=>'FotosFormato',
-            'tamano'=>'FotosTamano',
-            'tecnica'=>'FotosTecnica',
-            'tema'=>'FotosTema',
-            'montaje'=>'FotosMontaje',
-            'foto'=>'Foto',
+            'formato'=>'ObrasFormato',
+            'tamano'=>'ObrasTamano',
+            'tecnica'=>'ObrasTecnica',
+            'tema'=>'ObrasTema',
+            'montaje'=>'ObrasMontaje',
+            'obra'=>'Obra',
         );
 
         $this->modelos = array(
-            'formato'=>FotosFormato::model(),
-            'tamano'=>FotosTamano::model(),
-            'tecnica'=>FotosTecnica::model(),
-            'tema'=>FotosTema::model(),
-            'montaje'=>FotosMontaje::model(),
-            'foto'=>Foto::model(),
+            'formato'=>ObrasFormato::model(),
+            'tamano'=>ObrasTamano::model(),
+            'tecnica'=>ObrasTecnica::model(),
+            'tema'=>ObrasTema::model(),
+            'montaje'=>ObrasMontaje::model(),
+            'obra'=>Obra::model(),
         );
 
         $this->tiposS = array(
@@ -51,13 +51,13 @@ class FotosController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = 'fotos';
+        $this->layout = 'obras';
 
         $criteria=new CDbCriteria(array(
             'order'=>'titulo ASC',
         ));
 
-        $dataProvider=new CActiveDataProvider('Foto', array(
+        $dataProvider=new CActiveDataProvider('Obra', array(
 
             'criteria'=>$criteria,
         ));
@@ -67,101 +67,101 @@ class FotosController extends Controller
         ));
     }
 
-    public function actionCreateFoto()
+    public function actionCreateObra()
     {
         Yii::import('ext.multimodelform.MultiModelForm');
-        $this->layout = 'fotos';
+        $this->layout = 'obras';
 
-        $model=new Foto();
-        $tamanos = new FotosTamanosRelation();
+        $model=new Obra();
+        $tamanos = new ObrasTamanosRelation();
         $validatedTamanos = array();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if(isset($_POST['Foto']))
+        if(isset($_POST['Obra']))
         {
-            $model->attributes=$_POST['Foto'];
+            $model->attributes=$_POST['Obra'];
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
 
-            if($model->validate()){
-                $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            if($uploadedFile!=null){
                 $fileName = $model->idArtista->nombre .' - '.$model->titulo.'.'.$uploadedFile->extensionName;
                 $model->imagen = $fileName;
+            }
 
-                if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
-                    $masterValues = array ('id_foto'=>$model->id);
+            if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
+                $masterValues = array ('id_obra'=>$model->id);
 
-                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$fileName);
-                    $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$fileName);
-                    $im->resize(NULL, 260);
-                    $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$fileName);
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$fileName);
+                $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$fileName);
+                $im->resize(NULL, 260);
+                $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$fileName);
 
-                    if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
-                        $this->redirect(array('index'));
-                }
+                if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
+                    $this->redirect(array('index'));
             }
         }
 
-        $this->render('createFoto',array(
+        $this->render('createObra',array(
             'model'=>$model,
             'tamanos'=>$tamanos,
             'validatedTamanos'=>$validatedTamanos,
         ));
     }
 
-    public function actionUpdateFoto($id)
+    public function actionUpdateObra($id)
     {
         Yii::import('ext.multimodelform.MultiModelForm');
-        $this->layout = 'fotos';
+        $this->layout = 'obras';
 
-        $model=$this->loadModel($id, 'foto');
-        $tamanos = new FotosTamanosRelation();
+        $model=$this->loadModel($id, 'obra');
+        $tamanos = new ObrasTamanosRelation();
 
         $validatedTamanos = array();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if(isset($_POST['Foto']))
+        if(isset($_POST['Obra']))
         {
-            $_POST['Foto']['imagen'] = $model->imagen;
-            $model->attributes=$_POST['Foto'];
+            $_POST['Obra']['imagen'] = $model->imagen;
+            $model->attributes=$_POST['Obra'];
 
             if($model->validate()){
                 $uploadedFile=CUploadedFile::getInstance($model,'imagen');
 
-                $masterValues = array ('id_foto'=>$model->id);
+                $masterValues = array ('id_obra'=>$model->id);
 
                 if(MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues) && $model->save()){
                     if(!empty($uploadedFile))
                     {
-                        $uploadedFile->saveAs(Yii::app()->basePath.'/../images/fotos/'.$model->imagen);
-                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
+                        $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$model->imagen);
+                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen);
                         $im->resize(NULL, 260);
-                        $im->save(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen);
+                        $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);
                     }
                     $this->redirect(array('index'));
                 }
             }
         }
 
-        $this->render('createFoto',array(
+        $this->render('createObra',array(
             'model'=>$model,
             'tamanos'=>$tamanos,
             'validatedTamanos'=>$validatedTamanos,
         ));
     }
 
-    public function actionDeleteFoto($id)
+    public function actionDeleteObra($id)
     {
         Yii::import('ext.multimodelform.MultiModelForm');
 
-        $model = $this->loadModel($id, 'foto');
+        $model = $this->loadModel($id, 'obra');
 
-        if(file_exists(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen))
-            unlink(Yii::getPathOfAlias('webroot').'/images/fotos/'.$model->imagen);
-        if(file_exists(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen))
-            unlink(Yii::getPathOfAlias('webroot').'/images/fotos/thumbs/'.$model->imagen);
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen);
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);
 
         $model->delete();
 
@@ -172,7 +172,7 @@ class FotosController extends Controller
 
     public function actionView($tipo)
     {
-        $this->layout = 'fotos';
+        $this->layout = 'obras';
 
         $criteria=new CDbCriteria(array(
             'order'=>'nombre ASC',
@@ -193,7 +193,7 @@ class FotosController extends Controller
 
     public function actionCreate($tipo)
     {
-        $this->layout = 'fotos';
+        $this->layout = 'obras';
 
 
         $model=new $this->tiposModelos[$tipo]();
@@ -218,7 +218,7 @@ class FotosController extends Controller
 
     public function actionUpdate($tipo, $id)
     {
-        $this->layout = 'fotos';
+        $this->layout = 'obras';
 
         $model=$this->loadModel($id, $tipo);
 
@@ -246,7 +246,7 @@ class FotosController extends Controller
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
-            if($tipo=='foto')
+            if($tipo=='obra')
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
     }

@@ -22,7 +22,7 @@
     )); ?>
     <fieldset>
 
-        <p class="note">Fields with <span class="required">*</span> are required.</p>
+        <p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
         <?php if($model->hasErrors()): ?>
             <div class="panel panel-danger">
@@ -50,7 +50,7 @@
         <?php endif; ?>
 
         <div class="row buttons">
-            <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary')); ?>
+            <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
         </div>
     </fieldset>
 

@@ -1,22 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "fotos_montajes".
+ * This is the model class for table "fotos_formatos".
  *
- * The followings are the available columns in table 'fotos_montajes':
+ * The followings are the available columns in table 'fotos_formatos':
  * @property integer $id
  * @property string $nombre
- * @property string $precio
  *
  * The followings are the available model relations:
  * @property Fotos[] $fotoses
  */
-class FotosMontaje extends CActiveRecord
+class ObrasFormato extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return FotosMontaje the static model class
+	 * @return FotosFormato the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -28,7 +27,7 @@ class FotosMontaje extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'fotos_montajes';
+		return 'obras_formatos';
 	}
 
 	/**
@@ -39,12 +38,11 @@ class FotosMontaje extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, precio', 'required'),
+			array('nombre', 'required'),
 			array('nombre', 'length', 'max'=>50),
-			array('precio', 'length', 'max'=>5),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nombre, precio', 'safe', 'on'=>'search'),
+			array('id, nombre', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,7 +54,7 @@ class FotosMontaje extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'fotoses' => array(self::HAS_MANY, 'Fotos', 'montaje_recomendado'),
+			'fotoses' => array(self::HAS_MANY, 'Obra', 'id_formato'),
 		);
 	}
 
@@ -68,7 +66,6 @@ class FotosMontaje extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'nombre' => 'Nombre',
-			'precio' => 'Precio',
 		);
 	}
 
@@ -85,7 +82,6 @@ class FotosMontaje extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nombre',$this->nombre,true);
-		$criteria->compare('precio',$this->precio,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

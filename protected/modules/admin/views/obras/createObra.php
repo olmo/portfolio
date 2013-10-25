@@ -7,7 +7,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
 
 
-<h3>Añadir Foto</h3>
+<h3>Añadir Obra</h3>
 
 <div class="form-horizontal" role="form">
 
@@ -21,8 +21,6 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
     <fieldset>
 
     <p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
-
-        <?php echo count($validatedTamanos); ?>
 
     <?php if($model->hasErrors() or count($validatedTamanos)>0): ?>
     <div class="panel panel-danger">
@@ -50,28 +48,28 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
     <div class="form-group<?php echo $model->getError('id_formato')  ? ' has-error' : ''; ?>">
         <?php echo $form->labelEx($model,'id_formato', array('class'=>'col-lg-2 control-label')); ?>
         <div class="col-lg-10">
-            <?php echo $form->dropDownList($model,'id_formato', CHtml::listData(FotosFormato::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un formato','class'=>'form-control')); ?>
+            <?php echo $form->dropDownList($model,'id_formato', CHtml::listData(ObrasFormato::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un formato','class'=>'form-control')); ?>
         </div>
     </div>
 
     <div class="form-group<?php echo $model->getError('id_tecnica')  ? ' has-error' : ''; ?>">
         <?php echo $form->labelEx($model,'id_tecnica', array('class'=>'col-lg-2 control-label')); ?>
         <div class="col-lg-10">
-            <?php echo $form->dropDownList($model,'id_tecnica', CHtml::listData(FotosTecnica::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una técnica','class'=>'form-control')); ?>
+            <?php echo $form->dropDownList($model,'id_tecnica', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una técnica','class'=>'form-control')); ?>
         </div>
     </div>
 
     <div class="form-group<?php echo $model->getError('id_tema')  ? ' has-error' : ''; ?>">
         <?php echo $form->labelEx($model,'id_tema', array('class'=>'col-lg-2 control-label')); ?>
         <div class="col-lg-10">
-            <?php echo $form->dropDownList($model,'id_tema', CHtml::listData(FotosTema::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un tema','class'=>'form-control')); ?>
+            <?php echo $form->dropDownList($model,'id_tema', CHtml::listData(ObrasTema::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un tema','class'=>'form-control')); ?>
         </div>
     </div>
 
     <div class="form-group<?php echo $model->getError('montaje_recomendado')  ? ' has-error' : ''; ?>">
         <?php echo $form->labelEx($model,'montaje_recomendado', array('class'=>'col-lg-2 control-label')); ?>
         <div class="col-lg-10">
-            <?php echo $form->dropDownList($model,'montaje_recomendado', CHtml::listData(FotosMontaje::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un montaje','class'=>'form-control')); ?>
+            <?php echo $form->dropDownList($model,'montaje_recomendado', CHtml::listData(ObrasMontaje::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un montaje','class'=>'form-control')); ?>
         </div>
     </div>
 
@@ -95,21 +93,21 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
         </div>
     </div>
 
-        <div class="form-group<?php echo $model->getError('imagen')  ? ' has-error' : ''; ?>">
-            <?php echo $form->labelEx($model,'imagen', array('class'=>'col-lg-2 control-label')); ?>
-            <div class="col-lg-10">
-                <?php echo $form->fileField($model, 'imagen'); ?>
-            </div>
-            <?php if($model->isNewRecord!='1'): ?>
-                <div class="row">
-                    <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/fotos/'.$model->imagen,"imagen",array("width"=>200)); ?>
-                </div>
-            <?php endif; ?>
+    <div class="form-group<?php echo $model->getError('imagen')  ? ' has-error' : ''; ?>">
+        <?php echo $form->labelEx($model,'imagen', array('class'=>'col-lg-2 control-label')); ?>
+        <div class="col-lg-10">
+            <?php echo $form->fileField($model, 'imagen'); ?>
         </div>
+        <?php if($model->isNewRecord!='1'): ?>
+            <div class="row">
+                <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/obras/'.$model->imagen,"imagen",array("width"=>200)); ?>
+            </div>
+        <?php endif; ?>
+    </div>
 
 
         <?php
-            $tams = FotosTamano::model()->findAll();
+            $tams = ObrasTamano::model()->findAll();
             $arr = array();
             $arr[''] = '-';
             foreach($tams as $t)
@@ -119,7 +117,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
             $memberFormConfig = array(
                 'elements'=>array(
-                    'id_foto'=>array(
+                    'id_obra'=>array(
                         'type'=>'hidden'
                     ),
                     'id_tamano'=>array(
@@ -155,7 +153,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                 ));
 
             $this->widget('ext.multimodelform.MultiModelForm',array(
-                'id' => 'idfoto', //the unique widget id
+                'id' => 'idobra', //the unique widget id
                 'formConfig' => $memberFormConfig, //the form configuration array
                 'model' => $tamanos, //instance of the form model
                 'tableView' => true,
@@ -165,7 +163,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                 'validatedItems' => $validatedTamanos,
 
                 //array of member instances loaded from db
-                'data' => $tamanos->findAll('id_foto=:id_foto', array(':id_foto'=>$model->id)),
+                'data' => $tamanos->findAll('id_obra=:id_obra', array(':id_obra'=>$model->id)),
             ));
         ?>
 

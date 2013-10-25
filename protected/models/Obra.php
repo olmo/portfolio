@@ -16,7 +16,7 @@
  * @property ElementosImagenes $idImagen
  * @property ElementosImagenes[] $elementosImagenes
  */
-class Foto extends CActiveRecord
+class Obra extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -33,7 +33,7 @@ class Foto extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'fotos';
+		return 'obras';
 	}
 
 	/**
@@ -63,11 +63,11 @@ class Foto extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'idArtista' => array(self::BELONGS_TO, 'Artistas', 'id_artista'),
-			'idFormato' => array(self::BELONGS_TO, 'FotosFormatos', 'id_formato'),
-            'idTecnica' => array(self::BELONGS_TO, 'FotosTecnicas', 'id_tecnica'),
-            'idTema' => array(self::BELONGS_TO, 'FotosTema', 'id_tema'),
-            'idMontaje' => array(self::BELONGS_TO, 'FotosMontajes', 'montaje_recomendado'),
-			'fotoTamano' => array(self::HAS_MANY, 'FotosTamanosRelation', 'id_foto'),
+			'idFormato' => array(self::BELONGS_TO, 'ObrasFormatos', 'id_formato'),
+            'idTecnica' => array(self::BELONGS_TO, 'ObrasTecnicas', 'id_tecnica'),
+            'idTema' => array(self::BELONGS_TO, 'ObrasTema', 'id_tema'),
+            'idMontaje' => array(self::BELONGS_TO, 'ObrasMontajes', 'montaje_recomendado'),
+			'fotoTamano' => array(self::HAS_MANY, 'ObrasTamanosRelation', 'id_obra'),
 		);
 	}
 

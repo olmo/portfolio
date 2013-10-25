@@ -5,12 +5,12 @@
                 //'activeCssClass'=>'active',
                 'htmlOptions'=>array('class'=>'nav'),
                 'items'=>array(
-                    array('label'=>'Fotos', 'url'=>array('fotos/index'),),
-                    array('label'=>'Formatos', 'url'=>array('fotos/view/tipo/formato')),
-                    array('label'=>'Tamaños', 'url'=>array('fotos/view/tipo/tamano')),
-                    array('label'=>'Técnicas', 'url'=>array('fotos/view/tipo/tecnica')),
-                    array('label'=>'Temas', 'url'=>array('fotos/view/tipo/tema')),
-                    array('label'=>'Montajes', 'url'=>array('fotos/view/tipo/montaje')),
+                    array('label'=>'Fotos', 'url'=>array('obras/index'),),
+                    array('label'=>'Formatos', 'url'=>array('obras/view/tipo/formato')),
+                    array('label'=>'Tamaños', 'url'=>array('obras/view/tipo/tamano')),
+                    array('label'=>'Técnicas', 'url'=>array('obras/view/tipo/tecnica')),
+                    array('label'=>'Temas', 'url'=>array('obras/view/tipo/tema')),
+                    array('label'=>'Montajes', 'url'=>array('obras/view/tipo/montaje')),
                 ),
             )); ?>
         </div><!--/.well -->

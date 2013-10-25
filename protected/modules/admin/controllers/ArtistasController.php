@@ -2,7 +2,7 @@
 
 class ArtistasController extends Controller
 {
-    // public $layout='//layouts/fotos';
+    // public $layout='//layouts/obras';
     private $tiposModelos;
     private $modelos;
     private $tiposS;

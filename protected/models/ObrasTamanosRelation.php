@@ -12,7 +12,7 @@
  * @property string $ancho
  * @property string $alto
  */
-class FotosTamanosRelation extends CActiveRecord
+class ObrasTamanosRelation extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -29,7 +29,7 @@ class FotosTamanosRelation extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'fotos_tamanos_relation';
+		return 'obras_tamanos_relation';
 	}
 
 	/**
@@ -41,11 +41,11 @@ class FotosTamanosRelation extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_tamano, precio, stock_inicial, stock_restante, ancho, alto', 'required'),
-			array('id_foto, id_tamano, stock_inicial, stock_restante', 'numerical', 'integerOnly'=>true),
+			array('id_obra, id_tamano, stock_inicial, stock_restante', 'numerical', 'integerOnly'=>true),
 			array('precio, ancho, alto', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id_foto, id_tamano, precio, stock_inicial, stock_restante, ancho, alto', 'safe', 'on'=>'search'),
+			array('id_obra, id_tamano, precio, stock_inicial, stock_restante, ancho, alto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,8 +57,8 @@ class FotosTamanosRelation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-            'idFoto' => array(self::BELONGS_TO, 'Foto', 'id_foto'),
-            'idTamano' => array(self::BELONGS_TO, 'FotosTamano', 'id_tamano'),
+            'idObra' => array(self::BELONGS_TO, 'Obra', 'id_obra'),
+            'idTamano' => array(self::BELONGS_TO, 'ObrasTamano', 'id_tamano'),
 		);
 	}
 
@@ -68,7 +68,7 @@ class FotosTamanosRelation extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_foto' => 'Id Foto',
+			'id_obra' => 'Id Obra',
 			'id_tamano' => 'Id Tamano',
 			'precio' => 'Precio',
 			'stock_inicial' => 'Stock Inicial',
@@ -89,7 +89,7 @@ class FotosTamanosRelation extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_foto',$this->id_foto);
+		$criteria->compare('id_obra',$this->id_foto);
 		$criteria->compare('id_tamano',$this->id_tamano);
 		$criteria->compare('precio',$this->precio,true);
 		$criteria->compare('stock_inicial',$this->stock_inicial);

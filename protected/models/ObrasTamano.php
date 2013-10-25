@@ -10,7 +10,7 @@
  * The followings are the available model relations:
  * @property Fotos[] $fotoses
  */
-class FotosTamano extends CActiveRecord
+class ObrasTamano extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -27,7 +27,7 @@ class FotosTamano extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'fotos_tamanos';
+		return 'obras_tamanos';
 	}
 
 	/**
@@ -54,7 +54,7 @@ class FotosTamano extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'fotoses' => array(self::MANY_MANY, 'Fotos', 'fotos_tamanos_relation(id_tamano, id_foto)'),
+			'fotoses' => array(self::MANY_MANY, 'Obra', 'obras_tamanos_relation(id_tamano, id_obra)'),
 		);
 	}
 
