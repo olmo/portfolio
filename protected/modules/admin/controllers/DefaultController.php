@@ -4,11 +4,13 @@ class DefaultController extends CController
 {
     // public $layout='//layouts/login';
 
-    /**
-     * Specifies the access control rules.
-     * This method is used by the 'accessControl' filter.
-     * @return array access control rules
-     */
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
     public function accessRules()
     {
         return array(
