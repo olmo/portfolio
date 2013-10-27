@@ -53,7 +53,7 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
-        $this->layout = 'section';
+        $this->layout = 'main';
         $this->titulo = 'Contacto';
 
 		$model=new ContactForm;
