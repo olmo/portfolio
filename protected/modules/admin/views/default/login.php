@@ -8,7 +8,9 @@ $this->breadcrumbs=array(
     'Login',
 );
 ?>
+<div class="row">
 
+    </div>
 <div class="form-horizontal" role="form">
 
     <h3>Login</h3>

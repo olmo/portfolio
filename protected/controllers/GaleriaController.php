@@ -207,12 +207,14 @@ class GaleriaController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $model=new FiltroForm;
         $this->titulo = 'Galería';
 		$dataProvider=new CActiveDataProvider('Obra');
         $temas=new CActiveDataProvider('ObrasTema');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'temas'=>$temas,
+            'model'=>$model,
 		));
 	}
 

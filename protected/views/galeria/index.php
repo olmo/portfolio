@@ -19,35 +19,37 @@ $this->breadcrumbs=array(
     'Galería'=>array('index'),
 );
 
-$cs=Yii::app()->clientScript;
-$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/galleryindex.js', CClientScript::POS_END);
 ?>
 
 <div class="row">
 <div class="span3">
     <aside class="sidebar">
         <h4>Categories</h4>
+        <?php $form=$this->beginWidget('CActiveForm', array(
+            'id'=>'filtro-form',
+        )); ?>
         <ul id="filtro" class="nav nav-list primary pull-bottom">
             <li><a href="#">Artistas</a></li>
-            <li><a href="#">Técnicas</a></li>
-            <ul>
-                <li><a href="#">asdf</a></li>
-                <li><a href="#">123</a></li>
-                <li><a href="#">Temas</a></li>
-                <li><a href="#">Tamaño</a></li>
-                <li><a href="#">Formato</a></li>
+            <li data-toggle="collapse" data-target="#idtecnicas"><a href="#">Técnicas</a></li>
+            <ul id="idtecnicas" class="collapse">
+                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'tecnica')) ?>
+                <?php echo $form->checkBoxList($model, 'tecnicas', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'),
+                    array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}</label></li>')); ?>
             </ul>
-            <li><a href="#">Temas</a></li>
-            <ul>
-                <li><a href="#">htreh</a></li>
-                <li><a href="#">asdf</a></li>
-                <li><a href="#">Temas</a></li>
-                <li><a href="#">Tamaño</a></li>
-                <li><a href="#">Formato</a></li>
+            <li data-toggle="collapse" data-target="#idtemas"><a href="#">Temas</a></li>
+            <ul id="idtemas" class="collapse">
+                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'tema')) ?>
             </ul>
-            <li><a href="#">Tamaño</a></li>
-            <li><a href="#">Formato</a></li>
+            <li data-toggle="collapse" data-target="#idtamano"><a href="#">Tamaño</a></li>
+            <ul id="idtamano" class="collapse">
+                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'tamano')) ?>
+            </ul>
+            <li data-toggle="collapse" data-target="#idformato"><a href="#">Formato</a></li>
+            <ul id="idformato" class="collapse">
+                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'formato')) ?>
+            </ul>
         </ul>
+        <?php $this->endWidget(); ?>
     </aside>
 </div>
 

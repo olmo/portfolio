@@ -14,9 +14,12 @@ class DefaultController extends CController
     public function accessRules()
     {
         return array(
-            array('allow',
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions'=>array('index'),
                 'users'=>array('admin'),
+            ),
+            array('deny',
+                'users'=>array('*'),
             ),
         );
     }

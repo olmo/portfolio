@@ -31,6 +31,27 @@ class ArtistasController extends Controller
         parent::__construct($id,$module);
     }
 
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
+    public function accessRules()
+    {
+        return array(
+            array('allow',
+                'actions'=>array('index','view', 'createArtista', 'updateArtista', 'deleteArtista',
+                    'create','update','delete'),
+                'users'=>array('admin'),
+            ),
+            array('deny',
+                'users'=>array('*'),
+            ),
+        );
+    }
+
 
     public function actionIndex()
     {
