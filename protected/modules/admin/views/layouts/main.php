@@ -82,9 +82,9 @@
                         'items'=>array(
                             array('label'=>'Inicio', 'url'=>array('/admin'),),
                             array('label'=>'Artistas', 'url'=>array('/admin/artistas/index')),
-                            array('label'=>'Fotos', 'url'=>array('obras/index')),
-                            array('label'=>'Login', 'url'=>array('/admin/login/login'), 'visible'=>Yii::app()->user->isGuest),
-                            array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/admin/login/logout'), 'itemOptions'=>array('class'=>'logout'), 'visible'=>!Yii::app()->user->isGuest)
+                            array('label'=>'Fotos', 'url'=>array('/admin/obras/index')),
+                            // array('label'=>'Login', 'url'=>array('/admin/login/login'), 'visible'=>Yii::app()->user->isGuest),
+                            array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
                         ),
                     )); ?>
                 </div>

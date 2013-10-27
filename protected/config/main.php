@@ -39,7 +39,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-            'loginUrl'=>array('admin/login'),
+            'loginUrl'=>array('/admin/default/login'),
 		),
 		// uncomment the following to enable URLs in path-format
 

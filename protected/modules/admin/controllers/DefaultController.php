@@ -14,8 +14,12 @@ class DefaultController extends CController
     public function accessRules()
     {
         return array(
+            array('allow',
+                'actions'=>array('login'),
+                'users'=>array('*'),
+            ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions'=>array('index'),
+                'actions'=>array('index', 'logout'),
                 'users'=>array('admin'),
             ),
             array('deny',
@@ -31,7 +35,7 @@ class DefaultController extends CController
 
     public function actionLogin()
     {
-        $this->layout = 'login';
+        $this->layout='login';
 
         $model=new LoginForm;
 
@@ -52,5 +56,11 @@ class DefaultController extends CController
         }
         // display the login form
         $this->render('login',array('model'=>$model));
+    }
+
+	public function actionLogout()
+    {
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->homeUrl);
     }
 }
