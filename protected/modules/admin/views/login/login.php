@@ -53,11 +53,14 @@ $this->breadcrumbs=array(
         </div>
 
         <div class="form-group<?php echo $model->getError('rememberMe')  ? ' has-error' : ''; ?>">
-            <?php echo $form->label($model,'rememberMe', array('class'=>'col-lg-2 control-label')); ?>
-            <div class="col-lg-10">
-                <?php echo $form->checkBox($model,'rememberMe',array('size'=>50,'maxlength'=>50, 'class'=>'form-control')); ?>
+            <div class="col-lg-offset-2 col-lg-10">
+                <div class="checkbox">
+                    <?php echo $form->label($model,'rememberMe'); ?>
+                    <?php echo $form->checkBox($model,'rememberMe',array('size'=>50,'maxlength'=>50)); ?>
+                </div>
             </div>
         </div>
+
 
         <?php echo CHtml::submitButton('Entrar', array('class'=>'btn btn-primary pull-left')); ?>
 
