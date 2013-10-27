@@ -22,10 +22,12 @@
 
  */
 
+    $cs=Yii::app()->clientScript;
+    $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.carouFredSel-6.2.1-packed.js', CClientScript::POS_END);
+    $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.touchSwipe.min.js', CClientScript::POS_END);
+    $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.transit.min.js', CClientScript::POS_END);
+    $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/gallery.js', CClientScript::POS_END);
 ?>
-
-
-
 
 <h2><?php echo $model->titulo; ?></h2>
 
@@ -64,12 +66,18 @@
         <h3>Obras <strong>relacionadas</strong></h3>
     </div>
 
-    <ul class="portfolio-list">
-        <?php $this->widget('zii.widgets.CListView', array(
+    <ul id="related" class="portfolio-list">
+        <?php /*->widget('zii.widgets.CListView', array(
             'dataProvider'=>$related,
             'itemView'=>'_related',
-            'template'=>"{items}"
-        )); ?>
+            'template'=>"{items}",
+            'id'=>'asdf',
+        )); */?>
+        <?php
+            $data = $related->getData();
+            foreach($data as $i => $item)
+                Yii::app()->controller->renderPartial('_related', array('index' => $i, 'data' => $item, 'widget' => $this));
+        ?>
     </ul>
 
 </div>

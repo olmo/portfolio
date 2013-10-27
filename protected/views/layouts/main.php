@@ -45,15 +45,15 @@
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/revolution-slider/css/captions.css" media="screen" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/circle-flip-slideshow/css/component.css" media="screen" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">
-
     <!-- Skin CSS -->
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/skins/blue.css">
 
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/theme-responsive.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/img/favicon.ico">
@@ -82,6 +82,9 @@
     <meta property="fb:app_id" content=""/>
     <meta property="og:description" content="Porto - Responsive HTML5 Template"/>
     -->
+    <script>
+        var baseurl="<?php print Yii::app()->request->baseUrl;?>";
+    </script>
 
 </head>
 
@@ -91,13 +94,13 @@
         <div class="container">
             <h1 class="logo">
                 <a href="index.html">
-                    <img alt="Porto" src="img/logo.png">
+                    <img alt="Porto" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png">
                 </a>
             </h1>
             <div class="search">
                 <form class="form-search" id="searchForm" action="page-search-results.html" method="get">
                     <div class="control-group">
-                        <input type="text" class="input-medium search-query" name="q" id="q" placeholder="Search...">
+                        <input type="text" class="input-medium search-query" name="q" id="q" placeholder="Buscar...">
                         <button class="search" type="submit"><i class="icon-search"></i></button>
                     </div>
                 </form>
@@ -105,13 +108,13 @@
             <nav>
                 <ul class="nav nav-pills nav-top">
                     <li>
-                        <a href="about-us.html"><i class="icon-angle-right"></i>About Us</a>
+                        <a href="about-us.html"><i class="icon-angle-right"></i>Sobre nosotros</a>
                     </li>
                     <li>
-                        <a href="contact-us.html"><i class="icon-angle-right"></i>Contact Us</a>
+                        <a href="contact-us.html"><i class="icon-angle-right"></i>Contacto</a>
                     </li>
                     <li class="phone">
-                        <span><i class="icon-phone"></i>(123) 456-7890</span>
+                        <span><i class="icon-phone"></i>(+34) 607 53 53 35</span>
                     </li>
                 </ul>
             </nav>
@@ -148,72 +151,16 @@
     </header>
 
     <div role="main" class="main">
-        <div id="content" class="content full">
-            <div class="container">
-                <?php echo $content; ?>
-            </div>
-        </div>
+        <?php echo $content; ?>
     </div>
 
     <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-ribon">
-                    <span>Mantén el contacto</span>
-                </div>
-                <div class="span3">
-                    <h4>Newsletter</h4>
-                    <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
-
-                    <div class="alert alert-success hidden" id="newsletterSuccess">
-                        <strong>Success!</strong> You've been added to our email list.
-                    </div>
-
-                    <div class="alert alert-error hidden" id="newsletterError"></div>
-
-                    <form class="form-inline" id="newsletterForm" action="php/newsletter-subscribe.php" method="POST">
-                        <div class="control-group">
-                            <div class="input-append">
-                                <input class="span2" placeholder="Email Address" name="email" id="email" type="text">
-                                <button class="btn" type="submit">Go!</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="span3">
-                    <h4>Latest Tweet</h4>
-                    <div id="tweet" class="twitter" data-account-id="crivosthemes">
-                        <p>Please wait...</p>
-                    </div>
-                </div>
-                <div class="span4">
-                    <div class="contact-details">
-                        <h4>Contact Us</h4>
-                        <ul class="contact">
-                            <li><p><i class="icon-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>
-                            <li><p><i class="icon-phone"></i> <strong>Phone:</strong> (123) 456-7890</p></li>
-                            <li><p><i class="icon-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="span2">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <ul class="social-icons">
-                            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" rel="tooltip" title="Facebook">Facebook</a></li>
-                            <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" rel="tooltip" title="Twitter">Twitter</a></li>
-                            <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" rel="tooltip" title="Linkedin">Linkedin</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
             <div class="container">
                 <div class="row">
                     <div class="span1">
                         <a href="index.html" class="logo">
-                            <img alt="Porto Website Template" src="img/logo-footer.png">
+                            <img alt="Porto Website Template" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-footer.png">
                         </a>
                     </div>
                     <div class="span7">
@@ -222,6 +169,7 @@
                     <div class="span4">
                         <nav id="sub-menu">
                             <ul>
+                                <li><?php echo CHtml::link('Administración' ,array('/admin/')); ?></li>
                                 <li><a href="page-faq.html">FAQ's</a></li>
                                 <li><a href="sitemap.html">Sitemap</a></li>
                                 <li><a href="contact-us.html">Contact</a></li>

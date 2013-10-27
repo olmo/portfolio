@@ -2,6 +2,8 @@
 
 class SiteController extends Controller
 {
+    public $titulo = '';
+
 	/**
 	 * Declares class-based actions.
 	 */
@@ -51,6 +53,9 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
+        $this->layout = 'section';
+        $this->titulo = 'Contacto';
+
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{
