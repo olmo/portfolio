@@ -70,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Global Arte</a>
+                <span class="navbar-brand"> Global Arte </span>
                 <div class="navbar-collapse collapse" style="height: 1px;">
                     <p class="navbar-text pull-right">
                         Has entrado como <a href="#" class="navbar-link"><?php echo Yii::app()->user->name; ?></a>

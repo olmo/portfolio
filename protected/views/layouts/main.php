@@ -137,13 +137,9 @@
                         array('label'=>'Inicio', 'url'=>array('/site/index'),),
                         array('label'=>'Galería', 'url'=>array('/galeria/index')),
                         array('label'=>'Artistas', 'url'=>array('/artistas/index')),
-                        array('label'=>'Blog <i class="icon-angle-down"></i>', 'url'=>array('/blog/index'), 'itemOptions'=>array('class'=>'dropdown'), 'linkOptions'=>array('class'=>'dropdown-toggle'), 'items'=>array(
-                            array('label'=>'Nueva entrada', 'url'=>array('blog/create'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
-                            array('label'=>'Administrar entradas', 'url'=>array('blog/admin'), /*'visible'=>!Yii::app()->user->isGuest*/ ),
-                        )),
+                        array('label'=>'Blog', 'url'=>array('/blog/index')),
+                        array('label'=>'Sobre Nosotros', 'url'=>array('/site/about')),
                         array('label'=>'Contacto', 'url'=>array('/site/contact')),
-                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                        array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
                 )); ?>
             </nav>
