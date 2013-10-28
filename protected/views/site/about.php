@@ -33,53 +33,53 @@ $this->breadcrumbs=array(
                     <h4>Imágenes</h4>
                     <!-- <ul class="flickr-feed" data-plugin-options='{"qstrings": { "id": "93691989@N03" }}'></ul> -->
                     <ul class="flickr-feed">
-                        <table>
-                            <tr>
-                                <td>
-                                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg">
+                        <table width="308" height=202"">
+                        <tr>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/1.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/1.jpg" style="height: 75px"/>
                                     </span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/2.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/2.jpg" style="height: 75px"/>
                                     </span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/3.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/3.jpg" style="height: 75px"/>
                                     </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/4.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/4.jpg" style="height: 75px"/>
                                     </span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/5.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/5.jpg" style="height: 75px"/>
                                     </span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/6.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/blog/1.jpg"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/6.jpg" style="height: 75px"/>
                                     </span>
-                                    </a>
-                                </td>
-                            </tr>
+                                </a>
+                            </td>
+                        </tr>
                         </table>
                     </ul>
                 </div>
@@ -101,7 +101,7 @@ $this->breadcrumbs=array(
             <ul class="timeline">
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/office-4.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2012.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
@@ -112,7 +112,7 @@ $this->breadcrumbs=array(
                 </li>
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/office-3.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2010.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
@@ -123,7 +123,7 @@ $this->breadcrumbs=array(
                 </li>
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/office-2.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2005.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
@@ -134,7 +134,7 @@ $this->breadcrumbs=array(
                 </li>
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/office-1.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2000.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
