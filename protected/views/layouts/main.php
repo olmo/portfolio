@@ -93,7 +93,7 @@
     <header>
         <div class="container">
             <h1 class="logo">
-                <a href="index.html">
+                <a href="<?php echo Yii::app()->homeUrl; ?>">
                     <img alt="Porto" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png">
                 </a>
             </h1>
@@ -107,12 +107,6 @@
             </div>
             <nav>
                 <ul class="nav nav-pills nav-top">
-                    <li>
-                        <a href="about-us.html"><i class="icon-angle-right"></i>Sobre nosotros</a>
-                    </li>
-                    <li>
-                        <a href="contact-us.html"><i class="icon-angle-right"></i>Contacto</a>
-                    </li>
                     <li class="phone">
                         <span><i class="icon-phone"></i>(+34) 607 53 53 35</span>
                     </li>
@@ -167,8 +161,8 @@
                             <ul>
                                 <li><?php echo CHtml::link('Administración' ,array('/admin/')); ?></li>
                                 <li><a href="page-faq.html">FAQ's</a></li>
-                                <li><a href="sitemap.html">Sitemap</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                                <li><?php echo CHtml::link('Localización',array('site/contact')); ?></li>
+                                <li><?php echo CHtml::link('Contacto',array('site/contact')); ?></li>
                             </ul>
                         </nav>
                     </div>
