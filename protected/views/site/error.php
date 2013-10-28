@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
                 <h4>Algunos enlaces útiles</h4>
                 <ul class="nav nav-list primary">
                     <li><a href="<?php echo Yii::app()->homeUrl; ?>">Inicio</a></li>
-                    <li><?php echo CHtml::link('FAQ\'s' ,array('/admin/')); ?></li>
+                    <li><?php echo CHtml::link('FAQ\'s' ,array('site/faq')); ?></li>
                     <li><?php echo CHtml::link('Sobre Nosotros' ,array('site/about')); ?></li>
                     <li><?php echo CHtml::link('Localización' ,array('site/contact')); ?></li>
                     <li><?php echo CHtml::link('Contacto' ,array('site/contact')); ?></li>

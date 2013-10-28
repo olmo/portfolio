@@ -163,7 +163,7 @@
                         <nav id="sub-menu">
                             <ul>
                                 <li><?php echo CHtml::link('Administración' ,array('/admin/')); ?></li>
-                                <li><a href="page-faq.html">FAQ's</a></li>
+                                <li><?php echo CHtml::link('FAQ\'s' ,array('site/faq')); ?></li>
                                 <li><?php echo CHtml::link('Localización',array('site/contact')); ?></li>
                                 <li><?php echo CHtml::link('Contacto',array('site/contact')); ?></li>
                             </ul>

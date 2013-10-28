@@ -43,6 +43,15 @@ class SiteController extends Controller
         $this->render('about');
     }
 
+    public function actionFaq()
+    {
+        $this->layout = 'section';
+        $this->titulo = 'FAQ';
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('faq');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
