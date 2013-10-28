@@ -8,24 +8,6 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<section class="page-top">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-                    <li class="active">Pages</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="span12">
-                <h2>404 - Page Not Found</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
 <div class="container">
 
     <section class="page-not-found">
@@ -37,13 +19,13 @@ $this->breadcrumbs=array(
                 </div>
             </div>
             <div class="span4">
-                <h4>Here are some useful links</h4>
+                <h4>Algunos enlaces útiles</h4>
                 <ul class="nav nav-list primary">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">FAQ's</a></li>
-                    <li><a href="#">Sitemap</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="<?php echo Yii::app()->homeUrl; ?>">Inicio</a></li>
+                    <li><?php echo CHtml::link('FAQ\'s' ,array('/admin/')); ?></li>
+                    <li><?php echo CHtml::link('Sobre Nosotros' ,array('site/about')); ?></li>
+                    <li><?php echo CHtml::link('Localización' ,array('site/contact')); ?></li>
+                    <li><?php echo CHtml::link('Contacto' ,array('site/contact')); ?></li>
                 </ul>
             </div>
         </div>

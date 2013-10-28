@@ -48,6 +48,9 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
+        $this->layout = 'section';
+        $this->titulo = '404 - Página no encontrada';
+
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)

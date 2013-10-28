@@ -107,6 +107,9 @@
             </div>
             <nav>
                 <ul class="nav nav-pills nav-top">
+                    <li>
+                        <a href="error.html"><i class="icon-angle-right"></i>404</a>
+                    </li>
                     <li class="phone">
                         <span><i class="icon-phone"></i>(+34) 607 53 53 35</span>
                     </li>
