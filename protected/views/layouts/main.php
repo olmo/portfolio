@@ -195,6 +195,7 @@
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/magnific-popup/magnific-popup.js"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.validate.js"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/isotope/jquery.isotope.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jflickrfeed/jflickrfeed.js"></script>
 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins.js"></script>
 
