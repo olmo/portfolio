@@ -36,7 +36,8 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        $this->layout = 'main';
+        $this->layout = 'section';
+        $this->titulo = 'Sobre Nosotros';
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $this->render('about');

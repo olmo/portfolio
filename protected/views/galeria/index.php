@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 <div class="row">
 <div class="span3">
     <aside class="sidebar">
-        <h4>Categories</h4>
+        <h4>Categorias</h4>
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'filtro-form',
         )); ?>
