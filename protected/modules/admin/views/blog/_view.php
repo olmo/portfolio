@@ -1,6 +1,6 @@
 <tr>
     <td><?php echo CHtml::encode($data->titulo); ?></td>
-    <td><?php echo CHtml::encode($data->autor); ?></td>
+    <td><?php echo CHtml::encode($data->idAutor->username); ?></td>
     <td class="col-md-2">
         <?php echo CHtml::link('Editar',array('update', 'id'=>$data->id),
             array('class' => 'edit')); ?>
