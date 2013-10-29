@@ -1,12 +1,14 @@
 <?php
 
-class FiltroForm extends CFormModel
+class PedidoForm extends CFormModel
 {
-    public $artistas;
-    public $tecnicas;
-    public $temas;
-    public $tamanos;
-    public $formatos;
+    public $nombre;
+    public $email;
+    public $comentario;
+    public $obra;
+    public $tamano;
+    public $montaje;
+    public $precio;
 
     /**
      * Declares the validation rules.
@@ -14,7 +16,7 @@ class FiltroForm extends CFormModel
     public function rules()
     {
         return array(
-            //array('artistas, tecnicas, temas, tamanos, temas', 'required'),
+            array('nombre, email, obra, tamano, montaje, precio', 'required'),
         );
     }
 
@@ -26,11 +28,11 @@ class FiltroForm extends CFormModel
     public function attributeLabels()
     {
         return array(
-            'artistas'=>'Artistas',
-            'tecnicas'=>'Técnicas',
-            'temas'=>'Temas',
-            'tamanos'=>'Tamanos',
-            'formatos'=>'Formatos',
+            'email'=>'Email',
+            'obra'=>'Obra',
+            'tamano'=>'Tamano',
+            'montaje'=>'Montaje',
+            'precio'=>'Precio',
         );
     }
 }

@@ -8,7 +8,7 @@
 
 ?>
 
-<h3>Añadir <?php echo $tipoS; ?></h3>
+<h3><?php echo ($accion=='create' ? 'Añadir '.$tipoS : 'Actualizar '.$tipoS); ?></h3>
 
 <div class="form-horizontal" role="form">
 
@@ -49,9 +49,7 @@
             </div>
         <?php endif; ?>
 
-        <div class="row buttons">
-            <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
-        </div>
+        <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
     </fieldset>
 
     <?php $this->endWidget(); ?>

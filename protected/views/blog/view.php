@@ -6,46 +6,40 @@ $this->breadcrumbs=array(
 	'Entradas'=>array('index'),
 	$model->id,
 );
-
-$this->menu=array(
-	array('label'=>'List Entrada', 'url'=>array('index')),
-	array('label'=>'Create Entrada', 'url'=>array('create')),
-	array('label'=>'Update Entrada', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Entrada', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Entrada', 'url'=>array('admin')),
-);
 ?>
 
-<div class="slider animation_fade" data-animation="fade" data-interval="5000">
-    <ul>
-        <li>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fondos/1.jpg" alt="">
-        </li>
-        <li>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fondos/2.jpg" alt="">
-        </li>
-        <li>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fondos/3.jpg" alt="">
-        </li>
-    </ul>
-</div>
-
-<section class="layout left blogpost"><div class="skew"></div>
-
-    <!-- Article -->
-    <ul class="articles blogpost">
-        <li>
-            <article>
-                <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$model->id)); ?>"><?php echo CHtml::encode($model->titulo); ?></a></h2>
-
-                <div class="meta">
-                    <span class="date"><?php echo CHtml::encode($model->fecha_publicacion); ?></span>
-                    <span>por <a href="#"><?php echo CHtml::encode($model->autor); ?></a></span>
-                    <span>en <a href="#">Fotografía</a></span>
+<div class="row">
+    <div class="span12">
+        <div class="blog-posts single-post">
+            <article class="post post-large-image blog-single-post">
+                <div class="post-date">
+                    <span class="day">10</span>
+                    <span class="month">Jan</span>
                 </div>
+                <div class="post-content">
 
-                <?php echo $model->texto; ?>
+                    <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$model->id)); ?>"><?php echo CHtml::encode($model->titulo); ?></a></h2>
+
+                    <div class="post-meta">
+                        <span><i class="icon-user"></i> By <a href="#">John Doe</a> </span>
+                        <span><i class="icon-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
+                        <span><i class="icon-comments"></i> <a href="#">12 Comments</a></span>
+                    </div>
+
+                    <?php echo $model->texto; ?>
+
+                    <div class="post-block post-author clearfix">
+                        <h3><i class="icon-user"></i>Author</h3>
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="img/avatar.jpg" alt="">
+                            </a>
+                        </div>
+                        <p><strong class="name"><a href="#">John Doe</a></strong></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui. </p>
+                    </div>
+                </div>
             </article>
-        </li>
-    </ul>
-</section>
+        </div>
+    </div>
+</div>

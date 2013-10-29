@@ -27,9 +27,15 @@
     $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.touchSwipe.min.js', CClientScript::POS_END);
     $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.transit.min.js', CClientScript::POS_END);
     $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/gallery.js', CClientScript::POS_END);
+
+    $this->breadcrumbs=array(
+        'Galería'=>array('index'),
+    );
+
+    $this->pageTitle=Yii::app()->name . ' - '.$model->titulo;
 ?>
 
-<h2><?php echo $model->titulo; ?></h2>
+<h3><?php echo $model->idArtista->nombre; ?></h3>
 
 <div class="row">
     <div class="span6">
@@ -41,24 +47,97 @@
 
     <div class="span6">
 
-        <h4>Project <strong>Description</strong></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+        <h4><?php echo $model->titulo; ?></h4>
+        <?php echo $model->descripcion; ?>
 
-        <a href="#" class="btn btn-primary">Live Preview</a> <span class="arrow hlb hidden-phone" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
 
-        <h4 class="pull-top">Services</h4>
+        <?php if(Yii::app()->user->hasFlash('contact')): ?>
+            <div class="alert alert-success">
+                <?php echo Yii::app()->user->getFlash('contact'); ?>
+            </div>
+        <?php else: ?>
 
-        <ul class="list icons unstyled">
-            <li><i class="icon-ok"></i> Design</li>
-            <li><i class="icon-ok"></i> HTML/CSS</li>
-            <li><i class="icon-ok"></i> Javascript</li>
-            <li><i class="icon-ok"></i> Backend</li>
-        </ul>
+            <?php $form=$this->beginWidget('CActiveForm', array(
+                'id'=>'pedido-form',
+            )); ?>
+            <?php echo $form->hiddenField($formmodel,'obra'); ?>
+            <?php echo $form->hiddenField($formmodel,'tamano'); ?>
+            <?php echo $form->hiddenField($formmodel,'montaje'); ?>
+            <?php echo $form->hiddenField($formmodel,'precio'); ?>
 
+            <?php if($formmodel->hasErrors()): ?>
+                <div class="alert alert-block alert-error fade in">
+                    <h4 class="alert-heading">Errores</h4>
+                    <?php echo $form->errorSummary($formmodel); ?>
+                </div>
+            <?php endif; ?>
+
+            <h4 class="pull-top">Tamaños</h4>
+
+            <table class="table table-hover">
+                <?php /*echo $form->checkBoxList($formmodel, 'tamano', CHtml::listData(ObrasTamanosRelation::model()->findAll(array('condition'=>'id_obra='.$model->id)), 'id', 'nombre'),
+                    array('container'=>'','separator'=>'',
+                        'template'=>'<tr><td class="span1">{input}</td><td class="span4">'.$data->alto.' x '.$data->ancho.' cm</td><td class="span1 precio">'.$data->precio.' €</td></tr>'));*/ ?>
+
+                <?php foreach($model->obraTamano as $i=>$tamano): ?>
+                    <tr><td class="span1"><input value="<?php echo $tamano->id_tamano; ?>" style="margin: 0;" type="checkbox" name="tamanos[]" <?php if ($i==0) echo 'checked'; ?>></td><td class="span4"><?php echo $tamano->alto; ?> x <?php echo $tamano->ancho; ?> cm</td><td class="span1 precio"><?php echo $tamano->precio; ?> €</td></tr>
+                <?php endforeach; ?>
+            </table>
+
+            <h4 class="pull-top">Montaje</h4>
+
+            <table class="table table-hover">
+                <?php foreach($montajes->getData() as $montaje): ?>
+                    <tr><td class="span1"><input value="<?php echo $montaje->id; ?>" style="margin: 0;" name="montajes[]" type="checkbox" <?php if($montaje->id==$model->montaje_recomendado) echo 'checked'; ?>></td><td class="span3"><?php echo $montaje->nombre; ?></td><td class="span1"><?php if($montaje->id==$model->montaje_recomendado) echo 'Recomendado'; ?></td><td class="span1 precio"><?php echo $montaje->precio; ?> €</td></tr>
+                <?php endforeach; ?>
+            </table>
+
+            <hr class="tall" />
+
+            <div>Precio Total: <span id="total" class="pull-right"><strong></strong></span></div>
+
+            <br />
+
+            <div class="accordion" id="accordion2">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                            Realizar Pedido
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <div class="row controls">
+                                <div class="span6 control-group">
+                                    <?php echo $form->labelEx($formmodel,'nombre'); ?>
+                                    <?php echo $form->textField($formmodel,'nombre', array('class'=>'span5')); ?>
+                                </div>
+                                <div class="span6 control-group">
+                                    <?php echo $form->labelEx($formmodel,'email'); ?>
+                                    <?php echo $form->textField($formmodel,'email', array('class'=>'span5')); ?>
+                                </div>
+                            </div>
+                            <div class="row controls">
+                                <div class="span6 control-group">
+                                    <?php echo $form->labelEx($formmodel,'comentario'); ?>
+                                    <?php echo $form->textArea($formmodel,'comentario',array('rows'=>6, 'cols'=>50, 'class'=>'span5')); ?>
+                                </div>
+                            </div>
+
+                            <div><?php echo CHtml::submitButton('Enviar', array('class' => 'btn btn-primary btn-large')); ?></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <?php $this->endWidget(); ?>
+        <?php endif; ?>
     </div>
 </div>
 
-<hr class="tall" />
+<hr />
 
 <div class="row">
 

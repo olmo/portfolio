@@ -7,55 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/custom.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.js.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/js/bootstrap.min.js"></script>
 
-    <style type="text/css">
-        body {
-            padding-top: 70px;
-        }
-        footer {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-        /*
-         * Off Canvas
-         * --------------------------------------------------
-         */
-        @media screen and (max-width: 768px) {
-            .row-offcanvas {
-                position: relative;
-                -webkit-transition: all 0.25s ease-out;
-                -moz-transition: all 0.25s ease-out;
-                transition: all 0.25s ease-out;
-            }
-
-            .row-offcanvas-right
-            .sidebar-offcanvas {
-                right: -50%; /* 6 columns */
-            }
-
-            .row-offcanvas-left
-            .sidebar-offcanvas {
-                left: -50%; /* 6 columns */
-            }
-
-            .row-offcanvas-right.active {
-                right: 50%; /* 6 columns */
-            }
-
-            .row-offcanvas-left.active {
-                left: 50%; /* 6 columns */
-            }
-
-            .sidebar-offcanvas {
-                position: absolute;
-                top: 0;
-                width: 50%; /* 6 columns */
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -72,7 +28,7 @@
                 </button>
                 <span class="navbar-brand"> Global Arte </span>
                 <div class="navbar-collapse collapse" style="height: 1px;">
-                    <p class="navbar-text pull-right">
+                    <p class="navbar-text pull-right hidden-xs">
                         Has entrado como <a href="#" class="navbar-link"><?php echo Yii::app()->user->name; ?></a>
                     </p>
 
@@ -81,8 +37,9 @@
                         'htmlOptions'=>array('class'=>'nav navbar-nav',),
                         'items'=>array(
                             array('label'=>'Inicio', 'url'=>array('/admin'),),
-                            array('label'=>'Artistas', 'url'=>array('/admin/artistas/index')),
-                            array('label'=>'Fotos', 'url'=>array('/admin/obras/index')),
+                            array('label'=>'Artistas', 'url'=>array('/admin/artistas/index'), 'active'=>Yii::app()->controller->id=='artistas',),
+                            array('label'=>'Fotos', 'url'=>array('/admin/obras/index'), 'active'=>Yii::app()->controller->id=='obras',),
+                            array('label'=>'Blog', 'url'=>array('/admin/blog/index'), 'active'=>Yii::app()->controller->id=='blog',),
                             // array('label'=>'Login', 'url'=>array('/admin/login/login'), 'visible'=>Yii::app()->user->isGuest),
                             array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
                         ),

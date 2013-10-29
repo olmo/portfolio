@@ -1,21 +1,37 @@
 $(document).ready(function() {
-	$('.centerthumbs img').css({
+	calcularPrecio();
+
+	/*$('.centerthumbs img').css({
 			'height': '200px'
 		});
-
-
-	// Using default configuration
+	*/
+	
 	$("#related").carouFredSel();
 	
-	// Using custom configuration
-	$("#foo2").carouFredSel({
-		items				: 2,
-		direction			: "up",
-		scroll : {
-			items			: 1,
-			easing			: "elastic",
-			duration		: 1000,							
-			pauseOnHover	: true
-		}					
-	});	
+	$("input[type=checkbox]").change(function(){
+		var group = "input:checkbox[name='"+$(this).prop("name")+"']";
+		$(group).prop("checked",false);
+		$(this).prop("checked",true);
+		calcularPrecio();
+	});
+
+	function calcularPrecio(){
+		var sum = 0;
+		var idtam = -1;
+		var idmon = -1;
+
+		$("input[type=checkbox]:checked").each(function(){
+			sum += parseFloat($(this).parent().parent().find('.precio').text());
+			
+			if($(this).attr("name")=="tamanos[]")
+				idtam = $(this).val();
+			else if($(this).attr("name")=="montajes[]")
+				idmon = $(this).val();
+		});
+
+		$("#total").html("<strong>"+sum+" €</strong>");
+		$("#PedidoForm_precio").val(sum);
+		$("#PedidoForm_tamano").val(idtam);
+		$("#PedidoForm_montaje").val(idmon);
+	}
 });

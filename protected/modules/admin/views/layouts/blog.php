@@ -5,12 +5,7 @@
                 'activeCssClass'=>'active',
                 'htmlOptions'=>array('class'=>'nav'),
                 'items'=>array(
-                    array('label'=>'Obras', 'url'=>array('obras/index'), 'active'=>true),
-                    array('label'=>'Formatos', 'url'=>array('obras/view/tipo/formato')),
-                    array('label'=>'Tamaños', 'url'=>array('obras/view/tipo/tamano')),
-                    array('label'=>'Técnicas', 'url'=>array('obras/view/tipo/tecnica')),
-                    array('label'=>'Temas', 'url'=>array('obras/view/tipo/tema')),
-                    array('label'=>'Montajes', 'url'=>array('obras/view/tipo/montaje')),
+                    array('label'=>'Entradas', 'url'=>array('blog/index'), 'active'=>true),
                 ),
             )); ?>
         </div><!--/.well -->

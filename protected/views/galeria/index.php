@@ -29,24 +29,30 @@ $this->breadcrumbs=array(
             'id'=>'filtro-form',
         )); ?>
         <ul id="filtro" class="nav nav-list primary pull-bottom">
-            <li><a href="#">Artistas</a></li>
-            <li data-toggle="collapse" data-target="#idtecnicas"><a href="#">Técnicas</a></li>
+            <li data-toggle="collapse" data-target="#idartistas"><a href="#artistas">Artistas</a></li>
+            <ul id="idartistas" class="collapse">
+                <?php echo $form->checkBoxList($model, 'artistas', CHtml::listData(ArtistasCategorias::model()->findAll(), 'id', 'nombre'),
+                    array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+            </ul>
+            <li data-toggle="collapse" data-target="#idtecnicas"><a href="#tecnicas">Técnicas</a></li>
             <ul id="idtecnicas" class="collapse">
-                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'tecnica')) ?>
                 <?php echo $form->checkBoxList($model, 'tecnicas', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'),
-                    array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}</label></li>')); ?>
+                    array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
-            <li data-toggle="collapse" data-target="#idtemas"><a href="#">Temas</a></li>
+            <li data-toggle="collapse" data-target="#idtemas"><a href="#temas">Temas</a></li>
             <ul id="idtemas" class="collapse">
-                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'tema')) ?>
+                <?php echo $form->checkBoxList($model, 'temas', CHtml::listData(ObrasTema::model()->findAll(), 'id', 'nombre'),
+                    array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
-            <li data-toggle="collapse" data-target="#idtamano"><a href="#">Tamaño</a></li>
+            <li data-toggle="collapse" data-target="#idtamano"><a href="#tamanos">Tamaño</a></li>
             <ul id="idtamano" class="collapse">
-                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'tamano')) ?>
+                <?php echo $form->checkBoxList($model, 'tamanos', CHtml::listData(ObrasTamano::model()->findAll(), 'id', 'nombre'),
+                    array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
-            <li data-toggle="collapse" data-target="#idformato"><a href="#">Formato</a></li>
+            <li data-toggle="collapse" data-target="#idformato"><a href="#formatos">Formato</a></li>
             <ul id="idformato" class="collapse">
-                <?php $this->widget('CaracteristicasWidget', array('modelo'=>'formato')) ?>
+                <?php echo $form->checkBoxList($model, 'formatos', CHtml::listData(ObrasFormato::model()->findAll(), 'id', 'nombre'),
+                    array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
         </ul>
         <?php $this->endWidget(); ?>
@@ -54,12 +60,12 @@ $this->breadcrumbs=array(
 </div>
 
 <div class="span9">
-    <ul class="nav nav-pills sort-source" data-sort-id="portfolio" data-option-key="filter">
+    <!--<ul class="nav nav-pills sort-source" data-sort-id="portfolio" data-option-key="filter">
         <li data-option-value="*" class="active"><a href="#">Mostrar Todo</a></li>
-        <?php foreach($temas->getData() as $data): ?>
-            <li data-option-value=".<?php echo CHtml::encode($data->nombre); ?>"><a href="#"><?php echo CHtml::encode($data->nombre); ?></a></li>
-        <?php endforeach; ?>
-    </ul>
+        <?php /*foreach($temas->getData() as $data): */?>
+            <li data-option-value=".<?php /*echo CHtml::encode($data->nombre); */?>"><a href="#"><?php /*echo CHtml::encode($data->nombre); */?></a></li>
+        <?php /*endforeach; */?>
+    </ul>-->
 
     <hr />
 
@@ -74,6 +80,19 @@ $this->breadcrumbs=array(
             )); ?>
         </ul>
 
+    </div>
+
+    <div class="pagination">
+        <?php $this->widget('CLinkPager', array('pages' => $dataProvider->pagination,
+            'cssFile'=>false,
+            'selectedPageCssClass'=>'active',
+            'hiddenPageCssClass'=>'disabled',
+            'header'          => '',
+            'firstPageLabel' => '<<',
+            'prevPageLabel'  => '<',
+            'nextPageLabel'  => '>',
+            'lastPageLabel'  => '>>',
+        )); ?>
     </div>
 </div>
 </div>

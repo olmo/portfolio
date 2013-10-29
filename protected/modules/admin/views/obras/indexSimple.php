@@ -1,13 +1,14 @@
 <?php
 
-$this->breadcrumbs=array(
+/*$this->breadcrumbs=array(
     'Fotos'=>array('index'),
     $tipoP=>array('index'),
-);
+);*/
 
 ?>
 
-<h3><?php echo CHtml::link('Añadir '.$tipoS,array('/admin/obras/create/tipo/'.$tipo)); ?></h3>
+<?php echo CHtml::link('Añadir '.$tipoS,array('/admin/obras/create/tipo/'.$tipo), array('class'=>'btn btn-primary')); ?>
+<p></p>
 
 <table class="table table-striped">
     <tbody>

@@ -40,7 +40,7 @@ class ObrasTamanosRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tamano, precio, stock_inicial, stock_restante, ancho, alto', 'required'),
+			array('id_tamano, precio, stock_inicial, ancho, alto', 'required'),
 			array('id_obra, id_tamano, stock_inicial, stock_restante', 'numerical', 'integerOnly'=>true),
 			array('precio, ancho, alto', 'length', 'max'=>10),
 			// The following rule is used by search().
@@ -68,13 +68,13 @@ class ObrasTamanosRelation extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_obra' => 'Id Obra',
-			'id_tamano' => 'Id Tamano',
+			'id_obra' => 'Obra',
+			'id_tamano' => 'Tamaño',
 			'precio' => 'Precio',
 			'stock_inicial' => 'Stock Inicial',
 			'stock_restante' => 'Stock Restante',
-			'ancho' => 'Ancho',
-			'alto' => 'Alto',
+			'ancho' => 'Ancho (cm)',
+			'alto' => 'Alto (cm)',
 		);
 	}
 

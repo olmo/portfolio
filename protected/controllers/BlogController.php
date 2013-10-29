@@ -6,7 +6,8 @@ class BlogController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column1';
+	public $layout='//layouts/section';
+    public $titulo='';
 
 	/**
 	 * @return array action filters
@@ -31,17 +32,6 @@ class BlogController extends Controller
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','imgUpload'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
 		);
 	}
 
@@ -51,70 +41,11 @@ class BlogController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $this->titulo = 'Blog';
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
-	}
-
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new Entrada;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Entrada']))
-		{
-			$model->attributes=$_POST['Entrada'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Entrada']))
-		{
-			$model->attributes=$_POST['Entrada'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -122,13 +53,15 @@ class BlogController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $this->titulo = 'Blog';
+
         $criteria=new CDbCriteria(array(
             'order'=>'fecha_publicacion DESC',
         ));
 
-		$dataProvider=new CActiveDataProvider('Entrada', array(
+		$dataProvider=new CActiveDataProvider('BlogEntrada', array(
             'pagination'=>array(
-                'pageSize'=>2,
+                'pageSize'=>5,
             ),
             'criteria'=>$criteria,
         ));
@@ -138,33 +71,7 @@ class BlogController extends Controller
 		));
 	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Entrada('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Entrada']))
-			$model->attributes=$_GET['Entrada'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-    public function actions()
-    {
-        return array(
-            'imgUpload'=>array(
-                'class' => 'ext.imperavi-redactor-widget.actions.imgUpload.RedactorUploadAction',
-                'directory'=>'uploads/images',
-                'validator'=>array(
-                    'mimeTypes' => array('image/png', 'image/jpg', 'image/gif', 'image/jpeg', 'image/pjpeg'),
-                )
-            ),
-        );
-    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -175,22 +82,10 @@ class BlogController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Entrada::model()->with('autor')->findByPk($id);
+		$model=BlogEntrada::model()->with('autor')->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
 
-	/**
-	 * Performs the AJAX validation.
-	 * @param Entrada $model the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='entrada-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }

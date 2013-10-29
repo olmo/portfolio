@@ -2,19 +2,23 @@
 /* @var $this BlogController */
 /* @var $data Entrada */
 ?>
-<li>
-<article class="clearfix">
-    <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>">  <?php echo CHtml::encode($data->titulo); ?></a></h2>
-
-    <div class="meta">
-        <span class="date"><?php echo CHtml::encode($data->fecha_publicacion); ?></span>
-        <span>por <a href="#"><?php echo CHtml::encode($data->autor); ?></a></span>
-        <span>en <a href="#">Fotografía</a></span>
+<article class="post post-large-image">
+    <div class="post-date">
+        <span class="day">10</span>
+        <span class="month">Jan</span>
     </div>
+    <div class="post-content">
 
-    <?php echo $data->texto; ?>
+        <h2><a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>"><?php echo CHtml::encode($data->titulo); ?></a></h2>
+        <?php echo $data->texto; ?>
 
-    <a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>" class="read_more">Leer más »</a>
+        <div class="post-meta">
+            <span><i class="icon-user"></i> By <a href="#"><?php echo CHtml::encode($data->autor); ?></a> </span>
+            <span><i class="icon-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
+            <span><i class="icon-comments"></i> <a href="#">12 Comments</a></span>
+            <a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>" class="btn btn-mini btn-primary pull-right">Read more...</a>
+        </div>
+
+    </div>
 </article>
-</li>
 

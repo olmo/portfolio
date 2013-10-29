@@ -7,7 +7,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
 
 
-<h3>Añadir Obra</h3>
+<h3><?php echo ($tipo=='create' ? 'Añadir Obra' : 'Actualizar Obra'); ?></h3>
 
 <div class="form-horizontal" role="form">
 
@@ -106,6 +106,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
     </div>
 
 
+    <div class="table-responsive" style="margin-left: 20px;">
         <?php
             $tams = ObrasTamano::model()->findAll();
             $arr = array();
@@ -141,22 +142,29 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         'size'=>6,
                     ),
                     'stock_inicial'=>array(
-                        'type'=>'text',
-                        'maxlength'=>3,
-                        'size'=>3,
-                    ),
-                    'stock_restante'=>array(
-                        'type'=>'text',
+                        'type'=>'number',
                         'maxlength'=>3,
                         'size'=>3,
                     ),
                 ));
+
+            if ($tipo=='update'){
+                $memberFormConfig['elements']['stock_restante']=array(
+                    'type'=>'number',
+                    'maxlength'=>3,
+                    'size'=>3,
+                );
+
+            }
 
             $this->widget('ext.multimodelform.MultiModelForm',array(
                 'id' => 'idobra', //the unique widget id
                 'formConfig' => $memberFormConfig, //the form configuration array
                 'model' => $tamanos, //instance of the form model
                 'tableView' => true,
+                'addItemText'=>'Añadir Tamaño',
+                'removeText'=>'Eliminar',
+                'tableHtmlOptions'=>array('class'=>'table'),
 
                 //if submitted not empty from the controller,
                 //the form will be rendered with validation errors
@@ -166,8 +174,8 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                 'data' => $tamanos->findAll('id_obra=:id_obra', array(':id_obra'=>$model->id)),
             ));
         ?>
-
-        <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
+    </div>
+    <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
 
     </fieldset>
 

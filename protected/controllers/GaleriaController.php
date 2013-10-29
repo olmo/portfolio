@@ -52,155 +52,50 @@ class GaleriaController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $this->titulo = 'Galería';
         $model = $this->loadModel($id);
+        $form=new PedidoForm;
 
         $criteria=new CDbCriteria(array(
             'condition'=>'id_artista='.$model->id_artista,
         ));
 
         $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
+        $montajes = new CActiveDataProvider('ObrasMontaje');
+
+        if(isset($_POST['PedidoForm'])){
+            $form->attributes=$_POST['PedidoForm'];
+
+            if($model->validate()){
+                $name='=?UTF-8?B?'.base64_encode($form->nombre).'?=';
+                $subject='=?UTF-8?B?'.base64_encode('Pedido - '.$model->titulo).'?=';
+                $headers="From: $name <{$form->email}>\r\n".
+                    "Reply-To: {$form->email}\r\n".
+                    "MIME-Version: 1.0\r\n".
+                    "Content-type: text/plain; charset=UTF-8";
+
+                $contenido = "Obra: ".$model->titulo."\n";
+                $contenido .= "Tamaño: ".ObrasTamano::model()->findByPk($form->tamano)->nombre."\n";
+                $contenido .= "Montaje: ".ObrasMontaje::model()->findByPk($form->montaje)->nombre."\n";
+                $contenido .= "Precio: ".$form->precio."€\n\n";
+                $contenido .= "Nombre del cliente: ".$form->nombre."€\n\n";
+                $contenido .= $form->comentario;
+
+                mail(Yii::app()->params['adminEmail'],$subject,$contenido,$headers);
+                Yii::app()->user->setFlash('contact','Gracias por confiar en nosotros. Le responderemos tan pronto como sea posible.');
+                $this->refresh();
+            }
+        }
 
 		$this->render('view',array(
 			'model'=>$model,
             'related'=>$related,
+            'montajes'=>$montajes,
+            'formmodel'=>$form,
 		));
 
 
 	}
-
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	/*public function actionCreate()
-	{
-		$model=new Foto;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Elemento']))
-		{
-			$model->attributes=$_POST['Foto'];
-            $model->save();
-            $id = $model->getPrimaryKey();
-
-            $images = CUploadedFile::getInstancesByName('images');
-
-            if (isset($images) && count($images) > 0) {
-                $cont = 0;
-
-                if(!is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id)) {
-                    mkdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id);
-                    chmod(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id, 0755);
-                    mkdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/thumbs');
-                    chmod(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/thumbs', 0755);
-                }
-
-                foreach ($images as $image => $pic) {
-                    $cont++;
-                    if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/'.$pic->name)) {
-                        $img_add = new ElementoImagen();
-                        $img_add->titulo = $pic->titulo;
-                        $img_add->id_elemento = $id;
-                        $img_add->orden = $cont;
-                        $img_add->save();
-
-                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/'.$pic->name);
-                        $im->resize(360, 225);
-                        $im->save(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$id.'/thumbs/'.$pic->name);
-                    }
-                    else{
-
-                    }
-                }
-            }
-
-			//if($model->save())
-				$this->redirect(array('view','id'=>$id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}*/
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	/*public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Elemento']))
-		{
-			$model->attributes=$_POST['Elemento'];
-
-            $images = CUploadedFile::getInstancesByName('images');
-
-            if (isset($images) && count($images) > 0) {
-                $cont = 0;
-                foreach ($images as $image => $pic) {
-                    $cont++;
-                    if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$pic->name)) {
-                        $img_add = new ElementoImagen();
-                        $img_add->nombre = $pic->name;
-                        $img_add->id_elemento = $model->id;
-                        $img_add->orden = $cont;
-                        $img_add->save();
-
-                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$pic->name);
-                        $im->resize(360, 225);
-                        $im->save(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs/'.$pic->name);
-                    }
-                    else{
-
-                    }
-                }
-            }
-
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}*/
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	/*public function actionDelete($id)
-	{
-        $model = $this->loadModel($id);
-
-        foreach ($model->elementosImagenes as $image) {
-            if(file_exists(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$image->nombre))
-                unlink(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/'.$image->nombre);
-            if(file_exists(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs/'.$image->nombre))
-                unlink(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs/'.$image->nombre);
-        }
-
-        if(is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs'))
-            rmdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id.'/thumbs');
-        if(is_dir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id))
-            rmdir(Yii::getPathOfAlias('webroot').'/uploads/galeria/'.$model->id);
-
-
-		$model->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}*/
 
 	/**
 	 * Lists all models.
@@ -209,8 +104,123 @@ class GaleriaController extends Controller
 	{
         $model=new FiltroForm;
         $this->titulo = 'Galería';
-		$dataProvider=new CActiveDataProvider('Obra');
+
+        $criteria=new CDbCriteria();
+
+        if(isset($_POST['FiltroForm'])){
+            $model->attributes=$_POST['FiltroForm'];
+            $model->artistas=$_POST['FiltroForm']['artistas'];
+            $model->temas=$_POST['FiltroForm']['temas'];
+            $model->tecnicas=$_POST['FiltroForm']['tecnicas'];
+            $model->tamanos=$_POST['FiltroForm']['tamanos'];
+            $model->formatos=$_POST['FiltroForm']['formatos'];
+
+            if($model->validate()){
+                $cadena = '';
+                $join = '';
+
+                if($model->temas != null){
+                    $cadena .= '(';
+                    $i=0;
+                    foreach($model->temas as $tema){
+                        if($i==0){
+                            $cadena .= ' id_tema='.$tema;
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or id_tema='.$tema;
+                    }
+                    $cadena .= ')';
+                }
+
+                if($model->tecnicas != null){
+                    if($cadena!='')
+                        $cadena .= ' and (';
+                    else
+                        $cadena .= '(';
+
+                    $i = 0;
+
+                    foreach($model->tecnicas as $tema){
+                        if($i==0){
+                            $cadena .= ' id_tecnica='.$tema;
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or id_tecnica='.$tema;
+                    }
+                    $cadena .= ')';
+                }
+
+                if($model->formatos != null){
+                    if($cadena!='')
+                        $cadena .= ' and (';
+                    else
+                        $cadena .= '(';
+
+                    $i=0;
+                    foreach($model->formatos as $tema){
+                        if($i==''){
+                            $cadena .= ' id_formato='.$tema;
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or id_formato='.$tema;
+                    }
+                    $cadena .= ')';
+                }
+
+                if($model->tamanos != null){
+                    $join .= ' LEFT JOIN obras_tamanos_relation ON obras_tamanos_relation.id_obra = t.id ';
+                    if($cadena!='')
+                        $cadena .= ' and (';
+                    else
+                        $cadena .= '(';
+
+                    $i=0;
+                    foreach($model->tamanos as $tema){
+                        if($i==''){
+                            $cadena .= ' obras_tamanos_relation.id_tamano='.$tema;
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or obras_tamanos_relation.id_tamano='.$tema;
+                    }
+                    $cadena .= ')';
+                }
+
+                if($model->artistas != null){
+                    $join .= ' LEFT JOIN artistas ON artistas.id = t.id_artista ';
+                    if($cadena!='')
+                        $cadena .= ' and (';
+                    else
+                        $cadena .= '(';
+
+                    $i=0;
+                    foreach($model->artistas as $tema){
+                        if($i==''){
+                            $cadena .= ' artistas.id_categoria='.$tema;
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or artistas.id_categoria='.$tema;
+                    }
+                    $cadena .= ')';
+                }
+
+                $criteria->join = $join;
+                $criteria->condition = $cadena;
+            }
+        }
+
+        $dataProvider=new CActiveDataProvider('Obra', array('criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>12,
+            ),
+        ));
+
         $temas=new CActiveDataProvider('ObrasTema');
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'temas'=>$temas,

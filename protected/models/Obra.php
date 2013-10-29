@@ -67,7 +67,7 @@ class Obra extends CActiveRecord
             'idTecnica' => array(self::BELONGS_TO, 'ObrasTecnicas', 'id_tecnica'),
             'idTema' => array(self::BELONGS_TO, 'ObrasTema', 'id_tema'),
             'idMontaje' => array(self::BELONGS_TO, 'ObrasMontajes', 'montaje_recomendado'),
-			'fotoTamano' => array(self::HAS_MANY, 'ObrasTamanosRelation', 'id_obra'),
+			'obraTamano' => array(self::HAS_MANY, 'ObrasTamanosRelation', 'id_obra'),
 		);
 	}
 

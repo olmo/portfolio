@@ -14,7 +14,7 @@
  * @property Usuarios $autor0
  * @property ImagenesBlog[] $imagenesBlogs
  */
-class Entrada extends CActiveRecord
+class BlogEntrada extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -31,7 +31,7 @@ class Entrada extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'entradas';
+		return 'blog_entradas';
 	}
 
 	/**
@@ -59,7 +59,6 @@ class Entrada extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'autor' => array(self::BELONGS_TO, 'Usuario', 'autor'),
-			'imagenesBlogs' => array(self::MANY_MANY, 'ImagenesBlog', 'imagenes_entradas(id_entrada, id_imagen)'),
 		);
 	}
 

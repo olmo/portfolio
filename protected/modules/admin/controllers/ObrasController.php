@@ -80,8 +80,10 @@ class ObrasController extends Controller
         ));
 
         $dataProvider=new CActiveDataProvider('Obra', array(
-
             'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
         ));
 
         $this->render('index',array(
@@ -119,12 +121,17 @@ class ObrasController extends Controller
                 $im->resize(NULL, 260);
                 $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$fileName);
 
+                foreach ($validatedTamanos as $tam){
+                    $tam->stock_restante = $tam->stock_inicial;
+                }
+
                 if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
                     $this->redirect(array('index'));
             }
         }
 
         $this->render('createObra',array(
+            'tipo'=>'create',
             'model'=>$model,
             'tamanos'=>$tamanos,
             'validatedTamanos'=>$validatedTamanos,
@@ -168,6 +175,7 @@ class ObrasController extends Controller
         }
 
         $this->render('createObra',array(
+            'tipo'=>'update',
             'model'=>$model,
             'tamanos'=>$tamanos,
             'validatedTamanos'=>$validatedTamanos,
@@ -232,6 +240,7 @@ class ObrasController extends Controller
 
         $this->render('createSimple',array(
             'model'=>$model,
+            'accion'=>'create',
             'tipo'=>$tipo,
             'tipoS'=>$this->tiposS[$tipo],
             'tipoP'=>$this->tiposP[$tipo],
@@ -256,6 +265,7 @@ class ObrasController extends Controller
 
         $this->render('createSimple',array(
             'model'=>$model,
+            'accion'=>'update',
             'tipo'=>$tipo,
             'tipoS'=>$this->tiposS[$tipo],
             'tipoP'=>$this->tiposP[$tipo],
