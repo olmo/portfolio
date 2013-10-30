@@ -19,9 +19,21 @@ $(document).ready(function() {
 		var sum = 0;
 		var idtam = -1;
 		var idmon = -1;
+		var tam = 1;
 
 		$("input[type=checkbox]:checked").each(function(){
-			sum += parseFloat($(this).parent().parent().find('.precio').text());
+			
+			if($(this).parent().parent().find('.tamano').text().length>0){
+				var ptrn = /[0-9]+\.[0-9][0-9]/mg;
+				
+				while ( ( match = ptrn.exec($(this).parent().parent().find('.tamano').text()) ) != null ){
+				   tam *= parseFloat(match);
+				}
+				
+				sum += parseFloat($(this).parent().parent().find('.precio').text());
+			}
+			else
+				sum += parseFloat($(this).parent().parent().find('.precio').text())*tam;
 			
 			if($(this).attr("name")=="tamanos[]")
 				idtam = $(this).val();

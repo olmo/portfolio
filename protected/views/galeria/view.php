@@ -33,13 +33,17 @@
     );
 
     $this->pageTitle=Yii::app()->name . ' - '.$model->titulo;
+
+
+
+    Yii::app()->clientScript->registerScript('script', 'var tam2="<?php print Yii::app()->request->baseUrl;?>";', CClientScript::POS_HEAD);
 ?>
 
 <h3><?php echo $model->idArtista->nombre; ?></h3>
 
 <div class="row">
     <div class="span6">
-        <a class="thumbnail lightbox pull-left" href="<?php echo Yii::app()->request->baseUrl; ?>/images/fotos/<?php echo $model->imagen; ?>" data-plugin-options='{"type":"image"}'>
+        <a class="thumbnail lightbox pull-left" href="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>" data-plugin-options='{"type":"image"}'>
             <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>">
             <span class="zoom"><i class="icon-16 icon-white-shadowed icon-search"></i></span>
         </a>
@@ -80,7 +84,7 @@
                         'template'=>'<tr><td class="span1">{input}</td><td class="span4">'.$data->alto.' x '.$data->ancho.' cm</td><td class="span1 precio">'.$data->precio.' €</td></tr>'));*/ ?>
 
                 <?php foreach($model->obraTamano as $i=>$tamano): ?>
-                    <tr><td class="span1"><input value="<?php echo $tamano->id_tamano; ?>" style="margin: 0;" type="checkbox" name="tamanos[]" <?php if ($i==0) echo 'checked'; ?>></td><td class="span4"><?php echo $tamano->alto; ?> x <?php echo $tamano->ancho; ?> cm</td><td class="span1 precio"><?php echo $tamano->precio; ?> €</td></tr>
+                    <tr><td class="span1"><input value="<?php echo $tamano->id_tamano; ?>" style="margin: 0;" type="checkbox" name="tamanos[]" <?php if ($i==0) echo 'checked'; ?>></td><td class="span4 tamano"><?php echo $tamano->alto; ?> x <?php echo $tamano->ancho; ?> cm</td><td class="span1 precio"><?php echo $tamano->precio; ?> €</td></tr>
                 <?php endforeach; ?>
             </table>
 

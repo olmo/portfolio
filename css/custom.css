@@ -29,3 +29,8 @@
     margin-top: 0px !important;
     padding: 0px !important;
 }
+
+ul.comments li {
+    clear: both;
+    padding: 10px 0 0 20px;
+}

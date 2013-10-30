@@ -43,8 +43,20 @@ class BlogController extends Controller
 	{
         $this->titulo = 'Blog';
 
+        $form = new BlogComentario;
+
+        if(isset($_POST['BlogComentario']))
+        {
+            $form->attributes=$_POST['BlogComentario'];
+            if($form->save()){
+                Yii::app()->user->setFlash('contact','Su comentario ha sido publicado.');
+                $this->refresh();
+            }
+        }
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+            'formComentario'=>$form,
 		));
 	}
 
@@ -82,7 +94,7 @@ class BlogController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=BlogEntrada::model()->with('autor')->findByPk($id);
+		$model=BlogEntrada::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

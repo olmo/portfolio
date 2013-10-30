@@ -59,6 +59,7 @@ class BlogEntrada extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idAutor' => array(self::BELONGS_TO, 'Usuario', 'autor'),
+            'comentarios' => array(self::HAS_MANY, 'BlogComentario', 'id_entrada','order'=>'fecha_publicacion ASC'),
 		);
 	}
 

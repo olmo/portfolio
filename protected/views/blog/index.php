@@ -2,6 +2,9 @@
 /* @var $this BlogController */
 /* @var $dataProvider CActiveDataProvider */
 
+$cs=Yii::app()->clientScript;
+$cs->registerCssFile(Yii::app()->request->baseUrl.'/css/theme-blog.css');
+
 $this->breadcrumbs=array(
 	'Blog',
 );

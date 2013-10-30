@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span class="navbar-brand"> Global Arte </span>
+                <a href="<?php echo Yii::app()->homeUrl; ?>"><span class="navbar-brand">Global Arte</span></a>
                 <div class="navbar-collapse collapse" style="height: 1px;">
                     <p class="navbar-text pull-right hidden-xs">
                         Has entrado como <a href="#" class="navbar-link"><?php echo Yii::app()->user->name; ?></a>
@@ -38,7 +38,7 @@
                         'items'=>array(
                             array('label'=>'Inicio', 'url'=>array('/admin'),),
                             array('label'=>'Artistas', 'url'=>array('/admin/artistas/index'), 'active'=>Yii::app()->controller->id=='artistas',),
-                            array('label'=>'Fotos', 'url'=>array('/admin/obras/index'), 'active'=>Yii::app()->controller->id=='obras',),
+                            array('label'=>'Obras', 'url'=>array('/admin/obras/index'), 'active'=>Yii::app()->controller->id=='obras',),
                             array('label'=>'Blog', 'url'=>array('/admin/blog/index'), 'active'=>Yii::app()->controller->id=='blog',),
                             // array('label'=>'Login', 'url'=>array('/admin/login/login'), 'visible'=>Yii::app()->user->isGuest),
                             array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)

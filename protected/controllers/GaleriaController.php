@@ -67,6 +67,9 @@ class GaleriaController extends Controller
             $form->attributes=$_POST['PedidoForm'];
 
             if($model->validate()){
+                $tam = ObrasTamanosRelation::model()->findByAttributes(array('id_obra'=>$id, 'id_tamano'=>$form->tamano));
+                $precio = $tam->precio + $tam->alto*$tam->ancho*ObrasMontaje::model()->findByPk($form->montaje)->precio;
+
                 $name='=?UTF-8?B?'.base64_encode($form->nombre).'?=';
                 $subject='=?UTF-8?B?'.base64_encode('Pedido - '.$model->titulo).'?=';
                 $headers="From: $name <{$form->email}>\r\n".
@@ -77,7 +80,7 @@ class GaleriaController extends Controller
                 $contenido = "Obra: ".$model->titulo."\n";
                 $contenido .= "Tamaño: ".ObrasTamano::model()->findByPk($form->tamano)->nombre."\n";
                 $contenido .= "Montaje: ".ObrasMontaje::model()->findByPk($form->montaje)->nombre."\n";
-                $contenido .= "Precio: ".$form->precio."€\n\n";
+                $contenido .= "Precio: ".$precio."€\n\n";
                 $contenido .= "Nombre del cliente: ".$form->nombre."€\n\n";
                 $contenido .= $form->comentario;
 
