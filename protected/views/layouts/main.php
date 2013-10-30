@@ -151,11 +151,15 @@
         <div class="footer-copyright">
             <div class="container">
                 <div class="row">
+
                     <div class="span1">
-                        <a href="index.html" class="logo">
-                            <img alt="Porto Website Template" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-footer.png">
+                        <!--
+                        <a href="<?php //echo Yii::app()->homeUrl; ?>" class="logo">
+                            <img alt="Porto Website Template" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/logo-footer.png">
                         </a>
+                        -->
                     </div>
+
                     <div class="span7">
                         <p>© Copyright 2013. All Rights Reserved.</p>
                     </div>
