@@ -30,7 +30,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
     </div>
 
     <div class="form-group<?php echo $model->getError('password')  ? ' has-error' : ''; ?>">
-        <?php echo $form->textField($model,'password',array('size'=>50,'maxlength'=>50, 'class'=>'form-control', 'placeholder'=>'Contraseña')); ?>
+        <?php echo $form->passwordField($model,'password',array('size'=>50,'maxlength'=>50, 'class'=>'form-control', 'placeholder'=>'Contraseña')); ?>
     </div>
 
     <div class="checkbox">
