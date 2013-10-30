@@ -52,6 +52,8 @@ class ArtistasController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $this->titulo='Artistas';
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -137,10 +139,15 @@ class ArtistasController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $this->titulo = 'Galería';
+        $this->layout = 'section';
+        $this->titulo = 'Artistas';
+
 		$dataProvider=new CActiveDataProvider('Artistas');
+        $categorias = new CActiveDataProvider('ArtistasCategorias');
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+           'categorias'=>$categorias,
 		));
 	}
 

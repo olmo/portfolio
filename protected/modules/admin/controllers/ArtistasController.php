@@ -154,7 +154,13 @@ class ArtistasController extends Controller
 
             if($model->save())
             {
-                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$fileName);  // la imagen se subirá a la carpeta raiz /banner/
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$fileName);
+
+                // Redimensionar la imagen ancho x alto (ancho adaptable)
+                $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/artistas/'.$fileName);
+                $im->resize(NULL, 260);
+                $im->save(Yii::getPathOfAlias('webroot').'/images/artistas/'.$fileName);
+
                 $this->redirect(array('index'));
             }
         }
@@ -182,6 +188,11 @@ class ArtistasController extends Controller
                 if(!empty($uploadedFile))  // checkeamos si el archivo subido esta seteado o no
                 {
                     $uploadedFile->saveAs(Yii::app()->basePath.'/../images/artistas/'.$model->imagen);
+
+                    // Redimensionar la imagen ancho x alto (ancho adaptable)
+                    $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen);
+                    $im->resize(NULL, 260);
+                    $im->save(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen);
                 }
                 $this->redirect(array('index'));
             }

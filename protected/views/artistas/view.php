@@ -3,28 +3,119 @@
 /* @var $model Artistas */
 
 $this->breadcrumbs=array(
-	'Artistases'=>array('index'),
-	$model->id,
+	'Artistas'=>array('index'),
 );
 
-$this->menu=array(
-	array('label'=>'List Artistas', 'url'=>array('index')),
-	array('label'=>'Create Artistas', 'url'=>array('create')),
-	array('label'=>'Update Artistas', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Artistas', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Artistas', 'url'=>array('admin')),
-);
 ?>
 
-<h1>View Artistas #<?php echo $model->id; ?></h1>
+<div class="container">
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'nombre',
-		'informacion',
-		'id_categoria',
-		'imagen',
-	),
-)); ?>
+    <h1><?php echo $model->nombre; ?></h1>
+
+    <div class="row">
+        <div class="span6">
+
+            <div class="flexslider flexslider-center-mobile" data-plugin-options='{"animation":"slide", "animationLoop": true, "maxVisibleItems": 1}'>
+                <ul class="slides">
+                    <li>
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project.jpg">
+                    </li>
+                    <li>
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-1.jpg">
+                    </li>
+                    <li>
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-2.jpg">
+                    </li>
+                </ul>
+            </div>
+
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style ">
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_tweet"></a>
+                <a class="addthis_button_pinterest_pinit"></a>
+                <a class="addthis_counter addthis_pill_style"></a>
+            </div>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>
+            <!-- AddThis Button END -->
+
+        </div>
+
+        <div class="span6">
+
+            <h4><strong>Descripción</strong> del artista </h4>
+            <?php echo $model->informacion; ?>
+
+        </div>
+    </div>
+
+    <hr class="tall" />
+
+    <div class="row">
+
+        <div class="span12">
+            <h3><strong>Obras</strong> relacionadas</h3>
+        </div>
+
+        <ul class="portfolio-list">
+            <li class="span3">
+                <div class="portfolio-item thumbnail mobile-max-width">
+                    <a href="portfolio-single-project.html" class="thumb-info">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project.jpg">
+										<span class="thumb-info-title">
+											<span class="thumb-info-inner">SEO</span>
+											<span class="thumb-info-type">Website</span>
+										</span>
+										<span class="thumb-info-action">
+											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
+										</span>
+                    </a>
+                </div>
+            </li>
+            <li class="span3">
+                <div class="portfolio-item thumbnail mobile-max-width">
+                    <a href="portfolio-single-project.html" class="thumb-info">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-1.jpg">
+										<span class="thumb-info-title">
+											<span class="thumb-info-inner">Red Wine</span>
+											<span class="thumb-info-type">Brand</span>
+										</span>
+										<span class="thumb-info-action">
+											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
+										</span>
+                    </a>
+                </div>
+            </li>
+            <li class="span3">
+                <div class="portfolio-item thumbnail mobile-max-width">
+                    <a href="portfolio-single-project.html" class="thumb-info">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-2.jpg">
+										<span class="thumb-info-title">
+											<span class="thumb-info-inner">Man Running</span>
+											<span class="thumb-info-type">Logo</span>
+										</span>
+										<span class="thumb-info-action">
+											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
+										</span>
+                    </a>
+                </div>
+            </li>
+            <li class="span3">
+                <div class="portfolio-item thumbnail mobile-max-width">
+                    <a href="portfolio-single-project.html" class="thumb-info">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-3.jpg">
+										<span class="thumb-info-title">
+											<span class="thumb-info-inner">Code</span>
+											<span class="thumb-info-type">Website</span>
+										</span>
+										<span class="thumb-info-action">
+											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
+										</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
