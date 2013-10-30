@@ -23,7 +23,6 @@
     </tbody>
 </table>
 
-
 <div class="text-center">
 <?php $this->widget('CLinkPager', array('pages' => $dataProvider->pagination,
     'cssFile'=>false,

@@ -1,15 +1,16 @@
 <?php
 
-$this->breadcrumbs=array(
+/*$this->breadcrumbs=array(
     'Categorias'=>array('index'),
     $tipoP=>array('index'),
-);
+);*/
 
 ?>
 
-<h3><?php echo CHtml::link('Añadir '.$tipoS,array('/admin/artistas/create/tipo/'.$tipo)); ?></h3>
+<?php echo CHtml::link('Añadir '.$tipoS,array('/admin/artistas/create/tipo/'.$tipo), array('class'=>'btn btn-primary')); ?>
+<p></p>
 
-<table cellpadding="0" cellspacing="0">
+<table class="table table-striped">
     <tbody>
     <?php $this->widget('zii.widgets.CListView', array(
         'dataProvider'=>$dataProvider,

@@ -1,6 +1,6 @@
 <tr>
     <td><?php echo CHtml::encode($data->nombre); ?></td>
-    <td class="action">
+    <td class="col-md-2">
         <?php echo CHtml::link('Editar',array('updateArtista', 'id'=>$data->id),
             array('class' => 'edit')); ?>
         <?php echo CHtml::link('Borrar',"#", array("submit"=>array('deleteArtista', 'id'=>$data->id),

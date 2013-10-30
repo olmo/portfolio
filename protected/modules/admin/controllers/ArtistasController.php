@@ -159,6 +159,7 @@ class ArtistasController extends Controller
             }
         }
         $this->render('createArtista',array(
+            'tipo'=>'create',
             'model'=>$model,
         ));
     }
@@ -190,6 +191,7 @@ class ArtistasController extends Controller
         }
 
         $this->render('createArtista',array(
+            'tipo'=>'update',
             'model'=>$model,
         ));
     }
