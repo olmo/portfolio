@@ -8,6 +8,7 @@
 
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css/custom.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.js.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/js/bootstrap.min.js"></script>

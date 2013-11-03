@@ -86,8 +86,14 @@ class ObrasController extends Controller
             ),
         ));
 
+        $model=new Obra('search');
+        $model->unsetAttributes();  // clear any default values
+        if(isset($_GET['Obra']))
+            $model->attributes=$_GET['Obra'];
+
         $this->render('index',array(
             'dataProvider'=>$dataProvider,
+            'model'=>$model,
         ));
     }
 

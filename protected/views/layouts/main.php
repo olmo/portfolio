@@ -18,9 +18,6 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Responsive HTML5 Template">
-    <meta name="author" content="Crivos.com">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

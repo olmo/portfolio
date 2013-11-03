@@ -33,10 +33,6 @@
     );
 
     $this->pageTitle=Yii::app()->name . ' - '.$model->titulo;
-
-
-
-    Yii::app()->clientScript->registerScript('script', 'var tam2="<?php print Yii::app()->request->baseUrl;?>";', CClientScript::POS_HEAD);
 ?>
 
 <h3><?php echo $model->idArtista->nombre; ?></h3>
@@ -44,7 +40,7 @@
 <div class="row">
     <div class="span6">
         <a class="thumbnail lightbox pull-left" href="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>" data-plugin-options='{"type":"image"}'>
-            <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>">
+            <img class="span6" alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>">
             <span class="zoom"><i class="icon-16 icon-white-shadowed icon-search"></i></span>
         </a>
     </div>
