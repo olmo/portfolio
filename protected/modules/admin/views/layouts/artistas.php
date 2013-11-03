@@ -1,12 +1,16 @@
 <?php $this->beginContent('/layouts/main'); ?>
     <div class="col-xs-6 col-sm-3 col-md-2 bootstrap-admin-col-left" id="sidebar" role="navigation">
-        <?php $this->widget('zii.widgets.CMenu',array(
+        <?php
+            $tipoParam = Yii::app()->getRequest()->getParam('tipo');
+            $actionParam = Yii::app()->controller->action->id;
+
+            $this->widget('zii.widgets.CMenu',array(
             'activeCssClass'=>'active',
             'encodeLabel' => false,
             'htmlOptions'=>array('class'=>'nav navbar-collapse collapse bootstrap-admin-navbar-side'),
             'items'=>array(
-                array('label'=>'Artistas<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('/admin/artistas/index'),),
-                array('label'=>'Categorías<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('/admin/artistas/view/tipo/categorias')),
+                array('label'=>'Artistas<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('/admin/artistas/index'), 'active'=>$actionParam=='index' || $actionParam=='createArtista' || $actionParam=='updateArtista' ? true : false),
+                array('label'=>'Categorías<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('/admin/artistas/view/tipo/categorias'), 'active'=>$tipoParam=='categorias'? true : false),
             ),
         )); ?>
     </div>

@@ -16,22 +16,26 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
+    <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?php echo Yii::app()->homeUrl; ?>">Global Arte</a>
                 </div>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="<?php echo Yii::app()->homeUrl; ?>"><span class="navbar-brand">Global Arte</span></a>
-                <div class="navbar-collapse collapse" style="height: 1px;">
-                    <p class="navbar-text pull-right hidden-xs">
-                        Has entrado como <a href="#" class="navbar-link"><?php echo Yii::app()->user->name; ?></a>
-                    </p>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"></i> <?php echo Yii::app()->user->name; ?> <i class="caret"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a tabindex="-1" href="login.html">Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
                     <?php $this->widget('zii.widgets.CMenu',array(
                         'activeCssClass'=>'active',
@@ -47,7 +51,6 @@
                     )); ?>
                 </div>
             </div>
-        </div>
     </div>
 
     <div class="container">
