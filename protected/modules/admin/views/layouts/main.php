@@ -32,7 +32,7 @@
                         <li class="dropdown">
                             <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"></i> <?php echo Yii::app()->user->name; ?> <i class="caret"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a tabindex="-1" href="login.html">Salir</a></li>
+                                <li><?php echo CHtml::link('Salir' ,array('/admin/default/logout')); ?></li>
                             </ul>
                         </li>
                     </ul>
@@ -45,8 +45,6 @@
                             array('label'=>'Artistas', 'url'=>array('/admin/artistas/index'), 'active'=>Yii::app()->controller->id=='artistas',),
                             array('label'=>'Obras', 'url'=>array('/admin/obras/index'), 'active'=>Yii::app()->controller->id=='obras',),
                             array('label'=>'Blog', 'url'=>array('/admin/blog/index'), 'active'=>Yii::app()->controller->id=='blog',),
-                            // array('label'=>'Login', 'url'=>array('/admin/login/login'), 'visible'=>Yii::app()->user->isGuest),
-                            array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
                         ),
                     )); ?>
                 </div>

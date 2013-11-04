@@ -45,12 +45,11 @@
                                 // You can either use it for model attribute
                                 'model' => $model,
                                 'attribute' => 'texto',
-
                                 'options' => array(
                                     'lang' => 'es',
                                     'minHeight' => 200,
                                     'autoresize' => true,
-                                    'imageUpload' => 'http://localhost:8000'.$this->createUrl('blog/imgUpload'),
+                                    'imageUpload' => $this->createUrl('blog/imgUpload'),
                                     'imageUploadErrorCallback'=>new CJavaScriptExpression('function(obj, json){ alert(json.error); }'),
                                 ),
                             ));

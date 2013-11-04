@@ -57,7 +57,10 @@ class GaleriaController extends Controller
         $form=new PedidoForm;
 
         $criteria=new CDbCriteria(array(
-            'condition'=>'id_artista='.$model->id_artista,
+            'condition'=>'id_tema='.$model->id_tema,
+            'order'=>'rand()',
+            'offset'=>0,
+            'limit' => 10,
         ));
 
         $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
