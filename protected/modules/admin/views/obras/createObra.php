@@ -69,6 +69,13 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         </div>
                     </div>
 
+                    <div class="form-group<?php echo $model->getError('montajes')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'montajes', array('class'=>'col-lg-2 control-label')); ?>
+                        <div class="col-lg-10">
+                            <?php echo $form->checkBoxList($model,'montajesIds', CHtml::listData(ObrasMontaje::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un montaje')); ?>
+                        </div>
+                    </div>
+
                     <div class="form-group<?php echo $model->getError('montaje_recomendado')  ? ' has-error' : ''; ?>">
                         <?php echo $form->labelEx($model,'montaje_recomendado', array('class'=>'col-lg-2 control-label')); ?>
                         <div class="col-lg-10">
@@ -108,6 +115,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         <?php endif; ?>
                     </div>
 
+                    <br/>
 
                     <div class="table-responsive" style="margin-left: 20px;">
                         <?php
@@ -168,6 +176,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                             'addItemText'=>'Añadir Tamaño',
                             'removeText'=>'Eliminar',
                             'tableHtmlOptions'=>array('class'=>'table'),
+                            'addItemAsButton'=>true,
 
                             //if submitted not empty from the controller,
                             //the form will be rendered with validation errors
@@ -178,6 +187,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         ));
                         ?>
                     </div>
+                    <br/>
                     <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
 
                 </fieldset>

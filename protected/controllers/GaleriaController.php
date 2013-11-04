@@ -61,14 +61,13 @@ class GaleriaController extends Controller
         ));
 
         $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
-        $montajes = new CActiveDataProvider('ObrasMontaje');
 
         if(isset($_POST['PedidoForm'])){
             $form->attributes=$_POST['PedidoForm'];
 
             if($model->validate()){
                 $tam = ObrasTamanosRelation::model()->findByAttributes(array('id_obra'=>$id, 'id_tamano'=>$form->tamano));
-                $precio = $tam->precio + $tam->alto*$tam->ancho*ObrasMontaje::model()->findByPk($form->montaje)->precio;
+                $precio = $tam->precio + ($tam->alto*$tam->ancho/10000)*ObrasMontaje::model()->findByPk($form->montaje)->precio;
 
                 $name='=?UTF-8?B?'.base64_encode($form->nombre).'?=';
                 $subject='=?UTF-8?B?'.base64_encode('Pedido - '.$model->titulo).'?=';
@@ -93,7 +92,6 @@ class GaleriaController extends Controller
 		$this->render('view',array(
 			'model'=>$model,
             'related'=>$related,
-            'montajes'=>$montajes,
             'formmodel'=>$form,
 		));
 

@@ -30,6 +30,8 @@ $(document).ready(function() {
 				   tam *= parseFloat(match);
 				}
 				
+				tam /= 10000;
+				
 				sum += parseFloat($(this).parent().parent().find('.precio').text());
 			}
 			else

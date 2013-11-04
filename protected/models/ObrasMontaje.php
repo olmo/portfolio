@@ -68,7 +68,7 @@ class ObrasMontaje extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'nombre' => 'Nombre',
-			'precio' => 'Precio',
+			'precio' => 'Precio (m²)',
 		);
 	}
 

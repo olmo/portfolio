@@ -18,6 +18,8 @@
  */
 class Obra extends CActiveRecord
 {
+    public $montajesIds = array();
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -36,6 +38,14 @@ class Obra extends CActiveRecord
 		return 'obras';
 	}
 
+    public function behaviors()
+    {
+        return array(
+            'activerecord-relation'=>array(
+                'class'=>'ext.activerecord-relation-behavior.EActiveRecordRelationBehavior',
+            ));
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -48,6 +58,7 @@ class Obra extends CActiveRecord
 			array('id_artista', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
+            array('montajesIds', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, titulo, descripcion, id_artista', 'safe', 'on'=>'search'),
@@ -66,10 +77,22 @@ class Obra extends CActiveRecord
 			'idFormato' => array(self::BELONGS_TO, 'ObrasFormatos', 'id_formato'),
             'idTecnica' => array(self::BELONGS_TO, 'ObrasTecnicas', 'id_tecnica'),
             'idTema' => array(self::BELONGS_TO, 'ObrasTema', 'id_tema'),
-            'idMontaje' => array(self::BELONGS_TO, 'ObrasMontajes', 'montaje_recomendado'),
+            'idMontaje' => array(self::BELONGS_TO, 'ObrasMontaje', 'montaje_recomendado'),
 			'obraTamano' => array(self::HAS_MANY, 'ObrasTamanosRelation', 'id_obra'),
+            'montajes' => array(self::MANY_MANY, 'ObrasMontaje', 'obras_montajes_relation(id_obra, id_montaje)'),
 		);
 	}
+
+    public function afterFind()
+    {
+        if (!empty($this->montajes))
+        {
+            foreach ($this->montajes as $n => $montaje)
+                $this->montajesIds[] = $montaje->id;
+        }
+
+        parent::afterFind();
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -85,7 +108,7 @@ class Obra extends CActiveRecord
             'id_formato' => 'Formato',
             'id_tecnica' => 'Técnica',
             'id_tema' => 'Tema',
-            'montaje_recomendado' => 'Montaje',
+            'montaje_recomendado' => 'Montaje recomendado',
 		);
 	}
 

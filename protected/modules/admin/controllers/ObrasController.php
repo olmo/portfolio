@@ -112,6 +112,7 @@ class ObrasController extends Controller
         if(isset($_POST['Obra']))
         {
             $model->attributes=$_POST['Obra'];
+            $model->montajes = $model->montajesIds;
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
 
             if($uploadedFile!=null){
@@ -161,6 +162,7 @@ class ObrasController extends Controller
         {
             $_POST['Obra']['imagen'] = $model->imagen;
             $model->attributes=$_POST['Obra'];
+            $model->montajes = $model->montajesIds;
 
             if($model->validate()){
                 $uploadedFile=CUploadedFile::getInstance($model,'imagen');
