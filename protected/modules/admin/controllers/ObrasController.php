@@ -132,8 +132,10 @@ class ObrasController extends Controller
                     $tam->stock_restante = $tam->stock_inicial;
                 }
 
-                if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues))
+                if (MultiModelForm::save($tamanos,$validatedTamanos,$deleteTamanos,$masterValues)){
+                    Yii::app()->user->setFlash('exito','La obra ha sido añadida con éxito.');
                     $this->redirect(array('index'));
+                }
             }
         }
 
@@ -177,6 +179,7 @@ class ObrasController extends Controller
                         $im->resize(NULL, 260);
                         $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);
                     }
+                    Yii::app()->user->setFlash('exito','La obra ha sido actualizada con éxito.');
                     $this->redirect(array('index'));
                 }
             }
@@ -204,8 +207,10 @@ class ObrasController extends Controller
         $model->delete();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-        if(!isset($_GET['ajax']))
+        if(!isset($_GET['ajax'])){
+            Yii::app()->user->setFlash('exito','La obra ha sido borrada con éxito.');
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        }
     }
 
     public function actionView($tipo)
@@ -242,8 +247,10 @@ class ObrasController extends Controller
         if(isset($_POST[$this->tiposModelos[$tipo]]))
         {
             $model->attributes=$_POST[$this->tiposModelos[$tipo]];
-            if($model->save())
+            if($model->save()){
+                Yii::app()->user->setFlash('exito','El '.$this->tiposS[$tipo].' ha sido añadido con éxito.');
                 $this->redirect(array('view','tipo'=>$tipo));
+            }
         }
 
         $this->render('createSimple',array(
@@ -267,8 +274,10 @@ class ObrasController extends Controller
         if(isset($_POST[$this->tiposModelos[$tipo]]))
         {
             $model->attributes=$_POST[$this->tiposModelos[$tipo]];
-            if($model->save())
+            if($model->save()){
+                Yii::app()->user->setFlash('exito','El '.$this->tiposS[$tipo].' ha sido actualizado con éxito.');
                 $this->redirect(array('view','tipo'=>$tipo));
+            }
         }
 
         $this->render('createSimple',array(
@@ -285,10 +294,13 @@ class ObrasController extends Controller
         $this->loadModel($id, $tipo)->delete();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-        if(!isset($_GET['ajax']))
+        if(!isset($_GET['ajax'])){
             if($tipo=='obra')
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+
+            Yii::app()->user->setFlash('exito','El '.$this->tiposS[$tipo].' ha sido borrado con éxito.');
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','tipo'=>$tipo));
+        }
     }
 
     public function loadModel($id, $tipo)
