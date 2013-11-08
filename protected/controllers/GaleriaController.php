@@ -84,7 +84,7 @@ class GaleriaController extends Controller
                 $contenido .= "Montaje: ".ObrasMontaje::model()->findByPk($form->montaje)->nombre."\n";
                 $contenido .= "Precio: ".$precio."€\n\n";
                 $contenido .= "Nombre del cliente: ".$form->nombre."\n\n";
-                $contenido .= $form->comentario;
+                $contenido .= "".$form->comentario."\n";
 
                 mail(Yii::app()->params['adminEmail'],$subject,$contenido,$headers);
                 Yii::app()->user->setFlash('contact','Gracias por confiar en nosotros. Le responderemos tan pronto como sea posible.');
