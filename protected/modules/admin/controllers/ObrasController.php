@@ -117,7 +117,7 @@ class ObrasController extends Controller
 
                 $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$fileName);
                 $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$fileName);
-                $im->resize(NULL, 260);
+                $im->resize(NULL, 180);
                 $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$fileName);
 
                 foreach ($validatedTamanos as $tam){
@@ -168,7 +168,7 @@ class ObrasController extends Controller
                     {
                         $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$model->imagen);
                         $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen);
-                        $im->resize(NULL, 260);
+                        $im->resize(NULL, 180);
                         $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);
                     }
                     Yii::app()->user->setFlash('exito','La obra ha sido actualizada con éxito.');

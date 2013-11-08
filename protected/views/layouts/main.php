@@ -1,11 +1,7 @@
 <?php /* @var $this Controller */ ?>
 
 <?php
-
-    /*Yii::app()->clientScript->registerCoreScript('jquery');
-    $cs = Yii::app()->getClientScript();
-    $cs->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/jquery-1.7.2.min.js', CClientScript::POS_END);*/
-
+    Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 
@@ -104,9 +100,6 @@
             </div>
             <nav>
                 <ul class="nav nav-pills nav-top">
-                    <li>
-                        <a href="error.html"><i class="icon-angle-right"></i>404</a>
-                    </li>
                     <li class="phone">
                         <span><i class="icon-phone"></i>(+34) 607 53 53 35</span>
                     </li>
@@ -177,8 +170,6 @@
 </div>
 
 <!-- Libs -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="vendor/jquery.js"><\/script>')</script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.easing.js"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.appear.js"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/vendor/jquery.cookie.js"></script>

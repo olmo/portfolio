@@ -125,7 +125,7 @@ class Obra extends CActiveRecord
 		$criteria=new CDbCriteria;
         $criteria->with = array( 'idArtista' );
 
-		$criteria->compare('id',$this->id);
+		$criteria->compare('t.id',$this->id);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('id_artista',$this->id_artista);

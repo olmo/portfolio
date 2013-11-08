@@ -145,13 +145,7 @@
         <h3>Obras <strong>relacionadas</strong></h3>
     </div>
 
-    <ul id="related" class="portfolio-list">
-        <?php /*->widget('zii.widgets.CListView', array(
-            'dataProvider'=>$related,
-            'itemView'=>'_related',
-            'template'=>"{items}",
-            'id'=>'asdf',
-        )); */?>
+    <ul id="related2" class="portfolio-list">
         <?php
             $data = $related->getData();
             foreach($data as $i => $item)

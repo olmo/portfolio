@@ -96,6 +96,15 @@ return array(
             //'cacheTime' => 2592000,
             //'retinaSupport' => false,
         ),
+        'clientScript'=>array(
+            'packages'=>array(
+                'jquery'=>array(
+                    'baseUrl'=>'//ajax.googleapis.com/ajax/libs/jquery/1.9.1/',
+                    'js'=>array('jquery.min.js'),
+                )
+            ),
+            // other clientScript config
+        ),
 	),
 
 	// application-level parameters that can be accessed

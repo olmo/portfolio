@@ -60,7 +60,7 @@ class GaleriaController extends Controller
             'condition'=>'id_tema='.$model->id_tema,
             'order'=>'rand()',
             'offset'=>0,
-            'limit' => 10,
+            'limit' => 4,
         ));
 
         $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
@@ -83,7 +83,7 @@ class GaleriaController extends Controller
                 $contenido .= "Tamaño: ".ObrasTamano::model()->findByPk($form->tamano)->nombre."\n";
                 $contenido .= "Montaje: ".ObrasMontaje::model()->findByPk($form->montaje)->nombre."\n";
                 $contenido .= "Precio: ".$precio."€\n\n";
-                $contenido .= "Nombre del cliente: ".$form->nombre."€\n\n";
+                $contenido .= "Nombre del cliente: ".$form->nombre."\n\n";
                 $contenido .= $form->comentario;
 
                 mail(Yii::app()->params['adminEmail'],$subject,$contenido,$headers);
@@ -232,20 +232,6 @@ class GaleriaController extends Controller
 		));
 	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Obra('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Elemento']))
-			$model->attributes=$_GET['Elemento'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

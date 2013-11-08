@@ -7,7 +7,7 @@
     <div class="portfolio-item thumbnail">
         <a href="<?php echo $this->createUrl('galeria/view', array('id'=>$data->id)); ?>" class="thumb-info">
             <div class="centerthumbs"><span></span>
-            <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/thumbs/<?php echo $data->imagen; ?>">
+            <img alt="" style="max-height: 180px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/thumbs/<?php echo $data->imagen; ?>">
             </div>
 
             <span class="thumb-info-action">

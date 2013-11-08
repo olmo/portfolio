@@ -51,14 +51,13 @@
                             'editar' => array
                             (
                                 'label'=>'Editar',
-                                'url'=>'Yii::app()->createUrl("obras/updateObra", array("id"=>$data->id))',
+                                'url'=>'Yii::app()->createUrl("admin/obras/updateObra", array("id"=>$data->id))',
                             ),
                             'borrar' => array
                             (
                                 'label'=>'Borrar',
-                                'url'=>'"#"',
-                                //'visible'=>'$data->score > 0',
-                                'click'=>'function(){alert("Going down!");}',
+                                'url'=>'Yii::app()->createUrl("admin/obras/deleteObra", array("id"=>$data->id))',
+                                'click'=>'function(){return confirm("¿Seguro que quieres eliminar la obra?");}',
                             ),
                         ),
                     ),
