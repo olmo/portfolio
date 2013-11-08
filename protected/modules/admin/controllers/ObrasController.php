@@ -79,20 +79,12 @@ class ObrasController extends Controller
             'order'=>'titulo ASC',
         ));
 
-        $dataProvider=new CActiveDataProvider('Obra', array(
-            'criteria'=>$criteria,
-            'pagination'=>array(
-                'pageSize'=>20,
-            ),
-        ));
-
         $model=new Obra('search');
         $model->unsetAttributes();  // clear any default values
         if(isset($_GET['Obra']))
             $model->attributes=$_GET['Obra'];
 
         $this->render('index',array(
-            'dataProvider'=>$dataProvider,
             'model'=>$model,
         ));
     }

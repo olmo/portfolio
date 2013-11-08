@@ -15,7 +15,6 @@
                     <span class="thumb-info-inner"><?php echo CHtml::encode($data->titulo); ?></span>
                     <span class="thumb-info-type"><?php echo CHtml::encode($data->idArtista->nombre); ?></span>
                 </span>
-                <span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
             </span>
         </a>
     </div>

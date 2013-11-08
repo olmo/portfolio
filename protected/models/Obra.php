@@ -19,6 +19,7 @@
 class Obra extends CActiveRecord
 {
     public $montajesIds = array();
+    public $artista_search;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -61,7 +62,7 @@ class Obra extends CActiveRecord
             array('montajesIds', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, titulo, descripcion, id_artista', 'safe', 'on'=>'search'),
+			array('id, titulo, descripcion, artista_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -122,15 +123,29 @@ class Obra extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+        $criteria->with = array( 'idArtista' );
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('id_artista',$this->id_artista);
         $criteria->compare('fecha_publicacion',$this->fecha_publicacion);
+        $criteria->compare('idArtista.nombre', $this->artista_search, true );
 
-		return new CActiveDataProvider($this, array(
+		return new CActiveDataProvider('Obra', array(
 			'criteria'=>$criteria,
+            'sort'=>array(
+                'attributes'=>array(
+                    'artista_search'=>array(
+                        'asc'=>'idArtista.nombre',
+                        'desc'=>'idArtista.nombre DESC',
+                    ),
+                    '*',
+                ),
+            ),
+            'pagination'=>array(
+                'pageSize'=>5,
+            ),
 		));
 	}
 

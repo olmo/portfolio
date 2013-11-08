@@ -23,7 +23,7 @@ return array (
   'The property updateSelector should be defined.' => 'La propiedad updateSelector debería estar definida.',
   'Are you sure you want to delete this item?' => 'Seguro que desea borrar este elemento?',
   'Delete' => 'Borrar',
-  'Displaying {start}-{end} of 1 result.|Displaying {start}-{end} of {count} results.' => 'Desplegando {start}-{end} de 1 resultado.|Desplegando {start}-{end} de {count} resultados.',
+  'Displaying {start}-{end} of 1 result.|Displaying {start}-{end} of {count} results.' => 'Mostrando {start}-{end} de 1 resultado.|Mostrando {start}-{end} de {count} resultados.',
   'Either "name" or "value" must be specified for CDataColumn.' => '"name" o "value" deben especificarse para CDataColumn.',
   'No results found.' => 'No se encontraron resultados.',
   'Not set' => 'No asignado',
