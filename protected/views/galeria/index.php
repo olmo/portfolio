@@ -30,27 +30,27 @@ $this->breadcrumbs=array(
         )); ?>
         <ul id="filtro" class="nav nav-list primary pull-bottom">
             <li data-toggle="collapse" data-target="#idartistas"><a href="#artistas">Artistas</a></li>
-            <ul id="idartistas" class="collapse">
+            <ul id="idartistas" class="collapse <?php if(is_array($model->artistas)) echo (array_sum($model->artistas)>0)? 'in' : ''; ?>">
                 <?php echo $form->checkBoxList($model, 'artistas', CHtml::listData(ArtistasCategorias::model()->findAll(), 'id', 'nombre'),
                     array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
             <li data-toggle="collapse" data-target="#idtecnicas"><a href="#tecnicas">Técnicas</a></li>
-            <ul id="idtecnicas" class="collapse">
+            <ul id="idtecnicas" class="collapse <?php if(is_array($model->tecnicas)) echo (array_sum($model->tecnicas)>0)? 'in' : ''; ?>">
                 <?php echo $form->checkBoxList($model, 'tecnicas', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'),
                     array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
             <li data-toggle="collapse" data-target="#idtemas"><a href="#temas">Temas</a></li>
-            <ul id="idtemas" class="collapse">
+            <ul id="idtemas" class="collapse <?php if(is_array($model->temas)) echo (array_sum($model->temas)>0)? 'in' : ''; ?>">
                 <?php echo $form->checkBoxList($model, 'temas', CHtml::listData(ObrasTema::model()->findAll(), 'id', 'nombre'),
                     array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
             <li data-toggle="collapse" data-target="#idtamano"><a href="#tamanos">Tamaño</a></li>
-            <ul id="idtamano" class="collapse">
+            <ul id="idtamano" class="collapse <?php if(is_array($model->tamanos)) echo (array_sum($model->tamanos)>0)? 'in' : ''; ?>">
                 <?php echo $form->checkBoxList($model, 'tamanos', CHtml::listData(ObrasTamano::model()->findAll(), 'id', 'nombre'),
                     array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
             <li data-toggle="collapse" data-target="#idformato"><a href="#formatos">Formato</a></li>
-            <ul id="idformato" class="collapse">
+            <ul id="idformato" class="collapse <?php if(is_array($model->formatos)) echo (array_sum($model->formatos)>0)? 'in' : ''; ?>">
                 <?php echo $form->checkBoxList($model, 'formatos', CHtml::listData(ObrasFormato::model()->findAll(), 'id', 'nombre'),
                     array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
             </ul>
