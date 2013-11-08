@@ -43,26 +43,18 @@ $this->breadcrumbs=array(
 <div class="container">
     <div class="row">
         <div class="span6">
-            <div class="alert alert-success hidden" id="contactSuccess">
-                <strong>Success!</strong> Your message has been sent to us.
-            </div>
-
-            <div class="alert alert-error hidden" id="contactError">
-                <strong>Error!</strong> There was an error sending your message.
-            </div>
 
             <h2 class="short"><strong>Envíenos</strong> un Email</h2>
-
-            <p class="note">Los campos con <span style="color: red;">*</span> son obligatorios.</p>
 
             <!-- Contact form -->
             <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
-                <div class="flash-success">
+                <div class="alert alert-success">
                     <?php echo Yii::app()->user->getFlash('contact'); ?>
                 </div>
 
             <?php else: ?>
+                <p class="note">Los campos con <span style="color: red;">*</span> son obligatorios.</p>
 
                 <?php $form=$this->beginWidget('CActiveForm', array(
                     'id'=>'contact-form',

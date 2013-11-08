@@ -3,7 +3,7 @@
     //display: table-cell;
     text-align: center;
     vertical-align: middle;
-    height: 200px;
+    height: 180px;
 }
 
 .centerthumbs * {
@@ -33,4 +33,8 @@
 ul.comments li {
     clear: both;
     padding: 10px 0 0 20px;
+}
+
+a.thumb-info span.thumb-info-action {
+    background-color: transparent;
 }

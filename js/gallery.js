@@ -6,7 +6,11 @@ $(document).ready(function() {
 		});
 	*/
 	
-	$("#related").carouFredSel();
+	$("#related").carouFredSel({
+        responsive: true,
+        scroll  : 2,
+        items: 4
+    });
 	
 	$("input[type=checkbox]").change(function(){
 		var group = "input:checkbox[name='"+$(this).prop("name")+"']";
