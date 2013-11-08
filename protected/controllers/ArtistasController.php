@@ -47,19 +47,6 @@ class ArtistasController extends Controller
 	}
 
 	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-        $this->titulo='Artistas';
-
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
-
-	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
@@ -134,6 +121,28 @@ class ArtistasController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    public function actionView($id)
+    {
+        $this->titulo='Artistas';
+        $model = $this->loadModel($id);
+
+
+        $criteria=new CDbCriteria(array(
+            'condition'=>'id_artista='.$model->id,
+        ));
+
+        $related = new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
+
+        $this->render('view',array(
+            'model'=>$this->loadModel($id),
+            'related'=>$related,
+        ));
+    }
+
 	/**
 	 * Lists all models.
 	 */
@@ -144,10 +153,13 @@ class ArtistasController extends Controller
 
 		$dataProvider=new CActiveDataProvider('Artistas');
         $categorias = new CActiveDataProvider('ArtistasCategorias');
+        $obras = new CActiveDataProvider('Obra');
 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-           'categorias'=>$categorias,
+            'categorias'=>$categorias,
+            'obras'=>$obras,
+
 		));
 	}
 

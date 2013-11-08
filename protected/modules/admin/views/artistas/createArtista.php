@@ -85,6 +85,46 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                     <?php endif; ?>
                 </div>
 
+                <!-- Imagenes del slide [1-3] -->
+
+                <div class="form-group<?php echo $model->getError('imgslide1')  ? ' has-error' : ''; ?>">
+                    <?php echo $form->labelEx($model,'imgslide1', array('class'=>'col-lg-2 control-label')); ?>
+                    <div class="col-lg-10">
+                        <?php echo $form->fileField($model, 'imgslide1'); ?>
+                    </div>
+                    <?php if($model->isNewRecord!='1'): ?>
+                        <div class="row">
+                            <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/artistas/slides/'.$model->imgslide1,"imgslide1",array("width"=>200)); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form-group<?php echo $model->getError('imgslide2')  ? ' has-error' : ''; ?>">
+                    <?php echo $form->labelEx($model,'imgslide2', array('class'=>'col-lg-2 control-label')); ?>
+                    <div class="col-lg-10">
+                        <?php echo $form->fileField($model, 'imgslide2'); ?>
+                    </div>
+                    <?php if($model->isNewRecord!='1'): ?>
+                        <div class="row">
+                            <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/artistas/slides/'.$model->imgslide2,"imgslide2",array("width"=>200)); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form-group<?php echo $model->getError('imgslide3')  ? ' has-error' : ''; ?>">
+                    <?php echo $form->labelEx($model,'imgslide3', array('class'=>'col-lg-2 control-label')); ?>
+                    <div class="col-lg-10">
+                        <?php echo $form->fileField($model, 'imgslide3'); ?>
+                    </div>
+                    <?php if($model->isNewRecord!='1'): ?>
+                        <div class="row">
+                            <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/artistas/slides/'.$model->imgslide3,"imgslide3",array("width"=>200)); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Fin del slide -->
+
                 <?php echo CHtml::htmlButton($model->isNewRecord ? 'Añadir' : 'Guardar',array('type' => 'submit', 'class'=>'btn btn-primary pull-right')); ?>
 
                 </fieldset>

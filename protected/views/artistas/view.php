@@ -18,13 +18,13 @@ $this->breadcrumbs=array(
             <div class="flexslider flexslider-center-mobile" data-plugin-options='{"animation":"slide", "animationLoop": true, "maxVisibleItems": 1}'>
                 <ul class="slides">
                     <li>
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project.jpg">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide1?>">
                     </li>
                     <li>
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-1.jpg">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide2?>">
                     </li>
                     <li>
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-2.jpg">
+                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide3?>">
                     </li>
                 </ul>
             </div>
@@ -47,62 +47,13 @@ $this->breadcrumbs=array(
         </div>
 
         <ul class="portfolio-list">
-            <li class="span3">
-                <div class="portfolio-item thumbnail mobile-max-width">
-                    <a href="portfolio-single-project.html" class="thumb-info">
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">SEO</span>
-											<span class="thumb-info-type">Website</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
-										</span>
-                    </a>
-                </div>
-            </li>
-            <li class="span3">
-                <div class="portfolio-item thumbnail mobile-max-width">
-                    <a href="portfolio-single-project.html" class="thumb-info">
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-1.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">Red Wine</span>
-											<span class="thumb-info-type">Brand</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
-										</span>
-                    </a>
-                </div>
-            </li>
-            <li class="span3">
-                <div class="portfolio-item thumbnail mobile-max-width">
-                    <a href="portfolio-single-project.html" class="thumb-info">
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-2.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">Man Running</span>
-											<span class="thumb-info-type">Logo</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
-										</span>
-                    </a>
-                </div>
-            </li>
-            <li class="span3">
-                <div class="portfolio-item thumbnail mobile-max-width">
-                    <a href="portfolio-single-project.html" class="thumb-info">
-                        <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-3.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">Code</span>
-											<span class="thumb-info-type">Website</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
-										</span>
-                    </a>
-                </div>
-            </li>
+
+            <?php
+            $data = $related->getData();
+            foreach($data as $i => $item)
+                Yii::app()->controller->renderPartial('_related', array('index' => $i, 'data' => $item, 'widget' => $this));
+            ?>
+
         </ul>
 
     </div>

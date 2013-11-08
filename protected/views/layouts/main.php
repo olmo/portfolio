@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/circle-flip-slideshow/css/component.css" media="screen" />
 
     <!-- Skin CSS -->
-    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/skins/blue.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/skins/red.css">
 
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-responsive.css" />
@@ -104,11 +104,13 @@
             </div>
             <nav>
                 <ul class="nav nav-pills nav-top">
+                    <!--
                     <li>
                         <a href="error.html"><i class="icon-angle-right"></i>404</a>
                     </li>
+                    -->
                     <li class="phone">
-                        <span><i class="icon-phone"></i>(+34) 607 53 53 35</span>
+                        <span><i class="icon-envelope"></i>info@global-arte.com</span>
                     </li>
                 </ul>
             </nav>
