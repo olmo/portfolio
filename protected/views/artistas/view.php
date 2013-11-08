@@ -22,6 +22,7 @@ $this->breadcrumbs=array(
                     </li>
                     <li>
                         <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide2?>">
+
                     </li>
                     <li>
                         <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide3?>">

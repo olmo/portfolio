@@ -68,9 +68,9 @@ class Artistas extends CActiveRecord
             'informacion' => 'Informacion',
             'id_categoria' => 'Categoria',
             'imagen' => 'Imagen',
-            'imgslide1' => 'Slide 1',
-            'imgslide2' => 'Slide 2',
-            'imgslide3' => 'Slide 3',
+            'imgslide1' => 'Principal 1',
+            'imgslide2' => 'Principal 2',
+            'imgslide3' => 'Principal 3',
         );
     }
 
