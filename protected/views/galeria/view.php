@@ -86,9 +86,9 @@
 
             <h4 class="pull-top">Montaje</h4>
 
-            <table class="table table-hover">
+            <table id="montajes" class="table table-hover">
                 <?php foreach($model->montajes as $montaje): ?>
-                    <tr><td class="span1"><input value="<?php echo $montaje->id; ?>" style="margin: 0;" name="montajes[]" type="checkbox" <?php if($montaje->id==$model->montaje_recomendado) echo 'checked'; ?>></td><td class="span4"><?php echo $montaje->nombre; ?></td><td class="span1"><?php if($montaje->id==$model->montaje_recomendado) echo 'Recomendado'; ?></td><td class="precio hidden"><?php echo $montaje->precio; ?> €</td></tr>
+                    <tr><td class="span1"><input value="<?php echo $montaje->id; ?>" style="margin: 0;" name="montajes[]" type="checkbox" <?php if($montaje->id==$model->montaje_recomendado) echo 'checked'; ?>></td><td class="span4"><?php echo $montaje->nombre; ?></td><td class="span1"><?php if($montaje->id==$model->montaje_recomendado) echo 'Recomendado'; ?></td><td class="precio2 span1"></td><td class="precio hidden"><?php echo $montaje->precio; ?> €</td></tr>
                 <?php endforeach; ?>
             </table>
 
