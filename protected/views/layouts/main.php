@@ -125,6 +125,7 @@
                         array('label'=>'Galería', 'url'=>array('galeria/index'), 'active'=>Yii::app()->controller->id=='galeria',),
                         array('label'=>'Artistas', 'url'=>array('/artistas/index'), 'active'=>Yii::app()->controller->id=='artistas',),
                         array('label'=>'Blog', 'url'=>array('/blog/index'), 'active'=>Yii::app()->controller->id=='blog',),
+                        array('label'=>'Regalos', 'url'=>array('/site/gift')),
                         array('label'=>'Sobre Nosotros', 'url'=>array('/site/about')),
                         array('label'=>'Contacto', 'url'=>array('/site/contact')),
                     ),

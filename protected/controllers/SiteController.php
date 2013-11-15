@@ -99,6 +99,32 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
+    public function actionGift()
+    {
+        $this->layout = 'main';
+        $this->titulo = 'Regalos';
+
+        $model=new ContactForm;
+        if(isset($_POST['ContactForm']))
+        {
+            $model->attributes=$_POST['ContactForm'];
+            if($model->validate())
+            {
+                $name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+                $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
+                $headers="From: $name <{$model->email}>\r\n".
+                    "Reply-To: {$model->email}\r\n".
+                    "MIME-Version: 1.0\r\n".
+                    "Content-type: text/plain; charset=UTF-8";
+
+                mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+                Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros. Le responderemos tan pronto como sea posible.');
+                $this->refresh();
+            }
+        }
+        $this->render('gift',array('model'=>$model));
+    }
+
 	/**
 	 * Displays the login page
 	 */
