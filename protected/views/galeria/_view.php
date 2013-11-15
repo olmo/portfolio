@@ -3,7 +3,7 @@
 /* @var $data Foto */
 ?>
 
-<li class="span3 isotope-item <?php echo CHtml::encode($data->idTema->nombre); ?>">
+<li class="span3">
     <div class="portfolio-item thumbnail">
         <a href="<?php echo $this->createUrl('galeria/view', array('id'=>$data->id)); ?>" class="thumb-info">
             <div class="centerthumbs"><span></span>

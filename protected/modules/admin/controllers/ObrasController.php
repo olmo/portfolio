@@ -26,6 +26,7 @@ class ObrasController extends Controller
             'tema'=>ObrasTema::model(),
             'montaje'=>ObrasMontaje::model(),
             'obra'=>Obra::model(),
+            'coleccion'=>Coleccion::model(),
         );
 
         $this->tiposS = array(
@@ -60,7 +61,7 @@ class ObrasController extends Controller
         return array(
             array('allow',
                 'actions'=>array('index','view', 'createObra', 'updateObra', 'deleteObra',
-                    'create','update','delete'),
+                    'create','update','delete', 'viewColecciones', 'createColeccion', 'updateColeccion', 'deleteColeccion'),
                 'users'=>array('admin'),
             ),
             array('deny',
@@ -104,7 +105,21 @@ class ObrasController extends Controller
         if(isset($_POST['Obra']))
         {
             $model->attributes=$_POST['Obra'];
-            $model->montajes = $model->montajesIds;
+            if(is_array($_POST['Obra']['montajesIds']))
+                $model->montajes = $model->montajesIds;
+            else
+                $model->montajes = array();
+
+            if(is_array($_POST['Obra']['temasIds']))
+                $model->temas = $model->temasIds;
+            else
+                $model->temas = array();
+
+            if(is_array($_POST['Obra']['tecnicasIds']))
+                $model->tecnicas = $model->tecnicasIds;
+            else
+                $model->tecnicas = array();
+
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
 
             if($uploadedFile!=null){
@@ -155,8 +170,22 @@ class ObrasController extends Controller
         if(isset($_POST['Obra']))
         {
             $_POST['Obra']['imagen'] = $model->imagen;
+
             $model->attributes=$_POST['Obra'];
-            $model->montajes = $model->montajesIds;
+            if(is_array($_POST['Obra']['montajesIds']))
+                $model->montajes = $model->montajesIds;
+            else
+                $model->montajes = array();
+
+            if(is_array($_POST['Obra']['temasIds']))
+                $model->temas = $model->temasIds;
+            else
+                $model->temas = array();
+
+            if(is_array($_POST['Obra']['tecnicasIds']))
+                $model->tecnicas = $model->tecnicasIds;
+            else
+                $model->tecnicas = array();
 
             if($model->validate()){
                 $uploadedFile=CUploadedFile::getInstance($model,'imagen');
@@ -204,6 +233,110 @@ class ObrasController extends Controller
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
         }
     }
+
+    public function actionViewColecciones()
+    {
+        $this->layout = 'obras';
+
+        $criteria=new CDbCriteria(array(
+            'order'=>'nombre ASC',
+        ));
+
+        $dataProvider=new CActiveDataProvider('Coleccion', array(
+            'criteria'=>$criteria,
+        ));
+
+        $this->render('viewColecciones',array(
+            'dataProvider'=>$dataProvider,
+            'tipoS'=>'Colección',
+            'tipoP'=>'Colecciones',
+        ));
+    }
+
+    public function actionCreateColeccion()
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+        $this->layout = 'obras';
+
+
+        $model=new Coleccion();
+        $obras=new ObrasColeccionesRelation();
+        $validatedObras = array();
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Coleccion']))
+        {
+            $model->attributes=$_POST['Coleccion'];
+            if(MultiModelForm::validate($obras, $validatedObras,$deleteObras) && $model->save()){
+                $masterValues = array ('id_coleccion'=>$model->id);
+
+                if (MultiModelForm::save($obras,$validatedObras,$deleteObras,$masterValues)){
+                    Yii::app()->user->setFlash('exito','La colección se ha añadido con éxito.');
+                    $this->redirect(array('viewColecciones'));
+                }
+            }
+        }
+
+        $this->render('createColeccion',array(
+            'model'=>$model,
+            'accion'=>'create',
+            'tipoS'=>'Colección',
+            'tipoP'=>'Colecciones',
+            'obras'=>$obras,
+            'validatedObras'=>$validatedObras,
+        ));
+    }
+
+    public function actionUpdateColeccion($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+        $this->layout = 'obras';
+
+        $model=$this->loadModel($id, 'coleccion');
+        $obras=new ObrasColeccionesRelation();
+        $validatedObras = array();
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Coleccion']))
+        {
+            $model->attributes=$_POST['Coleccion'];
+            $masterValues = array ('id_coleccion'=>$model->id);
+
+            if(MultiModelForm::save($obras,$validatedObras,$deleteObras,$masterValues) && $model->save()){
+                Yii::app()->user->setFlash('exito','La colección se ha actualizado con éxito.');
+                $this->redirect(array('viewColecciones'));
+            }
+        }
+
+        $this->render('createColeccion',array(
+            'model'=>$model,
+            'accion'=>'update',
+            'tipoS'=>'Colección',
+            'tipoP'=>'Colecciones',
+            'obras'=>$obras,
+            'validatedObras'=>$validatedObras,
+        ));
+    }
+
+    public function actionDeleteColeccion($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+
+        $model = $this->loadModel($id, 'coleccion');
+        $model->delete();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax'])){
+            Yii::app()->user->setFlash('exito','La obra ha sido borrada con éxito.');
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('viewColecciones'));
+        }
+    }
+
+
 
     public function actionView($tipo)
     {

@@ -111,19 +111,19 @@ class GaleriaController extends Controller
 
         $criteria=new CDbCriteria();
 
-        if(isset($_POST['FiltroForm'])){
-            $model->attributes=$_POST['FiltroForm'];
-            $model->artistas=$_POST['FiltroForm']['artistas'];
-            $model->temas=$_POST['FiltroForm']['temas'];
-            $model->tecnicas=$_POST['FiltroForm']['tecnicas'];
-            $model->tamanos=$_POST['FiltroForm']['tamanos'];
-            $model->formatos=$_POST['FiltroForm']['formatos'];
+        if(isset($_GET['FiltroForm'])){
+            $model->attributes=$_GET['FiltroForm'];
+            $model->artistas=$_GET['FiltroForm']['artistas'];
+            $model->temas=$_GET['FiltroForm']['temas'];
+            $model->tecnicas=$_GET['FiltroForm']['tecnicas'];
+            $model->tamanos=$_GET['FiltroForm']['tamanos'];
+            $model->formatos=$_GET['FiltroForm']['formatos'];
 
             if($model->validate()){
                 $cadena = '';
                 $join = '';
 
-                if($model->temas != null){
+                /*if($model->temas != null){
                     $cadena .= '(';
                     $i=0;
                     foreach($model->temas as $tema){
@@ -135,9 +135,9 @@ class GaleriaController extends Controller
                             $cadena .= ' or id_tema='.$tema;
                     }
                     $cadena .= ')';
-                }
+                }*/
 
-                if($model->tecnicas != null){
+                /*if($model->tecnicas != null){
                     if($cadena!='')
                         $cadena .= ' and (';
                     else
@@ -154,7 +154,7 @@ class GaleriaController extends Controller
                             $cadena .= ' or id_tecnica='.$tema;
                     }
                     $cadena .= ')';
-                }
+                }*/
 
                 if($model->formatos != null){
                     if($cadena!='')
@@ -165,11 +165,49 @@ class GaleriaController extends Controller
                     $i=0;
                     foreach($model->formatos as $tema){
                         if($i==''){
-                            $cadena .= ' id_formato='.$tema;
+                            $cadena .= ' id_formato='.Yii::app()->db->quoteValue($tema);
                             $i++;
                         }
                         else
-                            $cadena .= ' or id_formato='.$tema;
+                            $cadena .= ' or id_formato='.Yii::app()->db->quoteValue($tema);
+                    }
+                    $cadena .= ')';
+                }
+
+                if($model->tecnicas != null){
+                    $join .= ' LEFT JOIN obras_tecnicas_relation ON obras_tecnicas_relation.id_obra = t.id ';
+                    if($cadena!='')
+                        $cadena .= ' and (';
+                    else
+                        $cadena .= '(';
+
+                    $i=0;
+                    foreach($model->tecnicas as $tema){
+                        if($i==''){
+                            $cadena .= ' obras_tecnicas_relation.id_tecnica='.Yii::app()->db->quoteValue($tema);
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or obras_tecnicas_relation.id_tecnica='.Yii::app()->db->quoteValue($tema);
+                    }
+                    $cadena .= ')';
+                }
+
+                if($model->temas != null){
+                    $join .= ' LEFT JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ';
+                    if($cadena!='')
+                        $cadena .= ' and (';
+                    else
+                        $cadena .= '(';
+
+                    $i=0;
+                    foreach($model->temas as $tema){
+                        if($i==''){
+                            $cadena .= ' obras_temas_relation.id_tema='.Yii::app()->db->quoteValue($tema);
+                            $i++;
+                        }
+                        else
+                            $cadena .= ' or obras_temas_relation.id_tema='.Yii::app()->db->quoteValue($tema);
                     }
                     $cadena .= ')';
                 }
@@ -184,11 +222,11 @@ class GaleriaController extends Controller
                     $i=0;
                     foreach($model->tamanos as $tema){
                         if($i==''){
-                            $cadena .= ' obras_tamanos_relation.id_tamano='.$tema;
+                            $cadena .= ' obras_tamanos_relation.id_tamano='.Yii::app()->db->quoteValue($tema);
                             $i++;
                         }
                         else
-                            $cadena .= ' or obras_tamanos_relation.id_tamano='.$tema;
+                            $cadena .= ' or obras_tamanos_relation.id_tamano='.Yii::app()->db->quoteValue($tema);
                     }
                     $cadena .= ')';
                 }
@@ -203,17 +241,18 @@ class GaleriaController extends Controller
                     $i=0;
                     foreach($model->artistas as $tema){
                         if($i==''){
-                            $cadena .= ' artistas.id_categoria='.$tema;
+                            $cadena .= ' artistas.id_categoria='.Yii::app()->db->quoteValue($tema);
                             $i++;
                         }
                         else
-                            $cadena .= ' or artistas.id_categoria='.$tema;
+                            $cadena .= ' or artistas.id_categoria='.Yii::app()->db->quoteValue($tema);
                     }
                     $cadena .= ')';
                 }
 
                 $criteria->join = $join;
                 $criteria->condition = $cadena;
+                $criteria->distinct = true;
             }
         }
 

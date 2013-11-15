@@ -19,6 +19,8 @@
 class Obra extends CActiveRecord
 {
     public $montajesIds = array();
+    public $temasIds = array();
+    public $tecnicasIds = array();
     public $artista_search;
 
 	/**
@@ -55,11 +57,11 @@ class Obra extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, imagen, descripcion, id_artista, id_formato, id_tecnica, id_tema, montaje_recomendado', 'required'),
+			array('titulo, imagen, descripcion, id_artista, id_formato, montaje_recomendado', 'required'),
 			array('id_artista', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
-            array('montajesIds', 'safe'),
+            array('montajesIds, temasIds, tecnicasIds', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, titulo, descripcion, artista_search', 'safe', 'on'=>'search'),
@@ -76,20 +78,30 @@ class Obra extends CActiveRecord
 		return array(
             'idArtista' => array(self::BELONGS_TO, 'Artistas', 'id_artista'),
 			'idFormato' => array(self::BELONGS_TO, 'ObrasFormatos', 'id_formato'),
-            'idTecnica' => array(self::BELONGS_TO, 'ObrasTecnicas', 'id_tecnica'),
-            'idTema' => array(self::BELONGS_TO, 'ObrasTema', 'id_tema'),
             'idMontaje' => array(self::BELONGS_TO, 'ObrasMontaje', 'montaje_recomendado'),
 			'obraTamano' => array(self::HAS_MANY, 'ObrasTamanosRelation', 'id_obra'),
             'montajes' => array(self::MANY_MANY, 'ObrasMontaje', 'obras_montajes_relation(id_obra, id_montaje)'),
+            'temas' => array(self::MANY_MANY, 'ObrasTema', 'obras_temas_relation(id_obra, id_tema)'),
+            'tecnicas' => array(self::MANY_MANY, 'ObrasTecnica', 'obras_tecnicas_relation(id_obra, id_tecnica)'),
 		);
 	}
 
     public function afterFind()
     {
-        if (!empty($this->montajes))
-        {
+
+        if (!empty($this->montajes)){
             foreach ($this->montajes as $n => $montaje)
                 $this->montajesIds[] = $montaje->id;
+        }
+
+        if (!empty($this->temas)){
+            foreach ($this->temas as $n => $tema)
+                $this->temasIds[] = $tema->id;
+        }
+
+        if (!empty($this->tecnicas)){
+            foreach ($this->tecnicas as $n => $tecnica)
+                $this->tecnicasIds[] = $tecnica->id;
         }
 
         parent::afterFind();

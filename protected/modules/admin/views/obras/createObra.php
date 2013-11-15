@@ -55,17 +55,17 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         </div>
                     </div>
 
-                    <div class="form-group<?php echo $model->getError('id_tecnica')  ? ' has-error' : ''; ?>">
-                        <?php echo $form->labelEx($model,'id_tecnica', array('class'=>'col-lg-2 control-label')); ?>
+                    <div class="form-group<?php echo $model->getError('tecnicas')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'tecnicas', array('class'=>'col-lg-2 control-label')); ?>
                         <div class="col-lg-10">
-                            <?php echo $form->dropDownList($model,'id_tecnica', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una técnica','class'=>'form-control')); ?>
+                            <?php echo $form->checkBoxList($model,'tecnicasIds', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona una técnica')); ?>
                         </div>
                     </div>
 
-                    <div class="form-group<?php echo $model->getError('id_tema')  ? ' has-error' : ''; ?>">
-                        <?php echo $form->labelEx($model,'id_tema', array('class'=>'col-lg-2 control-label')); ?>
+                    <div class="form-group<?php echo $model->getError('temas')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'temas', array('class'=>'col-lg-2 control-label')); ?>
                         <div class="col-lg-10">
-                            <?php echo $form->dropDownList($model,'id_tema', CHtml::listData(ObrasTema::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un tema','class'=>'form-control')); ?>
+                            <?php echo $form->checkBoxList($model,'temasIds', CHtml::listData(ObrasTema::model()->findAll(), 'id', 'nombre'), array('empty'=>'Selecciona un tema')); ?>
                         </div>
                     </div>
 

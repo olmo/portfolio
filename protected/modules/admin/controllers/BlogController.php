@@ -28,7 +28,7 @@ class BlogController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('index', 'create', 'update', 'delete'),
+                'actions'=>array('index', 'create', 'update', 'delete', 'imgUpload'),
                 'users'=>array('admin'),
             ),
             array('deny',
