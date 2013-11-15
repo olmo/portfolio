@@ -72,7 +72,7 @@ $this->breadcrumbs=array(
             <div class="span3 center">
                 <div class="plan most-popular">
                     <div class="plan-ribbon-wrapper"><div class="plan-ribbon">Popular</div></div>
-                    <h3>Profesional<span>$29</span></h3>
+                    <h3>Profesional<span>29 €</span></h3>
                     <a class="btn btn-large btn-primary" href="#">Realizar pedido</a>
                     <ul>
                         <li><b>10</b> Lore ipsum</li>
@@ -84,7 +84,7 @@ $this->breadcrumbs=array(
             </div>
             <div class="span3">
                 <div class="plan">
-                    <h3>Estándar<span>$17</span></h3>
+                    <h3>Estándar<span>17 €</span></h3>
                     <a class="btn btn-large btn-primary" href="#">Realizar pedido</a>
                     <ul>
                         <li><b>10</b> Lore ipsum</li>
@@ -96,7 +96,7 @@ $this->breadcrumbs=array(
             </div>
             <div class="span3">
                 <div class="plan">
-                    <h3>Mixto<span>$9</span></h3>
+                    <h3>Mixto<span>9 €</span></h3>
                     <a class="btn btn-large btn-primary" href="#">Realizar pedido</a>
                     <ul>
                         <li><b>10</b> Lore ipsum</li>
