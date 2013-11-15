@@ -30,7 +30,7 @@ $this->breadcrumbs=array(
         <div class="span4">
             <div class="featured-box featured-box-secundary">
                 <div class="box-content">
-                    <h4>Imágenes</h4>
+                    <h4><span style="color: #a60f33;">Imágenes</span></h4>
                     <!-- <ul class="flickr-feed" data-plugin-options='{"qstrings": { "id": "93691989@N03" }}'></ul> -->
                     <ul class="flickr-feed">
                         <table width="308" height=202"">

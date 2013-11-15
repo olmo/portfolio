@@ -644,7 +644,7 @@ div.featured-box div.box-content {
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
-	border-top: 3px solid #33B8FF;
+	border-top: 3px solid #a60f33;
 	border-top-width: 4px;
 	padding: 30px 30px 10px 30px;
 }
@@ -720,15 +720,15 @@ div.featured-box-primary div.box-content {
 /* Secundary */
 div.featured-box-secundary i.icon,
 div.featured-box-secundary i.image-icon {
-	background-color: #0088CC;
+	background-color: #a60f33;
 }
 
 div.featured-box-secundary h4 {
-	color: #0088CC;
+	color: #a60f33;
 }
 
 div.featured-box-secundary div.box-content {
-	border-top-color: #0088CC;
+	border-top-color: #a60f33;
 }
 
 /* Tertiary */
