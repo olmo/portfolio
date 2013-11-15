@@ -169,6 +169,10 @@ class ArtistasController extends Controller
             $fileName3 = "{$rnd3}-{$uploadedFile3}";
             $model->imgslide3 = $fileName3;
 
+            if(empty($uploadedFile1)) $model->imgslide1 = 'NULL';
+            if(empty($uploadedFile2)) $model->imgslide2 = 'NULL';
+            if(empty($uploadedFile3)) $model->imgslide3 = 'NULL';
+
             if($model->save())
             {
                 if(!empty($uploadedFile))
@@ -206,6 +210,7 @@ class ArtistasController extends Controller
                     $im3->resize(548,365);
                     $im3->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName3);
                 }
+
 
                 $this->redirect(array('index'));
             }
@@ -248,7 +253,7 @@ class ArtistasController extends Controller
                     $im->save(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen);
                 }
 
-                if(!empty($uploadedFileSlideOne))
+                if(!empty($uploadedFileSlideOne) && $model->imgslide1 != 'NULL')
                 {
                     $uploadedFileSlideOne->saveAs(Yii::app()->basePath.'/../images/artistas/slides/'.$model->imgslide1);
 
@@ -256,8 +261,23 @@ class ArtistasController extends Controller
                     $imOne->resize(NULL, 260);
                     $imOne->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1);
                 }
+                else if ($model->imgslide1 == 'NULL'){
+                    $rnd1 = rand(0,9999);
 
-                if(!empty($uploadedFileSlideTwo))
+                    $uploadedFile1=CUploadedFile::getInstance($model,'imgslide1');
+                    $fileName1 = "{$rnd1}-{$uploadedFile1}";
+                    $model->imgslide3 = $fileName1;
+
+                    $uploadedFile1->saveAs(Yii::app()->basePath.'/../images/artistas/slides/'.$fileName1);
+
+                    $im1 = new EasyImage(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName1);
+                    $im1->resize(548,365);
+                    $im1->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName1);
+
+                    $model->save();
+                }
+
+                if(!empty($uploadedFileSlideTwo) && $model->imgslide2 != 'NULL')
                 {
                     $uploadedFileSlideTwo->saveAs(Yii::app()->basePath.'/../images/artistas/slides/'.$model->imgslide2);
 
@@ -265,13 +285,44 @@ class ArtistasController extends Controller
                     $imTwo->resize(NULL, 260);
                     $imTwo->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2);
                 }
-                if(!empty($uploadedFileSlideThree))
+                else if ($model->imgslide2 == 'NULL'){
+                    $rnd2 = rand(0,9999);
+
+                    $uploadedFile2=CUploadedFile::getInstance($model,'imgslide2');
+                    $fileName2 = "{$rnd2}-{$uploadedFile2}";
+                    $model->imgslide3 = $fileName2;
+
+                    $uploadedFile2->saveAs(Yii::app()->basePath.'/../images/artistas/slides/'.$fileName2);
+
+                    $im2 = new EasyImage(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName2);
+                    $im2->resize(548,365);
+                    $im2->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName2);
+
+                    $model->save();
+                }
+
+                if(!empty($uploadedFileSlideThree)  && $model->imgslide3 != 'NULL')
                 {
                     $uploadedFileSlideThree->saveAs(Yii::app()->basePath.'/../images/artistas/slides/'.$model->imgslide3);
 
                     $imThree = new EasyImage(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3);
                     $imThree->resize(NULL, 260);
                     $imThree->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3);
+                }
+                else if ($model->imgslide3 == 'NULL'){
+                    $rnd3 = rand(0,9999);
+
+                    $uploadedFile3=CUploadedFile::getInstance($model,'imgslide3');
+                    $fileName3 = "{$rnd3}-{$uploadedFile3}";
+                    $model->imgslide3 = $fileName3;
+
+                    $uploadedFile3->saveAs(Yii::app()->basePath.'/../images/artistas/slides/'.$fileName3);
+
+                    $im3 = new EasyImage(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName3);
+                    $im3->resize(548,365);
+                    $im3->save(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$fileName3);
+
+                    $model->save();
                 }
             }
 
