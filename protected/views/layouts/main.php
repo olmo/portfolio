@@ -122,7 +122,8 @@
                     'submenuHtmlOptions'=>array('class'=>'dropdown-menu'),
                     'items'=>array(
                         array('label'=>'Inicio', 'url'=>array('/site/index'),),
-                        array('label'=>'Galería', 'url'=>array('galeria/index'), 'active'=>Yii::app()->controller->id=='galeria',),
+                        array('label'=>'Galería', 'url'=>array('galeria/index'), 'active'=>Yii::app()->controller->id=='galeria' && Yii::app()->controller->action->id!='colecciones',),
+                        array('label'=>'Colecciones', 'url'=>array('galeria/colecciones'), 'active'=>Yii::app()->controller->action->id=='colecciones',),
                         array('label'=>'Artistas', 'url'=>array('/artistas/index'), 'active'=>Yii::app()->controller->id=='artistas',),
                         array('label'=>'Blog', 'url'=>array('/blog/index'), 'active'=>Yii::app()->controller->id=='blog',),
                         array('label'=>'Regalos', 'url'=>array('/site/gift')),

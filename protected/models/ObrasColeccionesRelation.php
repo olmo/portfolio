@@ -35,8 +35,8 @@ class ObrasColeccionesRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_obra, id_coleccion', 'required'),
-			array('id_obra, id_coleccion', 'numerical', 'integerOnly'=>true),
+			array('id_obra', 'required'),
+			array('id_obra', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id_obra, id_coleccion', 'safe', 'on'=>'search'),

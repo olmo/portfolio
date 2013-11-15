@@ -109,9 +109,9 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                             <?php echo $form->fileField($model, 'imagen'); ?>
                         </div>
                         <?php if($model->isNewRecord!='1'): ?>
-                            <div class="row">
+                        <div class="col-lg-10">
                                 <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/obras/'.$model->imagen,"imagen",array("width"=>200)); ?>
-                            </div>
+                        </div>
                         <?php endif; ?>
                     </div>
 

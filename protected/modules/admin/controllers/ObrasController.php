@@ -259,8 +259,8 @@ class ObrasController extends Controller
         $this->layout = 'obras';
 
 
-        $model=new Coleccion();
-        $obras=new ObrasColeccionesRelation();
+        $model=new Coleccion;
+        $obras=new ObrasColeccionesRelation;
         $validatedObras = array();
 
         // Uncomment the following line if AJAX validation is needed

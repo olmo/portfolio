@@ -29,7 +29,7 @@ class GaleriaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','colecciones'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -270,6 +270,28 @@ class GaleriaController extends Controller
             'model'=>$model,
 		));
 	}
+
+    public function actionColecciones(){
+        $this->titulo = 'Colecciones';
+        $dataProvider = null;
+
+        if(isset($_GET['id'])){
+            $criteria=new CDbCriteria();
+            $criteria->condition = 'id_coleccion='.$_GET['id'];
+
+            $dataProvider=new CActiveDataProvider('ObrasColeccionesRelation', array('criteria'=>$criteria));
+
+            $model=Coleccion::model()->findByPk($_GET['id']);
+        }
+
+        $colecciones=new CActiveDataProvider('Coleccion');
+
+        $this->render('colecciones',array(
+            'dataProvider'=>$dataProvider,
+            'colecciones'=>$colecciones,
+            'coleccion'=>$model,
+        ));
+    }
 
 
 	/**
