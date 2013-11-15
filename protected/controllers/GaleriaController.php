@@ -274,6 +274,7 @@ class GaleriaController extends Controller
     public function actionColecciones(){
         $this->titulo = 'Colecciones';
         $dataProvider = null;
+        $model = null;
 
         if(isset($_GET['id'])){
             $criteria=new CDbCriteria();
