@@ -58,11 +58,10 @@ class GaleriaController extends Controller
 
         $criteria=new CDbCriteria(array(
             'distinct'=>true,
-            'join'=> ' LEFT JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ',
+            'join'=> ' INNER JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ',
             'condition'=>'obras_temas_relation.id_tema in (
-                SELECT distinct obras_temas_relation.id_tema FROM obras
-                LEFT JOIN obras_temas_relation on obras_temas_relation.id_obra = obras.id
-                where obras.id='.$model->id.')',
+                SELECT obras_temas_relation.id_tema FROM obras_temas_relation
+                WHERE obras_temas_relation.id_obra='.$model->id.')',
             'order'=>'rand()',
             'offset'=>0,
             'limit' => 4,
