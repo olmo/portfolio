@@ -67,7 +67,7 @@ class GaleriaController extends Controller
             'limit' => 4,
         ));
 
-        $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
+        $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,'pagination'=>false,));
 
         if(isset($_POST['PedidoForm'])){
             $form->attributes=$_POST['PedidoForm'];
