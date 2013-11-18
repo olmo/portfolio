@@ -57,7 +57,12 @@ class GaleriaController extends Controller
         $form=new PedidoForm;
 
         $criteria=new CDbCriteria(array(
-            'condition'=>'id_tema='.$model->id_tema,
+            'distinct'=>true,
+            'join'=> ' LEFT JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ',
+            'condition'=>'obras_temas_relation.id_tema in (
+                SELECT distinct obras_temas_relation.id_tema FROM obras
+                LEFT JOIN obras_temas_relation on obras_temas_relation.id_obra = obras.id
+                where obras.id='.$model->id.')',
             'order'=>'rand()',
             'offset'=>0,
             'limit' => 4,
@@ -299,7 +304,7 @@ class GaleriaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Foto the loaded model
+	 * @return Obra the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
