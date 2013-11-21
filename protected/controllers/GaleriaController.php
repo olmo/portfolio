@@ -84,7 +84,7 @@ class GaleriaController extends Controller
                     "Content-type: text/plain; charset=UTF-8";
 
                 $contenido = "Obra: ".$model->titulo."\n";
-                $contenido .= "Tamaño: ".ObrasTamano::model()->findByPk($form->tamano)->nombre."\n";
+                $contenido .= "Tamaño: ".$tam->alto." x ".$tam->ancho."\n";
                 $contenido .= "Montaje: ".ObrasMontaje::model()->findByPk($form->montaje)->nombre."\n";
                 $contenido .= "Precio: ".$precio."€\n\n";
                 $contenido .= "Nombre del cliente: ".$form->nombre."\n\n";

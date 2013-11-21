@@ -16,7 +16,7 @@ class PedidoForm extends CFormModel
     public function rules()
     {
         return array(
-            array('nombre, email, obra, tamano, montaje, precio', 'required'),
+            array('nombre, email, comentario, obra, tamano, montaje, precio', 'required'),
         );
     }
 
