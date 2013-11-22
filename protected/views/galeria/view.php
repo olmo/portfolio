@@ -78,9 +78,9 @@
                 <?php /*echo $form->checkBoxList($formmodel, 'tamano', CHtml::listData(ObrasTamanosRelation::model()->findAll(array('condition'=>'id_obra='.$model->id)), 'id', 'nombre'),
                     array('container'=>'','separator'=>'',
                         'template'=>'<tr><td class="span1">{input}</td><td class="span4">'.$data->alto.' x '.$data->ancho.' cm</td><td class="span1 precio">'.$data->precio.' €</td></tr>'));*/ ?>
-
+                <tr><th></th><th>Alto x Ancho</th><th>Stock</th><th>Precio</th></tr>
                 <?php foreach($model->obraTamano as $i=>$tamano): ?>
-                    <tr><td class="span1"><input value="<?php echo $tamano->id_tamano; ?>" style="margin: 0;" type="checkbox" name="tamanos[]" <?php if ($i==0) echo 'checked'; ?>></td><td class="span4 tamano"><?php echo $tamano->alto; ?> x <?php echo $tamano->ancho; ?> cm</td><td class="span1 precio"><?php echo $tamano->precio; ?> €</td></tr>
+                    <tr><td class="span1"><input value="<?php echo $tamano->id_tamano; ?>" style="margin: 0;" type="checkbox" name="tamanos[]" <?php if ($i==0) echo 'checked'; ?>></td><td class="span3 tamano"><?php echo $tamano->alto; ?> x <?php echo $tamano->ancho; ?> cm</td><td class="span1"><?php echo $tamano->stock_restante; ?> / <?php echo $tamano->stock_inicial; ?></td><td class="span1 precio"><?php echo $tamano->precio; ?> €</td></tr>
                 <?php endforeach; ?>
             </table>
 
