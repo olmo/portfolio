@@ -4,10 +4,10 @@
 
 $cs=Yii::app()->clientScript;
 $cs->registerCssFile(Yii::app()->request->baseUrl.'/css/theme-blog.css');
+$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/blog.js', CClientScript::POS_END);
 
 $this->breadcrumbs=array(
-	'Entradas'=>array('index'),
-	$model->id,
+	'Blog'=>array('index'),
 );
 ?>
 
@@ -26,33 +26,70 @@ $this->breadcrumbs=array(
                     <div class="post-meta">
                         <span><i class="icon-user"></i> Por <a href="#"><?php echo CHtml::encode($model->idAutor->nombre); ?></a> </span>
 <!--                        <span><i class="icon-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>-->
-                        <span><i class="icon-comments"></i> <a href="#"><?php echo count($model->comentarios); ?> Comentarios</a></span>
+                        <span><i class="icon-comments"></i> <a href="#comentarios"><?php echo count($model->comentarios); ?> Comentarios</a></span>
                     </div>
 
                     <?php echo $model->texto; ?>
 
                     <div class="post-block post-comments clearfix">
-                        <h3><i class="icon-comments"></i>Comentarios (<?php echo count($model->comentarios); ?>)</h3>
+                        <h3 id="comentarios"><i class="icon-comments"></i>Comentarios (<?php echo count($model->comentarios); ?>)</h3>
 
                         <ul class="comments">
                             <?php foreach($model->comentarios as $comentario): ?>
-                            <li>
-                                <div class="comment">
-                                    <div class="comment-block">
-                                        <div class="comment-arrow"></div>
-															<span class="comment-by">
-																<strong><?php echo CHtml::encode($comentario->nombre); ?></strong>
-															</span>
-                                        <p><?php echo CHtml::encode($comentario->texto); ?></p>
-                                        <span class="date pull-right"><?php echo Yii::app()->dateFormatter->format('dd MMMM yyyy, HH:mm',$comentario->fecha_publicacion); ?></span>
+                                <?php if($comentario->id_padre==0): ?>
+                                <li>
+                                    <div class="comment">
+                                        <div class="comment-block">
+                                            <div class="comment-arrow"></div>
+                                                <span class="comment-by">
+                                                    <strong><?php echo CHtml::encode($comentario->nombre); ?></strong>
+                                                    <span class="pull-right">
+                                                        <span><div style="display: none;"><?php echo $comentario->id ?></div><a href="#comentar" class="responder"><i class="icon icon-reply"></i> Responder</a></span>
+                                                        <?php if(Yii::app()->user->getState('isAdmin')): ?>
+                                                            <span><?php echo CHtml::link('<i class="icon icon-edit"></i>',array('admin/blog/updateComentario', 'id'=>$comentario->id)); ?></span>
+                                                            <span><?php echo CHtml::link('<i class="icon icon-trash"></i>',"#", array("submit"=>array('admin/blog/deleteComentario', 'id'=>$comentario->id),
+                                                                    /*'params'=>(array('returnUrl'=>array('blog/view','id'=>$model->id))),*/ 'confirm' => '¿Seguro que quieres borrar el comentario?',)); ?></span>
+                                                        <?php endif; ?>
+                                                    </span>
+                                                </span>
+                                            <p><?php echo CHtml::encode($comentario->texto); ?></p>
+                                            <span class="date pull-right"><?php echo Yii::app()->dateFormatter->format('dd MMMM yyyy, HH:mm',$comentario->fecha_publicacion); ?></span>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                    <?php if($comentario->respuestas): ?>
+                                        <ul class="comments reply">
+                                            <?php foreach($comentario->respuestas as $comentario): ?>
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong><?php echo CHtml::encode($comentario->nombre); ?></strong>
+                                                        <span class="pull-right">
+                                                            <span><div style="display: none;"><?php echo $comentario->id_padre ?></div><a href="#comentar" class="responder"><i class="icon icon-reply"></i> Responder</a></span>
+                                                            <?php if(Yii::app()->user->getState('isAdmin')): ?>
+                                                                <span><?php echo CHtml::link('<i class="icon icon-edit"></i>',array('admin/blog/updateComentario', 'id'=>$comentario->id)); ?></span>
+                                                                <span><?php echo CHtml::link('<i class="icon icon-trash"></i>',"#", array("submit"=>array('admin/blog/deleteComentario', 'id'=>$comentario->id),
+                                                                        /*'params'=>(array('returnUrl'=>array('blog/view','id'=>$model->id))),*/ 'confirm' => '¿Seguro que quieres borrar el comentario?',)); ?></span>
+                                                            <?php endif; ?>
+                                                        </span>
+                                                    </span>
+                                                            <p><?php echo CHtml::encode($comentario->texto); ?></p>
+                                                            <span class="date pull-right"><?php echo Yii::app()->dateFormatter->format('dd MMMM yyyy, HH:mm',$comentario->fecha_publicacion); ?></span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
                     </div>
 
 
+                    <a id="comentar"></a>
                     <div class="post-block post-leave-comment">
                         <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -60,8 +97,11 @@ $this->breadcrumbs=array(
                                 <?php echo Yii::app()->user->getFlash('contact'); ?>
                             </div>
 
-                        <?php else: ?>
+                        <?php endif; ?>
                         <h3>Comenta el post</h3>
+                            <div id="resp" class="alert alert-success">
+                                Respondiendo a <span id="pers"></span> <span class="pull-right"><a id="noresp" href="#comentar">No Responder</a></span>
+                            </div>
                         <?php $form=$this->beginWidget('CActiveForm', array(
                             'id'=>'comentario-form',
                         )); ?>
@@ -72,6 +112,7 @@ $this->breadcrumbs=array(
                             </div>
                         <?php endif; ?>
                         <?php echo $form->hiddenField($formComentario,'id_entrada', array('value'=>$model->id)); ?>
+                        <?php echo $form->hiddenField($formComentario,'id_padre', array('value'=>'0')); ?>
 
                             <div class="row controls">
                                 <div class="span4 control-group">
@@ -93,7 +134,7 @@ $this->breadcrumbs=array(
                                 <input type="submit" value="Publicar Comentario" class="btn btn-primary btn-large">
                             </div>
                         <?php $this->endWidget(); ?>
-                        <?php endif; ?>
+
                     </div>
 
                 </div>

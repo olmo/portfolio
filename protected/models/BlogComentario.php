@@ -41,12 +41,12 @@ class BlogComentario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_entrada, nombre, texto, email', 'required'),
-			array('id_entrada', 'numerical', 'integerOnly'=>true),
+			array('id_entrada, id_padre, nombre, texto, email', 'required'),
+			array('id_entrada, id_padre', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, id_entrada, nombre, texto, fecha_publicacion', 'safe', 'on'=>'search'),
+			array('id, id_entrada, id_padre, nombre, texto, fecha_publicacion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +58,8 @@ class BlogComentario extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idEntrada' => array(self::BELONGS_TO, 'BlogEntradas', 'id_entrada'),
+			'idEntrada' => array(self::BELONGS_TO, 'BlogEntrada', 'id_entrada'),
+            'respuestas' => array(self::HAS_MANY, 'BlogComentario', 'id_padre'),
 		);
 	}
 

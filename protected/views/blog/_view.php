@@ -15,7 +15,7 @@
         <div class="post-meta">
             <span><i class="icon-user"></i> Por <a href="#"><?php echo CHtml::encode($data->idAutor->nombre); ?></a> </span>
 <!--            <span><i class="icon-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>-->
-            <span><i class="icon-comments"></i> <a href="#"><?php echo count($data->comentarios); ?> Comentarios</a></span>
+            <span><i class="icon-comments"></i> <a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id,'#'=>'comentarios')); ?>"><?php echo count($data->comentarios); ?> Comentarios</a></span>
             <a href="<?php echo $this->createUrl('blog/view',array('id'=>$data->id)); ?>" class="btn btn-mini btn-primary pull-right">Leer más...</a>
         </div>
 

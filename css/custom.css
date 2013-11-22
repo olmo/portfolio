@@ -38,3 +38,8 @@ ul.comments li {
 a.thumb-info span.thumb-info-action {
     background-color: transparent;
 }
+
+ul.comments li ul.reply {
+    margin: 0;
+    margin-left: 50px;
+}

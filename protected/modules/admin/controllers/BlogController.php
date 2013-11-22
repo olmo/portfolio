@@ -28,7 +28,7 @@ class BlogController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('index', 'create', 'update', 'delete', 'imgUpload'),
+                'actions'=>array('index', 'create', 'update', 'delete', 'imgUpload', 'updateComentario', 'deleteComentario'),
                 'users'=>array('admin'),
             ),
             array('deny',
@@ -88,6 +88,27 @@ class BlogController extends Controller
         ));
     }
 
+    public function actionUpdateComentario($id)
+    {
+        $this->layout = 'blog';
+        $model=BlogComentario::model()->findByPk($id);
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['BlogComentario']))
+        {
+            $model->attributes=$_POST['BlogComentario'];
+            if($model->save())
+                $this->redirect(array('index'));
+        }
+
+        $this->render('editComentario',array(
+            'model'=>$model,
+            'accion'=>'update',
+        ));
+    }
+
     /**
      * Deletes a particular model.
      * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -96,6 +117,16 @@ class BlogController extends Controller
     public function actionDelete($id)
     {
         $this->loadModel($id)->delete();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax']))
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
+
+    public function actionDeleteComentario($id)
+    {
+        $model=BlogComentario::model()->findByPk($id);
+        $model->delete();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
