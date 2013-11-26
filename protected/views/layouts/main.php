@@ -101,15 +101,20 @@
             <nav>
                 <ul class="nav nav-pills nav-top">
                     <li class="phone">
-                        <span><i class="icon-envelope"></i>info@global-arte.com</span>
+                        <span><i class="icon-envelope"></i>info@global-arte.com&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </li>
+                    <div class="social-icons">
+                        <ul class="social-icons">
+                            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+                            <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+                            <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+                        </ul>
+                    </div>
                 </ul>
             </nav>
             <div class="social-icons">
                 <ul class="social-icons">
-                    <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
-                    <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
-                    <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+
                 </ul>
             </div>
 
