@@ -112,5 +112,85 @@ $this->breadcrumbs=array(
 
 <div class="row">
 
+        <div class="span6">
+
+            <h2 class="short"><strong>Envíenos</strong> un Email</h2>
+
+            <!-- Contact form -->
+            <?php if(Yii::app()->user->hasFlash('contact')): ?>
+
+                <div class="alert alert-success">
+                    <?php echo Yii::app()->user->getFlash('contact'); ?>
+                </div>
+
+            <?php else: ?>
+                <p class="note">Los campos con <span style="color: red;">*</span> son obligatorios.</p>
+
+                <?php $form=$this->beginWidget('CActiveForm', array(
+                    'id'=>'contact-form',
+                    'enableClientValidation'=>true,
+                    'clientOptions'=>array(
+                        'validateOnSubmit'=>true,
+                    ),
+                )); ?>
+
+                    <?php if($model->hasErrors()): ?>
+                        <div class="alert alert-block alert-error fade in">
+                            <h4 class="alert-heading">Errores</h4>
+                                <?php echo $form->errorSummary($model); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="row controls">
+                        <div class="span3 control-group">
+                            <?php echo $form->labelEx($model,'name'); ?>
+                            <?php echo $form->textField($model,'name', array('class'=>'span3')); ?>
+                        </div>
+
+                        <div class="span3 control-group">
+                            <?php echo $form->labelEx($model,'email'); ?>
+                            <?php echo $form->textField($model,'email', array('class'=>'span3')); ?>
+                        </div>
+                    </div>
+
+                    <div class="row controls">
+                        <div class="span6 control-group">
+                            <?php echo $form->labelEx($model,'subject'); ?>
+                            <?php echo $form->textField($model,'subject',array('size'=>100,'maxlength'=>128, 'class'=>'span6')); ?>
+                        </div>
+                    </div>
+
+                    <div class="row controls">
+                        <div class="span6 control-group">
+                            <?php echo $form->labelEx($model,'body'); ?>
+                            <?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50, 'class'=>'span6')); ?>
+                        </div>
+                    </div>
+
+                    <?php if(CCaptcha::checkRequirements()): ?>
+                        <div class="row controls">
+                            <div class="span6 control-group">
+                                <?php echo $form->labelEx($model,'verifyCode'); ?>
+                                <div><?php $this->widget('CCaptcha'); ?></div>
+                                <?php echo $form->textField($model,'verifyCode'); ?>
+                                <div class="hint">Por favor, introduzca las letras que se muestran en la imagen de arriba.
+                                    <br/>Las letras no distinguen entre mayúsculas y minúsculas.
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <br/>
+
+                    <div>
+                        <?php echo CHtml::submitButton('Enviar', array('class' => 'btn btn-primary btn-large')); ?>
+                        <!-- <p class="status"></p> -->
+                    </div>
+                <?php $this->endWidget(); ?>
+
+            <?php endif; ?>
+        </div>
+    </div>
+
 </div>
 
