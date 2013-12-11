@@ -9,12 +9,15 @@ $this->breadcrumbs=array(
 
 <div class="container">
 
-    <h2>El Nuevo Camino hacia el <strong>Éxito</strong></h2>
+    <h2>Un nuevo concepto de <strong>arte</strong></h2>
 
     <div class="row">
         <div class="span10">
-            <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla non <span class="alternative-font">conócenos.</span> pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu risus enim, ut pulvinar lectus. Sed hendrerit nibh.
+            <p align="justify" class="lead">
+                <span class="alternative-font">Global-Arte</span>  Global-Arte acerca el arte a
+                coleccionistas de una forma sencilla y económica. Ofrecemos una gran variedad de obras tanto en tamaños
+                como técnicas, realizadas por artistas noveles o consagrados, siempre con una excelente relación
+                calidad-precio y respetando la originalidad de la obra en ediciones reducidas.
             </p>
         </div>
     </div>
@@ -23,9 +26,22 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <div class="span8">
-            <h3><strong>Quiénes</strong> somos</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
-            <p>Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing <span class="alternative-font">conócenos</span> sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula.</p>
+            <h3><strong>Ideario</strong></h3>
+            <p align="justify"> Global-arte surge en Granada para brindar un espacio nuevo a los amantes del arte. Nuestro ideario es que
+                las personas sensibles a las buenas obras artísticas tengan posibilidad de realizar sus adquisiciones y
+                coleccionar arte de gran calidad a precios realmente asequibles, que sin duda irán ganando valor al ser
+                limitadas. Nos diferenciamos de las galerías tradicionales en que ofrecemos obras originales, con
+                autentificación de la firma a mano del autor, de las que sólo existen un número muy limitado. Por tanto,
+                nuestra obra gráfica, puede encuadrarse entre la obra única original de las galerías de arte a precios
+                inasequibles para muchos amantes del arte  y las masivas reproducciones industriales que pueden
+                adquirirse en las tiendas de los museos o cualquier centro comercial y que resultan impersonales.</p>
+            <p align="justify"> En nuestros catálogos podrán encontrar maravillosas obras desde un precio de 25 euros. Esto permite que
+                cualquier hogar o espacio, pueda dotarse de obras artísticas de gran calidad y adquirir colecciones que
+                irán aumentando de valor.</p>
+            <p align="justify"> Contamos con confortable espacio donde poder observar la obra gráfica, además de la que se muestra en
+                nuestra página web, donde distinguimos autores ya consagrados de la fotografía y el diseño gráfico, así
+                como jóvenes y prometedores artistas que harán que nuestras compras se revaloricen pronto, y que no
+                podrán encontrar en otros lugares.</p>
         </div>
         <div class="span4">
             <div class="featured-box featured-box-secundary">
@@ -91,7 +107,63 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <div class="span12">
-            <h3 class="pull-top">Nuestra <strong>Historia</strong></h3>
+            <h3><strong>Ediciones</strong> limitadas</h3>
+            <p align="justify">El número de copias de cada obra es limitado y siempre aparecerá en el formato adquirido.
+                               Todas las obras estarán firmadas y certificadas y no podrán encontrarse en otras galerías
+                               ni tiendas.</p>
+        </div>
+    </div>
+
+    <hr class="tall">
+
+    <div class="row">
+        <div class="span12">
+            <h3><strong>Equipo</strong></h3>
+            <p align="justify">Nuestro equipo nace de una forma natural, de la pasión por el arte de un grupo de amigos.
+                Este equipo crece cada día con la incorporación de artistas que nos confían sus obras, tras un minucioso
+                proceso de selección. Esta pasión junto con nuestra avalada experiencia hace que la exigencia por la
+                calidad sea uno de nuestros principales objetivos para todos los trabajos de Global Arte.</p>
+        </div>
+    </div>
+
+    <hr class="tall">
+
+    <div class="row">
+        <div class="span12">
+            <h3><strong>Calidad</strong></h3>
+            <p align="justify">Los artistas de cada obra, junto con nuestro equipo asesor y técnico, eligen el medio y
+                formato más adecuado para la misma, de manera que además de garantizar la máxima calidad en impresión y
+                en las terminaciones, con lo que cada creación es presentada en el formato más adecuado.</p>
+        </div>
+    </div>
+
+    <hr class="tall">
+
+    <div class="row">
+        <div class="span12">
+            <h3><strong>Asesoramiento</strong></h3>
+            <p align="justify">Cuando quieras adquirir una obra para una estancia determinada de tu hogar, centro de
+                trabajo, o cualquier espacio, nuestro equipo te aconsejará cuál puede ser la obra más adecuada, en qué
+                formato y tamaño. Simplemente necesitaremos alguna fotografía del espacio donde vas a colocar la obra y
+                buscaremos exactamente lo que más te guste.</p>
+        </div>
+    </div>
+
+    <hr class="tall">
+
+    <div class="row">
+        <div class="span12">
+            <h3><strong>Bonos regalo</strong></h3>
+            <p align="justify">Además ofrecemos el bono regalo de diferentes precios con el que podrás obsequiar de
+                manera abierta. Así quien recibe el bono, además de poder escoger en nuestra página web, recibirá el
+                asesoramiento personalizado de nuestro equipo.</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="span12">
+            <h3 class="pull-top"> <strong></strong></h3>
         </div>
     </div>
 

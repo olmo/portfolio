@@ -25,6 +25,7 @@ $this->breadcrumbs=array(
 <div class="span3">
     <aside class="sidebar">
         <h4>Categorias</h4>
+        <p align=""><small>Seleccione preferencias para depurar su búsqueda.</small></p>
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'filtro-form',
             'method'=>'get',

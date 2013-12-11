@@ -123,7 +123,7 @@ $this->breadcrumbs=array(
 
         <div class="span6">
             <h4 class="pull-top"><strong>Contacto</strong></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus.</p>
+            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus.</p>
 
             <hr />
 
