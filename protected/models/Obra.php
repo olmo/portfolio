@@ -22,6 +22,7 @@ class Obra extends CActiveRecord
     public $temasIds = array();
     public $tecnicasIds = array();
     public $artista_search;
+    public $miniatura = "";
 
 	/**
 	 * Returns the static model of the specified AR class.

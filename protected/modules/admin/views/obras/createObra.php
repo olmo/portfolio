@@ -102,7 +102,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                                     'lang' => 'es',
                                     'minHeight' => 200,
                                     'autoresize' => true,
-                                    'imageUpload' => 'http://localhost:8000'.$this->createUrl('blog/imgUpload'),
+                                    'imageUpload' => $this->createUrl('blog/imgUpload'),
                                     'imageUploadErrorCallback'=>new CJavaScriptExpression('function(obj, json){ alert(json.error); }'),
                                 ),
                             ));
@@ -119,6 +119,18 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         <div class="col-lg-10">
                                 <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/obras/'.$model->imagen,"imagen",array("width"=>200)); ?>
                         </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="form-group<?php echo $model->getError('miniatura')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'miniatura', array('class'=>'col-lg-2 control-label')); ?>
+                        <div class="col-lg-10">
+                            <?php echo $form->fileField($model, 'miniatura'); ?>
+                        </div>
+                        <?php if($model->isNewRecord!='1'): ?>
+                            <div class="col-lg-10">
+                                <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/obras/thumbs/'.$model->imagen,"imagen",array("width"=>200)); ?>
+                            </div>
                         <?php endif; ?>
                     </div>
 
