@@ -121,19 +121,25 @@ class ObrasController extends Controller
                 $model->tecnicas = array();
 
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            $uploadedFile2=CUploadedFile::getInstance($model,'miniatura');
 
             if($uploadedFile!=null){
                 $fileName = $model->idArtista->nombre .' - '.$model->titulo.'.'.$uploadedFile->extensionName;
                 $model->imagen = $fileName;
+
+                if($uploadedFile2!=null)
+                    $model->miniatura = $fileName;
             }
+
 
             if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
                 $masterValues = array ('id_obra'=>$model->id);
 
                 $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$fileName);
-                $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$fileName);
+                $uploadedFile2->saveAs(Yii::app()->basePath.'/../images/obras/thumbs/'.$fileName);
+                /*$im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$fileName);
                 $im->resize(NULL, 180);
-                $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$fileName);
+                $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$fileName);*/
 
                 foreach ($validatedTamanos as $tam){
                     $tam->stock_restante = $tam->stock_inicial;
@@ -170,6 +176,7 @@ class ObrasController extends Controller
         if(isset($_POST['Obra']))
         {
             $_POST['Obra']['imagen'] = $model->imagen;
+            $_POST['Obra']['miniatura'] = $model->miniatura;
 
             $model->attributes=$_POST['Obra'];
             if(is_array($_POST['Obra']['montajesIds']))
@@ -189,6 +196,7 @@ class ObrasController extends Controller
 
             if($model->validate()){
                 $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+                $uploadedFile2=CUploadedFile::getInstance($model,'miniatura');
 
                 $masterValues = array ('id_obra'=>$model->id);
 
@@ -196,9 +204,13 @@ class ObrasController extends Controller
                     if(!empty($uploadedFile))
                     {
                         $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$model->imagen);
-                        $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen);
+                        /*$im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen);
                         $im->resize(NULL, 180);
-                        $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);
+                        $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);*/
+                    }
+                    if(!empty($uploadedFile2))
+                    {
+                        $uploadedFile2->saveAs(Yii::app()->basePath.'/../images/obras/thumbs/'.$model->imagen);
                     }
                     Yii::app()->user->setFlash('exito','La obra ha sido actualizada con éxito.');
                     $this->redirect(array('index'));
