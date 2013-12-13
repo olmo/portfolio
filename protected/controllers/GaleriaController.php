@@ -76,6 +76,10 @@ class GaleriaController extends Controller
                 $tam = ObrasTamanosRelation::model()->findByAttributes(array('id_obra'=>$id, 'id_tamano'=>$form->tamano));
                 $precio = $tam->precio + ($tam->alto*$tam->ancho/10000)*ObrasMontaje::model()->findByPk($form->montaje)->precio;
 
+                if($model->oferta>0){
+                    $precio = $precio - $precio * $model->oferta / 100;
+                }
+
                 $name='=?UTF-8?B?'.base64_encode($form->nombre).'?=';
                 $subject='=?UTF-8?B?'.base64_encode('Pedido - '.$model->titulo).'?=';
                 $headers="From: $name <{$form->email}>\r\n".
@@ -86,8 +90,11 @@ class GaleriaController extends Controller
                 $contenido = "Obra: ".$model->titulo."\n";
                 $contenido .= "Tamaño: ".$tam->alto." x ".$tam->ancho."\n";
                 $contenido .= "Montaje: ".ObrasMontaje::model()->findByPk($form->montaje)->nombre."\n";
-                $contenido .= "Precio: ".$precio."€\n\n";
-                $contenido .= "Nombre del cliente: ".$form->nombre."\n\n";
+                $contenido .= "Precio: ".$precio."€\n";
+                if($model->oferta>0){
+                    $contenido .= "Oferta aplicada del ".$model->oferta."%\n";
+                }
+                $contenido .= "\nNombre del cliente: ".$form->nombre."\n\n";
                 $contenido .= "".$form->comentario."\n";
 
                 mail(Yii::app()->params['adminEmail'],$subject,$contenido,$headers);
@@ -114,6 +121,7 @@ class GaleriaController extends Controller
         $this->titulo = 'Galería';
 
         $criteria=new CDbCriteria();
+        $criteria->order = 'fecha_publicacion DESC';
 
         if(isset($_GET['FiltroForm'])){
             $model->attributes=$_GET['FiltroForm'];
@@ -122,6 +130,7 @@ class GaleriaController extends Controller
             $model->tecnicas=$_GET['FiltroForm']['tecnicas'];
             $model->tamanos=$_GET['FiltroForm']['tamanos'];
             $model->formatos=$_GET['FiltroForm']['formatos'];
+            $model->ordenar=$_GET['FiltroForm']['ordenar'];
 
             if($model->validate()){
                 $cadena = '';
@@ -257,12 +266,17 @@ class GaleriaController extends Controller
                 $criteria->join = $join;
                 $criteria->condition = $cadena;
                 $criteria->distinct = true;
+
+                if($model->ordenar == 'recientes')
+                    $criteria->order = 'fecha_publicacion DESC';
+                else if($model->ordenar == 'titulo')
+                    $criteria->order = 'titulo ASC';
             }
         }
 
         $dataProvider=new CActiveDataProvider('Obra', array('criteria'=>$criteria,
             'pagination'=>array(
-                'pageSize'=>12,
+                'pageSize'=>24,
             ),
         ));
 

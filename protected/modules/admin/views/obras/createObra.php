@@ -83,6 +83,13 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         </div>
                     </div>
 
+                    <div class="form-group<?php echo $model->getError('oferta')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'oferta', array('class'=>'col-lg-2 control-label')); ?>
+                        <div class="col-lg-10">
+                            <?php echo $form->textField($model,'oferta',array('size'=>50,'maxlength'=>50, 'class'=>'form-control')); ?>
+                        </div>
+                    </div>
+
                     <div class="form-group<?php echo $model->getError('descripcion')  ? ' has-error' : ''; ?>">
                         <?php echo $form->labelEx($model,'descripcion', array('class'=>'col-lg-2 control-label')); ?>
                         <div class="col-lg-10">

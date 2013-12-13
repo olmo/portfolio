@@ -72,6 +72,11 @@
                 </div>
             <?php endif; ?>
 
+            <?php if($model->oferta>0): ?>
+                <h4 class="pull-top">¡Oferta disponible! Descuento del <span id="descuento"><?php echo $model->oferta; ?></span>%</h4>
+                El descuento se muestra aplicado sobre el precio total más abajo.
+            <?php endif; ?>
+
             <h4 class="pull-top">Tamaños</h4>
 
             <table class="table table-hover">

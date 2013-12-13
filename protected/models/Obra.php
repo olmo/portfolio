@@ -57,8 +57,8 @@ class Obra extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, imagen, descripcion, id_artista, id_formato, montaje_recomendado', 'required'),
-			array('id_artista', 'numerical', 'integerOnly'=>true),
+			array('titulo, imagen, descripcion, id_artista, id_formato, montaje_recomendado, oferta', 'required'),
+			array('id_artista, oferta', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
             array('montajesIds, temasIds, tecnicasIds', 'safe'),
@@ -122,6 +122,7 @@ class Obra extends CActiveRecord
             'id_tecnica' => 'Técnica',
             'id_tema' => 'Tema',
             'montaje_recomendado' => 'Montaje recomendado',
+            'oferta' => 'Oferta (%)',
 		);
 	}
 

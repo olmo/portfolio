@@ -22,25 +22,31 @@ $this->breadcrumbs=array(
 ?>
 
 <div class="row">
-    <div class="span3">
+    <!--<div class="span3">
         <aside class="sidebar">
             <h4>Colecciones</h4>
             <ul id="filtro" class="nav nav-list primary pull-bottom">
-                <?php foreach($colecciones->getData() as $key=>$value): ?>
-                    <li><?php echo CHtml::link($value->nombre,array('colecciones', 'id'=>$value->id)); ?></li>
-                <?php endforeach; ?>
+                <?php /*foreach($colecciones->getData() as $key=>$value): */?>
+                    <li><?php /*echo CHtml::link($value->nombre,array('colecciones', 'id'=>$value->id)); */?></li>
+                <?php /*endforeach; */?>
             </ul>
         </aside>
-    </div>
+    </div>-->
 
-    <div class="span9">
+    <div class="span12">
+        <ul class="nav nav-pills">
+            <?php foreach($colecciones->getData() as $key=>$value): ?>
+                <li <?php echo (Yii::app()->getRequest()->getParam('id')==$value->id)? 'class="active"' : ''; ?>><?php echo CHtml::link($value->nombre,array('colecciones', 'id'=>$value->id)); ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <hr />
+
         <?php if($dataProvider==null): ?>
-            Seleccione una colección en el menú de la izquierda.
+            Seleccione una colección.
         <?php else: ?>
             <h5><?php echo $coleccion->nombre; ?></h5>
             <?php echo $coleccion->descripcion; ?>
-
-            <hr />
 
             <div class="row">
                 <ul class="portfolio-list sort-destination" data-sort-id="portfolio">

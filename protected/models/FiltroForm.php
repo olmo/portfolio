@@ -7,6 +7,7 @@ class FiltroForm extends CFormModel
     public $temas;
     public $tamanos;
     public $formatos;
+    public $ordenar;
 
     /**
      * Declares the validation rules.

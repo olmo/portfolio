@@ -48,7 +48,16 @@ $(document).ready(function() {
 				idmon = $(this).val();
 		});
 
-		$("#total").html("<strong>"+sum.toFixed(2)+" €</strong>");
+        if($("#descuento").length != 0) {
+            var descuento = parseFloat($("#descuento").text())/100;
+            var rest = sum * descuento;
+            var sum2 = sum - sum * descuento;
+            $("#total").html(sum.toFixed(2)+"€ - "+rest.toFixed(2)+"€ = <strong>"+sum2.toFixed(2)+" €</strong>");
+        }
+        else{
+            $("#total").html("<strong>"+sum.toFixed(2)+" €</strong>");
+        }
+
 		$("#PedidoForm_precio").val(sum.toFixed(2));
 		$("#PedidoForm_tamano").val(idtam);
 		$("#PedidoForm_montaje").val(idmon);
