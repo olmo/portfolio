@@ -26,7 +26,7 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <div class="span8">
-            <h3><strong>Ideario</strong></h3>
+            <h3><strong>Quienes</strong> somos</h3>
             <p align="justify"> Global-arte surge en Granada para brindar un espacio nuevo a los amantes del arte. Nuestro ideario es que
                 las personas sensibles a las buenas obras artísticas tengan posibilidad de realizar sus adquisiciones y
                 coleccionar arte de gran calidad a precios realmente asequibles, que sin duda irán ganando valor al ser
@@ -107,68 +107,6 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <div class="span12">
-            <h3><strong>Ediciones</strong> limitadas</h3>
-            <p align="justify">El número de copias de cada obra es limitado y siempre aparecerá en el formato adquirido.
-                               Todas las obras estarán firmadas y certificadas y no podrán encontrarse en otras galerías
-                               ni tiendas.</p>
-        </div>
-    </div>
-
-    <hr class="tall">
-
-    <div class="row">
-        <div class="span12">
-            <h3><strong>Equipo</strong></h3>
-            <p align="justify">Nuestro equipo nace de una forma natural, de la pasión por el arte de un grupo de amigos.
-                Este equipo crece cada día con la incorporación de artistas que nos confían sus obras, tras un minucioso
-                proceso de selección. Esta pasión junto con nuestra avalada experiencia hace que la exigencia por la
-                calidad sea uno de nuestros principales objetivos para todos los trabajos de Global Arte.</p>
-        </div>
-    </div>
-
-    <hr class="tall">
-
-    <div class="row">
-        <div class="span12">
-            <h3><strong>Calidad</strong></h3>
-            <p align="justify">Los artistas de cada obra, junto con nuestro equipo asesor y técnico, eligen el medio y
-                formato más adecuado para la misma, de manera que además de garantizar la máxima calidad en impresión y
-                en las terminaciones, con lo que cada creación es presentada en el formato más adecuado.</p>
-        </div>
-    </div>
-
-    <hr class="tall">
-
-    <div class="row">
-        <div class="span12">
-            <h3><strong>Asesoramiento</strong></h3>
-            <p align="justify">Cuando quieras adquirir una obra para una estancia determinada de tu hogar, centro de
-                trabajo, o cualquier espacio, nuestro equipo te aconsejará cuál puede ser la obra más adecuada, en qué
-                formato y tamaño. Simplemente necesitaremos alguna fotografía del espacio donde vas a colocar la obra y
-                buscaremos exactamente lo que más te guste.</p>
-        </div>
-    </div>
-
-    <hr class="tall">
-
-    <div class="row">
-        <div class="span12">
-            <h3><strong>Bonos regalo</strong></h3>
-            <p align="justify">Además ofrecemos el bono regalo de diferentes precios con el que podrás obsequiar de
-                manera abierta. Así quien recibe el bono, además de poder escoger en nuestra página web, recibirá el
-                asesoramiento personalizado de nuestro equipo.</p>
-        </div>
-    </div>
-
-    <div class="row">
-
-        <div class="span12">
-            <h3 class="pull-top"> <strong></strong></h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="span12">
 
             <ul class="timeline">
                 <li data-appear-animation="fadeInUp">
@@ -177,8 +115,12 @@ $this->breadcrumbs=array(
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
-                            <h4><strong>2012</strong></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus,</p>
+
+                            <p><h4><strong>Ediciones</strong> limitadas</h4></p>
+                            <br/>
+                            <p align="justify">El número de copias de cada obra es limitado y siempre aparecerá en el formato adquirido.
+                                Todas las obras estarán firmadas y certificadas y no podrán encontrarse en otras galerías
+                                ni tiendas.</p>
                         </div>
                     </div>
                 </li>
@@ -188,8 +130,13 @@ $this->breadcrumbs=array(
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
-                            <h4><strong>2010</strong></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia.</p>
+
+                            <p><h4><strong>Equipo</strong></h4></p>
+                            <br/>
+                            <p align="justify">Nuestro equipo nace de una forma natural, de la pasión por el arte de un grupo de amigos.
+                                Este equipo crece cada día con la incorporación de artistas que nos confían sus obras, tras un minucioso
+                                proceso de selección. Esta pasión junto con nuestra avalada experiencia hace que la exigencia por la
+                                calidad sea uno de nuestros principales objetivos para todos los trabajos de Global Arte.</p>
                         </div>
                     </div>
                 </li>
@@ -199,8 +146,12 @@ $this->breadcrumbs=array(
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
-                            <h4><strong>2005</strong></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus,</p>
+
+                            <p><h4><strong>Calidad</strong></h4></p>
+                            <br/>
+                            <p align="justify">Los artistas de cada obra, junto con nuestro equipo asesor y técnico, eligen el medio y
+                                formato más adecuado para la misma, de manera que además de garantizar la máxima calidad en impresión y
+                                en las terminaciones, con lo que cada creación es presentada en el formato más adecuado.</p>
                         </div>
                     </div>
                 </li>
@@ -210,8 +161,12 @@ $this->breadcrumbs=array(
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
-                            <h4><strong>2000</strong></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus,</p>
+
+                            <p><h4><strong>Bonos</strong> regalo</h4></p>
+                            <br/>
+                            <p align="justify">Además ofrecemos el bono regalo de diferentes precios con el que podrás obsequiar de
+                                manera abierta. Así quien recibe el bono, además de poder escoger en nuestra página web, recibirá el
+                                asesoramiento personalizado de nuestro equipo.</p>
                         </div>
                     </div>
                 </li>
