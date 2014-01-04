@@ -4,6 +4,9 @@
 
 $this->pageTitle=Yii::app()->name . ' - Galería';
 
+$cs=Yii::app()->clientScript;
+$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/galleryindex.js', CClientScript::POS_END);
+
 /*$this->breadcrumbs=array(
 	'Elementos',
 );
@@ -63,52 +66,60 @@ $this->breadcrumbs=array(
 
 <div class="span12">
     <div class="row" style="margin-bottom: -10px;">
+
         <div class="span9">
             <?php $form=$this->beginWidget('CActiveForm', array(
                 'id'=>'filtro-form2',
                 'method'=>'get',
             )); ?>
+            Para búsqueda depurada filtrar por:
             <ul class="nav nav-pills dropdown-menu-form">
                 <li class="dropdown <?php if(is_array($model->artistas)) echo (array_sum($model->artistas)>0)? 'active' : ''; ?>">
                     <a id="drop1" role="button" data-toggle="dropdown" href="#">Artistas <b class="caret"></b></a>
                     <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop1">
                         <?php echo $form->checkBoxList($model, 'artistas', CHtml::listData(ArtistasCategorias::model()->findAll(), 'id', 'nombre'),
-                            array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                            array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                        <li><div class="text-center"><button type="submit" class="btn btn-small">Filtrar</button></div></li>
                     </ul>
                 </li>
                 <li class="dropdown <?php if(is_array($model->tecnicas)) echo (array_sum($model->tecnicas)>0)? 'active' : ''; ?>">
                     <a id="drop2" role="button" data-toggle="dropdown" href="#" class="active">Técnicas <b class="caret"></b></a>
                     <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop2">
                         <?php echo $form->checkBoxList($model, 'tecnicas', CHtml::listData(ObrasTecnica::model()->findAll(), 'id', 'nombre'),
-                            array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                            array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                        <li><div class="text-center"><button type="submit" class="btn btn-small">Filtrar</button></div></li>
                     </ul>
                 </li>
                 <li class="dropdown <?php if(is_array($model->temas)) echo (array_sum($model->temas)>0)? 'active' : ''; ?>">
                     <a id="drop3" role="button" data-toggle="dropdown" href="#">Temas <b class="caret"></b></a>
                     <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop3">
                         <?php echo $form->checkBoxList($model, 'temas', CHtml::listData(ObrasTema::model()->findAll(), 'id', 'nombre'),
-                            array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                            array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                        <li><div class="text-center"><button type="submit" class="btn btn-small">Filtrar</button></div></li>
                     </ul>
                 </li>
                 <li class="dropdown <?php if(is_array($model->tamanos)) echo (array_sum($model->tamanos)>0)? 'active' : ''; ?>">
                     <a id="drop4" role="button" data-toggle="dropdown" href="#">Tamaño <b class="caret"></b></a>
                     <ul id="menu4" class="dropdown-menu" role="menu" aria-labelledby="drop4">
                         <?php echo $form->checkBoxList($model, 'tamanos', CHtml::listData(ObrasTamano::model()->findAll(), 'id', 'nombre'),
-                            array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                            array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                        <li><div class="text-center"><button type="submit" class="btn btn-small">Filtrar</button></div></li>
                     </ul>
                 </li>
                 <li class="dropdown <?php if(is_array($model->formatos)) echo (array_sum($model->formatos)>0)? 'active' : ''; ?>">
                     <a id="drop5" role="button" data-toggle="dropdown" href="#">Formato <b class="caret"></b></a>
                     <ul id="menu5" class="dropdown-menu" role="menu" aria-labelledby="drop5">
                         <?php echo $form->checkBoxList($model, 'formatos', CHtml::listData(ObrasFormato::model()->findAll(), 'id', 'nombre'),
-                            array('onclick'=>'this.form.submit();', 'container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                            array('container'=>'','separator'=>'', 'template'=>'<li><label class="checkbox">{input}{label}</label></li>')); ?>
+                        <li><div class="text-center"><button type="submit" class="btn btn-small">Filtrar</button></div></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a id="drop6" role="button" data-toggle="dropdown" href="#">Ordenar por <b class="caret"></b></a>
                     <ul id="menu6" class="dropdown-menu" role="menu" aria-labelledby="drop6">
-                        <li><label class="radio"><input onclick="this.form.submit();" value="recientes" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='recientes' || $model->ordenar=='')? 'checked' : '' ?>>Más recientes</label></li>
-                        <li><label class="radio"><input onclick="this.form.submit();" value="titulo" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='titulo')? 'checked' : '' ?>>Título</label></li>
+                        <li><label class="radio"><input value="recientes" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='recientes' || $model->ordenar=='')? 'checked' : '' ?>>Más recientes</label></li>
+                        <li><label class="radio"><input value="titulo" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='titulo')? 'checked' : '' ?>>Título</label></li>
+                        <li><div class="text-center"><button type="submit" class="btn btn-small">Ordenar</button></div></li>
                     </ul>
                 </li>
             </ul>
