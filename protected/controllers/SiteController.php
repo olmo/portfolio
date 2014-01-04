@@ -53,6 +53,15 @@ class SiteController extends Controller
         $this->render('faq');
     }
 
+    public function actionCondiciones()
+    {
+        $this->layout = 'section';
+        $this->titulo = 'Condiciones de venta';
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('condiciones');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */

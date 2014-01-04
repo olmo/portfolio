@@ -148,22 +148,14 @@
         <div class="footer-copyright">
             <div class="container">
                 <div class="row">
-
-                    <div class="span1">
-                        <!--
-                        <a href="<?php //echo Yii::app()->homeUrl; ?>" class="logo">
-                            <img alt="Porto Website Template" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/logo-footer.png">
-                        </a>
-                        -->
-                    </div>
-
-                    <div class="span7">
+                    <div class="span6">
                         <p>© Copyright 2013. All Rights Reserved.</p>
                     </div>
-                    <div class="span4">
+                    <div class="span6">
                         <nav id="sub-menu">
                             <ul>
                                 <li><?php echo CHtml::link('Administración' ,array('/admin/')); ?></li>
+                                <li><?php echo CHtml::link('Condiciones de venta' ,array('site/condiciones')); ?></li>
                                 <li><?php echo CHtml::link('FAQ\'s' ,array('site/faq')); ?></li>
                                 <li><?php echo CHtml::link('Localización',array('site/contact')); ?></li>
                                 <li><?php echo CHtml::link('Contacto',array('site/contact')); ?></li>
