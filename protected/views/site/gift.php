@@ -116,6 +116,14 @@ $this->breadcrumbs=array(
 
     <div class="row">
 
+        <ul id="related2" class="portfolio-list">
+            <?php
+            $data = $related->getData();
+            foreach($data as $i => $item)
+                Yii::app()->controller->renderPartial('_related', array('index' => $i, 'data' => $item, 'widget' => $this));
+            ?>
+        </ul>
+
     </div>
 
 </div>

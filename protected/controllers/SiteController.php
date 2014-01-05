@@ -142,29 +142,12 @@ class SiteController extends Controller
         $this->layout = 'main';
         $this->titulo = 'Regalos';
 
-        $model = $this->loadModel($id);
+        $criteria=new CDbCriteria();
+        $criteria->condition = 'oferta>0';
 
-        $criteria=new CDbCriteria(array(
-            'distinct'=>true,
-            'join'=> ' INNER JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ',
-            'condition'=>'obras_temas_relation.id_tema in (
-                SELECT obras_temas_relation.id_tema FROM obras_temas_relation
-                WHERE obras_temas_relation.id_obra='.$model->id.')',
-            'order'=>'rand()',
-            'offset'=>0,
-            'limit' => 4,
-        ));
+        $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria));
 
-        $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,'pagination'=>false,));
-
-        $this->render('view',array(
-            'model'=>$model,
-            'related'=>$related,
-            'formmodel'=>$form,
-        ));
-
-
-        $this->render('gift',array('model'=>$model));
+        $this->render('gift',array('related'=>$related));
     }
 
 	/**
