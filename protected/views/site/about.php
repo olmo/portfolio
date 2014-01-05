@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
     <div class="row">
         <div class="span10">
             <p align="justify" class="lead">
-                <span class="alternative-font">Global-Arte</span>  Global-Arte acerca el arte a
+                <span class="alternative-font">Global-Arte</span> acerca el arte a
                 coleccionistas de una forma sencilla y económica. Ofrecemos una gran variedad de obras tanto en tamaños
                 como técnicas, realizadas por artistas noveles o consagrados, siempre con una excelente relación
                 calidad-precio y respetando la originalidad de la obra en ediciones reducidas.
@@ -26,7 +26,7 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <div class="span8">
-            <h3><strong>Quienes</strong> somos</h3>
+            <h3><strong>Quiénes</strong> somos</h3>
             <p align="justify"> Global-arte surge en Granada para brindar un espacio nuevo a los amantes del arte. Nuestro ideario es que
                 las personas sensibles a las buenas obras artísticas tengan posibilidad de realizar sus adquisiciones y
                 coleccionar arte de gran calidad a precios realmente asequibles, que sin duda irán ganando valor al ser
@@ -46,52 +46,52 @@ $this->breadcrumbs=array(
         <div class="span4">
             <div class="featured-box featured-box-secundary">
                 <div class="box-content">
-                    <h4><span style="color: #a60f33;">Imágenes</span></h4>
+                    <h4><span style="color: #a60f33;">Simulaciones</span></h4>
                     <!-- <ul class="flickr-feed" data-plugin-options='{"qstrings": { "id": "93691989@N03" }}'></ul> -->
                     <ul class="flickr-feed">
                         <table width="308" height=202"">
                         <tr>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/1.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion1.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/1.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion1.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/2.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion2.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/2.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion2.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/3.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion3.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/3.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion3.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/4.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion4.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/4.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion4.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/5.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion5.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/5.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion5.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/6.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/6.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
