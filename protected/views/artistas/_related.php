@@ -12,8 +12,8 @@
             <span class="thumb-info-action">
                 <span title="Universal" href="#" class="thumb-info-action-icon"><i class="icon-link"></i></span>
                 <span class="thumb-info-title">
-                <span class="thumb-info-inner">SEO</span>
-                <span class="thumb-info-type">Website</span>
+                <span class="thumb-info-inner"><?php echo CHtml::encode($data->titulo); ?></span>
+                <span class="thumb-info-type"><?php echo CHtml::encode($data->idArtista->nombre); ?></span>
             </span>
             </span>
         </a>

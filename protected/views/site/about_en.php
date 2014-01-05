@@ -31,7 +31,7 @@ $this->breadcrumbs=array(
         <div class="span4">
             <div class="featured-box featured-box-secundary">
                 <div class="box-content">
-                    <h4><span style="color: #a60f33;">Images</span></h4>
+                    <h4><span style="color: #a60f33;">Simulations</span></h4>
                     <!-- <ul class="flickr-feed" data-plugin-options='{"qstrings": { "id": "93691989@N03" }}'></ul> -->
                     <ul class="flickr-feed">
                         <table width="308" height=202"">
@@ -70,13 +70,6 @@ $this->breadcrumbs=array(
                                 <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion5.jpg">
                                     <span class="thumbnail">
                                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion5.jpg" style="height: 75px"/>
-                                    </span>
-                                </a>
-                            </td>
-                            <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg">
-                                    <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
