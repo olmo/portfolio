@@ -32,7 +32,7 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 
     <div class="row center">
         <div class="span12">
-            <h2 class="short"> Descubre nuestro <strong class="inverted"> Cheuqe Regalo </strong> la mejor forma
+            <h2 class="short"> Descubre nuestro <a href="<?php echo Yii::app()->createUrl('site/gift'); ?>"><strong class="inverted"> Cheque Regalo </strong></a> la mejor forma
                 de obsequiar con algo exclusivo. </h2>
         </div>
     </div>
@@ -48,32 +48,27 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 
             <div class="span2 offset1">
                 <div class="process-image" data-appear-animation="bounceIn">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home-concept-item-1.jpg" alt=""/>
-                    <strong>Artistas</strong>
+                    <a href="<?php echo Yii::app()->createUrl('artistas/index'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/artistas.jpg" alt=""/>
+                    <strong>Artistas</strong></a>
                 </div>
             </div>
             <div class="span2">
                 <div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="200">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home-concept-item-2.jpg" alt=""/>
-                    <strong>Colecciones</strong>
+                    <a href="<?php echo Yii::app()->createUrl('galeria/colecciones'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/colecciones.jpg" alt=""/>
+                    <strong>Colecciones</strong></a>
                 </div>
             </div>
             <div class="span2">
                 <div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="400">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home-concept-item-3.jpg" alt=""/>
-                    <strong>Contacto</strong>
+                    <a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/contacto.jpg" alt=""/>
+                    <strong>Contacto</strong></a>
                 </div>
             </div>
             <div class="span4 offset1">
                 <div class="project-image">
                     <div id="fcSlideshow" class="fc-slideshow">
                         <ul class="fc-slides">
-                            <li><a href="portfolio-single-project.html"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-home-1.jpg"/></a>
-                            </li>
-                            <li><a href="portfolio-single-project.html"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-home-2.jpg"/></a>
-                            </li>
-                            <li><a href="portfolio-single-project.html"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/projects/project-home-3.jpg"/></a>
-                            </li>
+                            <li><a href="<?php echo Yii::app()->createUrl('galeria/index'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/galeria.jpg"/></a></li>
                         </ul>
                     </div>
                     <strong class="our-work">Galería</strong>
@@ -97,51 +92,30 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
         </div>
     </div>
     <div class="row center">
+        <div class="span2"></div>
+        <div class="span8">
         <div class="flexslider unstyled"
-             data-plugin-options='{"directionNav":false, "animation":"slide", "slideshow": false, "maxVisibleItems": 6}'>
+             data-plugin-options='{"directionNav":false, "animation":"slide", "slideshow": false, "maxVisibleItems": 3}'>
             <ul class="slides">
                 <li>
                     <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-1.jpg" alt="">
+                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-b1.jpg" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-2.jpg" alt="">
+                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-b2.jpg" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-3.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-4.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-5.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-6.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-4.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="span2">
-                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-client-2.jpg" alt="">
+                        <img class="mobile-max-width small" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo-b3.jpg" alt="">
                     </div>
                 </li>
             </ul>
         </div>
+        </div>
+        <div class="span2"></div>
     </div>
 </div>
 </div>
