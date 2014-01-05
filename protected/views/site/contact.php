@@ -122,23 +122,11 @@ $this->breadcrumbs=array(
         </div>
 
         <div class="span6">
-            <h4 class="pull-top"><strong>Contacto</strong></h4>
-            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus.</p>
-
-            <hr />
-
-            <h4><strong>Oficina</strong></h4>
+            <h4 class="pull-top"><strong>Oficina</strong></h4>
             <ul class="unstyled">
                 <li><i class="icon-map-marker"></i> <strong>Dirección:</strong> Calle Primavera 8, Granada, España</li>
-                <li><i class="icon-phone"></i> <strong>Móvil:</strong> (+34) 607 53 53 35</li>
+                <li><i class="icon-phone"></i> <strong>Teléfono:</strong> (+34) 958 08 29 63</li>
                 <li><i class="icon-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">info@global-arte.com</a></li>
-            </ul>
-
-            <hr />
-
-            <h4><strong> Horario </strong></h4>
-            <ul class="unstyled">
-                <li><i class="icon-time"></i> Lunes a Viernes - 9:00 a 15:00</li>
             </ul>
         </div>
     </div>

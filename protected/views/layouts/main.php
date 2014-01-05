@@ -149,7 +149,7 @@
             <div class="container">
                 <div class="row">
                     <div class="span6">
-                        <p>© Copyright 2013. All Rights Reserved.</p>
+                        <p>© Copyright 2014. All Rights Reserved.</p>
                     </div>
                     <div class="span6">
                         <nav id="sub-menu">

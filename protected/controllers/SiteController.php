@@ -3,6 +3,7 @@
 class SiteController extends Controller
 {
     public $titulo = '';
+    public $flag = '';
 
 	/**
 	 * Declares class-based actions.
@@ -38,19 +39,47 @@ class SiteController extends Controller
     public function actionAbout()
     {
         $this->layout = 'section';
-        $this->titulo = 'Sobre Nosotros';
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-        $this->render('about');
+
+        if(isset($_GET['lang'])){
+            Yii::app()->session['lang']=$_GET['lang'];
+        }
+
+        if(!isset(Yii::app()->session['lang']))
+            Yii::app()->session['lang']='spa';
+
+        if(Yii::app()->session['lang']=='eng'){
+            $this->titulo = 'About Us';
+            $this->flag = 'SPA';
+            $this->render('about_en');
+        }
+        else{
+            $this->titulo = 'Sobre Nosotros';
+            $this->flag = 'UK';
+            $this->render('about');
+        }
     }
 
     public function actionFaq()
     {
         $this->layout = 'section';
-        $this->titulo = 'FAQ';
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-        $this->render('faq');
+
+        if(isset($_GET['lang'])){
+            Yii::app()->session['lang']=$_GET['lang'];
+        }
+
+        if(!isset(Yii::app()->session['lang']))
+            Yii::app()->session['lang']='spa';
+
+        if(Yii::app()->session['lang']=='eng'){
+            $this->titulo = 'FAQ';
+            $this->flag = 'SPA';
+            $this->render('faq_en');
+        }
+        else{
+            $this->titulo = 'FAQ';
+            $this->flag = 'UK';
+            $this->render('faq');
+        }
     }
 
     public function actionCondiciones()

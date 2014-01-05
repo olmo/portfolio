@@ -16,9 +16,14 @@
         </div>
         <?php if(isset($this->titulo)):?>
             <div class="row">
-                <div class="span12">
+                <div class="span11">
                     <h2><?php echo $this->titulo; ?></h2>
                 </div>
+                <?php if(isset($this->flag)):?>
+                    <div class="span1">
+                        <a href="?lang=<?php echo ($this->flag=='SPA')?'spa':'eng'; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/<?php echo $this->flag; ?>.png" /></a>
+                    </div>
+                <?php endif?>
             </div>
         <?php endif?>
     </div>
