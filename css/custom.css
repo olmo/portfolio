@@ -72,3 +72,9 @@ ul.dropdown-menu-form li {
     transition: all 0.3s;
     width: 50px;
 }
+
+@media (max-width: 767px) {
+    section.page-top h2{
+        border-bottom-width: 0px;
+    }
+}
