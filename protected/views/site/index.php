@@ -177,13 +177,8 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 
     <div class="row center">
         <div class="span12">
-            <h2 class="short"> Donec tellus massa, tristique <strong class="inverted"> condimentum </strong> vel. </h2>
-
-            <p class="featured lead">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque
-                consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie
-                vestibulum.
-            </p>
+            <h2 class="short"> Descubre nuestro <strong class="inverted"> Cheuqe Regalo </strong> la mejor forma
+                de obsequiar con algo exclusivo. </h2>
         </div>
     </div>
 
@@ -199,19 +194,19 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
             <div class="span2 offset1">
                 <div class="process-image" data-appear-animation="bounceIn">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home-concept-item-1.jpg" alt=""/>
-                    <strong>Estrategia</strong>
+                    <strong>Artistas</strong>
                 </div>
             </div>
             <div class="span2">
                 <div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="200">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home-concept-item-2.jpg" alt=""/>
-                    <strong>Planificación</strong>
+                    <strong>Colecciones</strong>
                 </div>
             </div>
             <div class="span2">
                 <div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="400">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home-concept-item-3.jpg" alt=""/>
-                    <strong>Desarrollo</strong>
+                    <strong>Contacto</strong>
                 </div>
             </div>
             <div class="span4 offset1">
@@ -226,7 +221,7 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
                             </li>
                         </ul>
                     </div>
-                    <strong class="our-work">Nuestro trabajo</strong>
+                    <strong class="our-work">Galería</strong>
                 </div>
             </div>
         </div>
@@ -240,8 +235,10 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 
     <div class="row center">
         <div class="span12">
-            <h2 class="short">Donec tellus massa, tristique <strong> condimentum </strong> vel.</h2>
-            <h4 class="lead tall">Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.</h4>
+            <h4 class="lead tall">Incluso los objetos más familiares, al ser observados en sus más intimos detalles, nos producen nuevas perspectivas.</h4>
+            <p>Bienvenidos al espacio virtual de Global-Art, la puerta de acceso a un mundo nuevo para los amantes
+            de la obra gráfica contemporanea.</p>
+            <p> Navega por nuestras seleccionadas colecciones y adentrate en un universo apasionante creado con la cabeza, los ojos y el corazón.<p>
         </div>
     </div>
     <div class="row center">
