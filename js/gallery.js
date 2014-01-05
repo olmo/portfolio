@@ -72,7 +72,7 @@ $(document).ready(function() {
                 precio = parseFloat(match);
             }
 
-            $(this).find('.precio2').text((precio*tam).toFixed(2)+" €");
+            $(this).find('.precio2').text((precio*tam).toFixed(2)+"€");
         });
     }
 });
