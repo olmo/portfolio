@@ -112,7 +112,7 @@ $this->breadcrumbs=array(
 
     <hr class="tall" />
 
-    <h3 class="short"><strong>Cuadros </strong> en oferta</h3>
+    <h3 class="short"><strong>Cuadros </strong> en promoción</h3>
 
     <div class="row">
 

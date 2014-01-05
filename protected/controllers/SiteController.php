@@ -142,24 +142,28 @@ class SiteController extends Controller
         $this->layout = 'main';
         $this->titulo = 'Regalos';
 
-        $model=new ContactForm;
-        if(isset($_POST['ContactForm']))
-        {
-            $model->attributes=$_POST['ContactForm'];
-            if($model->validate())
-            {
-                $name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-                $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
-                $headers="From: $name <{$model->email}>\r\n".
-                    "Reply-To: {$model->email}\r\n".
-                    "MIME-Version: 1.0\r\n".
-                    "Content-type: text/plain; charset=UTF-8";
+        $model = $this->loadModel($id);
 
-                mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-                Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros. Le responderemos tan pronto como sea posible.');
-                $this->refresh();
-            }
-        }
+        $criteria=new CDbCriteria(array(
+            'distinct'=>true,
+            'join'=> ' INNER JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ',
+            'condition'=>'obras_temas_relation.id_tema in (
+                SELECT obras_temas_relation.id_tema FROM obras_temas_relation
+                WHERE obras_temas_relation.id_obra='.$model->id.')',
+            'order'=>'rand()',
+            'offset'=>0,
+            'limit' => 4,
+        ));
+
+        $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria,'pagination'=>false,));
+
+        $this->render('view',array(
+            'model'=>$model,
+            'related'=>$related,
+            'formmodel'=>$form,
+        ));
+
+
         $this->render('gift',array('model'=>$model));
     }
 

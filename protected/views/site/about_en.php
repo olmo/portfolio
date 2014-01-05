@@ -37,46 +37,46 @@ $this->breadcrumbs=array(
                         <table width="308" height=202"">
                         <tr>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/1.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion1.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/1.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion1.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/2.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion2.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/2.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion2.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/3.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion3.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/3.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion3.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/4.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion4.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/4.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion4.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/5.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion5.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/5.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion5.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
                             <td align="center">
-                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/6.jpg">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg">
                                     <span class="thumbnail">
-                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/6.jpg" style="height: 75px"/>
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg" style="height: 75px"/>
                                     </span>
                                 </a>
                             </td>
