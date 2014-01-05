@@ -78,3 +78,7 @@ ul.dropdown-menu-form li {
         border-bottom-width: 0px;
     }
 }
+
+div.home-intro {
+    padding: 0;
+}

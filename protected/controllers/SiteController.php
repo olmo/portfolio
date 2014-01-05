@@ -3,7 +3,7 @@
 class SiteController extends Controller
 {
     public $titulo = '';
-    public $flag = '';
+    public $flag = null;
 
 	/**
 	 * Declares class-based actions.

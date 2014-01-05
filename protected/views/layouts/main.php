@@ -157,7 +157,6 @@
                                 <li><?php echo CHtml::link('Administración' ,array('/admin/')); ?></li>
                                 <li><?php echo CHtml::link('Condiciones de venta' ,array('site/condiciones')); ?></li>
                                 <li><?php echo CHtml::link('FAQ\'s' ,array('site/faq')); ?></li>
-                                <li><?php echo CHtml::link('Localización',array('site/contact')); ?></li>
                                 <li><?php echo CHtml::link('Contacto',array('site/contact')); ?></li>
                             </ul>
                         </nav>
