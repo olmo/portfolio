@@ -82,3 +82,11 @@ ul.dropdown-menu-form li {
 div.home-intro {
     padding: 0;
 }
+
+div.slider {
+    max-height: 650px;
+}
+
+div.slider-container {
+    max-height: 700px;
+}

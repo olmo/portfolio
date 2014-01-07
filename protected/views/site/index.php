@@ -16,6 +16,8 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
             </li>
             <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/slides/home-ny2.jpg" data-fullwidthcentering="on" alt="">
+
+
             </li>
             <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/slides/home-ecuacion2.jpg" data-fullwidthcentering="on" alt="">
@@ -32,7 +34,7 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 
     <div class="row center">
         <div class="span12">
-            <h2 class="short"> Descubre nuestro <a href="<?php echo Yii::app()->createUrl('site/gift'); ?>"><strong class="inverted"> Cheque Regalo </strong></a> la mejor forma
+            <h2 class="short"> Descubre nuestro <a href="<?php echo Yii::app()->createUrl('site/gift'); ?>"><strong class="inverted"> Cheque Regalo </strong></a><br/>la mejor forma
                 de obsequiar con algo exclusivo. </h2>
         </div>
     </div>
@@ -69,6 +71,7 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
                     <div id="fcSlideshow" class="fc-slideshow">
                         <ul class="fc-slides">
                             <li><a href="<?php echo Yii::app()->createUrl('galeria/index'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/galeria.jpg"/></a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('galeria/index'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/galeria2.jpg"/></a></li>
                         </ul>
                     </div>
                     <strong class="our-work">Galería</strong>
