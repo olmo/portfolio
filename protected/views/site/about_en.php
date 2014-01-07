@@ -73,6 +73,13 @@ $this->breadcrumbs=array(
                                     </span>
                                 </a>
                             </td>
+                            <td align="center">
+                                <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg">
+                                    <span class="thumbnail">
+                                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/about/simulacion6.jpg" style="height: 75px"/>
+                                    </span>
+                                </a>
+                            </td>
                         </tr>
                         </table>
                     </ul>
