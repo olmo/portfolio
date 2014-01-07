@@ -344,11 +344,11 @@ class ArtistasController extends Controller
         if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen))
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen);
 
-        if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1))
+        if($model->imgslide1 != NULL)
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1);
-        if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2))
+        if($model->imgslide2 != NULL)
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2);
-        if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3))
+        if($model->imgslide3 != NULL)
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3);
 
         $model->delete();
