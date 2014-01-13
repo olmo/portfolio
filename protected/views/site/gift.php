@@ -53,7 +53,6 @@ $this->breadcrumbs=array(
     <hr class="tall" />
 
     <div class="row">
-        <a href="<?php echo Yii::app()->request->baseUrl; ?>/images/gift/bono.jpg">
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/gift/bono.jpg" alt="">
     </div>
 
