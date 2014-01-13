@@ -17,18 +17,18 @@ $this->breadcrumbs=array(
 
             <div class="flexslider flexslider-center-mobile" data-plugin-options='{"animation":"slide", "animationLoop": true, "maxVisibleItems": 1}'>
                 <ul class="slides">
-                    <?php if ($model->imgslide1 != 'NULL') :?>
+                    <?php if ($model->imgslide1 != NULL) :?>
                         <li>
                             <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide1?>">
                         </li>
                     <?php endif; ?>
-                    <?php if ($model->imgslide2 != 'NULL') :?>
+                    <?php if ($model->imgslide2 != NULL) :?>
                     <li>
                         <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide2?>">
 
                     </li>
                     <?php endif; ?>
-                    <?php if ($model->imgslide3 != 'NULL') :?>
+                    <?php if ($model->imgslide3 != NULL) :?>
                     <li>
                         <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/artistas/slides/<?php echo $model->imgslide3?>">
                     </li>
