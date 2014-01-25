@@ -111,7 +111,7 @@ $this->breadcrumbs=array(
             <ul class="timeline">
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2012.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/1.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
@@ -126,7 +126,7 @@ $this->breadcrumbs=array(
                 </li>
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2010.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
@@ -142,7 +142,7 @@ $this->breadcrumbs=array(
                 </li>
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2005.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/3.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">
@@ -157,7 +157,7 @@ $this->breadcrumbs=array(
                 </li>
                 <li data-appear-animation="fadeInUp">
                     <div class="thumb" data-appear-animation="fadeInRight">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/2000.jpg" alt="" />
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/historia/4.jpg" alt="" />
                     </div>
                     <div class="featured-box">
                         <div class="box-content">

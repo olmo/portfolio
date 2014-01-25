@@ -74,7 +74,7 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
                             <li><a href="<?php echo Yii::app()->createUrl('galeria/index'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/galeria2.jpg"/></a></li>
                         </ul>
                     </div>
-                    <strong class="our-work">Galería</strong>
+                    <a href="<?php echo Yii::app()->createUrl('galeria/index'); ?>"><strong class="our-work">Galería</strong></a>
                 </div>
             </div>
         </div>
