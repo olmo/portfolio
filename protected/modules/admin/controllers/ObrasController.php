@@ -61,7 +61,8 @@ class ObrasController extends Controller
         return array(
             array('allow',
                 'actions'=>array('index','view', 'createObra', 'updateObra', 'deleteObra',
-                    'create','update','delete', 'viewColecciones', 'createColeccion', 'updateColeccion', 'deleteColeccion'),
+                    'create','update','delete', 'viewColecciones', 'createColeccion', 'updateColeccion',
+                    'deleteColeccion', 'ordenarObras', 'sort'),
                 'users'=>array('admin'),
             ),
             array('deny',
@@ -87,6 +88,17 @@ class ObrasController extends Controller
 
         $this->render('index',array(
             'model'=>$model,
+        ));
+    }
+
+    public function actionOrdenarObras()
+    {
+        $this->layout = 'obras';
+
+        $obras = Obra::model()->findAll(array('order'=>'orden'));
+
+        $this->render('ordenarObras',array(
+            'obras'=>$obras,
         ));
     }
 
@@ -281,8 +293,19 @@ class ObrasController extends Controller
         if(isset($_POST['Coleccion']))
         {
             $model->attributes=$_POST['Coleccion'];
+
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+
+            if($uploadedFile!=null){
+                $fileName = $model->nombre.'.'.$uploadedFile->extensionName;
+                $model->imagen = $fileName;
+            }
+
             if(MultiModelForm::validate($obras, $validatedObras,$deleteObras) && $model->save()){
                 $masterValues = array ('id_coleccion'=>$model->id);
+
+                if($uploadedFile!=null)
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/colecciones/'.$fileName);
 
                 if (MultiModelForm::save($obras,$validatedObras,$deleteObras,$masterValues)){
                     Yii::app()->user->setFlash('exito','La colección se ha añadido con éxito.');
@@ -315,10 +338,29 @@ class ObrasController extends Controller
 
         if(isset($_POST['Coleccion']))
         {
-            $model->attributes=$_POST['Coleccion'];
+            if($model->imagen == null){
+                $model->attributes=$_POST['Coleccion'];
+                $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+
+                if($uploadedFile!=null){
+                    $fileName = $model->nombre.'.'.$uploadedFile->extensionName;
+                    $model->imagen = $fileName;
+                }
+            }
+            else{
+                $_POST['Coleccion']['imagen'] = $model->imagen;
+                $model->attributes=$_POST['Coleccion'];
+            }
             $masterValues = array ('id_coleccion'=>$model->id);
 
+
+
             if(MultiModelForm::save($obras,$validatedObras,$deleteObras,$masterValues) && $model->save()){
+                $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+                if(!empty($uploadedFile)){
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/colecciones/'.$model->imagen);
+                }
+
                 Yii::app()->user->setFlash('exito','La colección se ha actualizado con éxito.');
                 $this->redirect(array('viewColecciones'));
             }
@@ -455,6 +497,19 @@ class ObrasController extends Controller
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+    }
+
+    public function actionSort()
+    {
+        if (isset($_POST['items']) && is_array($_POST['items'])) {
+            $i = 0;
+            foreach ($_POST['items'] as $item) {
+                $obra = Obra::model()->findByPk($item);
+                $obra->orden = $i;
+                $obra->save();
+                $i++;
+            }
         }
     }
 

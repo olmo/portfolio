@@ -59,7 +59,7 @@ class Obra extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('titulo, imagen, descripcion, id_artista, id_formato, montaje_recomendado, oferta', 'required'),
-			array('id_artista, oferta', 'numerical', 'integerOnly'=>true),
+			array('id_artista, oferta, orden', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>50),
 			array('descripcion', 'length', 'max'=>255),
             array('montajesIds, temasIds, tecnicasIds', 'safe'),

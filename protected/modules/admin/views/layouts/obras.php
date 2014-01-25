@@ -9,7 +9,7 @@
             'encodeLabel' => false,
             'htmlOptions'=>array('class'=>'nav navbar-collapse collapse bootstrap-admin-navbar-side'),
             'items'=>array(
-                array('label'=>'Obras<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('obras/index'), 'active'=>$actionParam=='index' || $actionParam=='createObra' || $actionParam=='updateObra' ? true : false),
+                array('label'=>'Obras<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('obras/index'), 'active'=>$actionParam=='index' || $actionParam=='createObra' || $actionParam=='updateObra' || $actionParam=='ordenarObras' ? true : false),
                 array('label'=>'Colecciones<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('obras/viewColecciones'), 'active'=>$actionParam=='viewColecciones' || $actionParam=='createColeccion' || $actionParam=='updateColeccion' ? true : false),
                 array('label'=>'Formatos<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('obras/view/tipo/formato'), 'active'=>$tipoParam=='formato'? true : false),
                 array('label'=>'Tamaños<i class="glyphicon glyphicon-chevron-right"></i>', 'url'=>array('obras/view/tipo/tamano'), 'active'=>$tipoParam=='tamano'? true : false),

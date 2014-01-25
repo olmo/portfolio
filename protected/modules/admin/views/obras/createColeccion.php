@@ -20,11 +20,9 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
 
                 <?php $form=$this->beginWidget('CActiveForm', array(
                     'id'=>'form',
-                    // Please note: When you enable ajax validation, make sure the corresponding
-                    // controller action is handling ajax validation correctly.
-                    // There is a call to performAjaxValidation() commented in generated controller code.
-                    // See class documentation of CActiveForm for details on this.
+                    'errorMessageCssClass'=>'has-error',
                     'enableAjaxValidation'=>false,
+                    'htmlOptions' => array('enctype' => 'multipart/form-data'),
                 )); ?>
                 <fieldset>
 
@@ -34,7 +32,7 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                         <div class="panel panel-danger">
                             <div class="panel-heading">Errores</div>
                             <div class="panel-body">
-                                <?php echo $form->errorSummary(array_merge(array($model),$validatedTamanos)); ?>
+                                <?php echo $form->errorSummary(array_merge(array($model),$validatedObras)); ?>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -64,6 +62,18 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                             ));
                             ?>
                         </div>
+                    </div>
+
+                    <div class="form-group<?php echo $model->getError('imagen')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'imagen', array('class'=>'col-lg-2 control-label')); ?>
+                        <div class="col-lg-10">
+                            <?php echo $form->fileField($model, 'imagen'); ?>
+                        </div>
+                        <?php if($model->isNewRecord!='1'): ?>
+                            <div class="col-lg-10">
+                                <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/colecciones/'.$model->imagen,"imagen",array("width"=>200)); ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="table-responsive" style="margin-left: 20px;">

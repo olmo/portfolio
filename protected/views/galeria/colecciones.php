@@ -43,7 +43,18 @@ $this->breadcrumbs=array(
         <hr />
 
         <?php if($dataProvider==null): ?>
-            Seleccione una colección.
+            <div class="row">
+
+                <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
+                    <?php $this->widget('zii.widgets.CListView', array(
+                        'dataProvider'=>$colecciones,
+                        'itemView'=>'_viewColeccion',
+                        'enableSorting'=>false,
+                        'template'=>"{items}"
+                    )); ?>
+                </ul>
+
+            </div>
         <?php else: ?>
             <h5><?php echo $coleccion->nombre; ?></h5>
             <?php echo $coleccion->descripcion; ?>
@@ -52,7 +63,7 @@ $this->breadcrumbs=array(
                 <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
                     <?php $this->widget('zii.widgets.CListView', array(
                         'dataProvider'=>$dataProvider,
-                        'itemView'=>'_viewColecciones',
+                        'itemView'=>'_view',
                         'enableSorting'=>false,
                         'template'=>"{items}"
                     )); ?>

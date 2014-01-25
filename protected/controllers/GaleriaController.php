@@ -296,9 +296,11 @@ class GaleriaController extends Controller
 
         if(isset($_GET['id'])){
             $criteria=new CDbCriteria();
+            $criteria->join = ' LEFT JOIN obras_colecciones_relation ON obras_colecciones_relation.id_obra = t.id ';
             $criteria->condition = 'id_coleccion='.$_GET['id'];
+            $criteria->order = 'orden ASC';
 
-            $dataProvider=new CActiveDataProvider('ObrasColeccionesRelation', array('criteria'=>$criteria));
+            $dataProvider=new CActiveDataProvider('Obra', array('criteria'=>$criteria));
 
             $model=Coleccion::model()->findByPk($_GET['id']);
         }

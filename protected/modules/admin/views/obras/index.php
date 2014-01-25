@@ -20,6 +20,7 @@
         <div class="bootstrap-admin-panel-content">
 
             <?php echo CHtml::link('Añadir Obra',array('/admin/obras/createObra'), array('class'=>'btn btn-primary')); ?>
+            <?php echo CHtml::link('Ordenar Obras',array('/admin/obras/ordenarObras'), array('class'=>'btn btn-primary')); ?>
 
             <?php $this->widget('zii.widgets.grid.CGridView', array(
                 'id'=>'obras-grid',

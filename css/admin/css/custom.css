@@ -42,3 +42,10 @@ footer {
 		width: 50%; /* 6 columns */
 	}
 }
+
+
+.ui-state-highlight {
+    border: 1px solid #fcefa1;
+    background: #fbf9ee;
+    color: #363636;
+}
