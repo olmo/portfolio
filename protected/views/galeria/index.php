@@ -117,7 +117,8 @@ $this->breadcrumbs=array(
                 <li class="dropdown">
                     <a id="drop6" role="button" data-toggle="dropdown" href="#">Ordenar por <b class="caret"></b></a>
                     <ul id="menu6" class="dropdown-menu" role="menu" aria-labelledby="drop6">
-                        <li><label class="radio"><input value="recientes" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='recientes' || $model->ordenar=='')? 'checked' : '' ?>>Más recientes</label></li>
+                        <li><label class="radio"><input value="defecto" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='defecto' || $model->ordenar=='')? 'checked' : '' ?>>Por defecto</label></li>
+                        <li><label class="radio"><input value="recientes" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='recientes')? 'checked' : '' ?>>Más recientes</label></li>
                         <li><label class="radio"><input value="titulo" type="radio" name="FiltroForm[ordenar]" <?php echo ($model->ordenar=='titulo')? 'checked' : '' ?>>Título</label></li>
                         <li><div class="text-center"><button type="submit" class="btn btn-small">Ordenar</button></div></li>
                     </ul>

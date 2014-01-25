@@ -121,7 +121,7 @@ class GaleriaController extends Controller
         $this->titulo = 'Galería';
 
         $criteria=new CDbCriteria();
-        $criteria->order = 'fecha_publicacion DESC';
+        $criteria->order = 'orden ASC';
 
         if(isset($_GET['FiltroForm'])){
             $model->attributes=$_GET['FiltroForm'];
@@ -267,7 +267,9 @@ class GaleriaController extends Controller
                 $criteria->condition = $cadena;
                 $criteria->distinct = true;
 
-                if($model->ordenar == 'recientes')
+                if($model->ordenar == 'defecto')
+                    $criteria->order = 'orden ASC';
+                else if($model->ordenar == 'recientes')
                     $criteria->order = 'fecha_publicacion DESC';
                 else if($model->ordenar == 'titulo')
                     $criteria->order = 'titulo ASC';
