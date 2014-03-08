@@ -92,14 +92,14 @@ class Artistas extends CActiveRecord
 
         $criteria=new CDbCriteria;
 
-        $criteria->compare('id',$this->id);
+        //$criteria->compare('id',$this->id);
         $criteria->compare('nombre',$this->nombre,true);
-        $criteria->compare('informacion',$this->informacion,true);
-        $criteria->compare('id_categoria',$this->id_categoria);
-        $criteria->compare('imagen',$this->imagen,true);
-        $criteria->compare('imgslide1',$this->imgslide1,true);
-        $criteria->compare('imgslide2',$this->imgslide2,true);
-        $criteria->compare('imgslide3',$this->imgslide3,true);
+        //$criteria->compare('informacion',$this->informacion,true);
+        //$criteria->compare('id_categoria',$this->id_categoria);
+        //$criteria->compare('imagen',$this->imagen,true);
+        //$criteria->compare('imgslide1',$this->imgslide1,true);
+        //$criteria->compare('imgslide2',$this->imgslide2,true);
+        //$criteria->compare('imgslide3',$this->imgslide3,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,

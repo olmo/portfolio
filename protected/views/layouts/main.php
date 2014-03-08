@@ -90,6 +90,10 @@
                     <img alt="Porto" src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png">
                 </a>
             </h1>
+
+            <?php $this->widget('SearchBlock', array(
+            ));?>
+
             <div class="search">
                 <form class="form-search" id="searchForm" action="page-search-results.html" method="get">
                     <div class="control-group">
@@ -98,6 +102,7 @@
                     </div>
                 </form>
             </div>
+
             <nav>
                 <ul class="nav nav-pills nav-top">
                     <li class="phone">

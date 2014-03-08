@@ -163,6 +163,9 @@ class ArtistasController extends Controller
 		));
 	}
 
+
+
+
 	/**
 	 * Manages all models.
 	 */
@@ -170,8 +173,8 @@ class ArtistasController extends Controller
 	{
 		$model=new Artistas('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Artista']))
-			$model->attributes=$_GET['Artista'];
+		if(isset($_GET['Artistas']))
+			$model->attributes=$_GET['Artistas'];
 
 		$this->render('admin',array(
 			'model'=>$model,

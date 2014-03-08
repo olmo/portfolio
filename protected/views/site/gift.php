@@ -3,14 +3,14 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contacto';
+$this->pageTitle=Yii::app()->name . ' - Regalos';
 $cs=Yii::app()->clientScript;
 $cs->registerScriptFile('http://maps.google.com/maps/api/js?sensor=false', CClientScript::POS_END);
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.gmap.js', CClientScript::POS_END);
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/map.js', CClientScript::POS_END);
 
 $this->breadcrumbs=array(
-	'Contacto',
+	'Regalos'=>array('gift'),
 );
 ?>
 

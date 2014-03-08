@@ -42,8 +42,8 @@ class ArtistasController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('index','view', 'createArtista', 'updateArtista', 'deleteArtista',
-                    'create','update','delete'),
+                'actions'=>array('index','view', 'createArtista', 'updateArtista', 'deleteArtista', 'deleteArtistaSlide1',
+                    'deleteArtistaSlide2', 'deleteArtistaSlide3', 'create','update','delete'),
                 'users'=>array('admin'),
             ),
             array('deny',
@@ -344,7 +344,7 @@ class ArtistasController extends Controller
         if(file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen))
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/'.$model->imagen);
 
-        if($model->imgslide1 != NULL && file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2))
+        if($model->imgslide1 != NULL && file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1))
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1);
         if($model->imgslide2 != NULL && file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2))
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2);
@@ -352,6 +352,66 @@ class ArtistasController extends Controller
             unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3);
 
         $model->delete();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax'])){
+            Yii::app()->user->setFlash('exito','El artista ha sido borrado con éxito.');
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        }
+    }
+
+    public function actionDeleteArtistaSlide1($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+
+        $model = $this->loadModel($id, 'artistas');
+
+        if($model->imgslide1 != NULL && file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1))
+            unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide1);
+
+        $model->imgslide1 = NULL;
+
+        $model->save();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax'])){
+            Yii::app()->user->setFlash('exito','El artista ha sido borrado con éxito.');
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        }
+    }
+
+    public function actionDeleteArtistaSlide2($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+
+        $model = $this->loadModel($id, 'artistas');
+
+        if($model->imgslide2 != NULL && file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2))
+            unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide2);
+
+        $model->imgslide2 = NULL;
+
+        $model->save();
+
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax'])){
+            Yii::app()->user->setFlash('exito','El artista ha sido borrado con éxito.');
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        }
+    }
+
+    public function actionDeleteArtistaSlide3($id)
+    {
+        Yii::import('ext.multimodelform.MultiModelForm');
+
+        $model = $this->loadModel($id, 'artistas');
+
+        if($model->imgslide3 != NULL && file_exists(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3))
+            unlink(Yii::getPathOfAlias('webroot').'/images/artistas/slides/'.$model->imgslide3);
+
+        $model->imgslide3 = NULL;
+
+        $model->save();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax'])){

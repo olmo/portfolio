@@ -10,7 +10,7 @@ $cs->registerScriptFile(Yii::app()->request->baseUrl.'/vendor/jquery.gmap.js', C
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/map.js', CClientScript::POS_END);
 
 $this->breadcrumbs=array(
-	'Contacto',
+	'Contacto'=>array('contact'),
 );
 ?>
 

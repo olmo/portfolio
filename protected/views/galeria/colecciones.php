@@ -2,7 +2,7 @@
 /* @var $this GaleriaController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle=Yii::app()->name . ' - Galería';
+$this->pageTitle=Yii::app()->name . ' - Colecciones';
 
 /*$this->breadcrumbs=array(
 	'Elementos',
@@ -16,7 +16,7 @@ $this->menu=array(
 );*/
 
 $this->breadcrumbs=array(
-    'Colecciones'=>array('index'),
+    'Colecciones'=>array('colecciones'),
 );
 
 ?>
