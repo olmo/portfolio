@@ -192,8 +192,8 @@ class ArtistasController extends Controller
 	{
 		$model=Artistas::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
+        throw new CHttpException(404,'The requested page does not exist.');
+        return $model;
 	}
 
 	/**

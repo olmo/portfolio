@@ -68,6 +68,8 @@ class ArtistasController extends Controller
         $this->render('index',array(
             'dataProvider'=>$dataProvider,
         ));
+
+        Yii::app()->runController('search/create');
     }
 
     public function actionView($tipo)
@@ -215,6 +217,7 @@ class ArtistasController extends Controller
                 $this->redirect(array('index'));
             }
         }
+
         $this->render('createArtista',array(
             'tipo'=>'create',
             'model'=>$model,

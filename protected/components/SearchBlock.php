@@ -8,9 +8,9 @@ class SearchBlock extends CPortlet
 
     protected function renderContent()
     {
-        echo CHtml::beginForm(array('search/search'), 'get', array('style'=> 'inline')) .
-             CHtml::textField('q', '', array('placeholder'=> 'Buscar...','style'=>'width:140px;')) .
-             CHtml::submitButton('Go!',array('style'=>'width:30px;')) .
+        echo CHtml::beginForm(array('search/search'), 'get', array('class'=>'form-search', 'id'=>'searchForm')) .
+             CHtml::textField('q', '', array('placeholder'=> 'Buscar...', 'type'=>'text', 'class' => 'input-medium search-query', 'name'=>'q', 'id'=>'q')) .
+             // CHtml::submitButton('',array('class'=>'glyphicon glyphicon-search')) .
              CHtml::endForm('');
     }
 }

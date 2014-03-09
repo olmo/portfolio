@@ -40,9 +40,8 @@ class SearchController extends Controller
                     , 'utf-8')
             );
 
-            $doc->addField(Zend_Search_Lucene_Field::Text('categoria',
-                    CHtml::encode($artista->id_categoria)
-                    , 'utf-8')
+            $doc->addField(Zend_Search_Lucene_Field::Text('id',
+                    $artista->id)
             );
 
             $index->addDocument($doc);
@@ -66,7 +65,7 @@ class SearchController extends Controller
 
         $index->commit();
         $index2->commit();
-        echo 'Lucene index created';
+        // echo 'Lucene index created';
     }
 
     public function actionSearch()

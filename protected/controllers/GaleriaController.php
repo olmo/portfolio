@@ -109,7 +109,7 @@ class GaleriaController extends Controller
             'formmodel'=>$form,
 		));
 
-
+        Yii::app()->runController('search/create');
 	}
 
 	/**

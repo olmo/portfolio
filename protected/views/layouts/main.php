@@ -91,9 +91,13 @@
                 </a>
             </h1>
 
-            <?php $this->widget('SearchBlock', array(
-            ));?>
+            <div class="search">
+                <div class="control-group">
+                    <?php $this->widget('SearchBlock', array()); ?>
+                </div>
+            </div>
 
+            <!--
             <div class="search">
                 <form class="form-search" id="searchForm" action="page-search-results.html" method="get">
                     <div class="control-group">
@@ -102,6 +106,7 @@
                     </div>
                 </form>
             </div>
+            -->
 
             <nav>
                 <ul class="nav nav-pills nav-top">
@@ -110,9 +115,11 @@
                     </li>
                     <div class="social-icons">
                         <ul class="social-icons">
-                            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/globalarte14" target="_blank" title="Facebook">Facebook</a></li>
+                            <!--
                             <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
                             <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+                            -->
                         </ul>
                     </div>
                 </ul>

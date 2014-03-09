@@ -14,7 +14,7 @@
                 <span class="thumb-info-title">
                 <span class="thumb-info-inner"><?php echo CHtml::encode($data->titulo); ?></span>
                 <span class="thumb-info-type"><?php echo CHtml::encode($data->idArtista->nombre); ?></span>
-            </span>
+                </span>
             </span>
         </a>
     </div>

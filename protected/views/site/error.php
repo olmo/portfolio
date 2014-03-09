@@ -3,8 +3,7 @@
 /* @var $error array */
 
 $this->pageTitle=Yii::app()->name . ' - Error';
-$this->breadcrumbs=array(
-	'Error',
+$this->breadcrumbs=array('Error'=>array('index'),
 );
 ?>
 
