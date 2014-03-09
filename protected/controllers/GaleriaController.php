@@ -54,12 +54,16 @@ class GaleriaController extends Controller
 	{
         $this->titulo = 'Galería';
         $model = $this->loadModel($id);
+
+        if($model->publicado==0)
+            throw new CHttpException(404,'No se encuentra la obra indicada.');
+
         $form=new PedidoForm;
 
         $criteria=new CDbCriteria(array(
             'distinct'=>true,
             'join'=> ' INNER JOIN obras_temas_relation ON obras_temas_relation.id_obra = t.id ',
-            'condition'=>'obras_temas_relation.id_tema in (
+            'condition'=>'publicado=1 AND obras_temas_relation.id_tema in (
                 SELECT obras_temas_relation.id_tema FROM obras_temas_relation
                 WHERE obras_temas_relation.id_obra='.$model->id.')',
             'order'=>'rand()',
@@ -121,6 +125,7 @@ class GaleriaController extends Controller
         $this->titulo = 'Galería';
 
         $criteria=new CDbCriteria();
+        $criteria->condition = 'publicado=1';
         $criteria->order = 'orden ASC';
 
         if(isset($_GET['FiltroForm'])){
@@ -133,7 +138,7 @@ class GaleriaController extends Controller
             $model->ordenar=$_GET['FiltroForm']['ordenar'];
 
             if($model->validate()){
-                $cadena = '';
+                $cadena = 'publicado=1';
                 $join = '';
 
                 /*if($model->temas != null){
@@ -299,7 +304,7 @@ class GaleriaController extends Controller
         if(isset($_GET['id'])){
             $criteria=new CDbCriteria();
             $criteria->join = ' LEFT JOIN obras_colecciones_relation ON obras_colecciones_relation.id_obra = t.id ';
-            $criteria->condition = 'id_coleccion='.$_GET['id'];
+            $criteria->condition = 'publicado=1 AND id_coleccion='.$_GET['id'];
             $criteria->order = 'orden ASC';
 
             $dataProvider=new CActiveDataProvider('Obra', array('criteria'=>$criteria));

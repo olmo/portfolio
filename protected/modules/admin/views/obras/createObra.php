@@ -3,6 +3,15 @@
 /* @var $model Foto */
 /* @var $form CActiveForm */
 Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
+
+$str_js = "
+        $(function() {
+            $('#Obra_publicado').bootstrapSwitch({'onColor': 'success', 'offColor': 'danger', 'onText': 'SÍ', 'offText': 'NO'});
+        });
+    ";
+Yii::app()->clientScript->registerScript('switch', $str_js);
+
+
 ?>
 
 <div class="row">
@@ -33,6 +42,13 @@ Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
                             </div>
                         </div>
                     <?php endif; ?>
+
+                    <div class="form-group<?php echo $model->getError('publicado')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'publicado', array('class'=>'col-lg-2 control-label')); ?>
+                        <div class="col-lg-10">
+                            <?php echo $form->checkBox($model,'publicado',array()); ?>
+                        </div>
+                    </div>
 
                     <div class="form-group<?php echo $model->getError('titulo')  ? ' has-error' : ''; ?>">
                         <?php echo $form->labelEx($model,'titulo', array('class'=>'col-lg-2 control-label')); ?>

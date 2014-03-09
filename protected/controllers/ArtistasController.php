@@ -132,7 +132,7 @@ class ArtistasController extends Controller
 
 
         $criteria=new CDbCriteria(array(
-            'condition'=>'id_artista='.$model->id,
+            'condition'=>'publicado=1 AND id_artista='.$model->id,
         ));
 
         $related = new CActiveDataProvider('Obra', array('criteria'=>$criteria,));
