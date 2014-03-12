@@ -151,7 +151,11 @@ class ArtistasController extends Controller
         $this->layout = 'section';
         $this->titulo = 'Artistas';
 
-		$dataProvider=new CActiveDataProvider('Artistas');
+		$dataProvider=new CActiveDataProvider('Artistas', array(
+            'pagination'=>array(
+                'pageSize'=>24,
+            ),
+        ));
         $categorias = new CActiveDataProvider('ArtistasCategorias');
         $obras = new CActiveDataProvider('Obra');
 

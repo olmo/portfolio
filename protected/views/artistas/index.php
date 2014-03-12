@@ -37,10 +37,20 @@ $this->breadcrumbs=array(
                 'itemView'=>'_view',
                 'enableSorting'=>false,
                 'template'=>"{items}",
-                'enablePagination'=>false,
-                'summaryText'=>''
             )); ?>
         </ul>
 
+        <div class="pagination">
+            <?php $this->widget('CLinkPager', array('pages' => $dataProvider->pagination,
+                'cssFile'=>false,
+                'selectedPageCssClass'=>'active',
+                'hiddenPageCssClass'=>'disabled',
+                'header'          => '',
+                'firstPageLabel' => '<<',
+                'prevPageLabel'  => '<',
+                'nextPageLabel'  => '>',
+                'lastPageLabel'  => '>>',
+            )); ?>
+        </div>
     </div>
 </div>
