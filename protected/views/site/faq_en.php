@@ -1,9 +1,9 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name . ' - FAQ';
+$this->pageTitle=Yii::app()->name . ' - FAQs';
 $this->breadcrumbs=array(
-    'FAQ',
+    'FAQs'=>array('faq'),
 );
 ?>
 

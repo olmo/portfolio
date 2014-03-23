@@ -3,7 +3,7 @@
 
 $this->pageTitle=Yii::app()->name . ' - Condiciones de venta';
 $this->breadcrumbs=array(
-    'Condiciones de venta',
+    'Condiciones'=>array('condiciones'),
 );
 ?>
 

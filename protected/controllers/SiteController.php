@@ -71,12 +71,12 @@ class SiteController extends Controller
             Yii::app()->session['lang']='spa';
 
         if(Yii::app()->session['lang']=='eng'){
-            $this->titulo = 'FAQ';
+            $this->titulo = 'FAQs';
             $this->flag = 'SPA';
             $this->render('faq_en');
         }
         else{
-            $this->titulo = 'FAQ';
+            $this->titulo = 'FAQs';
             $this->flag = 'UK';
             $this->render('faq');
         }
@@ -147,7 +147,43 @@ class SiteController extends Controller
 
         $related=new CActiveDataProvider('Obra', array('criteria'=>$criteria));
 
-        $this->render('gift',array('related'=>$related));
+        // Modelos de peticion de regalos
+        $model=new GiftForm;
+
+        if(isset($_POST['GiftForm']))
+        {
+            $model->attributes=$_POST['GiftForm'];
+            if($model->validate())
+            {
+                $asunto = 'Petición de un bono regalo' . $model->name;
+
+                $name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+                $subject='=?UTF-8?B?'.base64_encode($asunto).'?=';
+                $headers="From: $name <{$model->email}>\r\n".
+                    "Reply-To: {$model->email}\r\n".
+                    "MIME-Version: 1.0\r\n".
+                    "Content-type: text/plain; charset=UTF-8";
+
+                $contenido =  'Nombre del cliente: ' . $model->name . '\n';
+                $contenido .= 'Tipo de bono: ' . $model->importe . ' €\n';
+
+                // Generación de codigo
+                $length = 10;
+                $chars = array_merge(range(0,9), range('a','z'), range('A','Z'));
+                shuffle($chars);
+                $codigo = implode(array_slice($chars, 0, $length));
+
+                $contenido .= 'Código de identificación: ' . $codigo . '\n\n';
+                $contenido .= 'Comentarios del cliente: \n';
+                $contenido .= $model->body;
+
+                mail(Yii::app()->params['adminEmail'],$subject,$contenido,$headers);
+                Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros. Le responderemos tan pronto como sea posible.');
+                $this->refresh();
+            }
+        }
+
+        $this->render('gift',array('related'=>$related, 'model'=>$model));
     }
 
 	/**
