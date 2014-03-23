@@ -19,7 +19,7 @@ class GiftForm extends CFormModel
     {
         return array(
             // name, email, subject and body are required
-            array('name, email, importe', 'required'),
+            array('name, email, importe, body', 'required'),
             // email has to be a valid email address
             array('email', 'email'),
         );

@@ -155,7 +155,7 @@ class SiteController extends Controller
             $model->attributes=$_POST['GiftForm'];
             if($model->validate())
             {
-                $asunto = 'Petición de un bono regalo' . $model->name;
+                $asunto = 'Petición de un bono regalo';
 
                 $name='=?UTF-8?B?'.base64_encode($model->name).'?=';
                 $subject='=?UTF-8?B?'.base64_encode($asunto).'?=';
@@ -164,8 +164,8 @@ class SiteController extends Controller
                     "MIME-Version: 1.0\r\n".
                     "Content-type: text/plain; charset=UTF-8";
 
-                $contenido =  'Nombre del cliente: ' . $model->name . '\n';
-                $contenido .= 'Tipo de bono: ' . $model->importe . ' €\n';
+                $contenido =  "Nombre del cliente: " . $model->name . "\n";
+                $contenido .= "Tipo de bono: " . $model->importe . " €\n";
 
                 // Generación de codigo
                 $length = 10;
@@ -173,12 +173,13 @@ class SiteController extends Controller
                 shuffle($chars);
                 $codigo = implode(array_slice($chars, 0, $length));
 
-                $contenido .= 'Código de identificación: ' . $codigo . '\n\n';
-                $contenido .= 'Comentarios del cliente: \n';
-                $contenido .= $model->body;
+                $contenido .= "Código de identificación: " . $codigo . "\n";
+                $contenido .= "Email del cliente: " . $model->email . "\n\n";
+                $contenido .= "Comentarios del cliente: \n";
+                $contenido .= "" . $model->body . "\n";
 
                 mail(Yii::app()->params['adminEmail'],$subject,$contenido,$headers);
-                Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros. Le responderemos tan pronto como sea posible.');
+                Yii::app()->user->setFlash('gift','Gracias por contactar con nosotros. Le responderemos tan pronto como sea posible.');
                 $this->refresh();
             }
         }
