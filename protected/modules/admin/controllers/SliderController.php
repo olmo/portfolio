@@ -36,7 +36,7 @@ class SliderController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete', 'ordenarSliders', 'sort'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -217,4 +217,28 @@ class SliderController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    public function actionOrdenarSliders()
+    {
+        $this->layout = 'sliders';
+
+        $sliders = Slider::model()->findAll(array('order'=>'orden'));
+
+        $this->render('ordenarSliders',array(
+            'sliders'=>$sliders,
+        ));
+    }
+
+    public function actionSort()
+    {
+        if (isset($_POST['items']) && is_array($_POST['items'])) {
+            $i = 0;
+            foreach ($_POST['items'] as $item) {
+                $slider = Slider::model()->findByPk($item);
+                $slider->orden = $i;
+                $slider->save();
+                $i++;
+            }
+        }
+    }
 }

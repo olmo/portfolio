@@ -52,6 +52,7 @@ class Slider extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'path' => 'Path',
+            'orden' => 'Orden',
 		);
 	}
 

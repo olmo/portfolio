@@ -5,6 +5,7 @@
         </div>
         <div class="bootstrap-admin-panel-content">
             <?php echo CHtml::link('Añadir Slider',array('/admin/slider/create'), array('class'=>'btn btn-primary')); ?>
+            <?php echo CHtml::link('Ordenar Sliders',array('/admin/slider/ordenarSliders'), array('class'=>'btn btn-primary')); ?>
             <p></p>
 
             <table class="table table-striped">

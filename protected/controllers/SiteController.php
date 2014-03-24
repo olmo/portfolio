@@ -34,7 +34,12 @@ class SiteController extends Controller
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
 
-        $dataProvider = new CActiveDataProvider('Slider');
+        $criteria = new CDbCriteria(array(
+            'order'=>'orden ASC',
+        ));
+
+        $dataProvider=new CActiveDataProvider('Slider', array('criteria'=>$criteria,
+        ));
 
         $this->render('index', array(
             'dataProvider'=>$dataProvider,
