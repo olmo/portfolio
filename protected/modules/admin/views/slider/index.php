@@ -8,6 +8,9 @@
             <p></p>
 
             <table class="table table-striped">
+                <thead>
+                <tr><th>Nombre</th><th>Acciones</th></tr>
+                </thead>
                 <tbody>
                 <?php $this->widget('zii.widgets.CListView', array(
                     'dataProvider'=>$dataProvider,

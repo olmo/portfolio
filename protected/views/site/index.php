@@ -10,6 +10,14 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 <div class="body">
 <div class="slider-container">
     <div class="slider" id="revolutionSlider">
+        <ul>
+            <?php foreach($dataProvider->getData() as $data): ?>
+                <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/sliders/<?php echo $data->path; ?>" data-fullwidthcentering="on" alt="">
+                </li>
+            <?php endforeach;?>
+        </ul>
+
         <!--
         <ul>
             <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
@@ -23,15 +31,16 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
             </li>
         </ul>
         -->
-
+        <!--
         <ul>
-            <?php $this->widget('zii.widgets.CListView', array(
+            <?php /*$this->widget('zii.widgets.CListView', array(
                 'dataProvider'=>$dataProvider,
                 'itemView'=>'_view',
                 'enableSorting'=>false,
-                'template'=>"{items}"
-            )); ?>
+                // 'template'=>"{items}"
+            )); */?>
         </ul>
+        -->
     </div>
 </div>
 

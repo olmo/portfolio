@@ -78,11 +78,13 @@ class SliderController extends Controller
 
 			if($model->save()) {
 
-                // $model->path = $model->id . '-' . $uploadedFile->getName();
-                // $model->save();
+                $model->path = $model->id . '-' . $uploadedFile->getName();
+                $model->save();
+
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/sliders/'.$model->path);
 
                 $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/sliders/'.$model->path);
-                $im->resize(NULL, 260);
+                // $im->resize(NULL, 260);
                 $im->save(Yii::getPathOfAlias('webroot').'/images/sliders/'.$model->path);
 
 				$this->redirect(array('index'));
@@ -106,6 +108,8 @@ class SliderController extends Controller
 
 		$model = $this->loadModel($id);
 
+        $img = $model->path;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -114,16 +118,19 @@ class SliderController extends Controller
             $model->attributes=$_POST['Slider'];
 
             $uploadedFile = CUploadedFile::getInstance($model,'path');
+            $model->path = $uploadedFile->getName();
 
             if($model->save()) {
 
-                $model->path = $model->id . '-' . $uploadedFile;
+                unlink(Yii::getPathOfAlias('webroot').'/images/sliders/'.$img);
+
+                $model->path = $model->id . '-' . $uploadedFile->getName();
                 $model->save();
 
-                unlink(Yii::getPathOfAlias('webroot').'/images/sliders/'.$model->path);
+                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/sliders/'.$model->path);
 
                 $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/sliders/'.$model->path);
-                $im->resize(NULL, 260);
+                // $im->resize(NULL, 260);
                 $im->save(Yii::getPathOfAlias('webroot').'/images/sliders/'.$model->path);
 
                 $this->redirect(array('index'));
