@@ -74,11 +74,12 @@ class SliderController extends Controller
 			$model->attributes=$_POST['Slider'];
 
             $uploadedFile = CUploadedFile::getInstance($model,'path');
+            $model->path = $uploadedFile->getName();
 
 			if($model->save()) {
 
-                $model->path = $model->id . '-' . $uploadedFile;
-                $model->save();
+                // $model->path = $model->id . '-' . $uploadedFile->getName();
+                // $model->save();
 
                 $im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/sliders/'.$model->path);
                 $im->resize(NULL, 260);

@@ -1,5 +1,4 @@
 /assets
 .idea
-/protected/runtime/application.log
-/protected/runtime/search/
-/protected/runtime2/search/
+/protected/runtime/
+/protected/runtime2/
