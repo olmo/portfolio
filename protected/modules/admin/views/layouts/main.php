@@ -57,6 +57,7 @@
                         'htmlOptions'=>array('class'=>'nav navbar-nav',),
                         'items'=>array(
                             array('label'=>'Inicio', 'url'=>array('/admin'),),
+                            array('label'=>'Sliders', 'url'=>array('/admin/slider/index'), 'active'=>Yii::app()->controller->id=='slider',),
                             array('label'=>'Artistas', 'url'=>array('/admin/artistas/index'), 'active'=>Yii::app()->controller->id=='artistas',),
                             array('label'=>'Obras', 'url'=>array('/admin/obras/index'), 'active'=>Yii::app()->controller->id=='obras',),
                             array('label'=>'Blog', 'url'=>array('/admin/blog/index'), 'active'=>Yii::app()->controller->id=='blog',),

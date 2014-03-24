@@ -10,18 +10,27 @@ $this->pageTitle = Yii::app()->name . ' - Inicio';
 <div class="body">
 <div class="slider-container">
     <div class="slider" id="revolutionSlider">
+        <!--
         <ul>
             <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/slides/home-amsterdam2.jpg" data-fullwidthcentering="on" alt="">
+                <img src="<?php //echo Yii::app()->request->baseUrl; ?>/img/slides/home-amsterdam2.jpg" data-fullwidthcentering="on" alt="">
             </li>
             <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/slides/home-ny2.jpg" data-fullwidthcentering="on" alt="">
-
-
+                <img src="<?php //echo Yii::app()->request->baseUrl; ?>/img/slides/home-ny2.jpg" data-fullwidthcentering="on" alt="">
             </li>
             <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/slides/home-ecuacion2.jpg" data-fullwidthcentering="on" alt="">
+                <img src="<?php //echo Yii::app()->request->baseUrl; ?>/img/slides/home-ecuacion2.jpg" data-fullwidthcentering="on" alt="">
             </li>
+        </ul>
+        -->
+
+        <ul>
+            <?php $this->widget('zii.widgets.CListView', array(
+                'dataProvider'=>$dataProvider,
+                'itemView'=>'_view',
+                'enableSorting'=>false,
+                'template'=>"{items}"
+            )); ?>
         </ul>
     </div>
 </div>

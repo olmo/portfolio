@@ -33,7 +33,12 @@ class SiteController extends Controller
         $this->titulo = 'Inicio';
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->render('index');
+
+        $dataProvider = new CActiveDataProvider('Slider');
+
+        $this->render('index', array(
+            'dataProvider'=>$dataProvider,
+        ));
     }
 
     public function actionAbout()

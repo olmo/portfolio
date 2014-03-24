@@ -147,6 +147,7 @@ class ArtistasController extends Controller
         $model=new Artistas;
 
         if(isset($_POST['Artistas']))
+
         {
             $rnd = rand(0,9999);
             $rnd1 = rand(0,9999);
