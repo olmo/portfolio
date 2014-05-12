@@ -61,7 +61,7 @@ class Obra extends CActiveRecord
 			array('titulo, imagen, descripcion, id_artista, id_formato, montaje_recomendado, oferta', 'required'),
 			array('id_artista, oferta, orden, publicado', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>50),
-			array('descripcion', 'length', 'max'=>255),
+			array('descripcion', 'length'),
             array('montajesIds, temasIds, tecnicasIds', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

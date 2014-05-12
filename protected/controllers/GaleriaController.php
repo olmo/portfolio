@@ -283,7 +283,7 @@ class GaleriaController extends Controller
 
         $dataProvider=new CActiveDataProvider('Obra', array('criteria'=>$criteria,
             'pagination'=>array(
-                'pageSize'=>24,
+                'pageSize'=>40,
             ),
         ));
 
