@@ -43,6 +43,11 @@
             <img class="span6" alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/<?php echo $model->imagen; ?>">
             <span class="zoom"><i class="icon-16 icon-white-shadowed icon-search"></i></span>
         </a>
+        <?php if(file_exists(Yii::getPathOfAlias('webroot').'/images/obras/simulaciones/'.$model->imagen)): ?>
+        <a class="thumbnail lightbox pull-left" href="<?php echo Yii::app()->request->baseUrl; ?>/images/obras/simulaciones/<?php echo $model->imagen; ?>" data-plugin-options='{"type":"image"}'>
+            Simulación
+        </a>
+        <?php endif; ?>
     </div>
 
     <div class="span6">

@@ -134,6 +134,7 @@ class ObrasController extends Controller
 
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
             $uploadedFile2=CUploadedFile::getInstance($model,'miniatura');
+            $uploadedFile3=CUploadedFile::getInstance($model,'simulacion');
 
             if($uploadedFile!=null){
                 $fileName = $model->idArtista->nombre .' - '.$model->titulo.'.'.$uploadedFile->extensionName;
@@ -141,14 +142,18 @@ class ObrasController extends Controller
 
                 if($uploadedFile2!=null)
                     $model->miniatura = $fileName;
-            }
 
+                if($uploadedFile3 != null)
+                    $model->simulacion = $fileName;
+            }
 
             if(MultiModelForm::validate($tamanos, $validatedTamanos,$deleteTamanos) && $model->save()){
                 $masterValues = array ('id_obra'=>$model->id);
 
                 $uploadedFile->saveAs(Yii::app()->basePath.'/../images/obras/'.$fileName);
                 $uploadedFile2->saveAs(Yii::app()->basePath.'/../images/obras/thumbs/'.$fileName);
+                if($uploadedFile3 != null)
+                    $uploadedFile3->saveAs(Yii::app()->basePath.'/../images/obras/simulaciones/'.$fileName);
                 /*$im = new EasyImage(Yii::getPathOfAlias('webroot').'/images/obras/'.$fileName);
                 $im->resize(NULL, 180);
                 $im->save(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$fileName);*/
@@ -209,6 +214,7 @@ class ObrasController extends Controller
             if($model->validate()){
                 $uploadedFile=CUploadedFile::getInstance($model,'imagen');
                 $uploadedFile2=CUploadedFile::getInstance($model,'miniatura');
+                $uploadedFile3=CUploadedFile::getInstance($model,'simulacion');
 
                 $masterValues = array ('id_obra'=>$model->id);
 
@@ -224,6 +230,11 @@ class ObrasController extends Controller
                     {
                         $uploadedFile2->saveAs(Yii::app()->basePath.'/../images/obras/thumbs/'.$model->imagen);
                     }
+                    if(!empty($uploadedFile3))
+                    {
+                        $uploadedFile3->saveAs(Yii::app()->basePath.'/../images/obras/simulaciones/'.$model->imagen);
+                    }
+
                     Yii::app()->user->setFlash('exito','La obra ha sido actualizada con éxito.');
                     $this->redirect(array('index'));
                 }
@@ -248,6 +259,8 @@ class ObrasController extends Controller
             unlink(Yii::getPathOfAlias('webroot').'/images/obras/'.$model->imagen);
         if(file_exists(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen))
             unlink(Yii::getPathOfAlias('webroot').'/images/obras/thumbs/'.$model->imagen);
+        if(file_exists(Yii::getPathOfAlias('webroot').'/images/obras/simulaciones/'.$model->imagen))
+            unlink(Yii::getPathOfAlias('webroot').'/images/obras/simulaciones/'.$model->imagen);
 
         $model->delete();
 

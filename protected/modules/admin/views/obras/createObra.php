@@ -150,6 +150,18 @@ Yii::app()->clientScript->registerScript('switch', $str_js);
                         <?php endif; ?>
                     </div>
 
+                    <div class="form-group<?php echo $model->getError('simulacion')  ? ' has-error' : ''; ?>">
+                        <?php echo $form->labelEx($model,'simulacion', array('class'=>'col-lg-2 control-label')); ?>
+                        <div class="col-lg-10">
+                            <?php echo $form->fileField($model, 'simulacion'); ?>
+                        </div>
+                        <?php if($model->isNewRecord!='1'): ?>
+                            <div class="col-lg-10">
+                                <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/obras/simulaciones/'.$model->imagen,"imagen",array("width"=>200)); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
                     <br/>
 
                     <div class="table-responsive" style="margin-left: 20px;">
